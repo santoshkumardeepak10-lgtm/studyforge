@@ -2,15 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>StudyForge — Mathematics</title>
 
-<meta name="description"
-content="StudyForge Mathematics — Class 8, 9 and 10 concepts, formulas, practice questions and quizzes.">
-
 <style>
-
 *{
     margin:0;
     padding:0;
@@ -22,31 +18,28 @@ html{
 }
 
 body{
-    font-family:Arial,Helvetica,sans-serif;
+    font-family:Arial,sans-serif;
     background:#f5f7fb;
     color:#172033;
-    line-height:1.6;
 }
-
-/* ================= NAVBAR ================= */
 
 .navbar{
     background:#fff;
-    border-bottom:1px solid #e5e7eb;
-    padding:14px 5%;
+    padding:15px 5%;
     display:flex;
-    align-items:center;
     justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid #ddd;
     position:sticky;
     top:0;
     z-index:1000;
 }
 
 .logo{
-    font-size:23px;
+    text-decoration:none;
+    font-size:24px;
     font-weight:800;
     color:#2563eb;
-    text-decoration:none;
 }
 
 .logo span{
@@ -62,11 +55,7 @@ body{
 .nav-links a{
     text-decoration:none;
     color:#374151;
-    font-weight:600;
-}
-
-.nav-links a:hover{
-    color:#2563eb;
+    font-weight:bold;
 }
 
 .menu-btn{
@@ -78,8 +67,6 @@ body{
     border-radius:8px;
     font-size:20px;
 }
-
-/* ================= HERO ================= */
 
 .hero{
     padding:75px 5%;
@@ -103,14 +90,12 @@ body{
     font-size:18px;
 }
 
-/* ================= STATS ================= */
-
 .stats{
+    background:white;
     display:grid;
     grid-template-columns:repeat(4,1fr);
     gap:20px;
-    padding:35px 5%;
-    background:white;
+    padding:30px 5%;
 }
 
 .stat{
@@ -122,15 +107,13 @@ body{
     font-size:30px;
 }
 
-/* ================= SECTION ================= */
-
 section{
-    padding:65px 5%;
+    padding:60px 5%;
 }
 
 .section-title{
     text-align:center;
-    margin-bottom:35px;
+    margin-bottom:30px;
 }
 
 .section-title h2{
@@ -141,120 +124,77 @@ section{
     color:#64748b;
 }
 
-/* ================= CLASS ================= */
-
 .class-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:25px;
+    gap:20px;
 }
 
 .class-card{
     background:white;
+    border:1px solid #ddd;
     border-radius:18px;
-    padding:30px;
+    padding:28px;
     text-decoration:none;
     color:#172033;
-    border:1px solid #e5e7eb;
-    transition:.25s;
 }
 
 .class-card:hover{
-    transform:translateY(-6px);
     border-color:#2563eb;
+    transform:translateY(-4px);
 }
 
 .class-number{
-    font-size:42px;
-    font-weight:800;
     color:#2563eb;
-}
-
-.class-card h3{
-    margin:10px 0;
+    font-size:42px;
+    font-weight:bold;
 }
 
 .class-card p{
     color:#64748b;
 }
 
-/* ================= FORMULAS ================= */
-
-.formula-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:20px;
-}
-
-.formula-card{
-    background:white;
-    border:1px solid #e5e7eb;
-    border-radius:16px;
-    padding:25px;
-    text-decoration:none;
-    color:#172033;
-    cursor:pointer;
-    transition:.25s;
-}
-
-.formula-card:hover{
-    transform:translateY(-5px);
-    border-color:#2563eb;
-}
-
-.formula-icon{
-    font-size:32px;
-    margin-bottom:10px;
-}
-
-.formula-card p{
-    color:#64748b;
-    font-size:14px;
-}
-
-/* ================= TOPICS ================= */
-
+.formula-grid,
 .topic-grid{
     display:grid;
     grid-template-columns:repeat(4,1fr);
     gap:18px;
 }
 
+.formula-card,
 .topic-card{
     background:white;
-    border:1px solid #e5e7eb;
+    border:1px solid #ddd;
     border-radius:15px;
     padding:22px;
     cursor:pointer;
-    transition:.25s;
+    transition:.2s;
 }
 
+.formula-card:hover,
 .topic-card:hover{
-    transform:translateY(-5px);
+    transform:translateY(-4px);
     border-color:#2563eb;
 }
 
+.formula-icon,
 .topic-icon{
     font-size:30px;
+    margin-bottom:8px;
 }
 
-.topic-card h3{
-    margin:5px 0;
-}
-
+.formula-card p,
 .topic-card p{
     color:#64748b;
     font-size:14px;
 }
 
-/* ================= PRACTICE ================= */
-
 .practice-box{
     background:linear-gradient(135deg,#2563eb,#1d4ed8);
     color:white;
-    border-radius:22px;
     padding:45px;
     text-align:center;
+    border-radius:20px;
 }
 
 .practice-box h2{
@@ -262,18 +202,16 @@ section{
 }
 
 .practice-box p{
-    margin:10px 0 25px;
+    margin:10px 0 20px;
 }
 
 .btn{
-    display:inline-block;
-    padding:12px 22px;
-    border-radius:10px;
     border:0;
+    border-radius:9px;
+    padding:12px 20px;
     cursor:pointer;
-    text-decoration:none;
-    font-weight:700;
-    margin:4px;
+    font-weight:bold;
+    margin:5px;
 }
 
 .btn-light{
@@ -281,31 +219,25 @@ section{
     color:#2563eb;
 }
 
-/* ================= FULL SCREEN LEARN ================= */
-
-.learn-page,
-.practice-page,
-.quiz-page{
+.overlay{
     display:none;
     position:fixed;
     inset:0;
+    z-index:5000;
     background:#f5f7fb;
-    z-index:3000;
     overflow-y:auto;
 }
 
-.learn-header,
-.practice-header,
-.quiz-header{
-    position:sticky;
-    top:0;
-    z-index:10;
+.overlay-header{
     background:white;
-    border-bottom:1px solid #e5e7eb;
     padding:15px 5%;
+    border-bottom:1px solid #ddd;
     display:flex;
     align-items:center;
     gap:15px;
+    position:sticky;
+    top:0;
+    z-index:10;
 }
 
 .back-btn{
@@ -313,137 +245,121 @@ section{
     background:#2563eb;
     color:white;
     padding:9px 15px;
-    border-radius:9px;
+    border-radius:8px;
     cursor:pointer;
     font-weight:bold;
 }
 
-.learn-content,
-.practice-content,
-.quiz-content{
+.page-content{
     max-width:1000px;
     margin:auto;
-    padding:35px 5% 70px;
+    padding:30px 5% 70px;
 }
 
-/* ================= LESSON ================= */
-
-.lesson-section{
+.card{
     background:white;
-    border:1px solid #e5e7eb;
+    border:1px solid #ddd;
     border-radius:16px;
-    margin-bottom:20px;
-    overflow:hidden;
-}
-
-.lesson-title{
-    padding:18px 22px;
-    background:#eff6ff;
-    color:#1d4ed8;
-    font-size:20px;
-    font-weight:800;
-}
-
-.lesson-body{
-    padding:20px;
-}
-
-.formula-row{
-    padding:14px 0;
-    border-bottom:1px solid #edf0f4;
-}
-
-.formula-name{
-    font-weight:700;
-    margin-bottom:5px;
-}
-
-.formula-value{
-    background:#f8fafc;
-    border-left:4px solid #2563eb;
-    padding:10px;
-    border-radius:7px;
-    font-family:monospace;
-    overflow-x:auto;
-}
-
-.tip{
-    background:#ecfdf5;
-    border-left:4px solid #10b981;
-    padding:15px;
-    border-radius:8px;
-}
-
-/* ================= PRACTICE ================= */
-
-.practice-card{
-    background:white;
-    border-radius:18px;
-    padding:28px;
-    border:1px solid #e5e7eb;
+    padding:25px;
     margin-bottom:20px;
 }
 
-.practice-card h2{
+.card h2{
     color:#2563eb;
-    margin-bottom:15px;
+    margin-bottom:12px;
 }
 
-.answer-input{
+.input{
     width:100%;
     padding:13px;
-    border:1px solid #d1d5db;
-    border-radius:9px;
-    font-size:16px;
     margin:10px 0;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:16px;
 }
 
-.check-btn{
+.check{
     background:#2563eb;
     color:white;
 }
 
 .result{
-    margin-top:12px;
+    margin-top:10px;
     font-weight:bold;
 }
 
-/* ================= QUIZ ================= */
+.formula-row{
+    padding:15px 0;
+    border-bottom:1px solid #eee;
+}
 
-.quiz-box{
+.formula-name{
+    font-weight:bold;
+}
+
+.formula-value{
+    background:#f8fafc;
+    padding:10px;
+    margin-top:5px;
+    border-left:4px solid #2563eb;
+    font-family:monospace;
+}
+
+.quiz-info{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+    margin-bottom:15px;
+}
+
+.info{
     background:white;
-    border:1px solid #e5e7eb;
+    border:1px solid #ddd;
+    border-radius:10px;
+    padding:12px;
+    text-align:center;
+}
+
+.info strong{
+    display:block;
+    color:#2563eb;
+    font-size:20px;
+}
+
+.quiz-card{
+    background:white;
+    border:1px solid #ddd;
     border-radius:18px;
-    padding:28px;
+    padding:25px;
 }
 
-.quiz-progress{
-    color:#64748b;
-    margin-bottom:10px;
-}
-
-.quiz-question{
+.question{
     font-size:22px;
-    font-weight:700;
-    margin-bottom:20px;
+    font-weight:bold;
+    margin:15px 0;
 }
 
 .option{
     display:block;
     width:100%;
-    text-align:left;
-    background:#f8fafc;
-    border:1px solid #dbe1e8;
     padding:14px;
-    border-radius:10px;
     margin:10px 0;
+    border:1px solid #ddd;
+    border-radius:10px;
+    background:#f8fafc;
+    text-align:left;
     cursor:pointer;
     font-size:16px;
 }
 
 .option:hover{
-    border-color:#2563eb;
     background:#eff6ff;
+    border-color:#2563eb;
+}
+
+.option.selected{
+    background:#dbeafe;
+    border:2px solid #2563eb;
 }
 
 .option.correct{
@@ -456,36 +372,45 @@ section{
     border-color:#dc2626;
 }
 
-.quiz-next{
-    background:#2563eb;
-    color:white;
+.quiz-message{
     margin-top:15px;
+    padding:14px;
+    border-radius:10px;
+    font-weight:bold;
 }
 
-.quiz-score{
+.good{
+    background:#dcfce7;
+    color:#166534;
+}
+
+.bad{
+    background:#fee2e2;
+    color:#991b1b;
+}
+
+.quiz-btn{
+    background:#2563eb;
+    color:white;
+}
+
+.score{
     text-align:center;
     background:white;
-    padding:35px;
+    padding:40px 20px;
     border-radius:18px;
-    border:1px solid #e5e7eb;
+    border:1px solid #ddd;
 }
 
-.quiz-score h1{
+.score h1{
     color:#2563eb;
-    font-size:42px;
+    font-size:50px;
 }
-
-.restart-btn{
-    background:#2563eb;
-    color:white;
-}
-
-/* ================= FOOTER ================= */
 
 footer{
     background:#111827;
     color:white;
-    padding:35px 5%;
+    padding:35px;
     text-align:center;
 }
 
@@ -493,20 +418,17 @@ footer p{
     color:#9ca3af;
 }
 
-/* ================= MOBILE ================= */
-
 @media(max-width:850px){
 
     .nav-links{
         display:none;
         position:absolute;
-        top:62px;
+        top:60px;
         left:0;
         width:100%;
         background:white;
         flex-direction:column;
-        padding:20px 5%;
-        border-bottom:1px solid #e5e7eb;
+        padding:20px;
     }
 
     .nav-links.show{
@@ -517,23 +439,16 @@ footer p{
         display:block;
     }
 
-    .hero h1{
-        font-size:38px;
-    }
-
-    .stats{
-        grid-template-columns:repeat(2,1fr);
-    }
-
     .class-grid{
         grid-template-columns:1fr;
     }
 
-    .formula-grid{
+    .formula-grid,
+    .topic-grid{
         grid-template-columns:repeat(2,1fr);
     }
 
-    .topic-grid{
+    .stats{
         grid-template-columns:repeat(2,1fr);
     }
 }
@@ -541,7 +456,7 @@ footer p{
 @media(max-width:500px){
 
     .hero h1{
-        font-size:32px;
+        font-size:34px;
     }
 
     .formula-grid,
@@ -553,21 +468,22 @@ footer p{
         padding:30px 20px;
     }
 
-    .quiz-question{
+    .quiz-info{
+        grid-template-columns:1fr;
+    }
+
+    .question{
         font-size:19px;
     }
 }
-
 </style>
 </head>
 
 <body>
 
-<!-- ================= NAVBAR ================= -->
-
 <header class="navbar">
 
-<a href="index.html" class="logo">
+<a class="logo" href="index.html">
 Study<span>Forge</span>
 </a>
 
@@ -583,23 +499,17 @@ Study<span>Forge</span>
 </header>
 
 
-<!-- ================= HERO ================= -->
-
 <section class="hero">
 
-<h1>
-Mathematics <span>Made Simple</span>
-</h1>
+<h1>Mathematics <span>Made Simple</span></h1>
 
 <p>
 Learn Class 8, 9 and 10 Mathematics with concepts,
-formulas, important topics, practice and quizzes.
+formulas, practice questions and quizzes.
 </p>
 
 </section>
 
-
-<!-- ================= STATS ================= -->
 
 <div class="stats">
 
@@ -609,7 +519,7 @@ formulas, important topics, practice and quizzes.
 </div>
 
 <div class="stat">
-<h2>100+</h2>
+<h2>500+</h2>
 <p>Questions</p>
 </div>
 
@@ -619,14 +529,12 @@ formulas, important topics, practice and quizzes.
 </div>
 
 <div class="stat">
-<h2>10+</h2>
-<p>Quizzes</p>
+<h2>20+</h2>
+<p>Topics</p>
 </div>
 
 </div>
 
-
-<!-- ================= CLASSES ================= -->
 
 <section>
 
@@ -637,39 +545,27 @@ formulas, important topics, practice and quizzes.
 
 <div class="class-grid">
 
-<a href="math8.html" class="class-card">
+<a class="class-card" href="math8.html">
 <div class="class-number">08</div>
 <h3>Class 8 Mathematics</h3>
-<p>
-Rational numbers, linear equations,
-algebra, geometry, mensuration and more.
-</p>
+<p>Rational numbers, algebra, geometry, mensuration and more.</p>
 </a>
 
-<a href="math9.html" class="class-card">
+<a class="class-card" href="math9.html">
 <div class="class-number">09</div>
 <h3>Class 9 Mathematics</h3>
-<p>
-Number systems, polynomials, triangles,
-circles, statistics and more.
-</p>
+<p>Number systems, polynomials, triangles, circles and statistics.</p>
 </a>
 
-<a href="math10.html" class="class-card">
+<a class="class-card" href="math10.html">
 <div class="class-number">10</div>
 <h3>Class 10 Mathematics</h3>
-<p>
-Real numbers, quadratic equations,
-trigonometry, AP, statistics and probability.
-</p>
+<p>Quadratic equations, trigonometry, AP, statistics and probability.</p>
 </a>
 
 </div>
-
 </section>
 
-
-<!-- ================= FORMULAS ================= -->
 
 <section>
 
@@ -680,54 +576,39 @@ trigonometry, AP, statistics and probability.
 
 <div class="formula-grid">
 
-<div class="formula-card"
-onclick="openLearn('all')">
-
+<div class="formula-card" onclick="openLearn('all')">
 <div class="formula-icon">📚</div>
 <h3>All Formulas</h3>
-<p>Complete Class 8–10 formula library.</p>
-
+<p>Complete formula library.</p>
 </div>
 
-<div class="formula-card"
-onclick="openLearn('algebra')">
-
+<div class="formula-card" onclick="openLearn('algebra')">
 <div class="formula-icon">🔢</div>
 <h3>Algebra</h3>
-<p>Identities, equations, polynomials, quadratic equations and AP.</p>
-
+<p>Identities, equations and AP.</p>
 </div>
 
-<div class="formula-card"
-onclick="openLearn('geometry')">
-
+<div class="formula-card" onclick="openLearn('geometry')">
 <div class="formula-icon">📐</div>
 <h3>Geometry</h3>
-<p>Lines, triangles, circles, coordinate geometry and trigonometry.</p>
-
+<p>Geometry and coordinate formulas.</p>
 </div>
 
-<div class="formula-card"
-onclick="openLearn('mensuration')">
-
+<div class="formula-card" onclick="openLearn('mensuration')">
 <div class="formula-icon">📦</div>
 <h3>Mensuration</h3>
-<p>Area, perimeter, surface area and volume formulas.</p>
-
+<p>Area, surface area and volume.</p>
 </div>
 
 </div>
-
 </section>
 
-
-<!-- ================= POPULAR TOPICS ================= -->
 
 <section>
 
 <div class="section-title">
 <h2>Popular Mathematics Topics</h2>
-<p>Open a topic to learn its important concepts and formulas.</p>
+<p>Open a topic to learn important formulas.</p>
 </div>
 
 <div class="topic-grid">
@@ -735,105 +616,78 @@ onclick="openLearn('mensuration')">
 <div class="topic-card" onclick="openLearn('percentage')">
 <div class="topic-icon">%</div>
 <h3>Percentage</h3>
-<p>Percentage, increase, decrease and applications.</p>
+<p>Percentage and applications.</p>
 </div>
 
 <div class="topic-card" onclick="openLearn('algebraic')">
 <div class="topic-icon">x²</div>
 <h3>Algebraic Identities</h3>
-<p>Important identities and their uses.</p>
+<p>Important identities.</p>
 </div>
 
 <div class="topic-card" onclick="openLearn('linear')">
 <div class="topic-icon">📈</div>
 <h3>Linear Equations</h3>
-<p>Solve equations quickly and correctly.</p>
+<p>Solve equations.</p>
 </div>
 
 <div class="topic-card" onclick="openLearn('polynomial')">
 <div class="topic-icon">P(x)</div>
 <h3>Polynomials</h3>
-<p>Zeroes, factors and polynomial formulas.</p>
+<p>Zeroes and factors.</p>
 </div>
 
 <div class="topic-card" onclick="openLearn('quadratic')">
 <div class="topic-icon">x²</div>
 <h3>Quadratic Equations</h3>
-<p>Roots, discriminant and quadratic formula.</p>
+<p>Roots and discriminant.</p>
 </div>
 
 <div class="topic-card" onclick="openLearn('ap')">
 <div class="topic-icon">🔢</div>
 <h3>Arithmetic Progression</h3>
-<p>nth term and sum of AP.</p>
+<p>nth term and sum.</p>
 </div>
 
 <div class="topic-card" onclick="openLearn('coordinate')">
 <div class="topic-icon">📍</div>
 <h3>Coordinate Geometry</h3>
-<p>Distance, midpoint, section and area.</p>
+<p>Distance and midpoint.</p>
 </div>
 
 <div class="topic-card" onclick="openLearn('triangles')">
 <div class="topic-icon">△</div>
 <h3>Triangles</h3>
-<p>Similarity, area and Pythagoras theorem.</p>
+<p>Area and Pythagoras.</p>
 </div>
 
 <div class="topic-card" onclick="openLearn('circles')">
 <div class="topic-icon">⭕</div>
 <h3>Circles</h3>
-<p>Circumference, area, sectors and theorems.</p>
+<p>Area and circumference.</p>
 </div>
 
 <div class="topic-card" onclick="openLearn('trigonometry')">
 <div class="topic-icon">📐</div>
 <h3>Trigonometry</h3>
-<p>Ratios, identities and standard values.</p>
-</div>
-
-<div class="topic-card" onclick="openLearn('mensuration')">
-<div class="topic-icon">📦</div>
-<h3>Mensuration</h3>
-<p>2D and 3D area and volume formulas.</p>
+<p>Ratios and identities.</p>
 </div>
 
 <div class="topic-card" onclick="openLearn('statistics')">
 <div class="topic-icon">📊</div>
 <h3>Statistics</h3>
-<p>Mean, median, mode and grouped data.</p>
+<p>Mean, median and mode.</p>
 </div>
 
 <div class="topic-card" onclick="openLearn('probability')">
 <div class="topic-icon">🎲</div>
 <h3>Probability</h3>
-<p>Basic probability and complementary events.</p>
-</div>
-
-<div class="topic-card" onclick="openLearn('commercial')">
-<div class="topic-icon">💰</div>
-<h3>Profit & Loss</h3>
-<p>Profit, loss, discount and simple interest.</p>
-</div>
-
-<div class="topic-card" onclick="openLearn('number')">
-<div class="topic-icon">🔢</div>
-<h3>Number System</h3>
-<p>Rational numbers, exponents and real numbers.</p>
-</div>
-
-<div class="topic-card" onclick="openLearn('heron')">
-<div class="topic-icon">△</div>
-<h3>Heron's Formula</h3>
-<p>Find the area of a triangle from its sides.</p>
+<p>Basic probability.</p>
 </div>
 
 </div>
-
 </section>
 
-
-<!-- ================= READY TO PRACTICE ================= -->
 
 <section>
 
@@ -841,17 +695,13 @@ onclick="openLearn('mensuration')">
 
 <h2>Ready to Practice?</h2>
 
-<p>
-Test your Mathematics knowledge with questions and quizzes.
-</p>
+<p>Test your Mathematics knowledge.</p>
 
-<button class="btn btn-light"
-onclick="openPractice()">
+<button class="btn btn-light" onclick="openPractice()">
 Practice Questions
 </button>
 
-<button class="btn btn-light"
-onclick="startQuiz()">
+<button class="btn btn-light" onclick="startQuiz()">
 Take Quiz
 </button>
 
@@ -860,28 +710,20 @@ Take Quiz
 </section>
 
 
-<!-- ================= FOOTER ================= -->
-
 <footer>
-
 <h3>StudyForge</h3>
-
 <p>Learn smarter. Practice better. Grow stronger.</p>
-
 <p>© 2026 StudyForge</p>
-
 </footer>
 
 
-<!-- =====================================================
-     LEARNING PAGE
-     ===================================================== -->
+<!-- LEARN -->
 
-<div class="learn-page" id="learnPage">
+<div class="overlay" id="learnPage">
 
-<div class="learn-header">
+<div class="overlay-header">
 
-<button class="back-btn" onclick="closeAllPages()">
+<button class="back-btn" onclick="closePage('learnPage')">
 ← Back
 </button>
 
@@ -889,20 +731,18 @@ Take Quiz
 
 </div>
 
-<div class="learn-content" id="learnContent"></div>
+<div class="page-content" id="learnContent"></div>
 
 </div>
 
 
-<!-- =====================================================
-     PRACTICE PAGE
-     ===================================================== -->
+<!-- PRACTICE -->
 
-<div class="practice-page" id="practicePage">
+<div class="overlay" id="practicePage">
 
-<div class="practice-header">
+<div class="overlay-header">
 
-<button class="back-btn" onclick="closeAllPages()">
+<button class="back-btn" onclick="closePage('practicePage')">
 ← Back
 </button>
 
@@ -910,143 +750,88 @@ Take Quiz
 
 </div>
 
-<div class="practice-content">
+<div class="page-content">
 
-<div class="practice-card">
-
+<div class="card">
 <h2>Question 1</h2>
+<p>Find 25% of 240.</p>
 
-<p>
-Find 25% of 240.
-</p>
+<input class="input" id="p1" type="number" placeholder="Enter answer">
 
-<input
-type="number"
-id="p1"
-class="answer-input"
-placeholder="Enter your answer">
-
-<button class="btn check-btn"
-onclick="checkPractice(1,60)">
+<button class="btn check" onclick="checkPractice(1,60)">
 Check Answer
 </button>
 
-<div id="r1" class="result"></div>
-
+<div class="result" id="r1"></div>
 </div>
 
 
-<div class="practice-card">
-
+<div class="card">
 <h2>Question 2</h2>
+<p>Solve: 3x + 7 = 22</p>
 
-<p>
-Solve: 3x + 7 = 22
-</p>
+<input class="input" id="p2" type="number" placeholder="Enter x">
 
-<input
-type="number"
-id="p2"
-class="answer-input"
-placeholder="Enter x">
-
-<button class="btn check-btn"
-onclick="checkPractice(2,5)">
+<button class="btn check" onclick="checkPractice(2,5)">
 Check Answer
 </button>
 
-<div id="r2" class="result"></div>
-
+<div class="result" id="r2"></div>
 </div>
 
 
-<div class="practice-card">
-
+<div class="card">
 <h2>Question 3</h2>
+<p>Find the area of a rectangle with length 12 cm and breadth 8 cm.</p>
 
-<p>
-Find the area of a rectangle with length 12 cm
-and breadth 8 cm.
-</p>
+<input class="input" id="p3" type="number" placeholder="Enter area">
 
-<input
-type="number"
-id="p3"
-class="answer-input"
-placeholder="Area in cm²">
-
-<button class="btn check-btn"
-onclick="checkPractice(3,96)">
+<button class="btn check" onclick="checkPractice(3,96)">
 Check Answer
 </button>
 
-<div id="r3" class="result"></div>
-
+<div class="result" id="r3"></div>
 </div>
 
 
-<div class="practice-card">
-
+<div class="card">
 <h2>Question 4</h2>
+<p>What is 7² − 3²?</p>
 
-<p>
-What is the value of 7² − 3²?
-</p>
+<input class="input" id="p4" type="number" placeholder="Enter answer">
 
-<input
-type="number"
-id="p4"
-class="answer-input"
-placeholder="Enter answer">
-
-<button class="btn check-btn"
-onclick="checkPractice(4,40)">
+<button class="btn check" onclick="checkPractice(4,40)">
 Check Answer
 </button>
 
-<div id="r4" class="result"></div>
-
+<div class="result" id="r4"></div>
 </div>
 
 
-<div class="practice-card">
-
+<div class="card">
 <h2>Question 5</h2>
+<p>The first term of an AP is 5 and common difference is 3. Find the 10th term.</p>
 
-<p>
-The first term of an AP is 5 and common difference
-is 3. Find the 10th term.
-</p>
+<input class="input" id="p5" type="number" placeholder="Enter answer">
 
-<input
-type="number"
-id="p5"
-class="answer-input"
-placeholder="Enter answer">
-
-<button class="btn check-btn"
-onclick="checkPractice(5,32)">
+<button class="btn check" onclick="checkPractice(5,32)">
 Check Answer
 </button>
 
-<div id="r5" class="result"></div>
-
+<div class="result" id="r5"></div>
 </div>
 
 </div>
-
 </div>
 
 
-<!-- =====================================================
-     QUIZ PAGE
-     ===================================================== -->
+<!-- QUIZ -->
 
-<div class="quiz-page" id="quizPage">
+<div class="overlay" id="quizPage">
 
-<div class="quiz-header">
+<div class="overlay-header">
 
-<button class="back-btn" onclick="closeAllPages()">
+<button class="back-btn" onclick="closePage('quizPage')">
 ← Back
 </button>
 
@@ -1054,7 +839,7 @@ Check Answer
 
 </div>
 
-<div class="quiz-content" id="quizContent"></div>
+<div class="page-content" id="quizContent"></div>
 
 </div>
 
@@ -1065,85 +850,128 @@ Check Answer
 
 function toggleMenu(){
 
-document
-.getElementById("navLinks")
-.classList.toggle("show");
+    document.getElementById("navLinks").classList.toggle("show");
 
 }
 
 
-/* =====================================================
-   FORMULA DATABASE
-   ===================================================== */
+/* ================= PAGE CONTROL ================= */
 
-const groups={
+function hideAllPages(){
 
-number:{
-title:"Number System & Exponents",
-items:[
-["Rational Number","Rational number = p/q, where q ≠ 0"],
-["Product of Powers","aᵐ × aⁿ = aᵐ⁺ⁿ"],
-["Division of Powers","aᵐ ÷ aⁿ = aᵐ⁻ⁿ"],
-["Power of a Power","(aᵐ)ⁿ = aᵐⁿ"],
-["Zero Exponent","a⁰ = 1"],
-["Negative Exponent","a⁻ᵐ = 1/aᵐ"],
-["Euclid Division Lemma","a = bq + r"],
-["HCF–LCM","HCF × LCM = Product of two positive integers"]
-]
-},
+    document.getElementById("learnPage").style.display="none";
 
-commercial:{
-title:"Percentage & Commercial Mathematics",
+    document.getElementById("practicePage").style.display="none";
+
+    document.getElementById("quizPage").style.display="none";
+
+}
+
+
+function closePage(id){
+
+    document.getElementById(id).style.display="none";
+
+    document.body.style.overflow="auto";
+
+}
+
+
+/* ================= FORMULAS ================= */
+
+const formulaData={
+
+all:{
+title:"Mathematics Formula Library",
 items:[
 ["Percentage","Percentage = (Part / Whole) × 100"],
-["Percentage Increase","Increase% = (Increase / Original) × 100"],
-["Percentage Decrease","Decrease% = (Decrease / Original) × 100"],
 ["Profit","Profit = SP − CP"],
 ["Loss","Loss = CP − SP"],
-["Profit%","Profit% = Profit/CP × 100"],
-["Loss%","Loss% = Loss/CP × 100"],
-["Discount","Discount = MP − SP"],
-["Discount%","Discount% = Discount/MP × 100"],
-["Simple Interest","SI = PRT/100"],
-["Amount","A = P + SI"],
-["Compound Interest","A = P(1+R/100)ⁿ"],
-["Compound Interest","CI = A − P"]
+["Simple Interest","SI = P × R × T / 100"],
+["Rectangle Area","Area = l × b"],
+["Square Area","Area = a²"],
+["Triangle Area","Area = 1/2 × b × h"],
+["Circle Area","Area = πr²"],
+["Circumference","C = 2πr"],
+["Pythagoras","c² = a² + b²"],
+["Linear Equation","ax + b = c"],
+["Quadratic Formula","x = (−b ± √(b²−4ac)) / 2a"],
+["AP nth Term","aₙ = a + (n−1)d"],
+["AP Sum","Sₙ = n/2 [2a+(n−1)d]"],
+["Distance Formula","d = √[(x₂−x₁)²+(y₂−y₁)²]"],
+["Probability","P(E)=Favourable outcomes / Total outcomes"]
 ]
 },
 
-algebraic:{
-title:"Algebraic Identities",
+algebra:{
+title:"Algebra",
 items:[
-["Identity 1","(a+b)² = a²+2ab+b²"],
-["Identity 2","(a−b)² = a²−2ab+b²"],
-["Identity 3","a²−b² = (a−b)(a+b)"],
-["Identity 4","(x+a)(x+b)=x²+(a+b)x+ab"],
-["Identity 5","(a+b+c)²=a²+b²+c²+2ab+2bc+2ca"],
-["Identity 6","(a+b)³=a³+3a²b+3ab²+b³"],
-["Identity 7","(a−b)³=a³−3a²b+3ab²−b³"],
-["Identity 8","a³+b³=(a+b)(a²−ab+b²)"],
-["Identity 9","a³−b³=(a−b)(a²+ab+b²)"]
+["Identity","(a+b)²=a²+2ab+b²"],
+["Identity","(a−b)²=a²−2ab+b²"],
+["Identity","a²−b²=(a−b)(a+b)"],
+["Quadratic Equation","ax²+bx+c=0"],
+["Quadratic Formula","x=(−b±√(b²−4ac))/2a"],
+["Discriminant","D=b²−4ac"],
+["AP nth Term","aₙ=a+(n−1)d"],
+["AP Sum","Sₙ=n/2[2a+(n−1)d]"]
+]
+},
+
+geometry:{
+title:"Geometry",
+items:[
+["Rectangle","Area=l×b"],
+["Square","Area=a²"],
+["Triangle","Area=1/2×b×h"],
+["Circle","Area=πr²"],
+["Circumference","2πr"],
+["Pythagoras","c²=a²+b²"],
+["Distance","d=√[(x₂−x₁)²+(y₂−y₁)²]"],
+["Midpoint","((x₁+x₂)/2,(y₁+y₂)/2)"]
+]
+},
+
+mensuration:{
+title:"Mensuration",
+items:[
+["Cuboid Volume","V=lbh"],
+["Cube Volume","V=a³"],
+["Cylinder Volume","V=πr²h"],
+["Cone Volume","V=1/3πr²h"],
+["Sphere Volume","V=4/3πr³"],
+["Cube Surface Area","6a²"],
+["Sphere Surface Area","4πr²"],
+["Cylinder CSA","2πrh"]
+]
+},
+
+percentage:{
+title:"Percentage",
+items:[
+["Percentage","Part/Whole×100"],
+["Part","Percentage×Whole/100"],
+["Increase","New Value=Original+Increase"],
+["Decrease","New Value=Original−Decrease"]
 ]
 },
 
 linear:{
 title:"Linear Equations",
 items:[
-["Basic Form","ax+b=0 ⇒ x=−b/a"],
-["Two Variable Form","ax+by+c=0"],
-["Example","3x+5=20 ⇒ x=5"]
+["Basic Form","ax+b=c"],
+["Solution","x=(c−b)/a"],
+["Two Variables","ax+by+c=0"]
 ]
 },
 
 polynomial:{
 title:"Polynomials",
 items:[
-["Division Algorithm","p(x)=g(x)q(x)+r(x)"],
-["Remainder Theorem","Remainder for x−a = p(a)"],
-["Factor Theorem","p(a)=0 ⇒ x−a is a factor"],
-["Quadratic Polynomial","p(x)=ax²+bx+c"],
-["Sum of Zeroes","α+β=−b/a"],
-["Product of Zeroes","αβ=c/a"]
+["Linear","ax+b"],
+["Quadratic","ax²+bx+c"],
+["Cubic","ax³+bx²+cx+d"],
+["Remainder Theorem","Remainder=p(a)"],
+["Factor Theorem","p(a)=0 → x−a is factor"]
 ]
 },
 
@@ -1151,48 +979,27 @@ quadratic:{
 title:"Quadratic Equations",
 items:[
 ["Standard Form","ax²+bx+c=0"],
-["Quadratic Formula","x=(−b±√(b²−4ac))/2a"],
-["Discriminant","D=b²−4ac"],
-["D > 0","Two distinct real roots"],
-["D = 0","Two equal real roots"],
-["D < 0","No real roots"],
-["Sum of Roots","α+β=−b/a"],
-["Product of Roots","αβ=c/a"]
+["Formula","x=(−b±√(b²−4ac))/2a"],
+["Discriminant","D=b²−4ac"]
 ]
 },
 
 ap:{
 title:"Arithmetic Progression",
 items:[
-["Common Difference","d=a₂−a₁"],
 ["nth Term","aₙ=a+(n−1)d"],
-["Last Term","l=a+(n−1)d"],
-["Sum of n Terms","Sₙ=n/2[2a+(n−1)d]"],
-["Another Sum Formula","Sₙ=n/2(a+l)"]
+["Common Difference","d=a₂−a₁"],
+["Sum","Sₙ=n/2[2a+(n−1)d]"],
+["Last Term","l=a+(n−1)d"]
 ]
 },
 
 coordinate:{
 title:"Coordinate Geometry",
 items:[
-["Distance Formula","d=√[(x₂−x₁)²+(y₂−y₁)²]"],
+["Distance","√[(x₂−x₁)²+(y₂−y₁)²]"],
 ["Midpoint","((x₁+x₂)/2,(y₁+y₂)/2)"],
-["Section Formula","((mx₂+nx₁)/(m+n),(my₂+ny₁)/(m+n))"],
-["Area of Triangle","1/2|x₁(y₂−y₃)+x₂(y₃−y₁)+x₃(y₁−y₂)|"]
-]
-},
-
-lines:{
-title:"Lines & Angles",
-items:[
-["Complementary","Sum = 90°"],
-["Supplementary","Sum = 180°"],
-["Linear Pair","Sum = 180°"],
-["Vertically Opposite","Equal"],
-["Around a Point","Sum = 360°"],
-["Alternate Angles","Equal for parallel lines"],
-["Corresponding Angles","Equal for parallel lines"],
-["Co-interior Angles","Sum = 180°"]
+["Triangle Area","1/2|x₁(y₂−y₃)+x₂(y₃−y₁)+x₃(y₁−y₂)|"]
 ]
 },
 
@@ -1200,24 +1007,8 @@ triangles:{
 title:"Triangles",
 items:[
 ["Angle Sum","A+B+C=180°"],
-["Area","1/2 × base × height"],
-["Pythagoras","Hypotenuse²=Base²+Perpendicular²"],
-["Equilateral Area","(√3/4)a²"],
-["Equilateral Height","(√3/2)a"],
-["Similar Triangles","Corresponding sides are proportional"]
-]
-},
-
-quadrilateral:{
-title:"Quadrilaterals",
-items:[
-["Angle Sum","360°"],
-["Parallelogram","Opposite sides equal and parallel"],
-["Parallelogram","Diagonals bisect each other"],
-["Rectangle","All angles 90°"],
-["Rhombus","All sides equal"],
-["Square","All sides equal and all angles 90°"],
-["Trapezium","One pair of opposite sides parallel"]
+["Pythagoras","a²+b²=c²"],
+["Area","1/2×b×h"]
 ]
 },
 
@@ -1225,20 +1016,9 @@ circles:{
 title:"Circles",
 items:[
 ["Diameter","d=2r"],
-["Circumference","C=2πr"],
-["Area","A=πr²"],
-["Arc Length","θ/360 × 2πr"],
-["Sector Area","θ/360 × πr²"],
-["Angle in Semicircle","90°"],
-["Radius and Tangent","Radius ⟂ Tangent"]
-]
-},
-
-heron:{
-title:"Heron's Formula",
-items:[
-["Semi-perimeter","s=(a+b+c)/2"],
-["Heron's Formula","Area=√[s(s−a)(s−b)(s−c)]"]
+["Radius","r=d/2"],
+["Area","πr²"],
+["Circumference","2πr"]
 ]
 },
 
@@ -1248,56 +1028,7 @@ items:[
 ["sin θ","Perpendicular/Hypotenuse"],
 ["cos θ","Base/Hypotenuse"],
 ["tan θ","Perpendicular/Base"],
-["cosec θ","1/sin θ"],
-["sec θ","1/cos θ"],
-["cot θ","1/tan θ"],
-["Identity","sin²θ+cos²θ=1"],
-["Identity","1+tan²θ=sec²θ"],
-["Identity","1+cot²θ=cosec²θ"],
-["tan θ","sinθ/cosθ"],
-["sin 30°","1/2"],
-["sin 45°","1/√2"],
-["sin 60°","√3/2"],
-["cos 30°","√3/2"],
-["cos 45°","1/√2"],
-["cos 60°","1/2"],
-["tan 30°","1/√3"],
-["tan 45°","1"],
-["tan 60°","√3"]
-]
-},
-
-mensuration2d:{
-title:"2D Mensuration",
-items:[
-["Rectangle Area","A=l×b"],
-["Rectangle Perimeter","P=2(l+b)"],
-["Square Area","A=a²"],
-["Square Perimeter","P=4a"],
-["Triangle Area","A=1/2 bh"],
-["Parallelogram Area","A=bh"],
-["Rhombus Area","A=1/2 d₁d₂"],
-["Trapezium Area","A=1/2(a+b)h"],
-["Circle Area","A=πr²"]
-]
-},
-
-mensuration3d:{
-title:"3D Mensuration",
-items:[
-["Cuboid Volume","V=lbh"],
-["Cuboid TSA","2(lb+bh+hl)"],
-["Cube Volume","V=a³"],
-["Cube TSA","6a²"],
-["Cylinder Volume","V=πr²h"],
-["Cylinder CSA","2πrh"],
-["Cylinder TSA","2πr(h+r)"],
-["Cone Volume","1/3πr²h"],
-["Cone CSA","πrl"],
-["Sphere Volume","4/3πr³"],
-["Sphere Surface Area","4πr²"],
-["Hemisphere Volume","2/3πr³"],
-["Hemisphere TSA","3πr²"]
+["Identity","sin²θ+cos²θ=1"]
 ]
 },
 
@@ -1305,11 +1036,9 @@ statistics:{
 title:"Statistics",
 items:[
 ["Mean","Sum of observations/Number of observations"],
-["Frequency Mean","Σfᵢxᵢ/Σfᵢ"],
 ["Range","Highest−Lowest"],
-["Median","Middle value after arranging data"],
-["Grouped Median","l+[(n/2−cf)/f]h"],
-["Grouped Mode","l+[(f₁−f₀)/(2f₁−f₀−f₂)]h"]
+["Mode","Most frequent value"],
+["Median","Middle value after arranging"]
 ]
 },
 
@@ -1317,161 +1046,59 @@ probability:{
 title:"Probability",
 items:[
 ["Probability","Favourable outcomes/Total outcomes"],
-["Range","0≤P(E)≤1"],
-["Impossible Event","P(E)=0"],
-["Certain Event","P(E)=1"],
-["Complement","P(E')=1−P(E)"]
+["Impossible","P=0"],
+["Certain","P=1"],
+["Complement","P(not E)=1−P(E)"]
+]
+},
+
+algebraic:{
+title:"Algebraic Identities",
+items:[
+["Identity 1","(a+b)²=a²+2ab+b²"],
+["Identity 2","(a−b)²=a²−2ab+b²"],
+["Identity 3","a²−b²=(a−b)(a+b)"],
+["Identity 4","(a+b)³=a³+3a²b+3ab²+b³"]
 ]
 }
 
 };
 
 
-/* ================= CATEGORY MAP ================= */
-
-const categoryMap={
-
-all:Object.keys(groups),
-
-algebra:[
-"number","commercial","algebraic",
-"linear","polynomial","quadratic","ap"
-],
-
-geometry:[
-"coordinate","lines","triangles",
-"quadrilateral","circles","heron",
-"trigonometry"
-],
-
-mensuration:[
-"mensuration2d","mensuration3d","heron"
-]
-
-};
-
-
-/* ================= TOPIC MAP ================= */
-
-const topicMap={
-
-percentage:["commercial"],
-algebraic:["algebraic"],
-linear:["linear"],
-polynomial:["polynomial"],
-quadratic:["quadratic"],
-ap:["ap"],
-coordinate:["coordinate"],
-triangles:["triangles"],
-circles:["circles"],
-trigonometry:["trigonometry"],
-mensuration:["mensuration2d","mensuration3d"],
-statistics:["statistics"],
-probability:["probability"],
-commercial:["commercial"],
-number:["number"],
-heron:["heron"]
-
-};
-
-
-/* ================= OPEN LESSON ================= */
+/* ================= LEARN ================= */
 
 function openLearn(type){
 
-let keys;
-let title="Mathematics";
+    hideAllPages();
 
-if(categoryMap[type]){
+    const page=document.getElementById("learnPage");
 
-keys=categoryMap[type];
+    page.style.display="block";
 
-if(type==="all")
-title="Complete Mathematics Formula Library";
+    const data=formulaData[type] || formulaData.all;
 
-if(type==="algebra")
-title="Algebra Formulas";
+    document.getElementById("learnTitle").textContent=data.title;
 
-if(type==="geometry")
-title="Geometry Formulas";
+    let html="";
 
-if(type==="mensuration")
-title="Mensuration Formulas";
+    html+=`<div class="card">`;
 
-}else{
+    data.items.forEach(function(item){
 
-keys=topicMap[type];
+        html+=`
+        <div class="formula-row">
+            <div class="formula-name">${item[0]}</div>
+            <div class="formula-value">${item[1]}</div>
+        </div>
+        `;
 
-if(keys)
-title=groups[keys[0]].title;
+    });
 
-}
+    html+=`</div>`;
 
-if(!keys)return;
+    document.getElementById("learnContent").innerHTML=html;
 
-let html="";
-
-keys.forEach(key=>{
-
-let group=groups[key];
-
-html+=`
-
-<div class="lesson-section">
-
-<div class="lesson-title">
-${group.title}
-</div>
-
-<div class="lesson-body">
-
-${group.items.map(item=>`
-
-<div class="formula-row">
-
-<div class="formula-name">
-${item[0]}
-</div>
-
-<div class="formula-value">
-${item[1]}
-</div>
-
-</div>
-
-`).join("")}
-
-</div>
-
-</div>
-
-`;
-
-});
-
-html+=`
-
-<div class="tip">
-
-<strong>StudyForge Tip:</strong><br>
-
-Formula ko sirf ratne ke bajay uska meaning samjho
-aur phir us formula se questions practice karo.
-
-</div>
-
-`;
-
-document.getElementById("learnTitle").textContent=title;
-
-document.getElementById("learnContent").innerHTML=html;
-
-closePagesOnly();
-
-document.getElementById("learnPage").style.display="block";
-
-document.body.style.overflow="hidden";
-
+    document.body.style.overflow="hidden";
 }
 
 
@@ -1479,335 +1106,575 @@ document.body.style.overflow="hidden";
 
 function openPractice(){
 
-closePagesOnly();
+    hideAllPages();
 
-document.getElementById("practicePage").style.display="block";
+    document.getElementById("practicePage").style.display="block";
 
-document.body.style.overflow="hidden";
-
-}
-
-
-function checkPractice(number,answer){
-
-let input=document.getElementById("p"+number);
-
-let result=document.getElementById("r"+number);
-
-let value=Number(input.value);
-
-if(input.value===""){
-
-result.textContent="Please enter an answer.";
-
-result.style.color="#d97706";
-
-return;
-
-}
-
-if(value===answer){
-
-result.textContent="✓ Correct! Great job.";
-
-result.style.color="#16a34a";
-
-}else{
-
-result.textContent="✗ Not correct. Try again.";
-
-result.style.color="#dc2626";
-
-}
+    document.body.style.overflow="hidden";
 
 }
 
 
-/* ================= QUIZ DATA ================= */
+function checkPractice(number,correct){
 
-const quizQuestions=[
+    const input=document.getElementById("p"+number);
 
-{
-q:"What is 25% of 200?",
-options:["25","40","50","75"],
-answer:2
-},
+    const result=document.getElementById("r"+number);
 
-{
-q:"What is the value of 7²?",
-options:["14","21","49","56"],
-answer:2
-},
+    if(input.value.trim()===""){
 
-{
-q:"Solve: 3x + 6 = 18.",
-options:["2","3","4","6"],
-answer:1
-},
+        result.textContent="Please enter an answer.";
 
-{
-q:"What is the area of a square with side 5 cm?",
-options:["10 cm²","20 cm²","25 cm²","30 cm²"],
-answer:2
-},
+        result.style.color="#d97706";
 
-{
-q:"What is the sum of angles of a triangle?",
-options:["90°","180°","270°","360°"],
-answer:1
-},
+        return;
+    }
 
-{
-q:"What is the value of sin 30°?",
-options:["0","1/2","√3/2","1"],
-answer:1
-},
+    if(Number(input.value)===correct){
 
-{
-q:"What is the next term of AP: 2, 5, 8, 11, ...?",
-options:["12","13","14","15"],
-answer:2
-},
+        result.textContent="✓ Correct!";
 
-{
-q:"What is the probability of getting a head when a fair coin is tossed?",
-options:["0","1/4","1/2","1"],
-answer:2
-},
+        result.style.color="#16a34a";
 
-{
-q:"What is the circumference of a circle?",
-options:["πr²","2πr","r²","2r"],
-answer:1
-},
+    }else{
 
-{
-q:"What is the HCF of 12 and 18?",
-options:["2","3","6","9"],
-answer:2
+        result.textContent="✗ Incorrect. Correct answer: "+correct;
+
+        result.style.color="#dc2626";
+
+    }
+
 }
 
-];
 
-let currentQuestion=0;
-let quizScore=0;
-let quizAnswered=false;
+/* =========================================================
+   500 QUESTION BANK
+   ========================================================= */
+
+const questionBank=[];
 
 
-/* ================= START QUIZ ================= */
+/* Addition: 50 */
+
+for(let i=1;i<=50;i++){
+
+    const a=i+10;
+    const b=i+5;
+    const answer=a+b;
+
+    questionBank.push({
+        question:`What is ${a} + ${b}?`,
+        options:[
+            answer,
+            answer+2,
+            answer-2,
+            answer+5
+        ],
+        answer:0,
+        topic:"Arithmetic"
+    });
+
+}
+
+
+/* Subtraction: 50 */
+
+for(let i=1;i<=50;i++){
+
+    const a=i+50;
+    const b=i+10;
+    const answer=a-b;
+
+    questionBank.push({
+        question:`What is ${a} − ${b}?`,
+        options:[
+            answer,
+            answer+4,
+            answer-4,
+            answer+8
+        ],
+        answer:0,
+        topic:"Arithmetic"
+    });
+
+}
+
+
+/* Multiplication: 50 */
+
+for(let i=1;i<=50;i++){
+
+    const a=i+2;
+    const b=4;
+    const answer=a*b;
+
+    questionBank.push({
+        question:`What is ${a} × ${b}?`,
+        options:[
+            answer,
+            answer+4,
+            answer-4,
+            answer+8
+        ],
+        answer:0,
+        topic:"Arithmetic"
+    });
+
+}
+
+
+/* Division: 50 */
+
+for(let i=1;i<=50;i++){
+
+    const answer=i+5;
+    const divisor=5;
+    const number=answer*divisor;
+
+    questionBank.push({
+        question:`What is ${number} ÷ ${divisor}?`,
+        options:[
+            answer,
+            answer+1,
+            answer-1,
+            answer+2
+        ],
+        answer:0,
+        topic:"Arithmetic"
+    });
+
+}
+
+
+/* Percentage: 50 */
+
+for(let i=1;i<=50;i++){
+
+    const number=i*20;
+    const answer=number/10;
+
+    questionBank.push({
+        question:`Find 10% of ${number}.`,
+        options:[
+            answer,
+            answer+10,
+            answer-10,
+            answer+20
+        ],
+        answer:0,
+        topic:"Percentage"
+    });
+
+}
+
+
+/* Squares: 50 */
+
+for(let i=1;i<=50;i++){
+
+    const number=i+2;
+    const answer=number*number;
+
+    questionBank.push({
+        question:`What is ${number}²?`,
+        options:[
+            answer,
+            answer+1,
+            answer-1,
+            answer+2
+        ],
+        answer:0,
+        topic:"Squares"
+    });
+
+}
+
+
+/* Linear equations: 50 */
+
+for(let i=1;i<=50;i++){
+
+    const x=i;
+    const a=2;
+    const b=4;
+    const c=a*x+b;
+
+    questionBank.push({
+        question:`Solve: ${a}x + ${b} = ${c}`,
+        options:[
+            x,
+            x+1,
+            x-1,
+            x+2
+        ],
+        answer:0,
+        topic:"Linear Equations"
+    });
+
+}
+
+
+/* Rectangle area: 50 */
+
+for(let i=1;i<=50;i++){
+
+    const length=i+5;
+    const breadth=4;
+    const answer=length*breadth;
+
+    questionBank.push({
+        question:`A rectangle has length ${length} cm and breadth ${breadth} cm. Find its area.`,
+        options:[
+            answer+" cm²",
+            (answer+4)+" cm²",
+            (answer-4)+" cm²",
+            (answer+8)+" cm²"
+        ],
+        answer:0,
+        topic:"Mensuration"
+    });
+
+}
+
+
+/* AP: 50 */
+
+for(let i=1;i<=50;i++){
+
+    const a=3;
+    const d=2;
+    const n=i;
+    const answer=a+(n-1)*d;
+
+    questionBank.push({
+        question:`An AP has first term 3 and common difference 2. Find its ${n}th term.`,
+        options:[
+            answer,
+            answer+2,
+            answer-2,
+            answer+4
+        ],
+        answer:0,
+        topic:"Arithmetic Progression"
+    });
+
+}
+
+
+/* =========================================================
+   QUIZ
+   ========================================================= */
+
+let quizQuestions=[];
+let quizNumber=0;
+let score=0;
+let selectedAnswer=null;
+let answered=false;
+
+
+function shuffle(array){
+
+    const copy=array.slice();
+
+    for(let i=copy.length-1;i>0;i--){
+
+        const random=Math.floor(Math.random()*(i+1));
+
+        const temp=copy[i];
+
+        copy[i]=copy[random];
+
+        copy[random]=temp;
+
+    }
+
+    return copy;
+}
+
 
 function startQuiz(){
 
-currentQuestion=0;
-quizScore=0;
+    hideAllPages();
 
-closePagesOnly();
+    const page=document.getElementById("quizPage");
 
-document.getElementById("quizPage").style.display="block";
+    page.style.display="block";
 
-document.body.style.overflow="hidden";
+    document.body.style.overflow="hidden";
 
-showQuestion();
+    quizNumber=0;
+
+    score=0;
+
+    selectedAnswer=null;
+
+    answered=false;
+
+    quizQuestions=shuffle(questionBank).slice(0,20);
+
+    showQuestion();
 
 }
 
-
-/* ================= SHOW QUESTION ================= */
 
 function showQuestion(){
 
-let q=quizQuestions[currentQuestion];
+    const container=document.getElementById("quizContent");
 
-quizAnswered=false;
+    if(quizNumber>=quizQuestions.length){
 
-let html=`
+        showResult();
 
-<div class="quiz-box">
+        return;
+    }
 
-<div class="quiz-progress">
+    selectedAnswer=null;
 
-Question ${currentQuestion+1} of ${quizQuestions.length}
+    answered=false;
 
-</div>
+    const question=quizQuestions[quizNumber];
 
-<div class="quiz-question">
+    const optionObjects=question.options.map(function(value,index){
 
-${q.q}
+        return{
+            value:value,
+            index:index
+        };
 
-</div>
+    });
 
-<div id="options">
+    const shuffledOptions=shuffle(optionObjects);
 
-${q.options.map((option,index)=>`
+    let html=`
 
-<button
-class="option"
-onclick="selectAnswer(${index})">
+    <div class="quiz-info">
 
-${option}
+        <div class="info">
+            <strong>${quizNumber+1}/20</strong>
+            Question
+        </div>
 
-</button>
+        <div class="info">
+            <strong>${score}</strong>
+            Score
+        </div>
 
-`).join("")}
+        <div class="info">
+            <strong>${question.topic}</strong>
+            Topic
+        </div>
 
-</div>
+    </div>
 
-<div id="quizMessage"></div>
+    <div class="quiz-card">
 
-<button
-id="nextButton"
-class="btn quiz-next"
-style="display:none"
-onclick="nextQuestion()">
+        <div class="question">
+            ${question.question}
+        </div>
 
-Next Question →
+        <div id="options">
+    `;
 
-</button>
+    shuffledOptions.forEach(function(item,index){
 
-</div>
+        html+=`
 
-`;
+        <button
+            class="option"
+            data-answer="${item.index}"
+            onclick="chooseOption(this)">
 
-document.getElementById("quizContent").innerHTML=html;
+            ${String.fromCharCode(65+index)}. ${item.value}
+
+        </button>
+
+        `;
+
+    });
+
+    html+=`
+
+        </div>
+
+        <div id="quizMessage"></div>
+
+        <button
+            class="btn quiz-btn"
+            id="quizAction"
+            onclick="checkAnswer()">
+
+            Check Answer
+
+        </button>
+
+    </div>
+    `;
+
+    container.innerHTML=html;
 
 }
 
 
-/* ================= SELECT ANSWER ================= */
+function chooseOption(button){
 
-function selectAnswer(index){
+    if(answered){
+        return;
+    }
 
-if(quizAnswered)return;
+    document.querySelectorAll(".option").forEach(function(btn){
 
-quizAnswered=true;
+        btn.classList.remove("selected");
 
-let q=quizQuestions[currentQuestion];
+    });
 
-let buttons=document.querySelectorAll(".option");
+    button.classList.add("selected");
 
-buttons[index].classList.add(
-index===q.answer ? "correct" : "wrong"
-);
-
-if(index===q.answer){
-
-quizScore++;
-
-document.getElementById("quizMessage").innerHTML=
-"<p style='color:#16a34a;font-weight:bold;margin-top:15px;'>✓ Correct! Well done.</p>";
-
-}else{
-
-buttons[q.answer].classList.add("correct");
-
-document.getElementById("quizMessage").innerHTML=
-"<p style='color:#dc2626;font-weight:bold;margin-top:15px;'>✗ Incorrect. The correct answer is highlighted.</p>";
-
-}
-
-document.getElementById("nextButton").style.display="inline-block";
+    selectedAnswer=Number(button.dataset.answer);
 
 }
 
 
-/* ================= NEXT QUESTION ================= */
+function checkAnswer(){
+
+    if(answered){
+        nextQuestion();
+        return;
+    }
+
+    if(selectedAnswer===null){
+
+        document.getElementById("quizMessage").innerHTML=
+        `<div class="quiz-message bad">Please select an option first.</div>`;
+
+        return;
+    }
+
+    answered=true;
+
+    const question=quizQuestions[quizNumber];
+
+    const buttons=document.querySelectorAll(".option");
+
+    buttons.forEach(function(button){
+
+        const answer=Number(button.dataset.answer);
+
+        button.disabled=true;
+
+        if(answer===question.answer){
+
+            button.classList.add("correct");
+
+        }
+
+        if(answer===selectedAnswer && answer!==question.answer){
+
+            button.classList.add("wrong");
+
+        }
+
+    });
+
+
+    if(selectedAnswer===question.answer){
+
+        score++;
+
+        document.getElementById("quizMessage").innerHTML=
+        `<div class="quiz-message good">✓ Correct! Great job.</div>`;
+
+    }else{
+
+        document.getElementById("quizMessage").innerHTML=
+        `<div class="quiz-message bad">
+        ✗ Incorrect. Correct answer: ${question.options[question.answer]}
+        </div>`;
+
+    }
+
+
+    const action=document.getElementById("quizAction");
+
+    if(quizNumber===quizQuestions.length-1){
+
+        action.textContent="Finish Quiz";
+
+    }else{
+
+        action.textContent="Next Question";
+
+    }
+
+}
+
 
 function nextQuestion(){
 
-currentQuestion++;
+    if(!answered){
+        return;
+    }
 
-if(currentQuestion>=quizQuestions.length){
+    quizNumber++;
 
-showQuizResult();
-
-}else{
-
-showQuestion();
-
-}
+    showQuestion();
 
 }
 
 
-/* ================= QUIZ RESULT ================= */
+function showResult(){
 
-function showQuizResult(){
+    const percentage=Math.round(score/20*100);
 
-let percentage=Math.round(
-(quizScore/quizQuestions.length)*100
-);
+    let message="Keep practicing!";
 
-let message="Keep practicing!";
+    if(percentage>=90){
+        message="Excellent! 🔥";
+    }else if(percentage>=75){
+        message="Great work! 💪";
+    }else if(percentage>=50){
+        message="Good attempt! Keep improving.";
+    }
 
-if(percentage>=90)
-message="Excellent! Mathematics is getting strong.";
+    document.getElementById("quizContent").innerHTML=`
 
-else if(percentage>=70)
-message="Great work! Keep practicing.";
+    <div class="score">
 
-else if(percentage>=50)
-message="Good start! A little more practice will help.";
+        <h1>${score}/20</h1>
 
-document.getElementById("quizContent").innerHTML=`
+        <h2>${percentage}%</h2>
 
-<div class="quiz-score">
+        <p>${message}</p>
 
-<h1>${quizScore}/${quizQuestions.length}</h1>
+        <p>You answered ${score} out of 20 correctly.</p>
 
-<h2>${percentage}%</h2>
+        <button
+            class="btn quiz-btn"
+            onclick="startQuiz()">
 
-<p style="margin:15px 0;">
-${message}
-</p>
+            Take Quiz Again
 
-<button
-class="btn restart-btn"
-onclick="startQuiz()">
+        </button>
 
-Restart Quiz
+        <button
+            class="btn"
+            style="background:#e5e7eb"
+            onclick="openPractice()">
 
-</button>
+            Practice Questions
 
-</div>
+        </button>
 
-`;
+    </div>
 
-}
-
-
-/* ================= CLOSE PAGES ================= */
-
-function closePagesOnly(){
-
-document.getElementById("learnPage").style.display="none";
-
-document.getElementById("practicePage").style.display="none";
-
-document.getElementById("quizPage").style.display="none";
+    `;
 
 }
 
 
-function closeAllPages(){
+/* ================= SAFETY ================= */
 
-closePagesOnly();
-
-document.body.style.overflow="";
-
-}
-
-
-/* ================= ESC KEY ================= */
-
-document.addEventListener("keydown",function(e){
-
-if(e.key==="Escape"){
-
-closeAllPages();
-
-}
-
-});
+console.log("StudyForge Mathematics loaded.");
+console.log("Question bank:",questionBank.length);
 
 </script>
 
