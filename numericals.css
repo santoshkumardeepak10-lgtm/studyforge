@@ -1,0 +1,603 @@
+/* =========================================
+   STUDYFORGE — PHYSICS NUMERICALS
+   numericals.css
+   ========================================= */
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f7fb;
+    color: #172033;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+
+/* =========================================
+   NAVBAR
+   ========================================= */
+
+.navbar {
+    width: 100%;
+    padding: 15px 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    text-decoration: none;
+    color: #172033;
+
+    font-size: 21px;
+    font-weight: bold;
+}
+
+#navMenu {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+#navMenu a {
+    text-decoration: none;
+    color: #172033;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+#navMenu a:hover {
+    color: #2563eb;
+}
+
+.menu-btn,
+.theme-btn {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 22px;
+}
+
+.menu-btn {
+    display: none;
+}
+
+
+/* =========================================
+   MAIN SECTION
+   ========================================= */
+
+.section {
+    width: 100%;
+    max-width: 1100px;
+
+    margin: auto;
+
+    padding: 70px 20px;
+}
+
+
+/* =========================================
+   SECTION HEADING
+   ========================================= */
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-heading span {
+    display: inline-block;
+
+    color: #2563eb;
+
+    font-size: 13px;
+    font-weight: bold;
+
+    letter-spacing: 1.5px;
+}
+
+.section-heading h1 {
+    margin-top: 10px;
+
+    font-size: clamp(35px, 7vw, 55px);
+
+    line-height: 1.15;
+}
+
+.section-heading p {
+    margin-top: 12px;
+
+    color: #667085;
+
+    font-size: 17px;
+}
+
+
+/* =========================================
+   NUMERICAL BOX
+   ========================================= */
+
+.numerical-box {
+    width: 100%;
+    max-width: 760px;
+
+    margin: auto;
+
+    padding: 32px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+
+/* =========================================
+   QUESTION NUMBER
+   ========================================= */
+
+.question-number {
+    display: inline-block;
+
+    margin-bottom: 15px;
+
+    padding: 6px 12px;
+
+    background: #eef5ff;
+
+    border-radius: 20px;
+
+    color: #2563eb;
+
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+/* =========================================
+   QUESTION
+   ========================================= */
+
+.question {
+    margin-bottom: 28px;
+
+    font-size: 23px;
+    font-weight: bold;
+
+    line-height: 1.5;
+
+    color: #172033;
+}
+
+
+/* =========================================
+   ANSWER AREA
+   ========================================= */
+
+.answer-area {
+    display: flex;
+    gap: 12px;
+    align-items: stretch;
+}
+
+.answer-area input {
+    flex: 1;
+
+    min-width: 0;
+
+    padding: 14px 16px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 11px;
+
+    background: #ffffff;
+
+    color: #172033;
+
+    font-size: 16px;
+
+    outline: none;
+
+    transition: 0.2s;
+}
+
+.answer-area input:focus {
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+
+/* Remove number arrows */
+
+.answer-area input::-webkit-outer-spin-button,
+.answer-area input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.answer-area input[type="number"] {
+    appearance: textfield;
+}
+
+
+/* =========================================
+   BUTTON
+   ========================================= */
+
+.btn {
+    display: inline-block;
+
+    padding: 13px 22px;
+
+    border: none;
+
+    border-radius: 11px;
+
+    text-decoration: none;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s,
+        background 0.2s;
+}
+
+.btn.primary {
+    background: #2563eb;
+    color: #ffffff;
+}
+
+.btn.primary:hover {
+    background: #1d4ed8;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 18px rgba(37, 99, 235, 0.25);
+}
+
+.btn:active {
+    transform: scale(0.97);
+}
+
+
+/* =========================================
+   MESSAGE
+   ========================================= */
+
+.message {
+    margin-top: 20px;
+
+    padding: 14px 16px;
+
+    min-height: 0;
+
+    border-radius: 10px;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   NEXT BUTTON
+   ========================================= */
+
+.next-btn {
+    margin-top: 20px;
+
+    display: none;
+}
+
+
+/* =========================================
+   SCORE
+   ========================================= */
+
+.score {
+    margin-top: 28px;
+
+    padding: 22px;
+
+    text-align: center;
+
+    font-size: 25px;
+    font-weight: bold;
+
+    background: #eef5ff;
+
+    color: #2563eb;
+
+    border-radius: 15px;
+
+    border: 1px solid #dbeafe;
+}
+
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+footer {
+    margin-top: 30px;
+
+    padding: 40px 20px;
+
+    text-align: center;
+
+    background: #111827;
+
+    color: #ffffff;
+}
+
+footer h2 {
+    font-size: 23px;
+}
+
+footer p {
+    margin-top: 7px;
+
+    color: #cbd5e1;
+}
+
+
+/* =========================================
+   DARK MODE
+   ========================================= */
+
+body.dark {
+    background: #0b0d12;
+    color: #f8fafc;
+}
+
+
+/* Navbar */
+
+body.dark .navbar {
+    background: #151922;
+    border-color: #292e3a;
+}
+
+body.dark .logo {
+    color: #f8fafc;
+}
+
+body.dark #navMenu a {
+    color: #f8fafc;
+}
+
+body.dark #navMenu a:hover {
+    color: #60a5fa;
+}
+
+
+/* Heading */
+
+body.dark .section-heading p {
+    color: #aab4c5;
+}
+
+
+/* Numerical box */
+
+body.dark .numerical-box {
+    background: #151922;
+
+    border-color: #292e3a;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Question */
+
+body.dark .question {
+    color: #f8fafc;
+}
+
+body.dark .question-number {
+    background: #1e293b;
+    color: #60a5fa;
+}
+
+
+/* Input */
+
+body.dark .answer-area input {
+    background: #202536;
+
+    color: #ffffff;
+
+    border-color: #3b4355;
+}
+
+body.dark .answer-area input::placeholder {
+    color: #8993a7;
+}
+
+body.dark .answer-area input:focus {
+    border-color: #60a5fa;
+
+    box-shadow:
+        0 0 0 3px rgba(96, 165, 250, 0.12);
+}
+
+
+/* Score */
+
+body.dark .score {
+    background: #172554;
+
+    border-color: #1e40af;
+
+    color: #60a5fa;
+}
+
+
+/* Mobile menu */
+
+body.dark #navMenu {
+    background: #151922;
+
+    border-color: #292e3a;
+}
+
+
+/* =========================================
+   TABLET / MOBILE
+   ========================================= */
+
+@media (max-width: 800px) {
+
+    .navbar {
+        padding: 14px 16px;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    #navMenu {
+        display: none;
+
+        position: absolute;
+
+        top: 64px;
+        left: 0;
+
+        width: 100%;
+
+        padding: 20px;
+
+        background: #ffffff;
+
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 16px;
+
+        border-bottom: 1px solid #e5e7eb;
+
+        box-shadow:
+            0 8px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    #navMenu.active {
+        display: flex;
+    }
+
+    .section {
+        padding: 55px 16px;
+    }
+
+    .numerical-box {
+        padding: 26px;
+    }
+
+    .question {
+        font-size: 21px;
+    }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+   ========================================= */
+
+@media (max-width: 500px) {
+
+    .navbar {
+        padding: 13px 15px;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+    .section {
+        padding: 45px 12px;
+    }
+
+    .section-heading {
+        margin-bottom: 30px;
+    }
+
+    .section-heading h1 {
+        font-size: 35px;
+    }
+
+    .section-heading p {
+        font-size: 15px;
+    }
+
+    .numerical-box {
+        padding: 20px;
+
+        border-radius: 17px;
+    }
+
+    .question-number {
+        font-size: 13px;
+    }
+
+    .question {
+        font-size: 19px;
+    }
+
+    .answer-area {
+        flex-direction: column;
+    }
+
+    .answer-area input {
+        width: 100%;
+    }
+
+    .answer-area .btn {
+        width: 100%;
+    }
+
+    .next-btn {
+        width: 100%;
+    }
+
+    .score {
+        font-size: 21px;
+    }
+
+    footer {
+        padding: 30px 15px;
+    }
+}

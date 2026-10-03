@@ -1,0 +1,1580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>StudyForge — Percentage Calculator</title>
+
+<meta name="description"
+content="StudyForge Percentage Calculator — calculate percentages, discounts, profit loss, marks percentage, increase decrease and reverse percentages.">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f5f7fb;
+    color:#172033;
+    line-height:1.5;
+    transition:.3s;
+}
+
+body.dark{
+    background:#101522;
+    color:#f5f7ff;
+}
+
+/* NAVBAR */
+
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:#fff;
+    border-bottom:1px solid #e5e8ef;
+    padding:14px 5%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.dark .navbar{
+    background:#171d2b;
+    border-color:#293246;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:800;
+    color:#2563eb;
+}
+
+.logo span{
+    color:#111827;
+}
+
+.dark .logo span{
+    color:#fff;
+}
+
+.nav-links{
+    display:flex;
+    gap:18px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:#374151;
+    font-weight:600;
+}
+
+.dark .nav-links a{
+    color:#e5e7eb;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+    color:#2563eb;
+}
+
+.menu-btn{
+    display:none;
+    font-size:25px;
+    cursor:pointer;
+}
+
+/* HERO */
+
+.hero{
+    text-align:center;
+    padding:55px 20px 40px;
+    background:linear-gradient(135deg,#eaf2ff,#fff);
+}
+
+.dark .hero{
+    background:linear-gradient(135deg,#17213a,#101522);
+}
+
+.hero h1{
+    font-size:42px;
+    margin-bottom:10px;
+}
+
+.hero h1 span{
+    color:#2563eb;
+}
+
+.hero p{
+    max-width:700px;
+    margin:auto;
+    color:#667085;
+    font-size:17px;
+}
+
+.dark .hero p{
+    color:#b9c1d1;
+}
+
+/* TABS */
+
+.tabs{
+    max-width:1150px;
+    margin:25px auto 10px;
+    padding:0 15px;
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.tab{
+    border:0;
+    padding:12px 18px;
+    border-radius:10px;
+    background:#e8edf7;
+    color:#334155;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.dark .tab{
+    background:#252e40;
+    color:#e5e7eb;
+}
+
+.tab.active{
+    background:#2563eb;
+    color:#fff;
+}
+
+/* CONTAINER */
+
+.container{
+    max-width:1150px;
+    margin:auto;
+    padding:15px 15px 60px;
+}
+
+.section{
+    display:none;
+}
+
+.section.active{
+    display:block;
+}
+
+/* GRID */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+/* CARD */
+
+.card{
+    background:#fff;
+    border-radius:18px;
+    padding:23px;
+    box-shadow:0 8px 28px rgba(0,0,0,.07);
+}
+
+.dark .card{
+    background:#171d2b;
+    box-shadow:0 8px 28px rgba(0,0,0,.25);
+}
+
+.card h2{
+    font-size:21px;
+    margin-bottom:5px;
+}
+
+.card-desc{
+    color:#667085;
+    font-size:14px;
+    margin-bottom:18px;
+}
+
+.dark .card-desc{
+    color:#b9c1d1;
+}
+
+/* INPUT */
+
+.input-group{
+    margin-bottom:13px;
+}
+
+.input-group label{
+    display:block;
+    font-weight:700;
+    margin-bottom:6px;
+}
+
+.input-group input{
+    width:100%;
+    padding:13px;
+    border:1px solid #d6dce7;
+    border-radius:9px;
+    font-size:16px;
+    outline:none;
+    background:#fff;
+}
+
+.dark .input-group input{
+    background:#222b3d;
+    color:#fff;
+    border-color:#3a455b;
+}
+
+.calculate-btn{
+    width:100%;
+    border:0;
+    padding:13px;
+    border-radius:10px;
+    background:#2563eb;
+    color:#fff;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+    margin-top:5px;
+}
+
+.calculate-btn:hover{
+    background:#1d4ed8;
+}
+
+.result{
+    margin-top:15px;
+    padding:14px;
+    border-radius:10px;
+    background:#eff6ff;
+    color:#1d4ed8;
+    font-size:18px;
+    font-weight:700;
+    text-align:center;
+}
+
+.dark .result{
+    background:#172d50;
+    color:#93c5fd;
+}
+
+/* FULL WIDTH */
+
+.full-card{
+    grid-column:1/-1;
+}
+
+/* FORMULA */
+
+.formula{
+    background:#f8fafc;
+    border-left:4px solid #2563eb;
+    padding:12px;
+    margin-top:15px;
+    border-radius:5px;
+    font-weight:600;
+}
+
+.dark .formula{
+    background:#202938;
+}
+
+/* QUICK TABLE */
+
+.table-wrap{
+    overflow-x:auto;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:15px;
+}
+
+th,td{
+    padding:12px;
+    border:1px solid #dce2eb;
+    text-align:left;
+}
+
+th{
+    background:#eff6ff;
+}
+
+.dark th{
+    background:#20304b;
+}
+
+.dark th,
+.dark td{
+    border-color:#39445a;
+}
+
+/* FOOTER */
+
+footer{
+    background:#111827;
+    color:#cbd5e1;
+    text-align:center;
+    padding:30px 15px;
+}
+
+/* THEME */
+
+.theme-btn{
+    position:fixed;
+    right:18px;
+    bottom:18px;
+    width:48px;
+    height:48px;
+    border:0;
+    border-radius:50%;
+    background:#2563eb;
+    color:#fff;
+    font-size:20px;
+    cursor:pointer;
+    z-index:500;
+}
+
+/* MOBILE */
+
+@media(max-width:850px){
+
+    .nav-links{
+        display:none;
+        position:absolute;
+        top:65px;
+        left:0;
+        width:100%;
+        padding:15px;
+        background:#fff;
+        flex-direction:column;
+        border-bottom:1px solid #ddd;
+    }
+
+    .dark .nav-links{
+        background:#171d2b;
+        border-color:#293246;
+    }
+
+    .nav-links.show{
+        display:flex;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .full-card{
+        grid-column:auto;
+    }
+
+    .hero h1{
+        font-size:32px;
+    }
+}
+
+@media(max-width:500px){
+
+    .card{
+        padding:17px;
+    }
+
+    .hero{
+        padding:40px 15px 30px;
+    }
+
+    .hero h1{
+        font-size:29px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        StudyForge<span>⚡</span>
+    </div>
+
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+    <div class="nav-links" id="navLinks">
+
+        <a href="index.html">Home</a>
+        <a href="mathematics.html">Mathematics</a>
+        <a href="physics.html">Physics</a>
+        <a href="chemistry.html">Chemistry</a>
+        <a href="quizzes.html">Quizzes</a>
+        <a href="calculator.html">Calculator</a>
+        <a href="percentage.html" class="active">Percentage</a>
+
+    </div>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <h1>Percentage <span>Calculator</span></h1>
+
+    <p>
+        Solve percentage, discount, profit & loss,
+        marks percentage, increase/decrease and reverse percentage problems.
+    </p>
+
+</section>
+
+
+<!-- TABS -->
+
+<div class="tabs">
+
+    <button class="tab active"
+            onclick="openSection('calculators',this)">
+        🧮 Calculators
+    </button>
+
+    <button class="tab"
+            onclick="openSection('formulas',this)">
+        📐 Formulas
+    </button>
+
+    <button class="tab"
+            onclick="openSection('quick',this)">
+        ⚡ Quick Examples
+    </button>
+
+</div>
+
+
+<div class="container">
+
+
+<!-- =========================
+     CALCULATORS
+========================= -->
+
+<section id="calculators" class="section active">
+
+<div class="cards">
+
+
+<!-- 1 -->
+
+<div class="card">
+
+<h2>1. Basic Percentage</h2>
+
+<p class="card-desc">
+Find what percentage one number is of another.
+</p>
+
+<div class="input-group">
+<label>Part</label>
+<input type="number" id="part" placeholder="Example: 40">
+</div>
+
+<div class="input-group">
+<label>Total</label>
+<input type="number" id="total" placeholder="Example: 200">
+</div>
+
+<button class="calculate-btn"
+onclick="basicPercentage()">
+Calculate
+</button>
+
+<div class="result" id="basicResult">
+Result will appear here
+</div>
+
+<div class="formula">
+Percentage = (Part ÷ Total) × 100
+</div>
+
+</div>
+
+
+<!-- 2 -->
+
+<div class="card">
+
+<h2>2. Find Percentage of a Number</h2>
+
+<p class="card-desc">
+Find a percentage value from a number.
+</p>
+
+<div class="input-group">
+<label>Percentage (%)</label>
+<input type="number" id="percentOf">
+</div>
+
+<div class="input-group">
+<label>Number</label>
+<input type="number" id="numberOf">
+</div>
+
+<button class="calculate-btn"
+onclick="percentageOfNumber()">
+Calculate
+</button>
+
+<div class="result" id="percentOfResult">
+Result will appear here
+</div>
+
+<div class="formula">
+Result = (Percentage ÷ 100) × Number
+</div>
+
+</div>
+
+
+<!-- 3 -->
+
+<div class="card">
+
+<h2>3. Percentage Increase</h2>
+
+<p class="card-desc">
+Find the percentage increase between two values.
+</p>
+
+<div class="input-group">
+<label>Original Value</label>
+<input type="number" id="increaseOld">
+</div>
+
+<div class="input-group">
+<label>New Value</label>
+<input type="number" id="increaseNew">
+</div>
+
+<button class="calculate-btn"
+onclick="percentageIncrease()">
+Calculate
+</button>
+
+<div class="result" id="increaseResult">
+Result will appear here
+</div>
+
+<div class="formula">
+Increase % = ((New − Old) ÷ Old) × 100
+</div>
+
+</div>
+
+
+<!-- 4 -->
+
+<div class="card">
+
+<h2>4. Percentage Decrease</h2>
+
+<p class="card-desc">
+Find how much a value decreased in percentage.
+</p>
+
+<div class="input-group">
+<label>Original Value</label>
+<input type="number" id="decreaseOld">
+</div>
+
+<div class="input-group">
+<label>New Value</label>
+<input type="number" id="decreaseNew">
+</div>
+
+<button class="calculate-btn"
+onclick="percentageDecrease()">
+Calculate
+</button>
+
+<div class="result" id="decreaseResult">
+Result will appear here
+</div>
+
+<div class="formula">
+Decrease % = ((Old − New) ÷ Old) × 100
+</div>
+
+</div>
+
+
+<!-- 5 -->
+
+<div class="card">
+
+<h2>5. Discount Calculator</h2>
+
+<p class="card-desc">
+Calculate discount amount and final price.
+</p>
+
+<div class="input-group">
+<label>Original Price</label>
+<input type="number" id="discountPrice">
+</div>
+
+<div class="input-group">
+<label>Discount (%)</label>
+<input type="number" id="discountPercent">
+</div>
+
+<button class="calculate-btn"
+onclick="discountCalculator()">
+Calculate
+</button>
+
+<div class="result" id="discountResult">
+Result will appear here
+</div>
+
+</div>
+
+
+<!-- 6 -->
+
+<div class="card">
+
+<h2>6. Profit & Loss</h2>
+
+<p class="card-desc">
+Calculate profit/loss amount and percentage.
+</p>
+
+<div class="input-group">
+<label>Cost Price</label>
+<input type="number" id="costPrice">
+</div>
+
+<div class="input-group">
+<label>Selling Price</label>
+<input type="number" id="sellingPrice">
+</div>
+
+<button class="calculate-btn"
+onclick="profitLoss()">
+Calculate
+</button>
+
+<div class="result" id="profitResult">
+Result will appear here
+</div>
+
+</div>
+
+
+<!-- 7 -->
+
+<div class="card">
+
+<h2>7. Marks Percentage</h2>
+
+<p class="card-desc">
+Calculate exam percentage from obtained and maximum marks.
+</p>
+
+<div class="input-group">
+<label>Marks Obtained</label>
+<input type="number" id="marksObtained">
+</div>
+
+<div class="input-group">
+<label>Total Marks</label>
+<input type="number" id="marksTotal">
+</div>
+
+<button class="calculate-btn"
+onclick="marksPercentage()">
+Calculate
+</button>
+
+<div class="result" id="marksResult">
+Result will appear here
+</div>
+
+</div>
+
+
+<!-- 8 -->
+
+<div class="card">
+
+<h2>8. Reverse Percentage</h2>
+
+<p class="card-desc">
+Find the original number when you know a percentage of it.
+</p>
+
+<div class="input-group">
+<label>Known Value</label>
+<input type="number" id="reverseValue">
+</div>
+
+<div class="input-group">
+<label>Percentage (%)</label>
+<input type="number" id="reversePercent">
+</div>
+
+<button class="calculate-btn"
+onclick="reversePercentage()">
+Calculate
+</button>
+
+<div class="result" id="reverseResult">
+Result will appear here
+</div>
+
+<div class="formula">
+Original = Known Value ÷ (Percentage ÷ 100)
+</div>
+
+</div>
+
+
+<!-- 9 -->
+
+<div class="card full-card">
+
+<h2>9. Percentage Difference</h2>
+
+<p class="card-desc">
+Compare two values using percentage difference.
+</p>
+
+<div class="input-group">
+<label>Value A</label>
+<input type="number" id="differenceA">
+</div>
+
+<div class="input-group">
+<label>Value B</label>
+<input type="number" id="differenceB">
+</div>
+
+<button class="calculate-btn"
+onclick="percentageDifference()">
+Calculate
+</button>
+
+<div class="result" id="differenceResult">
+Result will appear here
+</div>
+
+<div class="formula">
+Difference % = |A − B| ÷ ((A + B) ÷ 2) × 100
+</div>
+
+</div>
+
+
+<!-- 10 -->
+
+<div class="card full-card">
+
+<h2>10. Final Price After Increase / Decrease</h2>
+
+<p class="card-desc">
+Calculate the new price after applying a percentage change.
+</p>
+
+<div class="input-group">
+<label>Original Value</label>
+<input type="number" id="changeValue">
+</div>
+
+<div class="input-group">
+<label>Percentage (%)</label>
+<input type="number" id="changePercent">
+</div>
+
+<div class="input-group">
+
+<label>Change Type</label>
+
+<select id="changeType"
+style="width:100%;padding:13px;border:1px solid #d6dce7;border-radius:9px;font-size:16px;">
+
+<option value="increase">
+Increase
+</option>
+
+<option value="decrease">
+Decrease
+</option>
+
+</select>
+
+</div>
+
+<button class="calculate-btn"
+onclick="finalChange()">
+Calculate
+</button>
+
+<div class="result" id="changeResult">
+Result will appear here
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     FORMULAS
+========================= -->
+
+<section id="formulas" class="section">
+
+<div class="card full-card">
+
+<h2>📐 Important Percentage Formulas</h2>
+
+<br>
+
+<p><b>1. Basic Percentage</b></p>
+
+<div class="formula">
+Percentage = (Part ÷ Total) × 100
+</div>
+
+<br>
+
+<p><b>2. Percentage of a Number</b></p>
+
+<div class="formula">
+x% of y = (x ÷ 100) × y
+</div>
+
+<br>
+
+<p><b>3. Percentage Increase</b></p>
+
+<div class="formula">
+Increase % = ((New − Original) ÷ Original) × 100
+</div>
+
+<br>
+
+<p><b>4. Percentage Decrease</b></p>
+
+<div class="formula">
+Decrease % = ((Original − New) ÷ Original) × 100
+</div>
+
+<br>
+
+<p><b>5. Profit Percentage</b></p>
+
+<div class="formula">
+Profit % = (Profit ÷ Cost Price) × 100
+</div>
+
+<br>
+
+<p><b>6. Loss Percentage</b></p>
+
+<div class="formula">
+Loss % = (Loss ÷ Cost Price) × 100
+</div>
+
+<br>
+
+<p><b>7. Discount</b></p>
+
+<div class="formula">
+Discount = (Discount % ÷ 100) × Marked Price
+</div>
+
+<br>
+
+<p><b>8. Price After Discount</b></p>
+
+<div class="formula">
+Final Price = Marked Price − Discount
+</div>
+
+<br>
+
+<p><b>9. Reverse Percentage</b></p>
+
+<div class="formula">
+Original = Known Value ÷ (Percentage ÷ 100)
+</div>
+
+<br>
+
+<p><b>10. Percentage Difference</b></p>
+
+<div class="formula">
+Difference % = |A − B| ÷ ((A+B) ÷ 2) × 100
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     QUICK EXAMPLES
+========================= -->
+
+<section id="quick" class="section">
+
+<div class="card full-card">
+
+<h2>⚡ Quick Percentage Examples</h2>
+
+<div class="table-wrap">
+
+<table>
+
+<tr>
+<th>Question</th>
+<th>Answer</th>
+</tr>
+
+<tr>
+<td>20% of 200</td>
+<td>40</td>
+</tr>
+
+<tr>
+<td>25% of 400</td>
+<td>100</td>
+</tr>
+
+<tr>
+<td>50 is what % of 200?</td>
+<td>25%</td>
+</tr>
+
+<tr>
+<td>40% of 500</td>
+<td>200</td>
+</tr>
+
+<tr>
+<td>10% increase on 500</td>
+<td>550</td>
+</tr>
+
+<tr>
+<td>20% decrease from 1000</td>
+<td>800</td>
+</tr>
+
+<tr>
+<td>₹1000 with 10% discount</td>
+<td>₹900</td>
+</tr>
+
+<tr>
+<td>80 marks out of 100</td>
+<td>80%</td>
+</tr>
+
+<tr>
+<td>45 marks out of 60</td>
+<td>75%</td>
+</tr>
+
+<tr>
+<td>30 is 15% of what?</td>
+<td>200</td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+</section>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<h3>StudyForge ⚡</h3>
+
+<p>
+Learn • Practice • Calculate • Improve
+</p>
+
+<p style="margin-top:10px;font-size:13px;">
+© 2026 StudyForge
+</p>
+
+</footer>
+
+
+<!-- DARK MODE -->
+
+<button class="theme-btn"
+onclick="toggleTheme()"
+title="Toggle Theme">
+🌙
+</button>
+
+
+<script>
+
+/* =========================
+   MENU
+========================= */
+
+function toggleMenu(){
+
+    document
+    .getElementById("navLinks")
+    .classList.toggle("show");
+
+}
+
+
+/* =========================
+   TABS
+========================= */
+
+function openSection(id,button){
+
+    document
+    .querySelectorAll(".section")
+    .forEach(section=>{
+        section.classList.remove("active");
+    });
+
+    document
+    .getElementById(id)
+    .classList.add("active");
+
+    document
+    .querySelectorAll(".tab")
+    .forEach(tab=>{
+        tab.classList.remove("active");
+    });
+
+    button.classList.add("active");
+
+}
+
+
+/* =========================
+   HELPER
+========================= */
+
+function value(id){
+
+    return Number(
+        document.getElementById(id).value
+    );
+
+}
+
+
+function valid(...numbers){
+
+    return numbers.every(
+        n => Number.isFinite(n)
+    );
+
+}
+
+
+function output(id,text){
+
+    document
+    .getElementById(id)
+    .innerHTML = text;
+
+}
+
+
+/* =========================
+   1 BASIC %
+========================= */
+
+function basicPercentage(){
+
+    let part=value("part");
+    let total=value("total");
+
+    if(!valid(part,total) || total===0){
+
+        output(
+            "basicResult",
+            "⚠️ Enter valid values."
+        );
+
+        return;
+    }
+
+    let result=(part/total)*100;
+
+    output(
+        "basicResult",
+        "Answer: "+result.toFixed(2)+"%"
+    );
+
+}
+
+
+/* =========================
+   2 % OF NUMBER
+========================= */
+
+function percentageOfNumber(){
+
+    let percent=value("percentOf");
+    let number=value("numberOf");
+
+    if(!valid(percent,number)){
+
+        output(
+            "percentOfResult",
+            "⚠️ Enter valid values."
+        );
+
+        return;
+    }
+
+    let result=(percent/100)*number;
+
+    output(
+        "percentOfResult",
+        "Answer: "+format(result)
+    );
+
+}
+
+
+/* =========================
+   3 INCREASE
+========================= */
+
+function percentageIncrease(){
+
+    let oldValue=value("increaseOld");
+    let newValue=value("increaseNew");
+
+    if(!valid(oldValue,newValue) || oldValue===0){
+
+        output(
+            "increaseResult",
+            "⚠️ Enter valid values."
+        );
+
+        return;
+    }
+
+    let increase=
+        ((newValue-oldValue)/oldValue)*100;
+
+    output(
+        "increaseResult",
+        "Increase: "+increase.toFixed(2)+"%"
+    );
+
+}
+
+
+/* =========================
+   4 DECREASE
+========================= */
+
+function percentageDecrease(){
+
+    let oldValue=value("decreaseOld");
+    let newValue=value("decreaseNew");
+
+    if(!valid(oldValue,newValue) || oldValue===0){
+
+        output(
+            "decreaseResult",
+            "⚠️ Enter valid values."
+        );
+
+        return;
+    }
+
+    let decrease=
+        ((oldValue-newValue)/oldValue)*100;
+
+    output(
+        "decreaseResult",
+        "Decrease: "+decrease.toFixed(2)+"%"
+    );
+
+}
+
+
+/* =========================
+   5 DISCOUNT
+========================= */
+
+function discountCalculator(){
+
+    let price=value("discountPrice");
+    let percent=value("discountPercent");
+
+    if(
+        !valid(price,percent) ||
+        price<0 ||
+        percent<0
+    ){
+
+        output(
+            "discountResult",
+            "⚠️ Enter valid values."
+        );
+
+        return;
+    }
+
+    let discount=
+        price*(percent/100);
+
+    let finalPrice=
+        price-discount;
+
+    output(
+        "discountResult",
+        "Discount: "+format(discount)+
+        "<br>Final Price: "+format(finalPrice)
+    );
+
+}
+
+
+/* =========================
+   6 PROFIT LOSS
+========================= */
+
+function profitLoss(){
+
+    let cp=value("costPrice");
+    let sp=value("sellingPrice");
+
+    if(
+        !valid(cp,sp) ||
+        cp<=0
+    ){
+
+        output(
+            "profitResult",
+            "⚠️ Enter valid values."
+        );
+
+        return;
+    }
+
+    let difference=sp-cp;
+
+    if(difference>0){
+
+        let percent=
+            (difference/cp)*100;
+
+        output(
+            "profitResult",
+            "Profit: "+format(difference)+
+            "<br>Profit %: "+percent.toFixed(2)+"%"
+        );
+
+    }
+
+    else if(difference<0){
+
+        let loss=Math.abs(difference);
+
+        let percent=
+            (loss/cp)*100;
+
+        output(
+            "profitResult",
+            "Loss: "+format(loss)+
+            "<br>Loss %: "+percent.toFixed(2)+"%"
+        );
+
+    }
+
+    else{
+
+        output(
+            "profitResult",
+            "No Profit, No Loss"
+        );
+
+    }
+
+}
+
+
+/* =========================
+   7 MARKS
+========================= */
+
+function marksPercentage(){
+
+    let obtained=value("marksObtained");
+    let totalMarks=value("marksTotal");
+
+    if(
+        !valid(obtained,totalMarks) ||
+        totalMarks<=0
+    ){
+
+        output(
+            "marksResult",
+            "⚠️ Enter valid marks."
+        );
+
+        return;
+    }
+
+    let percent=
+        (obtained/totalMarks)*100;
+
+    output(
+        "marksResult",
+        "Percentage: "+percent.toFixed(2)+"%"
+    );
+
+}
+
+
+/* =========================
+   8 REVERSE
+========================= */
+
+function reversePercentage(){
+
+    let known=value("reverseValue");
+    let percent=value("reversePercent");
+
+    if(
+        !valid(known,percent) ||
+        percent===0
+    ){
+
+        output(
+            "reverseResult",
+            "⚠️ Enter valid values."
+        );
+
+        return;
+    }
+
+    let original=
+        known/(percent/100);
+
+    output(
+        "reverseResult",
+        "Original Value: "+format(original)
+    );
+
+}
+
+
+/* =========================
+   9 DIFFERENCE
+========================= */
+
+function percentageDifference(){
+
+    let a=value("differenceA");
+    let b=value("differenceB");
+
+    if(!valid(a,b)){
+
+        output(
+            "differenceResult",
+            "⚠️ Enter valid values."
+        );
+
+        return;
+    }
+
+    let average=(a+b)/2;
+
+    if(average===0){
+
+        output(
+            "differenceResult",
+            "⚠️ Cannot calculate."
+        );
+
+        return;
+    }
+
+    let difference=
+        Math.abs(a-b);
+
+    let percent=
+        (difference/average)*100;
+
+    output(
+        "differenceResult",
+        "Percentage Difference: "+
+        percent.toFixed(2)+"%"
+    );
+
+}
+
+
+/* =========================
+   10 FINAL CHANGE
+========================= */
+
+function finalChange(){
+
+    let original=value("changeValue");
+    let percent=value("changePercent");
+
+    let type=
+        document.getElementById(
+            "changeType"
+        ).value;
+
+    if(
+        !valid(original,percent) ||
+        original<0 ||
+        percent<0
+    ){
+
+        output(
+            "changeResult",
+            "⚠️ Enter valid values."
+        );
+
+        return;
+    }
+
+    let change=
+        original*(percent/100);
+
+    let finalValue;
+
+    if(type==="increase"){
+
+        finalValue=
+            original+change;
+
+    }
+
+    else{
+
+        finalValue=
+            original-change;
+
+    }
+
+    output(
+        "changeResult",
+        "Change Amount: "+format(change)+
+        "<br>Final Value: "+format(finalValue)
+    );
+
+}
+
+
+/* =========================
+   FORMAT
+========================= */
+
+function format(number){
+
+    return Number(
+        number.toFixed(8)
+    ).toLocaleString(
+        "en-IN"
+    );
+
+}
+
+
+/* =========================
+   DARK MODE
+========================= */
+
+function toggleTheme(){
+
+    document.body.classList.toggle("dark");
+
+    let dark=
+        document.body.classList.contains("dark");
+
+    localStorage.setItem(
+        "studyforgeTheme",
+        dark ? "dark" : "light"
+    );
+
+    document.querySelector(
+        ".theme-btn"
+    ).textContent=
+        dark ? "☀️" : "🌙";
+
+}
+
+
+function loadTheme(){
+
+    let theme=
+        localStorage.getItem(
+            "studyforgeTheme"
+        );
+
+    if(theme==="dark"){
+
+        document.body.classList.add("dark");
+
+        document.querySelector(
+            ".theme-btn"
+        ).textContent="☀️";
+
+    }
+
+}
+
+
+/* START */
+
+loadTheme();
+
+</script>
+
+</body>
+</html>

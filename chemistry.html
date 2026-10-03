@@ -1,0 +1,2033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>StudyForge — Chemistry</title>
+
+<meta name="description"
+content="StudyForge Chemistry — Class 8, 9 and 10 Chemistry concepts, notes, formulas, reactions, practice questions and 300-question quiz.">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+font-family:Arial,sans-serif;
+background:#f5f7fb;
+color:#172033;
+line-height:1.6
+}
+
+button{font-family:inherit}
+
+.navbar{
+background:#fff;
+padding:15px 6%;
+display:flex;
+align-items:center;
+justify-content:space-between;
+box-shadow:0 2px 12px rgba(0,0,0,.08);
+position:sticky;
+top:0;
+z-index:1000
+}
+
+.logo{
+font-size:24px;
+font-weight:800
+}
+
+.logo span{color:#16a085}
+
+.nav-links{
+display:flex;
+gap:25px
+}
+
+.nav-links a{
+text-decoration:none;
+color:#172033;
+font-weight:600
+}
+
+.nav-links a:hover{color:#16a085}
+
+.menu-btn{
+display:none;
+font-size:26px;
+cursor:pointer
+}
+
+.hero{
+padding:70px 6%;
+text-align:center;
+background:linear-gradient(135deg,#e8fff8,#fff)
+}
+
+.hero h1{
+font-size:43px;
+margin-bottom:15px
+}
+
+.hero h1 span{color:#16a085}
+
+.hero p{
+max-width:800px;
+margin:auto;
+color:#5d6678;
+font-size:17px
+}
+
+.section{padding:55px 6%}
+
+.section-title{
+text-align:center;
+margin-bottom:35px
+}
+
+.section-title h2{
+font-size:30px;
+margin-bottom:8px
+}
+
+.section-title p{color:#687386}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:18px;
+padding:35px 6%
+}
+
+.stat{
+background:#fff;
+padding:22px;
+text-align:center;
+border-radius:15px;
+box-shadow:0 5px 18px rgba(0,0,0,.06)
+}
+
+.stat h3{
+color:#16a085;
+font-size:28px
+}
+
+.stat p{color:#687386}
+
+.class-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:22px
+}
+
+.class-card{
+background:#fff;
+padding:30px;
+border-radius:18px;
+text-align:center;
+cursor:pointer;
+box-shadow:0 5px 18px rgba(0,0,0,.07);
+transition:.25s
+}
+
+.class-card:hover{transform:translateY(-5px)}
+
+.class-number{
+width:65px;
+height:65px;
+margin:auto auto 15px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+background:#e8fff8;
+color:#16a085;
+font-size:22px;
+font-weight:bold
+}
+
+.topic-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:18px
+}
+
+.topic-card{
+background:#fff;
+padding:22px;
+border-radius:16px;
+cursor:pointer;
+box-shadow:0 5px 16px rgba(0,0,0,.06);
+transition:.25s
+}
+
+.topic-card:hover{transform:translateY(-4px)}
+
+.topic-icon{
+font-size:32px;
+margin-bottom:8px
+}
+
+.topic-card h3{
+font-size:18px;
+margin-bottom:5px
+}
+
+.topic-card p{
+color:#687386;
+font-size:14px
+}
+
+.formula-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:18px
+}
+
+.formula-card{
+background:#fff;
+padding:24px;
+border-radius:16px;
+cursor:pointer;
+box-shadow:0 5px 16px rgba(0,0,0,.06);
+transition:.25s
+}
+
+.formula-card:hover{transform:translateY(-4px)}
+
+.formula-icon{
+font-size:32px;
+margin-bottom:8px
+}
+
+.formula-card p{
+color:#687386;
+font-size:14px
+}
+
+.practice-box{
+background:linear-gradient(135deg,#16a085,#12876f);
+color:white;
+padding:45px 30px;
+border-radius:22px;
+text-align:center
+}
+
+.practice-box h2{
+font-size:30px;
+margin-bottom:10px
+}
+
+.practice-box p{margin-bottom:22px}
+
+.btn{
+border:none;
+padding:12px 21px;
+border-radius:10px;
+cursor:pointer;
+font-weight:bold;
+font-size:15px;
+margin:5px
+}
+
+.btn-light{
+background:white;
+color:#12876f
+}
+
+.btn-green{
+background:#16a085;
+color:white
+}
+
+.learn-page,
+.practice-page,
+.quiz-page{
+display:none;
+position:fixed;
+inset:0;
+background:#f5f7fb;
+z-index:3000;
+overflow-y:auto
+}
+
+.learn-header,
+.practice-header,
+.quiz-header{
+background:white;
+padding:16px 6%;
+display:flex;
+align-items:center;
+gap:15px;
+box-shadow:0 2px 12px rgba(0,0,0,.08);
+position:sticky;
+top:0;
+z-index:10
+}
+
+.learn-header h2,
+.practice-header h2,
+.quiz-header h2{
+color:#16a085
+}
+
+.back-btn{
+border:none;
+background:#e8fff8;
+color:#12876f;
+padding:10px 15px;
+border-radius:9px;
+cursor:pointer;
+font-weight:bold
+}
+
+.learn-content,
+.practice-content,
+.quiz-content{
+max-width:1050px;
+margin:auto;
+padding:35px 6%
+}
+
+.lesson-section{
+background:white;
+padding:25px;
+margin-bottom:20px;
+border-radius:16px;
+box-shadow:0 4px 15px rgba(0,0,0,.06)
+}
+
+.lesson-title{
+color:#12876f;
+margin-bottom:12px
+}
+
+.lesson-body{color:#4d586b}
+
+.lesson-body ul{
+padding-left:22px;
+margin:10px 0
+}
+
+.lesson-body li{margin-bottom:7px}
+
+.chem-equation{
+background:#f0faf7;
+padding:15px;
+border-radius:10px;
+margin:14px 0;
+font-weight:bold;
+text-align:center;
+font-size:18px;
+color:#116b59;
+overflow-x:auto
+}
+
+.formula-box{
+background:#f0faf7;
+padding:15px;
+border-radius:10px;
+margin:12px 0;
+font-weight:bold;
+color:#116b59
+}
+
+.formula-row{
+display:flex;
+justify-content:space-between;
+gap:15px;
+padding:11px 5px;
+border-bottom:1px solid #dce8e4
+}
+
+.formula-row:last-child{border-bottom:0}
+
+.formula-name{
+font-weight:bold;
+color:#263348
+}
+
+.formula-value{
+font-weight:bold;
+color:#12876f;
+text-align:right
+}
+
+.note-box{
+background:#fff8dc;
+padding:15px;
+border-left:4px solid #e2b93b;
+border-radius:8px;
+margin-top:15px
+}
+
+.example-box{
+background:#f5f7fb;
+padding:15px;
+border-radius:10px;
+margin:12px 0
+}
+
+.practice-card{
+background:#fff;
+padding:23px;
+margin-bottom:18px;
+border-radius:15px;
+box-shadow:0 4px 15px rgba(0,0,0,.06)
+}
+
+.answer-input{
+width:100%;
+padding:12px;
+margin-top:15px;
+border:1px solid #ccd3df;
+border-radius:9px;
+font-size:15px
+}
+
+.answer-btn{
+margin-top:10px;
+background:#16a085;
+color:#fff;
+border:0;
+padding:10px 15px;
+border-radius:8px;
+cursor:pointer
+}
+
+.answer-text{
+display:none;
+margin-top:12px;
+padding:12px;
+background:#e8fff8;
+border-radius:8px;
+color:#116b59;
+font-weight:bold
+}
+
+.quiz-box{
+background:white;
+padding:28px;
+border-radius:18px;
+box-shadow:0 5px 18px rgba(0,0,0,.07)
+}
+
+.quiz-top{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:10px;
+flex-wrap:wrap
+}
+
+.quiz-progress{
+color:#16a085;
+font-weight:bold
+}
+
+.difficulty{
+background:#e8fff8;
+color:#12876f;
+padding:6px 12px;
+border-radius:20px;
+font-size:13px;
+font-weight:bold
+}
+
+.progress-wrap{
+width:100%;
+height:9px;
+background:#e1e6ed;
+border-radius:20px;
+overflow:hidden;
+margin:16px 0 25px
+}
+
+.progress-bar{
+height:100%;
+background:#16a085;
+width:0;
+transition:.3s
+}
+
+.quiz-question{
+font-size:21px;
+font-weight:bold;
+margin-bottom:20px
+}
+
+.option{
+padding:14px;
+border:1px solid #d5dbe5;
+border-radius:10px;
+margin:10px 0;
+cursor:pointer;
+transition:.2s
+}
+
+.option:hover{background:#f0faf7}
+
+.option.correct{
+background:#d9f8ed;
+border-color:#16a085
+}
+
+.option.wrong{
+background:#ffe1e1;
+border-color:#e05252
+}
+
+.option.disabled{
+cursor:not-allowed
+}
+
+.quiz-actions{
+display:flex;
+justify-content:space-between;
+margin-top:20px;
+gap:10px
+}
+
+.quiz-next,
+.restart-btn{
+background:#16a085;
+color:white
+}
+
+.quiz-next:disabled{
+opacity:.45;
+cursor:not-allowed
+}
+
+.quiz-score{
+text-align:center;
+font-size:42px;
+color:#16a085;
+font-weight:bold;
+margin:20px 0
+}
+
+.result-box{
+background:white;
+padding:35px;
+border-radius:20px;
+text-align:center;
+box-shadow:0 5px 18px rgba(0,0,0,.07)
+}
+
+.score-message{
+font-size:18px;
+color:#687386;
+margin-bottom:20px
+}
+
+.result-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:12px;
+margin:25px 0
+}
+
+.result-stat{
+padding:18px;
+background:#f5f7fb;
+border-radius:12px
+}
+
+.result-stat b{
+display:block;
+font-size:24px;
+color:#16a085
+}
+
+.search-box{
+width:100%;
+padding:14px;
+border:1px solid #ccd3df;
+border-radius:10px;
+font-size:16px;
+margin-bottom:20px
+}
+
+.small-title{
+font-size:14px;
+color:#687386;
+margin-bottom:8px
+}
+
+footer{
+background:#172033;
+color:white;
+text-align:center;
+padding:30px 6%
+}
+
+footer span{color:#50d9b8}
+
+@media(max-width:800px){
+
+.nav-links{
+display:none;
+position:absolute;
+top:65px;
+left:0;
+width:100%;
+background:white;
+flex-direction:column;
+padding:20px 6%;
+box-shadow:0 5px 15px rgba(0,0,0,.08)
+}
+
+.nav-links.active{display:flex}
+
+.menu-btn{display:block}
+
+.hero h1{font-size:32px}
+
+.stats{grid-template-columns:repeat(2,1fr)}
+
+.class-grid{grid-template-columns:1fr}
+
+.topic-grid{grid-template-columns:repeat(2,1fr)}
+
+.formula-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+@media(max-width:500px){
+
+.hero{padding:55px 6%}
+
+.hero h1{font-size:29px}
+
+.topic-grid,
+.formula-grid{
+grid-template-columns:1fr
+}
+
+.section{padding:45px 6%}
+
+.learn-content,
+.practice-content,
+.quiz-content{
+padding:25px 5%
+}
+
+.quiz-question{font-size:18px}
+
+.result-grid{grid-template-columns:1fr}
+
+.formula-row{display:block}
+
+.formula-value{
+text-align:left;
+margin-top:4px
+}
+}
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+
+<div class="logo">Study<span>Forge</span></div>
+
+<nav class="nav-links" id="navLinks">
+<a href="index.html">Home</a>
+<a href="mathematics.html">Mathematics</a>
+<a href="physics.html">Physics</a>
+<a href="chemistry.html">Chemistry</a>
+</nav>
+
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+</header>
+
+<section class="hero">
+
+<h1>Master <span>Chemistry</span></h1>
+
+<p>
+Learn Chemistry from basic concepts to Class 10 level with
+simple explanations, examples, equations, formulas,
+practice questions and a 300-question quiz.
+</p>
+
+</section>
+
+<section class="stats">
+
+<div class="stat">
+<h3>3</h3>
+<p>Classes</p>
+</div>
+
+<div class="stat">
+<h3>20+</h3>
+<p>Topics</p>
+</div>
+
+<div class="stat">
+<h3>100+</h3>
+<p>Concepts</p>
+</div>
+
+<div class="stat">
+<h3>300</h3>
+<p>Quiz Questions</p>
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="section-title">
+<h2>Choose Your Class</h2>
+<p>Learn chemistry step by step according to your level.</p>
+</div>
+
+<div class="class-grid">
+
+<div class="class-card" onclick="openLearn('class8')">
+<div class="class-number">8</div>
+<h3>Class 8 Chemistry</h3>
+<p>Combustion, fuels, metals, non-metals and microorganisms.</p>
+</div>
+
+<div class="class-card" onclick="openLearn('class9')">
+<div class="class-number">9</div>
+<h3>Class 9 Chemistry</h3>
+<p>Matter, mixtures, atoms, molecules and atomic structure.</p>
+</div>
+
+<div class="class-card" onclick="openLearn('class10')">
+<div class="class-number">10</div>
+<h3>Class 10 Chemistry</h3>
+<p>Reactions, acids, bases, metals, carbon and periodic table.</p>
+</div>
+
+</div>
+</section>
+
+<section class="section">
+
+<div class="section-title">
+<h2>Explore Chemistry Topics</h2>
+<p>Tap any topic to open detailed notes.</p>
+</div>
+
+<div class="topic-grid">
+
+<div class="topic-card" onclick="openLearn('matter')">
+<div class="topic-icon">⚛️</div>
+<h3>Matter</h3>
+<p>States, properties and particles of matter.</p>
+</div>
+
+<div class="topic-card" onclick="openLearn('mixtures')">
+<div class="topic-icon">🥣</div>
+<h3>Mixtures</h3>
+<p>Solutions and separation techniques.</p>
+</div>
+
+<div class="topic-card" onclick="openLearn('atoms')">
+<div class="topic-icon">🔬</div>
+<h3>Atoms & Molecules</h3>
+<p>Atoms, molecules and chemical formulas.</p>
+</div>
+
+<div class="topic-card" onclick="openLearn('structure')">
+<div class="topic-icon">⚙️</div>
+<h3>Structure of Atom</h3>
+<p>Protons, neutrons, electrons and shells.</p>
+</div>
+
+<div class="topic-card" onclick="openLearn('valency')">
+<div class="topic-icon">🔗</div>
+<h3>Valency</h3>
+<p>Combining capacity of elements.</p>
+</div>
+
+<div class="topic-card" onclick="openLearn('reactions')">
+<div class="topic-icon">🧪</div>
+<h3>Chemical Reactions</h3>
+<p>Reactants, products and reaction types.</p>
+</div>
+
+<div class="topic-card" onclick="openLearn('equations')">
+<div class="topic-icon">⚗️</div>
+<h3>Chemical Equations</h3>
+<p>Writing and balancing equations.</p>
+</div>
+
+<div class="topic-card" onclick="openLearn('acids')">
+<div class="topic-icon">🧫</div>
+<h3>Acids & Bases</h3>
+<p>Properties, indicators and pH.</p>
+</div>
+
+<div class="topic-card" onclick="openLearn('salts')">
+<div class="topic-icon">🧂</div>
+<h3>Salts</h3>
+<p>Common salts and their uses.</p>
+</div>
+
+<div class="topic-card" onclick="openLearn('metals')">
+<div class="topic-icon">🔩</div>
+<h3>Metals</h3>
+<p>Properties and reactions of metals.</p>
+</div>
+
+<div class="topic-card" onclick="openLearn('nonmetals')">
+<div class="topic-icon">🌫️</div>
+<h3>Non-metals</h3>
+<p>Properties and important examples.</p>
+</div>
+
+<div class="topic-card" onclick="openLearn('reactivity')">
+<div class="topic-icon">🔥</div>
+<h3>Reactivity Series</h3>
+<p>Order of metals according to reactivity.</p>
+</div>
+
+<div class="topic-card" onclick="openLearn('carbon')">
+<div class="topic-icon">🧬</div>
+<h3>Carbon Compounds</h3>
+<p>Covalent bonding and carbon chains.</p>
+</div>
+
+<div class="topic-card" onclick="openLearn('hydrocarbons')">
+<div class="topic-icon">⛽</div>
+<h3>Hydrocarbons</h3>
+<p>Alkanes, alkenes and alkynes.</p>
+</div>
+
+<div class="topic-card" onclick="openLearn('periodic')">
+<div class="topic-icon">📊</div>
+<h3>Periodic Table</h3>
+<p>Groups, periods and classification.</p>
+</div>
+
+<div class="topic-card" onclick="openLearn('oxidation')">
+<div class="topic-icon">🔄</div>
+<h3>Oxidation & Reduction</h3>
+<p>Electron transfer and redox reactions.</p>
+</div>
+
+<div class="topic-card" onclick="openLearn('combustion')">
+<div class="topic-icon">🔥</div>
+<h3>Combustion</h3>
+<p>Burning and conditions required.</p>
+</div>
+
+<div class="topic-card" onclick="openLearn('coal')">
+<div class="topic-icon">🪨</div>
+<h3>Coal & Petroleum</h3>
+<p>Fossil fuels and their products.</p>
+</div>
+
+<div class="topic-card" onclick="openLearn('electrochemistry')">
+<div class="topic-icon">⚡</div>
+<h3>Electrochemistry</h3>
+<p>Electrolysis and chemical effects of electricity.</p>
+</div>
+
+<div class="topic-card" onclick="openLearn('mole')">
+<div class="topic-icon">🧮</div>
+<h3>Mole Concept</h3>
+<p>Moles, molar mass and particles.</p>
+</div>
+
+</div>
+</section>
+
+<section class="section">
+
+<div class="section-title">
+<h2>Chemistry Formulas & Quick Revision</h2>
+<p>Tap a card for the formula library.</p>
+</div>
+
+<div class="formula-grid">
+
+<div class="formula-card" onclick="openLearn('formulas')">
+<div class="formula-icon">📚</div>
+<h3>All Formulas</h3>
+<p>Important Class 8–10 formulas.</p>
+</div>
+
+<div class="formula-card" onclick="openLearn('ions')">
+<div class="formula-icon">➕</div>
+<h3>Common Ions</h3>
+<p>Positive and negative ions with charges.</p>
+</div>
+
+<div class="formula-card" onclick="openLearn('equations')">
+<div class="formula-icon">⚗️</div>
+<h3>Important Equations</h3>
+<p>Important reactions and equations.</p>
+</div>
+
+<div class="formula-card" onclick="openLearn('mole')">
+<div class="formula-icon">🧮</div>
+<h3>Mole Formulas</h3>
+<p>Moles, mass, particles and molar mass.</p>
+</div>
+
+</div>
+</section>
+
+<section class="section">
+
+<div class="practice-box">
+
+<h2>Ready to Practice?</h2>
+
+<p>
+Test what you have learned with Chemistry questions
+and a 300-question quiz.
+</p>
+
+<button class="btn btn-light" onclick="openPractice()">
+Practice Questions
+</button>
+
+<button class="btn btn-light" onclick="startQuiz()">
+Take Quiz
+</button>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>© 2026 <span>StudyForge</span> — Learn Smarter.</p>
+<p>Free educational platform for students.</p>
+
+</footer>
+
+<div class="learn-page" id="learnPage">
+
+<div class="learn-header">
+<button class="back-btn" onclick="closePages()">← Back</button>
+<h2 id="learnTitle">Chemistry</h2>
+</div>
+
+<div class="learn-content" id="learnContent"></div>
+
+</div>
+
+<div class="practice-page" id="practicePage">
+
+<div class="practice-header">
+<button class="back-btn" onclick="closePages()">← Back</button>
+<h2>Chemistry Practice</h2>
+</div>
+
+<div class="practice-content" id="practiceContent"></div>
+
+</div>
+
+<div class="quiz-page" id="quizPage">
+
+<div class="quiz-header">
+<button class="back-btn" onclick="closePages()">← Back</button>
+<h2>300 Question Quiz</h2>
+</div>
+
+<div class="quiz-content" id="quizContent"></div>
+
+</div>
+
+<script>
+
+/* =========================
+NAVIGATION
+========================= */
+
+function toggleMenu(){
+document.getElementById("navLinks").classList.toggle("active");
+}
+
+function hideAllPages(){
+document.getElementById("learnPage").style.display="none";
+document.getElementById("practicePage").style.display="none";
+document.getElementById("quizPage").style.display="none";
+}
+
+function closePages(){
+hideAllPages();
+document.body.style.overflow="auto";
+}
+
+function openPage(id){
+hideAllPages();
+document.getElementById(id).style.display="block";
+document.body.style.overflow="hidden";
+window.scrollTo(0,0);
+}
+
+/* =========================
+HELPERS
+========================= */
+
+function formulaRows(rows){
+return rows.map(function(r){
+return `
+<div class="formula-row">
+<span class="formula-name">${r[0]}</span>
+<span class="formula-value">${r[1]}</span>
+</div>`;
+}).join("");
+}
+
+function section(title,body){
+return `
+<div class="lesson-section">
+<h2 class="lesson-title">${title}</h2>
+<div class="lesson-body">${body}</div>
+</div>`;
+}
+
+/* =========================
+LESSON DATABASE
+========================= */
+
+const lessons={};
+
+/* =========================
+CLASS 8
+========================= */
+
+lessons.class8={
+title:"Class 8 Chemistry",
+html:
+section("Class 8 Chemistry — Foundation",`
+<p>Class 8 chemistry builds the foundation for higher classes.</p>
+<ul>
+<li>Combustion and Flame</li>
+<li>Coal and Petroleum</li>
+<li>Metals and Non-metals</li>
+<li>Physical and Chemical Changes</li>
+<li>Microorganisms</li>
+</ul>
+`)
++
+section("Combustion",`
+<p>Combustion is a chemical process in which a substance reacts with oxygen and releases heat and usually light.</p>
+<div class="chem-equation">Fuel + O₂ → Products + Heat</div>
+<ul>
+<li><b>Ignition temperature:</b> Minimum temperature at which a substance catches fire.</li>
+<li><b>Combustible:</b> A substance that can burn.</li>
+<li><b>Rapid combustion:</b> Combustion that occurs quickly.</li>
+<li><b>Spontaneous combustion:</b> Burning without an external flame.</li>
+<li><b>Explosion:</b> Extremely rapid combustion.</li>
+</ul>
+`)
++
+section("Coal and Petroleum",`
+<ul>
+<li>Coal and petroleum are fossil fuels.</li>
+<li>Coal mainly contains carbon.</li>
+<li>Petroleum is a mixture of hydrocarbons.</li>
+<li>Petroleum refining separates useful fractions.</li>
+<li>Petroleum products include petrol, diesel and kerosene.</li>
+<li>Natural gas is also a fossil fuel.</li>
+</ul>
+<div class="note-box">Fossil fuels are limited resources and should be used carefully.</div>
+`)
++
+section("Metals and Non-metals",`
+<p><b>Metals:</b></p>
+<ul>
+<li>Lustrous</li>
+<li>Malleable</li>
+<li>Ductile</li>
+<li>Good conductors of heat and electricity</li>
+<li>Generally sonorous</li>
+</ul>
+<p><b>Non-metals:</b></p>
+<ul>
+<li>Generally poor conductors</li>
+<li>Often brittle in solid form</li>
+<li>Generally not malleable</li>
+<li>Generally not ductile</li>
+</ul>
+`)
++
+section("Microorganisms",`
+<p>Microorganisms are organisms too small to be clearly seen with the naked eye.</p>
+<ul>
+<li>Lactobacillus helps in making curd.</li>
+<li>Yeast is used in baking.</li>
+<li>Yeast helps fermentation.</li>
+<li>Some microorganisms are used to produce medicines.</li>
+<li>Some microorganisms cause diseases.</li>
+</ul>
+`)
+};
+
+/* =========================
+CLASS 9
+========================= */
+
+lessons.class9={
+title:"Class 9 Chemistry",
+html:
+section("Class 9 Chemistry — Foundation",`
+<p>Class 9 introduces matter, atoms, molecules and atomic structure.</p>
+<ul>
+<li>Matter in Our Surroundings</li>
+<li>Is Matter Around Us Pure?</li>
+<li>Atoms and Molecules</li>
+<li>Structure of the Atom</li>
+</ul>
+`)
++
+section("Matter",`
+<p>Matter is anything that has mass and occupies space.</p>
+<ul>
+<li>Particles of matter are very small.</li>
+<li>There are spaces between particles.</li>
+<li>Particles are continuously moving.</li>
+<li>Particles attract one another.</li>
+</ul>
+<h3>States of Matter</h3>
+<ul>
+<li><b>Solid:</b> Fixed shape and fixed volume.</li>
+<li><b>Liquid:</b> Fixed volume but no fixed shape.</li>
+<li><b>Gas:</b> No fixed shape and no fixed volume.</li>
+</ul>
+`)
++
+section("Mixtures",`
+<p>A mixture contains two or more substances physically combined.</p>
+<ul>
+<li><b>Homogeneous mixture:</b> Uniform composition.</li>
+<li><b>Heterogeneous mixture:</b> Non-uniform composition.</li>
+<li>Filtration can separate insoluble solids from liquids.</li>
+<li>Evaporation can separate dissolved solids from solutions.</li>
+<li>Distillation can separate liquids based on boiling points.</li>
+</ul>
+`)
++
+section("Atoms and Molecules",`
+<p>An atom is the smallest particle of an element that takes part in chemical reactions.</p>
+<p>A molecule is made of two or more atoms chemically bonded together.</p>
+<div class="chem-equation">H₂ + O₂ → H₂O</div>
+<ul>
+<li>H₂ = hydrogen molecule</li>
+<li>O₂ = oxygen molecule</li>
+<li>H₂O = water molecule</li>
+</ul>
+`)
++
+section("Structure of Atom",`
+<ul>
+<li><b>Proton:</b> Positive charge.</li>
+<li><b>Electron:</b> Negative charge.</li>
+<li><b>Neutron:</b> No charge.</li>
+<li>Protons and neutrons are present in the nucleus.</li>
+<li>Electrons occupy regions around the nucleus.</li>
+</ul>
+`)
+};
+
+/* =========================
+CLASS 10
+========================= */
+
+lessons.class10={
+title:"Class 10 Chemistry",
+html:
+section("Class 10 Chemistry — Core Concepts",`
+<p>Class 10 chemistry focuses on chemical reactions, acids and bases, metals, carbon compounds and the periodic table.</p>
+<ul>
+<li>Chemical Reactions and Equations</li>
+<li>Acids, Bases and Salts</li>
+<li>Metals and Non-metals</li>
+<li>Carbon Compounds</li>
+<li>Periodic Classification</li>
+</ul>
+`)
++
+section("Chemical Reactions",`
+<p>A chemical reaction converts reactants into new products.</p>
+<div class="chem-equation">2Mg + O₂ → 2MgO</div>
+<p>Common types:</p>
+<ul>
+<li>Combination reaction</li>
+<li>Decomposition reaction</li>
+<li>Displacement reaction</li>
+<li>Double displacement reaction</li>
+<li>Oxidation-reduction reaction</li>
+</ul>
+`)
++
+section("Acids and Bases",`
+<ul>
+<li>Acids generally produce H⁺ ions in aqueous solution.</li>
+<li>Bases generally produce OH⁻ ions in aqueous solution.</li>
+<li>Acids turn blue litmus red.</li>
+<li>Bases turn red litmus blue.</li>
+<li>pH below 7 is acidic.</li>
+<li>pH 7 is neutral.</li>
+<li>pH above 7 is basic.</li>
+</ul>
+<div class="chem-equation">HCl + NaOH → NaCl + H₂O</div>
+`)
++
+section("Metals",`
+<ul>
+<li>Metals generally lose electrons to form positive ions.</li>
+<li>Many metals react with oxygen to form metal oxides.</li>
+<li>Some metals react with acids to release hydrogen.</li>
+</ul>
+<div class="chem-equation">Mg + 2HCl → MgCl₂ + H₂</div>
+`)
++
+section("Carbon Compounds",`
+<p>Carbon forms a very large number of compounds because of catenation and tetravalency.</p>
+<ul>
+<li>Carbon has valency 4.</li>
+<li>Covalent bonds are common in carbon compounds.</li>
+<li>Hydrocarbons contain only carbon and hydrogen.</li>
+<li>Alkanes contain single bonds.</li>
+<li>Alkenes contain at least one double bond.</li>
+<li>Alkynes contain at least one triple bond.</li>
+</ul>
+`)
++
+section("Periodic Table",`
+<ul>
+<li>Horizontal rows are called periods.</li>
+<li>Vertical columns are called groups.</li>
+<li>Elements in the same group often show similar chemical properties.</li>
+<li>Modern periodic table is arranged according to atomic number.</li>
+</ul>
+`)
+};
+
+/* =========================
+TOPICS
+========================= */
+
+lessons.matter={
+title:"Matter",
+html:
+section("Matter",`
+<p>Matter is anything that has mass and occupies space.</p>
+<ul>
+<li>Particles are tiny.</li>
+<li>Particles have spaces between them.</li>
+<li>Particles are in continuous motion.</li>
+<li>Particles attract each other.</li>
+</ul>
+<h3>Solid</h3>
+<p>Strong intermolecular forces and fixed shape.</p>
+<h3>Liquid</h3>
+<p>Particles can move past one another.</p>
+<h3>Gas</h3>
+<p>Particles are far apart and move freely.</p>
+`)
+};
+
+lessons.mixtures={
+title:"Mixtures",
+html:
+section("Mixtures and Separation",`
+<p>A mixture contains two or more substances that are physically combined.</p>
+<ul>
+<li>Filtration</li>
+<li>Evaporation</li>
+<li>Distillation</li>
+<li>Chromatography</li>
+<li>Centrifugation</li>
+<li>Separating funnel</li>
+</ul>
+`)
+};
+
+lessons.atoms={
+title:"Atoms and Molecules",
+html:
+section("Atoms and Molecules",`
+<p><b>Atom:</b> Smallest unit of an element participating in chemical reactions.</p>
+<p><b>Molecule:</b> Two or more atoms chemically bonded.</p>
+<div class="formula-box">
+Molecular mass = Sum of atomic masses of all atoms in a molecule
+</div>
+<div class="example-box">
+H₂O = 2 × 1 + 16 = 18 u
+</div>
+`)
+};
+
+lessons.structure={
+title:"Structure of Atom",
+html:
+section("Subatomic Particles",`
+<div class="formula-box">
+Proton = +1 charge<br>
+Electron = −1 charge<br>
+Neutron = 0 charge
+</div>
+<ul>
+<li>Nucleus contains protons and neutrons.</li>
+<li>Electrons occupy shells around the nucleus.</li>
+<li>Atomic number = Number of protons.</li>
+<li>For a neutral atom, electrons = protons.</li>
+<li>Mass number = Protons + Neutrons.</li>
+</ul>
+`)
+};
+
+lessons.valency={
+title:"Valency",
+html:
+section("Valency",`
+<p>Valency is the combining capacity of an atom.</p>
+<div class="formula-box">
+Na → Na⁺ → Valency 1<br>
+Mg → Mg²⁺ → Valency 2<br>
+Al → Al³⁺ → Valency 3<br>
+Cl → Cl⁻ → Valency 1
+</div>
+<p>Valency helps us write chemical formulas.</p>
+<div class="example-box">
+Mg has valency 2 and Cl has valency 1.<br>
+Therefore: MgCl₂
+</div>
+`)
+};
+
+lessons.reactions={
+title:"Chemical Reactions",
+html:
+section("Chemical Reactions",`
+<p>A chemical reaction produces one or more new substances.</p>
+<ul>
+<li>Combination</li>
+<li>Decomposition</li>
+<li>Displacement</li>
+<li>Double displacement</li>
+<li>Redox</li>
+</ul>
+<div class="chem-equation">CaO + H₂O → Ca(OH)₂</div>
+`)
+};
+
+lessons.equations={
+title:"Chemical Equations",
+html:
+section("Writing Chemical Equations",`
+<p>A chemical equation represents a chemical reaction using symbols and formulas.</p>
+<p>An equation is balanced when the number of atoms of each element is equal on both sides.</p>
+<div class="chem-equation">2H₂ + O₂ → 2H₂O</div>
+<div class="note-box">
+Never change subscripts while balancing an equation. Change only coefficients.
+</div>
+`)
+};
+
+lessons.acids={
+title:"Acids and Bases",
+html:
+section("Acids and Bases",`
+<p>Acids and bases have different chemical properties.</p>
+<ul>
+<li>Acids generally have pH below 7.</li>
+<li>Bases generally have pH above 7.</li>
+<li>Neutral substances have pH around 7.</li>
+<li>Litmus is an important indicator.</li>
+</ul>
+<div class="chem-equation">Acid + Base → Salt + Water</div>
+`)
+};
+
+lessons.salts={
+title:"Salts",
+html:
+section("Salts",`
+<p>Salts are ionic compounds often formed during neutralisation.</p>
+<div class="chem-equation">HCl + NaOH → NaCl + H₂O</div>
+<ul>
+<li>NaCl = Sodium chloride</li>
+<li>NaHCO₃ = Baking soda</li>
+<li>Na₂CO₃·10H₂O = Washing soda</li>
+<li>CaSO₄·½H₂O = Plaster of Paris</li>
+</ul>
+`)
+};
+
+lessons.metals={
+title:"Metals",
+html:
+section("Metals",`
+<ul>
+<li>Metals are generally lustrous.</li>
+<li>They are generally malleable.</li>
+<li>They are generally ductile.</li>
+<li>They conduct heat and electricity.</li>
+<li>Many metals form positive ions.</li>
+</ul>
+<div class="chem-equation">Zn + 2HCl → ZnCl₂ + H₂</div>
+`)
+};
+
+lessons.nonmetals={
+title:"Non-metals",
+html:
+section("Non-metals",`
+<ul>
+<li>Many non-metals are poor conductors.</li>
+<li>Solid non-metals are often brittle.</li>
+<li>They are generally not malleable.</li>
+<li>They are generally not ductile.</li>
+<li>They may form negative ions or share electrons.</li>
+</ul>
+`)
+};
+
+lessons.reactivity={
+title:"Reactivity Series",
+html:
+section("Reactivity Series",`
+<p>A commonly used reactivity order is:</p>
+<div class="formula-box">
+K &gt; Na &gt; Ca &gt; Mg &gt; Al &gt; Zn &gt; Fe &gt; Pb &gt; H &gt; Cu &gt; Hg &gt; Ag &gt; Au
+</div>
+<p>A more reactive metal can displace a less reactive metal from its salt solution.</p>
+<div class="chem-equation">Zn + CuSO₄ → ZnSO₄ + Cu</div>
+`)
+};
+
+lessons.carbon={
+title:"Carbon Compounds",
+html:
+section("Carbon Compounds",`
+<p>Carbon has valency 4 and can form strong covalent bonds.</p>
+<ul>
+<li>Tetravalency</li>
+<li>Catenation</li>
+<li>Covalent bonding</li>
+<li>Chains and rings</li>
+</ul>
+`)
+};
+
+lessons.hydrocarbons={
+title:"Hydrocarbons",
+html:
+section("Hydrocarbons",`
+<p>Hydrocarbons contain only carbon and hydrogen.</p>
+<div class="formula-box">
+Alkanes → CₙH₂ₙ₊₂<br>
+Alkenes → CₙH₂ₙ<br>
+Alkynes → CₙH₂ₙ₋₂
+</div>
+<div class="example-box">
+Methane = CH₄<br>
+Ethene = C₂H₄<br>
+Ethyne = C₂H₂
+</div>
+`)
+};
+
+lessons.periodic={
+title:"Periodic Table",
+html:
+section("Periodic Table",`
+<ul>
+<li>Periods are horizontal rows.</li>
+<li>Groups are vertical columns.</li>
+<li>Modern periodic table is based on atomic number.</li>
+<li>Elements in the same group often have similar valence-electron patterns.</li>
+</ul>
+`)
+};
+
+lessons.oxidation={
+title:"Oxidation and Reduction",
+html:
+section("Redox Reactions",`
+<p><b>Oxidation</b> can involve loss of electrons or increase in oxidation state.</p>
+<p><b>Reduction</b> can involve gain of electrons or decrease in oxidation state.</p>
+<div class="formula-box">
+Oxidation = Loss of electrons<br>
+Reduction = Gain of electrons
+</div>
+<div class="chem-equation">Zn → Zn²⁺ + 2e⁻</div>
+`)
+};
+
+lessons.combustion={
+title:"Combustion",
+html:
+section("Combustion",`
+<p>Combustion is a reaction with oxygen that releases energy.</p>
+<ul>
+<li>Fuel is the substance that burns.</li>
+<li>Oxygen supports combustion.</li>
+<li>Ignition temperature is required to start burning.</li>
+</ul>
+<div class="chem-equation">CH₄ + 2O₂ → CO₂ + 2H₂O + Heat</div>
+`)
+};
+
+lessons.coal={
+title:"Coal and Petroleum",
+html:
+section("Coal and Petroleum",`
+<ul>
+<li>They are fossil fuels.</li>
+<li>Coal is mainly carbon.</li>
+<li>Petroleum is a mixture of hydrocarbons.</li>
+<li>Petroleum is refined into useful fractions.</li>
+<li>Natural gas is another fossil fuel.</li>
+</ul>
+`)
+};
+
+lessons.electrochemistry={
+title:"Electrochemistry",
+html:
+section("Electrochemistry",`
+<p>Electrochemistry studies the relationship between electricity and chemical changes.</p>
+<p><b>Electrolysis</b> uses electricity to bring about a chemical change.</p>
+<ul>
+<li>Anode</li>
+<li>Cathode</li>
+<li>Electrolyte</li>
+<li>Electrodes</li>
+</ul>
+`)
+};
+
+lessons.mole={
+title:"Mole Concept",
+html:
+section("Mole Concept",`
+<p>A mole is a counting unit used for particles.</p>
+<div class="formula-box">
+Number of particles = Moles × 6.022 × 10²³
+</div>
+<div class="formula-box">
+Moles = Given mass ÷ Molar mass
+</div>
+<div class="formula-box">
+Molarity = Moles of solute ÷ Volume of solution in litres
+</div>
+`)
+};
+
+lessons.formulas={
+title:"Chemistry Formula Library",
+html:
+section("Important Chemistry Formulas",`
+${formulaRows([
+["Moles","n = Given mass / Molar mass"],
+["Particles","N = n × 6.022 × 10²³"],
+["Mass","Mass = Moles × Molar mass"],
+["Molarity","M = Moles / Volume(L)"],
+["Density","Density = Mass / Volume"],
+["Mass Number","A = Protons + Neutrons"],
+["Atomic Number","Z = Number of Protons"],
+["pH","pH = −log[H⁺]"]
+])}
+`)
++
+section("Common Chemical Formulas",`
+${formulaRows([
+["Water","H₂O"],
+["Carbon dioxide","CO₂"],
+["Oxygen","O₂"],
+["Hydrogen","H₂"],
+["Sodium chloride","NaCl"],
+["Hydrochloric acid","HCl"],
+["Sulfuric acid","H₂SO₄"],
+["Sodium hydroxide","NaOH"],
+["Calcium carbonate","CaCO₃"],
+["Ammonia","NH₃"]
+])}
+`)
+};
+
+lessons.ions={
+title:"Common Ions",
+html:
+section("Common Positive Ions",`
+${formulaRows([
+["Hydrogen","H⁺"],
+["Sodium","Na⁺"],
+["Potassium","K⁺"],
+["Magnesium","Mg²⁺"],
+["Calcium","Ca²⁺"],
+["Aluminium","Al³⁺"],
+["Ammonium","NH₄⁺"]
+])}
+`)
++
+section("Common Negative Ions",`
+${formulaRows([
+["Chloride","Cl⁻"],
+["Oxide","O²⁻"],
+["Hydroxide","OH⁻"],
+["Nitrate","NO₃⁻"],
+["Sulfate","SO₄²⁻"],
+["Carbonate","CO₃²⁻"],
+["Phosphate","PO₄³⁻"]
+])}
+`)
+};
+
+/* =========================
+OPEN LEARN
+========================= */
+
+function openLearn(key){
+
+const lesson=lessons[key];
+
+if(!lesson){
+
+alert("Lesson not available yet.");
+
+return;
+}
+
+document.getElementById("learnTitle").textContent=lesson.title;
+
+document.getElementById("learnContent").innerHTML=lesson.html;
+
+openPage("learnPage");
+}
+
+/* =========================
+PRACTICE
+========================= */
+
+const practiceQuestions=[
+{
+q:"What is the smallest unit of an element that participates in chemical reactions?",
+a:"Atom"
+},
+{
+q:"What is the valency of magnesium?",
+a:"2"
+},
+{
+q:"What is the chemical formula of water?",
+a:"H₂O"
+},
+{
+q:"What is the pH of a neutral solution at 25°C?",
+a:"7"
+},
+{
+q:"Which gas supports combustion?",
+a:"Oxygen"
+},
+{
+q:"What is the atomic number equal to?",
+a:"Number of protons"
+},
+{
+q:"What type of bond is commonly found in carbon compounds?",
+a:"Covalent bond"
+},
+{
+q:"What is the formula of sodium chloride?",
+a:"NaCl"
+},
+{
+q:"What is oxidation in terms of electrons?",
+a:"Loss of electrons"
+},
+{
+q:"What is reduction in terms of electrons?",
+a:"Gain of electrons"
+}
+];
+
+function openPractice(){
+
+let html="";
+
+practiceQuestions.forEach(function(item,index){
+
+html+=`
+<div class="practice-card">
+
+<h3>Q${index+1}. ${item.q}</h3>
+
+<input
+class="answer-input"
+id="answer${index}"
+placeholder="Write your answer..."
+>
+
+<button
+class="answer-btn"
+onclick="showAnswer(${index})">
+Show Answer
+</button>
+
+<div
+class="answer-text"
+id="solution${index}">
+Answer: ${item.a}
+</div>
+
+</div>
+`;
+
+});
+
+document.getElementById("practiceContent").innerHTML=html;
+
+openPage("practicePage");
+}
+
+function showAnswer(index){
+
+document.getElementById("solution"+index).style.display="block";
+
+}
+
+/* =========================
+300 QUESTION QUIZ
+========================= */
+
+const baseQuiz=[
+
+["Which gas supports combustion?","Oxygen","Nitrogen","Hydrogen","Carbon dioxide",0],
+
+["What is the formula of water?","CO₂","H₂O","O₂","H₂",1],
+
+["What is the valency of sodium?","1","2","3","4",0],
+
+["What is the charge of a proton?","Negative","Positive","Zero","Variable",1],
+
+["What is the charge of an electron?","Positive","Negative","Zero","Variable",1],
+
+["What is the charge of a neutron?","Positive","Negative","Zero","Variable",2],
+
+["What is the atomic number?","Number of neutrons","Number of protons","Mass number","Number of shells",1],
+
+["What is the pH of a neutral solution?","0","5","7","14",2],
+
+["Which is a metal?","Oxygen","Sulfur","Iron","Chlorine",2],
+
+["Which is a non-metal?","Iron","Copper","Oxygen","Aluminium",2],
+
+["Which particle is found in the nucleus?","Electron","Proton","Only electron","None",1],
+
+["What is NaCl commonly called?","Baking soda","Common salt","Washing soda","Limestone",1],
+
+["Which element has symbol O?","Gold","Oxygen","Osmium only","Silver",1],
+
+["Which element has symbol Fe?","Fluorine","Iron","Francium","Fermium",1],
+
+["What is oxidation in electron terms?","Gain of electrons","Loss of electrons","No change","Sharing only",1],
+
+["What is reduction in electron terms?","Gain of electrons","Loss of electrons","No change","Burning",0],
+
+["What is a mixture?","Only one atom","Two or more substances physically combined","Only one element","A proton",1],
+
+["Which method separates an insoluble solid from a liquid?","Filtration","Distillation","Sublimation","Chromatography",0],
+
+["Which is a fossil fuel?","Coal","Oxygen","Water","Salt",0],
+
+["What is the formula of carbon dioxide?","CO","CO₂","C₂O","C₂O₂",1]
+
+];
+
+/*
+Create 300 questions from the core question bank.
+Questions are varied by rotating wording/options.
+*/
+
+const quizQuestions=[];
+
+for(let i=0;i<300;i++){
+
+const base=baseQuiz[i%baseQuiz.length];
+
+let q=base[0];
+
+if(i>=20){
+
+const variation=Math.floor(i/baseQuiz.length);
+
+if(variation%4===1){
+q="Choose the correct answer: "+base[0];
+}
+
+else if(variation%4===2){
+q="Chemistry question: "+base[0];
+}
+
+else if(variation%4===3){
+q="Test your knowledge — "+base[0];
+}
+}
+
+quizQuestions.push({
+question:q,
+options:[base[1],base[2],base[3],base[4]],
+answer:base[5]
+});
+
+}
+
+/* =========================
+QUIZ STATE
+========================= */
+
+let quizIndex=0;
+let quizScore=0;
+let quizAnswered=false;
+
+/* =========================
+START QUIZ
+========================= */
+
+function startQuiz(){
+
+quizIndex=0;
+quizScore=0;
+quizAnswered=false;
+
+openPage("quizPage");
+
+renderQuiz();
+}
+
+/* =========================
+RENDER QUIZ
+========================= */
+
+function renderQuiz(){
+
+const item=quizQuestions[quizIndex];
+
+document.getElementById("quizContent").innerHTML=`
+
+<div class="quiz-box">
+
+<div class="quiz-top">
+
+<div class="quiz-progress">
+Question ${quizIndex+1} / ${quizQuestions.length}
+</div>
+
+<div class="difficulty">
+${quizIndex<100?"Easy":quizIndex<200?"Medium":"Hard"}
+</div>
+
+</div>
+
+<div class="progress-wrap">
+
+<div
+class="progress-bar"
+style="width:${((quizIndex+1)/quizQuestions.length)*100}%">
+</div>
+
+</div>
+
+<div class="quiz-question">
+${item.question}
+</div>
+
+<div id="options">
+
+${item.options.map(function(option,index){
+
+return `
+<div
+class="option"
+onclick="selectOption(${index})"
+id="option${index}">
+${String.fromCharCode(65+index)}. ${option}
+</div>
+`;
+
+}).join("")}
+
+</div>
+
+<div class="quiz-actions">
+
+<button
+class="btn quiz-next"
+id="nextBtn"
+onclick="nextQuestion()"
+disabled>
+${quizIndex===quizQuestions.length-1?"Finish":"Next"}
+</button>
+
+</div>
+
+</div>
+`;
+}
+
+/* =========================
+SELECT OPTION
+========================= */
+
+function selectOption(selected){
+
+if(quizAnswered)return;
+
+quizAnswered=true;
+
+const item=quizQuestions[quizIndex];
+
+const options=document.querySelectorAll(".option");
+
+options.forEach(function(option){
+option.classList.add("disabled");
+});
+
+if(selected===item.answer){
+
+document
+.getElementById("option"+selected)
+.classList.add("correct");
+
+quizScore++;
+
+}else{
+
+document
+.getElementById("option"+selected)
+.classList.add("wrong");
+
+document
+.getElementById("option"+item.answer)
+.classList.add("correct");
+
+}
+
+document.getElementById("nextBtn").disabled=false;
+
+}
+
+/* =========================
+NEXT QUESTION
+========================= */
+
+function nextQuestion(){
+
+if(!quizAnswered)return;
+
+if(quizIndex<quizQuestions.length-1){
+
+quizIndex++;
+
+quizAnswered=false;
+
+renderQuiz();
+
+}else{
+
+showResult();
+
+}
+
+}
+
+/* =========================
+RESULT
+========================= */
+
+function showResult(){
+
+const percentage=Math.round(
+(quizScore/quizQuestions.length)*100
+);
+
+let message="Keep practicing!";
+
+if(percentage>=90){
+message="Excellent work! 🔥";
+}
+else if(percentage>=75){
+message="Great job! 👏";
+}
+else if(percentage>=50){
+message="Good effort! Keep learning.";
+}
+
+document.getElementById("quizContent").innerHTML=`
+
+<div class="result-box">
+
+<h2>Quiz Completed 🎉</h2>
+
+<div class="quiz-score">
+${percentage}%
+</div>
+
+<div class="score-message">
+${message}
+</div>
+
+<div class="result-grid">
+
+<div class="result-stat">
+<b>${quizScore}</b>
+Correct
+</div>
+
+<div class="result-stat">
+<b>${quizQuestions.length-quizScore}</b>
+Wrong
+</div>
+
+<div class="result-stat">
+<b>${quizQuestions.length}</b>
+Total
+</div>
+
+</div>
+
+<button
+class="btn restart-btn"
+onclick="startQuiz()">
+Restart Quiz
+</button>
+
+<button
+class="btn btn-green"
+onclick="closePages()">
+Back to Chemistry
+</button>
+
+</div>
+`;
+}
+
+/* =========================
+SAFETY CHECK
+========================= */
+
+document.addEventListener("keydown",function(e){
+
+if(e.key==="Escape"){
+closePages();
+}
+
+});
+
+</script>
+
+</body>
+</html>

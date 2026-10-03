@@ -1,0 +1,3249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>StudyForge — Class 8 Mathematics</title>
+
+<meta name="description"
+content="StudyForge Class 8 Mathematics — Learn concepts, formulas, examples and practice topics.">
+
+<style>
+
+/* ==============================
+   BASIC
+   ============================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 85px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f7fb;
+    color: #172033;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* ==============================
+   NAVBAR
+   ============================== */
+
+.navbar {
+    min-height: 70px;
+    background: white;
+    border-bottom: 1px solid #e5e9f2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 7%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 800;
+    color: #2563eb;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: #4b5563;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #2563eb;
+}
+
+.menu-btn {
+    display: none;
+    border: none;
+    background: none;
+    font-size: 27px;
+}
+
+
+/* ==============================
+   HERO
+   ============================== */
+
+.hero {
+    padding: 80px 7%;
+    background: linear-gradient(135deg, #eef4ff, #ffffff);
+}
+
+.hero-content {
+    max-width: 1100px;
+    margin: auto;
+}
+
+.badge {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 30px;
+    background: #e8f0ff;
+    color: #2563eb;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.hero h1 {
+    margin-top: 18px;
+    font-size: clamp(38px, 7vw, 62px);
+    line-height: 1.1;
+}
+
+.hero h1 span {
+    color: #2563eb;
+}
+
+.hero p {
+    max-width: 700px;
+    margin-top: 18px;
+    color: #667085;
+    font-size: 18px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 28px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-weight: 700;
+    transition: 0.25s;
+    cursor: pointer;
+    border: none;
+}
+
+.primary {
+    background: #2563eb;
+    color: white;
+}
+
+.primary:hover {
+    transform: translateY(-2px);
+}
+
+.secondary {
+    background: white;
+    color: #2563eb;
+    border: 1px solid #d7deed;
+}
+
+.secondary:hover {
+    background: #f0f5ff;
+}
+
+
+/* ==============================
+   COMMON SECTION
+   ============================== */
+
+.section {
+    max-width: 1150px;
+    margin: auto;
+    padding: 75px 7%;
+}
+
+.heading {
+    margin-bottom: 35px;
+}
+
+.tag {
+    display: inline-block;
+    color: #2563eb;
+    background: #eaf1ff;
+    padding: 7px 12px;
+    border-radius: 30px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.heading h2 {
+    font-size: clamp(28px, 5vw, 40px);
+    margin-top: 12px;
+}
+
+.heading p {
+    color: #667085;
+    margin-top: 7px;
+}
+
+
+/* ==============================
+   CHAPTER CARDS
+   ============================== */
+
+.chapter-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 17px;
+}
+
+.chapter {
+    background: white;
+    border: 1px solid #e4e8f0;
+    border-radius: 15px;
+    padding: 22px;
+    transition: 0.25s;
+}
+
+.chapter:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 28px rgba(23, 32, 51, 0.08);
+    border-color: #c9d8ff;
+}
+
+.chapter-number {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: #eaf1ff;
+    color: #2563eb;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.chapter h3 {
+    font-size: 18px;
+    margin-bottom: 6px;
+}
+
+.chapter p {
+    color: #667085;
+    font-size: 14px;
+}
+
+.chapter-link {
+    display: inline-block;
+    color: #2563eb;
+    font-weight: 700;
+    font-size: 14px;
+    margin-top: 13px;
+}
+
+
+/* ==============================
+   TOPIC DETAILS
+   ============================== */
+
+.topic-details {
+    background: white;
+    border-top: 1px solid #e5e9f2;
+}
+
+.topic-box {
+    background: white;
+    border: 1px solid #e1e6ef;
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 25px;
+    box-shadow: 0 6px 22px rgba(23, 32, 51, 0.05);
+}
+
+.topic-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.topic-number {
+    min-width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: #eaf1ff;
+    color: #2563eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+}
+
+.topic-header h2 {
+    font-size: 27px;
+}
+
+.topic-box p {
+    color: #596579;
+    margin-bottom: 15px;
+}
+
+.learn-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.learn-card {
+    background: #f6f8fc;
+    border: 1px solid #e3e8f1;
+    border-radius: 13px;
+    padding: 18px;
+}
+
+.learn-card h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.learn-card ul {
+    padding-left: 20px;
+    color: #596579;
+}
+
+.example {
+    margin-top: 18px;
+    padding: 18px;
+    background: #eef4ff;
+    border-left: 4px solid #2563eb;
+    border-radius: 9px;
+}
+
+.example strong {
+    color: #172033;
+}
+
+.example p {
+    margin: 7px 0 0;
+    color: #374151;
+}
+
+.back-btn {
+    display: inline-block;
+    margin-top: 20px;
+    color: #2563eb;
+    font-weight: 700;
+}
+
+
+/* ==============================
+   FORMULAS
+   ============================== */
+
+.formula-section {
+    background: white;
+    max-width: none;
+    padding-left: 7%;
+    padding-right: 7%;
+}
+
+.formula-box {
+    max-width: 1050px;
+    margin: auto;
+    background: #f5f7fb;
+    border: 1px solid #e4e8f0;
+    border-radius: 18px;
+    padding: 28px;
+}
+
+.formula {
+    background: white;
+    border-left: 4px solid #2563eb;
+    padding: 15px 18px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+}
+
+.formula:last-child {
+    margin-bottom: 0;
+}
+
+.formula strong {
+    display: block;
+    margin-bottom: 4px;
+}
+
+.formula span {
+    color: #2563eb;
+    font-weight: 700;
+}
+
+
+/* ==============================
+   PRACTICE
+   ============================== */
+
+.practice {
+    background: #172033;
+    color: white;
+    border-radius: 20px;
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+}
+
+.practice .tag {
+    background: #263450;
+    color: #9db8ff;
+}
+
+.practice h2 {
+    margin-top: 12px;
+    font-size: 32px;
+}
+
+.practice p {
+    color: #c4cad5;
+    margin-top: 7px;
+}
+
+
+/* ==============================
+   QUIZ
+   ============================== */
+
+.quiz-section {
+    display: none;
+}
+
+.quiz-box {
+    background: white;
+    border: 1px solid #e1e6ef;
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 850px;
+    margin: auto;
+    box-shadow: 0 8px 25px rgba(23, 32, 51, 0.06);
+}
+
+.quiz-box h3 {
+    font-size: 22px;
+    margin-bottom: 22px;
+}
+
+.option {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 12px;
+    border: 1px solid #dce2ec;
+    background: #f8faff;
+    border-radius: 10px;
+    text-align: left;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.option:hover {
+    border-color: #2563eb;
+    background: #eef4ff;
+}
+
+.option.correct {
+    background: #dcfce7;
+    border-color: #22c55e;
+}
+
+.option.wrong {
+    background: #fee2e2;
+    border-color: #ef4444;
+}
+
+.next-btn {
+    margin-top: 15px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    background: #2563eb;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+
+/* ==============================
+   FOOTER
+   ============================== */
+
+.footer {
+    background: #111827;
+    color: white;
+    padding: 45px 7% 20px;
+}
+
+.footer-inner {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.footer p {
+    color: #9ca3af;
+    margin-top: 7px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: #cbd5e1;
+    font-size: 14px;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+.copyright {
+    max-width: 1100px;
+    margin: 35px auto 0;
+    padding-top: 18px;
+    border-top: 1px solid #263042;
+    text-align: center;
+}
+
+
+/* ==============================
+   MOBILE
+   ============================== */
+
+@media (max-width: 850px) {
+
+    .navbar {
+        padding: 0 5%;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .hero {
+        padding: 65px 5%;
+    }
+
+    .section {
+        padding: 60px 5%;
+    }
+
+    .chapter-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .learn-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .practice {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 30px;
+    }
+
+    .footer-inner {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 520px) {
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .chapter-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .topic-box {
+        padding: 22px;
+    }
+
+    .topic-header h2 {
+        font-size: 23px;
+    }
+
+    .practice h2 {
+        font-size: 27px;
+    }
+
+    .footer {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ==============================
+     NAVBAR
+     ============================== -->
+
+<header class="navbar">
+
+    <a href="mathematics.html" class="logo">
+        ⚡ StudyForge
+    </a>
+
+    <nav class="nav-links">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="mathematics.html" class="active">
+            Mathematics
+        </a>
+
+        <a href="physics.html">
+            Physics
+        </a>
+
+        <a href="chemistry.html">
+            Chemistry
+        </a>
+
+    </nav>
+
+    <button class="menu-btn">
+        ☰
+    </button>
+
+</header>
+
+
+
+<!-- ==============================
+     HERO
+     ============================== -->
+
+<main>
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <span class="badge">
+            📘 CLASS 8 MATHEMATICS
+        </span>
+
+        <h1>
+            Master Class 8
+            <span>Mathematics.</span>
+        </h1>
+
+        <p>
+            Learn concepts, understand formulas, see solved examples
+            and build strong problem-solving skills.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#chapters" class="btn primary">
+                Explore Chapters
+            </a>
+
+            <a href="#formulas" class="btn secondary">
+                Quick Formulas
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==============================
+     CHAPTERS
+     ============================== -->
+
+<section class="section" id="chapters">
+
+    <div class="heading">
+
+        <span class="tag">
+            CLASS 8
+        </span>
+
+        <h2>
+            Mathematics Chapters
+        </h2>
+
+        <p>
+            Choose a topic to learn its concept,
+            important points and example.
+        </p>
+
+    </div>
+
+
+    <div class="chapter-grid">
+
+
+        <a href="#number-system" class="chapter">
+
+            <div class="chapter-number">01</div>
+
+            <h3>Rational Numbers</h3>
+
+            <p>
+                Numbers that can be written in p/q form.
+            </p>
+
+            <span class="chapter-link">
+                Learn Topic →
+            </span>
+
+        </a>
+
+
+        <a href="#linear-equations" class="chapter">
+
+            <div class="chapter-number">02</div>
+
+            <h3>Linear Equations</h3>
+
+            <p>
+                Learn how to solve equations step by step.
+            </p>
+
+            <span class="chapter-link">
+                Learn Topic →
+            </span>
+
+        </a>
+
+
+        <a href="#squares" class="chapter">
+
+            <div class="chapter-number">03</div>
+
+            <h3>Squares & Square Roots</h3>
+
+            <p>
+                Understand square numbers and square roots.
+            </p>
+
+            <span class="chapter-link">
+                Learn Topic →
+            </span>
+
+        </a>
+
+
+        <a href="#cubes" class="chapter">
+
+            <div class="chapter-number">04</div>
+
+            <h3>Cubes & Cube Roots</h3>
+
+            <p>
+                Learn cubes, cube roots and useful patterns.
+            </p>
+
+            <span class="chapter-link">
+                Learn Topic →
+            </span>
+
+        </a>
+
+
+        <a href="#percent" class="chapter">
+
+            <div class="chapter-number">05</div>
+
+            <h3>Percentage</h3>
+
+            <p>
+                Percentage, profit, loss and discount basics.
+            </p>
+
+            <span class="chapter-link">
+                Learn Topic →
+            </span>
+
+        </a>
+
+
+        <a href="#algebra" class="chapter">
+
+            <div class="chapter-number">06</div>
+
+            <h3>Algebraic Expressions</h3>
+
+            <p>
+                Terms, coefficients and algebraic operations.
+            </p>
+
+            <span class="chapter-link">
+                Learn Topic →
+            </span>
+
+        </a>
+
+
+        <a href="#geometry" class="chapter">
+
+            <div class="chapter-number">07</div>
+
+            <h3>Geometry</h3>
+
+            <p>
+                Angles, polygons and important properties.
+            </p>
+
+            <span class="chapter-link">
+                Learn Topic →
+            </span>
+
+        </a>
+
+
+        <a href="#mensuration" class="chapter">
+
+            <div class="chapter-number">08</div>
+
+            <h3>Mensuration</h3>
+
+            <p>
+                Area, perimeter and measurement formulas.
+            </p>
+
+            <span class="chapter-link">
+                Learn Topic →
+            </span>
+
+        </a>
+
+
+        <a href="#data" class="chapter">
+
+            <div class="chapter-number">09</div>
+
+            <h3>Data Handling</h3>
+
+            <p>
+                Tables, graphs, averages and probability.
+            </p>
+
+            <span class="chapter-link">
+                Learn Topic →
+            </span>
+
+        </a>
+
+
+    </div>
+<!-- 10. Proofs & Theorems -->
+<a href="#proofs" class="chapter">
+
+    <div class="chapter-number">10</div>
+
+    <h3>
+        Proofs & Theorems
+    </h3>
+
+    <p>
+        Learn important geometry properties with
+        step-by-step reasoning and proofs.
+    </p>
+
+    <span class="chapter-link">
+        View Proofs →
+    </span>
+
+</a>
+<a href="#proofs" class="btn secondary">
+    📐 Important Proofs
+</a>
+</section>
+
+
+
+<!-- ==============================
+     TOPIC DETAILS
+     ============================== -->
+
+<section class="topic-details">
+
+
+<!-- RATIONAL NUMBERS -->
+
+<div class="section" id="number-system">
+
+<div class="topic-box">
+
+<div class="topic-header">
+
+<div class="topic-number">
+01
+</div>
+
+<h2>
+Rational Numbers
+</h2>
+
+</div>
+
+<p>
+A rational number is a number that can be written
+in the form <strong>p/q</strong>, where p and q are
+integers and q ≠ 0.
+</p>
+
+
+<div class="learn-grid">
+
+<div class="learn-card">
+
+<h3>
+📌 Important Points
+</h3>
+
+<ul>
+
+<li>Every integer is a rational number.</li>
+
+<li>Denominator can never be zero.</li>
+
+<li>Rational numbers can be positive or negative.</li>
+
+<li>They can be compared using a common denominator.</li>
+
+</ul>
+
+</div>
+
+
+<div class="learn-card">
+
+<h3>
+🧠 Remember
+</h3>
+
+<ul>
+
+<li>a/1 = a</li>
+
+<li>0/a = 0, when a ≠ 0</li>
+
+<li>Same denominator → compare numerators.</li>
+
+</ul>
+
+</div>
+
+</div>
+
+
+<div class="example">
+
+<strong>
+Example:
+</strong>
+
+<p>
+3/4 + 1/4 = 4/4 = 1
+</p>
+
+</div>
+
+
+<a href="#chapters" class="back-btn">
+↑ Back to Chapters
+</a>
+
+</div>
+
+</div>
+
+
+
+<!-- LINEAR EQUATIONS -->
+
+<div class="section" id="linear-equations">
+
+<div class="topic-box">
+
+<div class="topic-header">
+
+<div class="topic-number">
+02
+</div>
+
+<h2>
+Linear Equations
+</h2>
+
+</div>
+
+<p>
+A linear equation contains a variable whose highest
+power is 1. Our goal is to find the value of the variable.
+</p>
+
+
+<div class="learn-grid">
+
+<div class="learn-card">
+
+<h3>
+📌 Method
+</h3>
+
+<ul>
+
+<li>Simplify both sides.</li>
+
+<li>Bring variable terms together.</li>
+
+<li>Bring constant terms together.</li>
+
+<li>Find the value of the variable.</li>
+
+</ul>
+
+</div>
+
+
+<div class="learn-card">
+
+<h3>
+🧠 Golden Rule
+</h3>
+
+<ul>
+
+<li>Whatever operation you perform on one side, perform it on the other side.</li>
+
+<li>Keep the equation balanced.</li>
+
+</ul>
+
+</div>
+
+</div>
+
+
+<div class="example">
+
+<strong>
+Example:
+</strong>
+
+<p>
+2x + 5 = 15<br>
+2x = 10<br>
+x = 5
+</p>
+
+</div>
+
+
+<a href="#chapters" class="back-btn">
+↑ Back to Chapters
+</a>
+
+</div>
+
+</div>
+
+
+
+<!-- SQUARES -->
+
+<div class="section" id="squares">
+
+<div class="topic-box">
+
+<div class="topic-header">
+
+<div class="topic-number">
+03
+</div>
+
+<h2>
+Squares & Square Roots
+</h2>
+
+</div>
+
+<p>
+The square of a number is obtained by multiplying
+the number by itself.
+</p>
+
+
+<div class="learn-grid">
+
+<div class="learn-card">
+
+<h3>
+📌 Important
+</h3>
+
+<ul>
+
+<li>5² = 5 × 5 = 25</li>
+
+<li>10² = 100</li>
+
+<li>Perfect squares have whole-number square roots.</li>
+
+</ul>
+
+</div>
+
+
+<div class="learn-card">
+
+<h3>
+🧠 Useful Pattern
+</h3>
+
+<ul>
+
+<li>1² = 1</li>
+
+<li>2² = 4</li>
+
+<li>3² = 9</li>
+
+<li>4² = 16</li>
+
+<li>5² = 25</li>
+
+</ul>
+
+</div>
+
+</div>
+
+
+<div class="example">
+
+<strong>
+Example:
+</strong>
+
+<p>
+√144 = 12 because 12 × 12 = 144.
+</p>
+
+</div>
+
+
+<a href="#chapters" class="back-btn">
+↑ Back to Chapters
+</a>
+
+</div>
+
+</div>
+
+
+
+<!-- CUBES -->
+
+<div class="section" id="cubes">
+
+<div class="topic-box">
+
+<div class="topic-header">
+
+<div class="topic-number">
+04
+</div>
+
+<h2>
+Cubes & Cube Roots
+</h2>
+
+</div>
+
+<p>
+The cube of a number is obtained by multiplying
+it three times by itself.
+</p>
+
+
+<div class="learn-grid">
+
+<div class="learn-card">
+
+<h3>
+📌 Formula
+</h3>
+
+<ul>
+
+<li>a³ = a × a × a</li>
+
+<li>2³ = 8</li>
+
+<li>3³ = 27</li>
+
+<li>4³ = 64</li>
+
+</ul>
+
+</div>
+
+
+<div class="learn-card">
+
+<h3>
+🧠 Cube Root
+</h3>
+
+<ul>
+
+<li>∛8 = 2</li>
+
+<li>∛27 = 3</li>
+
+<li>∛64 = 4</li>
+
+</ul>
+
+</div>
+
+</div>
+
+
+<div class="example">
+
+<strong>
+Example:
+</strong>
+
+<p>
+5³ = 5 × 5 × 5 = 125.
+</p>
+
+</div>
+
+
+<a href="#chapters" class="back-btn">
+↑ Back to Chapters
+</a>
+
+</div>
+
+</div>
+
+
+
+<!-- PERCENTAGE -->
+
+<div class="section" id="percent">
+
+<div class="topic-box">
+
+<div class="topic-header">
+
+<div class="topic-number">
+05
+</div>
+
+<h2>
+Percentage
+</h2>
+
+</div>
+
+<p>
+Percentage means "per hundred". It is commonly
+used to compare quantities and calculate changes.
+</p>
+
+
+<div class="learn-grid">
+
+<div class="learn-card">
+
+<h3>
+📌 Formula
+</h3>
+
+<ul>
+
+<li>Percentage = (Part ÷ Whole) × 100</li>
+
+<li>Profit = SP − CP</li>
+
+<li>Loss = CP − SP</li>
+
+</ul>
+
+</div>
+
+
+<div class="learn-card">
+
+<h3>
+🧠 Remember
+</h3>
+
+<ul>
+
+<li>25% = 25/100 = 1/4</li>
+
+<li>50% = 1/2</li>
+
+<li>100% = whole quantity</li>
+
+</ul>
+
+</div>
+
+</div>
+
+
+<div class="example">
+
+<strong>
+Example:
+</strong>
+
+<p>
+20 out of 100 = 20%.<br>
+Therefore, 20% of 200 = 40.
+</p>
+
+</div>
+
+
+<a href="#chapters" class="back-btn">
+↑ Back to Chapters
+</a>
+
+</div>
+
+</div>
+
+
+
+<!-- ALGEBRA -->
+
+<div class="section" id="algebra">
+
+<div class="topic-box">
+
+<div class="topic-header">
+
+<div class="topic-number">
+06
+</div>
+
+<h2>
+Algebraic Expressions
+</h2>
+
+</div>
+
+<p>
+Algebra uses letters and numbers to represent quantities.
+These expressions contain terms, coefficients and constants.
+</p>
+
+
+<div class="learn-grid">
+
+<div class="learn-card">
+
+<h3>
+📌 Basic Terms
+</h3>
+
+<ul>
+
+<li>3x → coefficient is 3.</li>
+
+<li>x → variable.</li>
+
+<li>5 → constant.</li>
+
+<li>3x + 5 → algebraic expression.</li>
+
+</ul>
+
+</div>
+
+
+<div class="learn-card">
+
+<h3>
+🧠 Like Terms
+</h3>
+
+<ul>
+
+<li>3x and 5x are like terms.</li>
+
+<li>2a and 7a are like terms.</li>
+
+<li>3x and 3y are unlike terms.</li>
+
+</ul>
+
+</div>
+
+</div>
+
+
+<div class="example">
+
+<strong>
+Example:
+</strong>
+
+<p>
+3x + 2x = 5x
+</p>
+
+</div>
+
+
+<a href="#chapters" class="back-btn">
+↑ Back to Chapters
+</a>
+
+</div>
+
+</div>
+
+
+
+<!-- GEOMETRY -->
+
+<div class="section" id="geometry">
+
+<div class="topic-box">
+
+<div class="topic-header">
+
+<div class="topic-number">
+07
+</div>
+
+<h2>
+Geometry
+</h2>
+
+</div>
+
+<p>
+Geometry deals with shapes, angles, lines and
+their properties.
+</p>
+
+
+<div class="learn-grid">
+
+<div class="learn-card">
+
+<h3>
+📌 Important Concepts
+</h3>
+
+<ul>
+
+<li>Types of angles.</li>
+
+<li>Properties of triangles.</li>
+
+<li>Properties of quadrilaterals.</li>
+
+<li>Polygons and their angles.</li>
+
+</ul>
+
+</div>
+
+
+<div class="learn-card">
+
+<h3>
+🧠 Key Fact
+</h3>
+
+<ul>
+
+<li>Sum of angles of a triangle = 180°.</li>
+
+<li>Right angle = 90°.</li>
+
+<li>Straight angle = 180°.</li>
+
+</ul>
+
+</div>
+
+</div>
+
+
+<div class="example">
+
+<strong>
+Example:
+</strong>
+
+<p>
+If two angles of a triangle are 60° and 70°,
+the third angle = 180° − 130° = 50°.
+</p>
+
+</div>
+
+
+<a href="#chapters" class="back-btn">
+↑ Back to Chapters
+</a>
+
+</div>
+
+</div>
+<!-- ==============================
+     PROOFS & THEOREMS
+     ============================== -->
+
+<section class="section" id="proofs">
+
+    <div class="heading">
+
+        <span class="tag">
+            PROOFS & THEOREMS
+        </span>
+
+        <h2>
+            Important Proofs & Properties
+        </h2>
+
+        <p>
+            Learn important Class 8 geometry results with
+            proper reasoning instead of simply memorising them.
+        </p>
+
+    </div>
+
+
+    <!-- LINEAR PAIR -->
+
+    <div class="topic-box">
+
+        <div class="topic-header">
+
+            <div class="topic-number">
+                01
+            </div>
+
+            <h2>
+                Linear Pair of Angles
+            </h2>
+
+        </div>
+
+        <div class="learn-card">
+
+            <h3>📌 Statement</h3>
+
+            <p>
+                If two adjacent angles form a straight line,
+                then their sum is 180°.
+            </p>
+
+        </div>
+
+        <div class="example">
+
+            <strong>Given:</strong>
+
+            <p>
+                ∠AOB and ∠BOC form a linear pair.
+            </p>
+
+            <br>
+
+            <strong>To Prove:</strong>
+
+            <p>
+                ∠AOB + ∠BOC = 180°
+            </p>
+
+        </div>
+
+        <div class="learn-grid">
+
+            <div class="learn-card">
+
+                <h3>🧠 Proof</h3>
+
+                <p>
+                    Since A, O and C lie on the same straight line,
+                    ∠AOC is a straight angle.
+                </p>
+
+                <p>
+                    Therefore,
+                </p>
+
+                <p>
+                    ∠AOC = 180°
+                </p>
+
+                <p>
+                    Also,
+                </p>
+
+                <p>
+                    ∠AOB + ∠BOC = ∠AOC
+                </p>
+
+                <p>
+                    Therefore,
+                </p>
+
+                <p>
+                    <strong>
+                        ∠AOB + ∠BOC = 180°
+                    </strong>
+                </p>
+
+            </div>
+
+
+            <div class="learn-card">
+
+                <h3>✅ Conclusion</h3>
+
+                <p>
+                    Hence, the sum of angles forming a linear pair
+                    is always <strong>180°</strong>.
+                </p>
+
+                <p>
+                    <strong>Hence proved.</strong>
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- VERTICALLY OPPOSITE -->
+
+    <div class="topic-box">
+
+        <div class="topic-header">
+
+            <div class="topic-number">
+                02
+            </div>
+
+            <h2>
+                Vertically Opposite Angles
+            </h2>
+
+        </div>
+
+        <div class="example">
+
+            <strong>Statement:</strong>
+
+            <p>
+                When two lines intersect, vertically opposite
+                angles are equal.
+            </p>
+
+        </div>
+
+        <div class="learn-card">
+
+            <h3>🧠 Proof</h3>
+
+            <p>
+                Suppose two lines AB and CD intersect at O.
+            </p>
+
+            <p>
+                ∠AOC and ∠AOD form a linear pair.
+            </p>
+
+            <p>
+                Therefore:
+            </p>
+
+            <p>
+                ∠AOC + ∠AOD = 180°
+            </p>
+
+            <p>
+                Similarly:
+            </p>
+
+            <p>
+                ∠AOD + ∠DOB = 180°
+            </p>
+
+            <p>
+                Therefore:
+            </p>
+
+            <p>
+                ∠AOC + ∠AOD
+                =
+                ∠AOD + ∠DOB
+            </p>
+
+            <p>
+                Subtracting ∠AOD from both sides:
+            </p>
+
+            <p>
+                <strong>
+                    ∠AOC = ∠DOB
+                </strong>
+            </p>
+
+            <p>
+                Hence, vertically opposite angles are equal.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- TRIANGLE ANGLE SUM -->
+
+    <div class="topic-box">
+
+        <div class="topic-header">
+
+            <div class="topic-number">
+                03
+            </div>
+
+            <h2>
+                Angle Sum Property of a Triangle
+            </h2>
+
+        </div>
+
+        <div class="example">
+
+            <strong>Statement:</strong>
+
+            <p>
+                The sum of the three interior angles of a triangle
+                is 180°.
+            </p>
+
+        </div>
+
+        <div class="example">
+
+            <strong>Given:</strong>
+
+            <p>
+                ΔABC
+            </p>
+
+            <br>
+
+            <strong>To Prove:</strong>
+
+            <p>
+                ∠A + ∠B + ∠C = 180°
+            </p>
+
+        </div>
+
+        <div class="learn-card">
+
+            <h3>📐 Construction</h3>
+
+            <p>
+                Draw a line through A parallel to BC.
+            </p>
+
+            <p>
+                Let this line be XY.
+            </p>
+
+        </div>
+
+        <div class="learn-card">
+
+            <h3>🧠 Proof</h3>
+
+            <p>
+                Since XY ∥ BC,
+                alternate interior angles are equal.
+            </p>
+
+            <p>
+                Therefore:
+            </p>
+
+            <p>
+                ∠XAB = ∠ABC
+            </p>
+
+            <p>
+                and
+            </p>
+
+            <p>
+                ∠CAY = ∠ACB
+            </p>
+
+            <p>
+                Now XAY is a straight line.
+            </p>
+
+            <p>
+                Therefore:
+            </p>
+
+            <p>
+                ∠XAB + ∠BAC + ∠CAY = 180°
+            </p>
+
+            <p>
+                Substituting:
+            </p>
+
+            <p>
+                ∠ABC + ∠BAC + ∠ACB = 180°
+            </p>
+
+            <p>
+                Therefore:
+            </p>
+
+            <p>
+                <strong>
+                    ∠A + ∠B + ∠C = 180°
+                </strong>
+            </p>
+
+            <p>
+                <strong>Hence proved.</strong>
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- EXTERIOR ANGLE -->
+
+    <div class="topic-box">
+
+        <div class="topic-header">
+
+            <div class="topic-number">
+                04
+            </div>
+
+            <h2>
+                Exterior Angle Property of a Triangle
+            </h2>
+
+        </div>
+
+        <div class="example">
+
+            <strong>Statement:</strong>
+
+            <p>
+                An exterior angle of a triangle is equal to
+                the sum of its two opposite interior angles.
+            </p>
+
+        </div>
+
+        <div class="learn-card">
+
+            <h3>🧠 Proof</h3>
+
+            <p>
+                Consider ΔABC and extend BC to D.
+            </p>
+
+            <p>
+                ∠ACD is an exterior angle.
+            </p>
+
+            <p>
+                From the angle-sum property:
+            </p>
+
+            <p>
+                ∠A + ∠B + ∠C = 180°
+            </p>
+
+            <p>
+                Since ∠ACD and ∠C form a linear pair:
+            </p>
+
+            <p>
+                ∠ACD + ∠C = 180°
+            </p>
+
+            <p>
+                Comparing both equations:
+            </p>
+
+            <p>
+                <strong>
+                    ∠ACD = ∠A + ∠B
+                </strong>
+            </p>
+
+            <p>
+                Hence proved.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- QUADRILATERAL ANGLE SUM -->
+
+    <div class="topic-box">
+
+        <div class="topic-header">
+
+            <div class="topic-number">
+                05
+            </div>
+
+            <h2>
+                Angle Sum Property of a Quadrilateral
+            </h2>
+
+        </div>
+
+        <div class="example">
+
+            <strong>Statement:</strong>
+
+            <p>
+                The sum of all interior angles of a quadrilateral
+                is 360°.
+            </p>
+
+        </div>
+
+        <div class="learn-card">
+
+            <h3>🧠 Proof</h3>
+
+            <p>
+                Consider quadrilateral ABCD.
+            </p>
+
+            <p>
+                Draw diagonal AC.
+            </p>
+
+            <p>
+                The quadrilateral is divided into two triangles:
+            </p>
+
+            <p>
+                ΔABC and ΔACD.
+            </p>
+
+            <p>
+                Sum of angles of ΔABC = 180°
+            </p>
+
+            <p>
+                Sum of angles of ΔACD = 180°
+            </p>
+
+            <p>
+                Therefore:
+            </p>
+
+            <p>
+                180° + 180° = 360°
+            </p>
+
+            <p>
+                Hence:
+            </p>
+
+            <p>
+                <strong>
+                    ∠A + ∠B + ∠C + ∠D = 360°
+                </strong>
+            </p>
+
+            <p>
+                <strong>Hence proved.</strong>
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- PARALLELOGRAM OPPOSITE ANGLES -->
+
+    <div class="topic-box">
+
+        <div class="topic-header">
+
+            <div class="topic-number">
+                06
+            </div>
+
+            <h2>
+                Opposite Angles of a Parallelogram
+            </h2>
+
+        </div>
+
+        <div class="example">
+
+            <strong>Statement:</strong>
+
+            <p>
+                Opposite angles of a parallelogram are equal.
+            </p>
+
+        </div>
+
+        <div class="learn-card">
+
+            <h3>🧠 Proof</h3>
+
+            <p>
+                Let ABCD be a parallelogram.
+            </p>
+
+            <p>
+                Since AB ∥ CD and AD ∥ BC,
+                consecutive interior angles are supplementary.
+            </p>
+
+            <p>
+                Therefore:
+            </p>
+
+            <p>
+                ∠A + ∠B = 180°
+            </p>
+
+            <p>
+                Also:
+            </p>
+
+            <p>
+                ∠B + ∠C = 180°
+            </p>
+
+            <p>
+                Therefore:
+            </p>
+
+            <p>
+                ∠A + ∠B = ∠B + ∠C
+            </p>
+
+            <p>
+                Subtracting ∠B:
+            </p>
+
+            <p>
+                <strong>
+                    ∠A = ∠C
+                </strong>
+            </p>
+
+            <p>
+                Similarly:
+            </p>
+
+            <p>
+                <strong>
+                    ∠B = ∠D
+                </strong>
+            </p>
+
+            <p>
+                Hence opposite angles of a parallelogram are equal.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- PARALLELOGRAM OPPOSITE SIDES -->
+
+    <div class="topic-box">
+
+        <div class="topic-header">
+
+            <div class="topic-number">
+                07
+            </div>
+
+            <h2>
+                Opposite Sides of a Parallelogram
+            </h2>
+
+        </div>
+
+        <div class="example">
+
+            <strong>Statement:</strong>
+
+            <p>
+                Opposite sides of a parallelogram are equal.
+            </p>
+
+        </div>
+
+        <div class="learn-card">
+
+            <h3>🧠 Proof</h3>
+
+            <p>
+                Let ABCD be a parallelogram.
+                Draw diagonal AC.
+            </p>
+
+            <p>
+                Since AB ∥ CD:
+            </p>
+
+            <p>
+                ∠BAC = ∠DCA
+            </p>
+
+            <p>
+                Since AD ∥ BC:
+            </p>
+
+            <p>
+                ∠BCA = ∠DAC
+            </p>
+
+            <p>
+                AC is common to both triangles.
+            </p>
+
+            <p>
+                Therefore:
+            </p>
+
+            <p>
+                ΔABC ≅ ΔCDA by ASA.
+            </p>
+
+            <p>
+                Hence corresponding sides are equal:
+            </p>
+
+            <p>
+                <strong>
+                    AB = CD
+                </strong>
+            </p>
+
+            <p>
+                and
+            </p>
+
+            <p>
+                <strong>
+                    BC = AD
+                </strong>
+            </p>
+
+            <p>
+                Hence proved.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- DIAGONALS OF PARALLELOGRAM -->
+
+    <div class="topic-box">
+
+        <div class="topic-header">
+
+            <div class="topic-number">
+                08
+            </div>
+
+            <h2>
+                Diagonals of a Parallelogram
+            </h2>
+
+        </div>
+
+        <div class="example">
+
+            <strong>Statement:</strong>
+
+            <p>
+                The diagonals of a parallelogram bisect each other.
+            </p>
+
+        </div>
+
+        <div class="learn-card">
+
+            <h3>🧠 Proof</h3>
+
+            <p>
+                Let ABCD be a parallelogram and let diagonals
+                AC and BD intersect at O.
+            </p>
+
+            <p>
+                Since AB ∥ CD:
+            </p>
+
+            <p>
+                ∠ABO = ∠CDO
+            </p>
+
+            <p>
+                Since AB ∥ CD:
+            </p>
+
+            <p>
+                ∠BAO = ∠DCO
+            </p>
+
+            <p>
+                Also:
+            </p>
+
+            <p>
+                AB = CD
+            </p>
+
+            <p>
+                Therefore:
+            </p>
+
+            <p>
+                ΔAOB ≅ ΔCOD
+            </p>
+
+            <p>
+                Hence corresponding parts are equal:
+            </p>
+
+            <p>
+                <strong>
+                    AO = OC
+                </strong>
+            </p>
+
+            <p>
+                and
+            </p>
+
+            <p>
+                <strong>
+                    BO = OD
+                </strong>
+            </p>
+
+            <p>
+                Therefore the diagonals bisect each other.
+            </p>
+
+            <p>
+                <strong>Hence proved.</strong>
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- SUM OF INTERIOR ANGLES POLYGON -->
+
+    <div class="topic-box">
+
+        <div class="topic-header">
+
+            <div class="topic-number">
+                09
+            </div>
+
+            <h2>
+                Sum of Interior Angles of a Polygon
+            </h2>
+
+        </div>
+
+        <div class="example">
+
+            <strong>Formula:</strong>
+
+            <p>
+                Sum of interior angles of an n-sided polygon
+                = (n − 2) × 180°
+            </p>
+
+        </div>
+
+        <div class="learn-card">
+
+            <h3>🧠 Why?</h3>
+
+            <p>
+                From one vertex of a polygon, draw diagonals to
+                all non-adjacent vertices.
+            </p>
+
+            <p>
+                An n-sided polygon gets divided into
+                <strong>(n − 2)</strong> triangles.
+            </p>
+
+            <p>
+                Each triangle has angle sum 180°.
+            </p>
+
+            <p>
+                Therefore:
+            </p>
+
+            <p>
+                <strong>
+                    Sum = (n − 2) × 180°
+                </strong>
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- TRIANGLE EXAMPLE -->
+
+    <div class="topic-box">
+
+        <div class="topic-header">
+
+            <div class="topic-number">
+                10
+            </div>
+
+            <h2>
+                Equal Sides and Equal Angles
+            </h2>
+
+        </div>
+
+        <div class="example">
+
+            <strong>Statement:</strong>
+
+            <p>
+                In an isosceles triangle, angles opposite equal
+                sides are equal.
+            </p>
+
+        </div>
+
+        <div class="learn-card">
+
+            <h3>🧠 Proof Idea</h3>
+
+            <p>
+                Consider ΔABC where AB = AC.
+            </p>
+
+            <p>
+                Since the two sides are equal, the triangle has
+                symmetry about the angle bisector from A.
+            </p>
+
+            <p>
+                The two smaller triangles formed by this bisector
+                have corresponding equal sides and a common side.
+            </p>
+
+            <p>
+                Therefore the corresponding base angles are equal:
+            </p>
+
+            <p>
+                <strong>
+                    ∠B = ∠C
+                </strong>
+            </p>
+
+            <p>
+                Hence proved.
+            </p>
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+<!-- MENSURATION -->
+
+<div class="section" id="mensuration">
+
+<div class="topic-box">
+
+<div class="topic-header">
+
+<div class="topic-number">
+08
+</div>
+
+<h2>
+Mensuration
+</h2>
+
+</div>
+
+<p>
+Mensuration is the study of measurement of length,
+perimeter, area and other quantities related to shapes.
+</p>
+
+
+<div class="learn-grid">
+
+<div class="learn-card">
+
+<h3>
+📌 Rectangle
+</h3>
+
+<ul>
+
+<li>Area = l × b</li>
+
+<li>Perimeter = 2(l + b)</li>
+
+</ul>
+
+</div>
+
+
+<div class="learn-card">
+
+<h3>
+📌 Square
+</h3>
+
+<ul>
+
+<li>Area = side²</li>
+
+<li>Perimeter = 4 × side</li>
+
+</ul>
+
+</div>
+
+</div>
+
+
+<div class="example">
+
+<strong>
+Example:
+</strong>
+
+<p>
+Rectangle with length 8 cm and breadth 5 cm:<br>
+Area = 8 × 5 = 40 cm².
+</p>
+
+</div>
+
+
+<a href="#chapters" class="back-btn">
+↑ Back to Chapters
+</a>
+
+</div>
+
+</div>
+
+
+
+<!-- DATA HANDLING -->
+
+<div class="section" id="data">
+
+<div class="topic-box">
+
+<div class="topic-header">
+
+<div class="topic-number">
+09
+</div>
+
+<h2>
+Data Handling
+</h2>
+
+</div>
+
+<p>
+Data handling means collecting, organizing,
+representing and interpreting information.
+</p>
+
+
+<div class="learn-grid">
+
+<div class="learn-card">
+
+<h3>
+📌 Learn
+</h3>
+
+<ul>
+
+<li>Tables</li>
+
+<li>Bar graphs</li>
+
+<li>Pie charts</li>
+
+<li>Probability</li>
+
+</ul>
+
+</div>
+
+
+<div class="learn-card">
+
+<h3>
+🧠 Probability
+</h3>
+
+<ul>
+
+<li>Probability lies between 0 and 1.</li>
+
+<li>Impossible event → 0.</li>
+
+<li>Certain event → 1.</li>
+
+</ul>
+
+</div>
+
+</div>
+
+
+<div class="example">
+
+<strong>
+Example:
+</strong>
+
+<p>
+When a fair coin is tossed, probability of getting
+heads = 1/2.
+</p>
+
+</div>
+
+
+<a href="#chapters" class="back-btn">
+↑ Back to Chapters
+</a>
+
+</div>
+
+</div>
+
+
+</section>
+
+
+
+<!-- ==============================
+     FORMULAS
+     ============================== -->
+
+<section class="section formula-section" id="formulas">
+
+<div class="heading">
+
+<span class="tag">
+QUICK REVISION
+</span>
+
+<h2>
+Important Formulas
+</h2>
+
+<p>
+Quickly revise useful Class 8 formulas.
+</p>
+
+</div>
+
+
+<div class="formula-box">
+
+<div class="formula">
+
+<strong>
+Percentage
+</strong>
+
+<span>
+Percentage = (Part ÷ Whole) × 100
+</span>
+
+</div>
+
+
+<div class="formula">
+
+<strong>
+Simple Interest
+</strong>
+
+<span>
+SI = (P × R × T) ÷ 100
+</span>
+
+</div>
+
+
+<div class="formula">
+
+<strong>
+Profit
+</strong>
+
+<span>
+Profit = Selling Price − Cost Price
+</span>
+
+</div>
+
+
+<div class="formula">
+
+<strong>
+Loss
+</strong>
+
+<span>
+Loss = Cost Price − Selling Price
+</span>
+
+</div>
+
+
+<div class="formula">
+
+<strong>
+Rectangle Area
+</strong>
+
+<span>
+Area = Length × Breadth
+</span>
+
+</div>
+
+
+<div class="formula">
+
+<strong>
+Rectangle Perimeter
+</strong>
+
+<span>
+Perimeter = 2 × (Length + Breadth)
+</span>
+
+</div>
+
+
+<div class="formula">
+
+<strong>
+Square Area
+</strong>
+
+<span>
+Area = Side × Side
+</span>
+
+</div>
+
+
+<div class="formula">
+
+<strong>
+Square Perimeter
+</strong>
+
+<span>
+Perimeter = 4 × Side
+</span>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ==============================
+     PRACTICE BUTTON
+     ============================== -->
+
+<section class="section" id="practice">
+
+<div class="practice">
+
+<div>
+
+<span class="tag">
+PRACTICE
+</span>
+
+<h2>
+Ready to Practice?
+</h2>
+
+<p>
+Test your Class 8 Mathematics knowledge
+with quick questions.
+</p>
+
+</div>
+
+
+<button
+class="btn primary"
+onclick="startQuiz()">
+
+Start Practice →
+
+</button>
+
+</div>
+
+</section>
+
+
+
+<!-- ==============================
+     QUIZ
+     ============================== -->
+
+<section class="section quiz-section" id="quiz">
+
+<div class="heading">
+
+<span class="tag">
+CLASS 8 QUIZ
+</span>
+
+<h2>
+Mathematics Practice
+</h2>
+
+<p id="questionNumber">
+Question 1 of 10
+</p>
+
+</div>
+
+
+<div class="quiz-box">
+
+<h3 id="question">
+Click "Start Practice" to begin.
+</h3>
+
+
+<div id="options"></div>
+
+
+<button
+class="next-btn"
+id="nextBtn"
+onclick="nextQuestion()"
+style="display:none;">
+
+Next Question →
+
+</button>
+
+
+<p id="result"></p>
+
+</div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- ==============================
+     FOOTER
+     ============================== -->
+
+<footer class="footer">
+
+<div class="footer-inner">
+
+
+<div>
+
+<h2>
+⚡ StudyForge
+</h2>
+
+<p>
+Learn smarter. Practice better.
+Build your future.
+</p>
+
+</div>
+
+
+<div class="footer-links">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="mathematics.html">
+Mathematics
+</a>
+
+<a href="physics.html">
+Physics
+</a>
+
+<a href="chemistry.html">
+Chemistry
+</a>
+
+</div>
+
+</div>
+
+
+<div class="copyright">
+
+<p>
+© 2026 StudyForge. All rights reserved.
+</p>
+
+</div>
+
+</footer>
+
+
+
+<!-- ==============================
+     QUIZ JAVASCRIPT
+     ============================== -->
+
+<script>
+
+const questions = [
+
+{
+question: "What is 25% of 200?",
+options: ["25", "40", "50", "75"],
+answer: 2
+},
+
+{
+question: "What is the square of 12?",
+options: ["24", "124", "144", "122"],
+answer: 2
+},
+
+{
+question: "What is √81?",
+options: ["7", "8", "9", "10"],
+answer: 2
+},
+
+{
+question: "Solve: 2x + 5 = 15",
+options: ["3", "5", "7", "10"],
+answer: 1
+},
+
+{
+question: "What is 3³?",
+options: ["9", "18", "27", "36"],
+answer: 2
+},
+
+{
+question: "What is the area of a rectangle with length 8 cm and breadth 5 cm?",
+options: [
+"13 cm²",
+"26 cm²",
+"40 cm²",
+"80 cm²"
+],
+answer: 2
+},
+
+{
+question: "Which of these is a rational number?",
+options: [
+"3/5",
+"√2",
+"π",
+"√3"
+],
+answer: 0
+},
+
+{
+question: "What is the perimeter of a square with side 6 cm?",
+options: [
+"12 cm",
+"18 cm",
+"24 cm",
+"36 cm"
+],
+answer: 2
+},
+
+{
+question: "What is 50% of 80?",
+options: [
+"20",
+"30",
+"40",
+"50"
+],
+answer: 2
+},
+
+{
+question: "If x + 7 = 12, what is x?",
+options: [
+"3",
+"4",
+"5",
+"6"
+],
+answer: 2
+}
+
+];
+
+
+let currentQuestion = 0;
+let score = 0;
+let answered = false;
+
+
+function startQuiz() {
+
+document.getElementById("quiz").style.display = "block";
+
+currentQuestion = 0;
+score = 0;
+
+showQuestion();
+
+setTimeout(function() {
+
+document.getElementById("quiz").scrollIntoView({
+behavior: "smooth"
+});
+
+}, 100);
+
+}
+
+
+function showQuestion() {
+
+answered = false;
+
+const q = questions[currentQuestion];
+
+
+document.getElementById("questionNumber").textContent =
+"Question " +
+(currentQuestion + 1) +
+" of " +
+questions.length;
+
+
+document.getElementById("question").textContent =
+q.question;
+
+
+document.getElementById("result").textContent = "";
+
+
+const optionsBox =
+document.getElementById("options");
+
+optionsBox.innerHTML = "";
+
+
+q.options.forEach(function(option, index) {
+
+const button =
+document.createElement("button");
+
+button.className = "option";
+
+button.textContent =
+String.fromCharCode(65 + index) +
+". " +
+option;
+
+
+button.onclick = function() {
+
+checkAnswer(index, button);
+
+};
+
+
+optionsBox.appendChild(button);
+
+});
+
+
+document.getElementById("nextBtn").style.display =
+"none";
+
+}
+
+
+function checkAnswer(selected, button) {
+
+if (answered) return;
+
+answered = true;
+
+const q = questions[currentQuestion];
+
+const allOptions =
+document.querySelectorAll(".option");
+
+
+allOptions.forEach(function(btn, index) {
+
+if (index === q.answer) {
+
+btn.classList.add("correct");
+
+}
+
+});
+
+
+if (selected === q.answer) {
+
+score++;
+
+button.classList.add("correct");
+
+document.getElementById("result").textContent =
+"✅ Correct!";
+
+}
+
+else {
+
+button.classList.add("wrong");
+
+document.getElementById("result").textContent =
+"❌ Wrong! Correct answer: " +
+q.options[q.answer];
+
+}
+
+
+document.getElementById("nextBtn").style.display =
+"inline-block";
+
+}
+
+
+function nextQuestion() {
+
+currentQuestion++;
+
+
+if (currentQuestion < questions.length) {
+
+showQuestion();
+
+}
+
+else {
+
+showResult();
+
+}
+
+}
+
+
+function showResult() {
+
+document.getElementById("questionNumber").textContent =
+"Quiz Completed 🎉";
+
+
+document.getElementById("question").textContent =
+"Your Score: " +
+score +
+" / " +
+questions.length;
+
+
+document.getElementById("options").innerHTML = "";
+
+
+document.getElementById("nextBtn").style.display =
+"none";
+
+
+if (score === questions.length) {
+
+document.getElementById("result").textContent =
+"🏆 Perfect Score! Excellent work!";
+
+}
+
+else if (score >= 7) {
+
+document.getElementById("result").textContent =
+"🔥 Great job! Keep practicing.";
+
+}
+
+else if (score >= 5) {
+
+document.getElementById("result").textContent =
+"👍 Good attempt! Practice a little more.";
+
+}
+
+else {
+
+document.getElementById("result").textContent =
+"💪 Keep learning and try again!";
+
+}
+
+}
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,1965 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>StudyForge — Study Timer</title>
+
+<meta name="description"
+content="StudyForge Study Timer — Pomodoro timer, custom study sessions, breaks, daily goals and focus tracking.">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f5f7fb;
+    color:#172033;
+    line-height:1.5;
+    transition:.3s;
+}
+
+body.dark{
+    background:#101522;
+    color:#f5f7ff;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:#fff;
+    border-bottom:1px solid #e5e8ef;
+    padding:14px 5%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.dark .navbar{
+    background:#171d2b;
+    border-color:#293246;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:800;
+    color:#2563eb;
+}
+
+.logo span{
+    color:#111827;
+}
+
+.dark .logo span{
+    color:#fff;
+}
+
+.nav-links{
+    display:flex;
+    gap:18px;
+    align-items:center;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:#374151;
+    font-weight:600;
+}
+
+.dark .nav-links a{
+    color:#e5e7eb;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+    color:#2563eb;
+}
+
+.menu-btn{
+    display:none;
+    font-size:25px;
+    cursor:pointer;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    text-align:center;
+    padding:50px 20px 35px;
+    background:linear-gradient(135deg,#eaf2ff,#fff);
+}
+
+.dark .hero{
+    background:linear-gradient(135deg,#17213a,#101522);
+}
+
+.hero h1{
+    font-size:42px;
+    margin-bottom:10px;
+}
+
+.hero h1 span{
+    color:#2563eb;
+}
+
+.hero p{
+    max-width:700px;
+    margin:auto;
+    color:#667085;
+    font-size:17px;
+}
+
+.dark .hero p{
+    color:#b9c1d1;
+}
+
+/* =========================
+   TABS
+========================= */
+
+.tabs{
+    max-width:900px;
+    margin:25px auto 10px;
+    padding:0 15px;
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.tab{
+    border:0;
+    padding:12px 20px;
+    border-radius:10px;
+    background:#e8edf7;
+    color:#334155;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.dark .tab{
+    background:#252e40;
+    color:#e5e7eb;
+}
+
+.tab.active{
+    background:#2563eb;
+    color:white;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container{
+    max-width:1000px;
+    margin:auto;
+    padding:15px 15px 60px;
+}
+
+.section{
+    display:none;
+}
+
+.section.active{
+    display:block;
+}
+
+/* =========================
+   TIMER
+========================= */
+
+.timer-card{
+    background:#fff;
+    border-radius:24px;
+    padding:28px;
+    box-shadow:0 10px 35px rgba(0,0,0,.08);
+    text-align:center;
+}
+
+.dark .timer-card{
+    background:#171d2b;
+    box-shadow:0 10px 35px rgba(0,0,0,.25);
+}
+
+.mode-title{
+    font-size:20px;
+    font-weight:800;
+    color:#2563eb;
+    margin-bottom:20px;
+}
+
+.timer-circle{
+    width:270px;
+    height:270px;
+    margin:10px auto 25px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+    background:conic-gradient(
+        #2563eb 0deg,
+        #2563eb 0deg,
+        #e5eaf2 0deg
+    );
+}
+
+.dark .timer-circle{
+    background:conic-gradient(
+        #2563eb 0deg,
+        #2563eb 0deg,
+        #30394b 0deg
+    );
+}
+
+.timer-circle::before{
+    content:"";
+    position:absolute;
+    width:230px;
+    height:230px;
+    border-radius:50%;
+    background:#fff;
+}
+
+.dark .timer-circle::before{
+    background:#171d2b;
+}
+
+.timer-content{
+    position:relative;
+    z-index:2;
+}
+
+.time{
+    font-size:52px;
+    font-weight:800;
+    letter-spacing:2px;
+}
+
+.status{
+    color:#667085;
+    font-size:14px;
+    margin-top:5px;
+}
+
+.dark .status{
+    color:#b9c1d1;
+}
+
+/* =========================
+   CONTROLS
+========================= */
+
+.controls{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.control-btn{
+    border:0;
+    border-radius:11px;
+    padding:13px 24px;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.start-btn{
+    background:#2563eb;
+    color:white;
+}
+
+.pause-btn{
+    background:#f59e0b;
+    color:white;
+}
+
+.reset-btn{
+    background:#fee2e2;
+    color:#dc2626;
+}
+
+.skip-btn{
+    background:#e8edf7;
+    color:#334155;
+}
+
+.dark .skip-btn{
+    background:#293449;
+    color:white;
+}
+
+/* =========================
+   QUICK TIMES
+========================= */
+
+.quick-times{
+    margin-top:25px;
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+.quick-times button{
+    border:1px solid #d7deea;
+    background:#fff;
+    padding:9px 14px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.dark .quick-times button{
+    background:#222b3d;
+    color:white;
+    border-color:#3b465b;
+}
+
+/* =========================
+   STATS
+========================= */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin-top:20px;
+}
+
+.stat{
+    background:#fff;
+    padding:20px;
+    border-radius:16px;
+    text-align:center;
+    box-shadow:0 7px 22px rgba(0,0,0,.06);
+}
+
+.dark .stat{
+    background:#171d2b;
+}
+
+.stat-number{
+    font-size:28px;
+    font-weight:800;
+    color:#2563eb;
+}
+
+.stat-label{
+    color:#667085;
+    font-size:14px;
+}
+
+.dark .stat-label{
+    color:#b9c1d1;
+}
+
+/* =========================
+   SETTINGS
+========================= */
+
+.settings-card{
+    background:#fff;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 8px 28px rgba(0,0,0,.07);
+}
+
+.dark .settings-card{
+    background:#171d2b;
+}
+
+.setting{
+    margin-bottom:18px;
+}
+
+.setting label{
+    display:block;
+    font-weight:700;
+    margin-bottom:7px;
+}
+
+.setting input,
+.setting select{
+    width:100%;
+    padding:13px;
+    border:1px solid #d6dce7;
+    border-radius:9px;
+    font-size:16px;
+    background:#fff;
+    outline:none;
+}
+
+.dark .setting input,
+.dark .setting select{
+    background:#222b3d;
+    color:#fff;
+    border-color:#3b465b;
+}
+
+.save-btn{
+    width:100%;
+    border:0;
+    padding:14px;
+    background:#2563eb;
+    color:white;
+    font-size:16px;
+    font-weight:700;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+/* =========================
+   GOAL
+========================= */
+
+.goal-card{
+    margin-top:20px;
+    background:#fff;
+    padding:23px;
+    border-radius:18px;
+    box-shadow:0 8px 25px rgba(0,0,0,.06);
+}
+
+.dark .goal-card{
+    background:#171d2b;
+}
+
+.progress-bar{
+    height:14px;
+    background:#e7ebf2;
+    border-radius:20px;
+    overflow:hidden;
+    margin:12px 0;
+}
+
+.dark .progress-bar{
+    background:#2b3445;
+}
+
+.progress-fill{
+    height:100%;
+    width:0%;
+    background:#2563eb;
+    border-radius:20px;
+    transition:.4s;
+}
+
+.goal-text{
+    text-align:center;
+    font-weight:700;
+}
+
+/* =========================
+   TIPS
+========================= */
+
+.tips{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin-top:20px;
+}
+
+.tip{
+    background:#fff;
+    padding:20px;
+    border-radius:15px;
+}
+
+.dark .tip{
+    background:#171d2b;
+}
+
+.tip h3{
+    margin-bottom:6px;
+}
+
+.tip p{
+    font-size:14px;
+    color:#667085;
+}
+
+.dark .tip p{
+    color:#b9c1d1;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    background:#111827;
+    color:#cbd5e1;
+    text-align:center;
+    padding:30px 15px;
+}
+
+/* =========================
+   THEME
+========================= */
+
+.theme-btn{
+    position:fixed;
+    right:18px;
+    bottom:18px;
+    width:48px;
+    height:48px;
+    border:0;
+    border-radius:50%;
+    background:#2563eb;
+    color:white;
+    font-size:20px;
+    cursor:pointer;
+    z-index:500;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:850px){
+
+    .nav-links{
+        display:none;
+        position:absolute;
+        top:65px;
+        left:0;
+        width:100%;
+        background:#fff;
+        padding:15px;
+        flex-direction:column;
+        border-bottom:1px solid #ddd;
+    }
+
+    .dark .nav-links{
+        background:#171d2b;
+        border-color:#293246;
+    }
+
+    .nav-links.show{
+        display:flex;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .hero h1{
+        font-size:32px;
+    }
+
+    .stats,
+    .tips{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:500px){
+
+    .timer-card{
+        padding:18px;
+    }
+
+    .timer-circle{
+        width:235px;
+        height:235px;
+    }
+
+    .timer-circle::before{
+        width:200px;
+        height:200px;
+    }
+
+    .time{
+        font-size:42px;
+    }
+
+    .control-btn{
+        padding:12px 18px;
+    }
+
+    .hero{
+        padding:40px 15px 30px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        StudyForge<span>⚡</span>
+    </div>
+
+    <div class="menu-btn" onclick="toggleMenu()">
+        ☰
+    </div>
+
+    <div class="nav-links" id="navLinks">
+
+        <a href="index.html">Home</a>
+        <a href="mathematics.html">Mathematics</a>
+        <a href="physics.html">Physics</a>
+        <a href="chemistry.html">Chemistry</a>
+        <a href="quizzes.html">Quizzes</a>
+        <a href="calculator.html">Calculator</a>
+        <a href="percentage.html">Percentage</a>
+        <a href="study-timer.html" class="active">Study Timer</a>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <h1>Study <span>Timer</span></h1>
+
+    <p>
+        Focus better with Pomodoro sessions,
+        smart breaks and daily study goals.
+    </p>
+
+</section>
+
+
+<!-- =========================
+     TABS
+========================= -->
+
+<div class="tabs">
+
+    <button class="tab active"
+            onclick="openTab('timerSection',this)">
+        ⏱ Timer
+    </button>
+
+    <button class="tab"
+            onclick="openTab('settingsSection',this)">
+        ⚙ Settings
+    </button>
+
+    <button class="tab"
+            onclick="openTab('tipsSection',this)">
+        💡 Study Tips
+    </button>
+
+</div>
+
+
+<div class="container">
+
+
+<!-- =========================
+     TIMER SECTION
+========================= -->
+
+<section id="timerSection" class="section active">
+
+<div class="timer-card">
+
+    <div class="mode-title" id="modeTitle">
+        🎯 Focus Session
+    </div>
+
+
+    <div class="timer-circle" id="timerCircle">
+
+        <div class="timer-content">
+
+            <div class="time" id="time">
+                25:00
+            </div>
+
+            <div class="status" id="status">
+                Ready to focus
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="controls">
+
+        <button class="control-btn start-btn"
+                onclick="startTimer()">
+            ▶ Start
+        </button>
+
+        <button class="control-btn pause-btn"
+                onclick="pauseTimer()">
+            ⏸ Pause
+        </button>
+
+        <button class="control-btn reset-btn"
+                onclick="resetTimer()">
+            ↻ Reset
+        </button>
+
+        <button class="control-btn skip-btn"
+                onclick="skipSession()">
+            ⏭ Skip
+        </button>
+
+    </div>
+
+
+    <div class="quick-times">
+
+        <button onclick="setQuickTime(5)">
+            5 min
+        </button>
+
+        <button onclick="setQuickTime(15)">
+            15 min
+        </button>
+
+        <button onclick="setQuickTime(25)">
+            25 min
+        </button>
+
+        <button onclick="setQuickTime(45)">
+            45 min
+        </button>
+
+        <button onclick="setQuickTime(60)">
+            60 min
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- STATS -->
+
+<div class="stats">
+
+    <div class="stat">
+
+        <div class="stat-number"
+             id="sessionCount">
+            0
+        </div>
+
+        <div class="stat-label">
+            Sessions Today
+        </div>
+
+    </div>
+
+
+    <div class="stat">
+
+        <div class="stat-number"
+             id="focusMinutes">
+            0
+        </div>
+
+        <div class="stat-label">
+            Focus Minutes
+        </div>
+
+    </div>
+
+
+    <div class="stat">
+
+        <div class="stat-number"
+             id="streak">
+            0
+        </div>
+
+        <div class="stat-label">
+            Day Streak
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- DAILY GOAL -->
+
+<div class="goal-card">
+
+    <h3>🎯 Daily Study Goal</h3>
+
+    <div class="progress-bar">
+
+        <div class="progress-fill"
+             id="goalProgress">
+        </div>
+
+    </div>
+
+    <div class="goal-text"
+         id="goalText">
+        0 / 120 minutes
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     SETTINGS
+========================= -->
+
+<section id="settingsSection" class="section">
+
+<div class="settings-card">
+
+    <h2>⚙ Timer Settings</h2>
+
+    <br>
+
+    <div class="setting">
+
+        <label>
+            Focus Duration (minutes)
+        </label>
+
+        <input
+            type="number"
+            id="focusDuration"
+            min="1"
+            max="180"
+            value="25"
+        >
+
+    </div>
+
+
+    <div class="setting">
+
+        <label>
+            Short Break (minutes)
+        </label>
+
+        <input
+            type="number"
+            id="shortBreak"
+            min="1"
+            max="60"
+            value="5"
+        >
+
+    </div>
+
+
+    <div class="setting">
+
+        <label>
+            Long Break (minutes)
+        </label>
+
+        <input
+            type="number"
+            id="longBreak"
+            min="1"
+            max="120"
+            value="15"
+        >
+
+    </div>
+
+
+    <div class="setting">
+
+        <label>
+            Sessions Before Long Break
+        </label>
+
+        <input
+            type="number"
+            id="sessionsBeforeLong"
+            min="1"
+            max="10"
+            value="4"
+        >
+
+    </div>
+
+
+    <div class="setting">
+
+        <label>
+            Daily Goal (minutes)
+        </label>
+
+        <input
+            type="number"
+            id="dailyGoal"
+            min="1"
+            max="1440"
+            value="120"
+        >
+
+    </div>
+
+
+    <button class="save-btn"
+            onclick="saveSettings()">
+        💾 Save Settings
+    </button>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     TIPS
+========================= -->
+
+<section id="tipsSection" class="section">
+
+<div class="tips">
+
+    <div class="tip">
+
+        <h3>📱 Remove Distractions</h3>
+
+        <p>
+            Keep unnecessary apps and notifications
+            away while studying.
+        </p>
+
+    </div>
+
+
+    <div class="tip">
+
+        <h3>🧠 Active Recall</h3>
+
+        <p>
+            After studying, close your notes and
+            try to remember what you learned.
+        </p>
+
+    </div>
+
+
+    <div class="tip">
+
+        <h3>✍️ Take Short Breaks</h3>
+
+        <p>
+            Use breaks to rest your mind before
+            starting another focus session.
+        </p>
+
+    </div>
+
+
+    <div class="tip">
+
+        <h3>🎯 Set One Goal</h3>
+
+        <p>
+            Decide exactly what you want to finish
+            before starting the timer.
+        </p>
+
+    </div>
+
+
+    <div class="tip">
+
+        <h3>💧 Stay Hydrated</h3>
+
+        <p>
+            Keep water nearby so you don't need
+            unnecessary interruptions.
+        </p>
+
+    </div>
+
+
+    <div class="tip">
+
+        <h3>📚 Review</h3>
+
+        <p>
+            Spend a few minutes reviewing important
+            points after each study block.
+        </p>
+
+    </div>
+
+</div>
+
+</section>
+
+
+</div>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <h3>StudyForge ⚡</h3>
+
+    <p>
+        Learn • Practice • Focus • Improve
+    </p>
+
+    <p style="margin-top:10px;font-size:13px;">
+        © 2026 StudyForge
+    </p>
+
+</footer>
+
+
+<!-- THEME -->
+
+<button class="theme-btn"
+        onclick="toggleTheme()"
+        title="Toggle Theme">
+    🌙
+</button>
+
+
+<script>
+
+/* =========================
+   VARIABLES
+========================= */
+
+let timerInterval = null;
+
+let totalSeconds = 25 * 60;
+
+let remainingSeconds = totalSeconds;
+
+let timerRunning = false;
+
+let mode = "focus";
+
+let completedSessions = 0;
+
+let focusMinutesToday = 0;
+
+let settings = {
+
+    focus:25,
+    shortBreak:5,
+    longBreak:15,
+    sessionsBeforeLong:4,
+    dailyGoal:120
+
+};
+
+
+/* =========================
+   MENU
+========================= */
+
+function toggleMenu(){
+
+    document
+    .getElementById("navLinks")
+    .classList.toggle("show");
+
+}
+
+
+/* =========================
+   TABS
+========================= */
+
+function openTab(id,button){
+
+    document
+    .querySelectorAll(".section")
+    .forEach(section=>{
+        section.classList.remove("active");
+    });
+
+    document
+    .getElementById(id)
+    .classList.add("active");
+
+    document
+    .querySelectorAll(".tab")
+    .forEach(tab=>{
+        tab.classList.remove("active");
+    });
+
+    button.classList.add("active");
+
+}
+
+
+/* =========================
+   LOAD SETTINGS
+========================= */
+
+function loadSettings(){
+
+    const saved =
+        localStorage.getItem(
+            "studyforgeTimerSettings"
+        );
+
+    if(saved){
+
+        try{
+
+            settings =
+                Object.assign(
+                    settings,
+                    JSON.parse(saved)
+                );
+
+        }catch(e){}
+
+    }
+
+    document.getElementById(
+        "focusDuration"
+    ).value=settings.focus;
+
+    document.getElementById(
+        "shortBreak"
+    ).value=settings.shortBreak;
+
+    document.getElementById(
+        "longBreak"
+    ).value=settings.longBreak;
+
+    document.getElementById(
+        "sessionsBeforeLong"
+    ).value=settings.sessionsBeforeLong;
+
+    document.getElementById(
+        "dailyGoal"
+    ).value=settings.dailyGoal;
+
+}
+
+
+/* =========================
+   SAVE SETTINGS
+========================= */
+
+function saveSettings(){
+
+    settings.focus =
+        getPositiveValue(
+            "focusDuration",
+            25
+        );
+
+    settings.shortBreak =
+        getPositiveValue(
+            "shortBreak",
+            5
+        );
+
+    settings.longBreak =
+        getPositiveValue(
+            "longBreak",
+            15
+        );
+
+    settings.sessionsBeforeLong =
+        getPositiveValue(
+            "sessionsBeforeLong",
+            4
+        );
+
+    settings.dailyGoal =
+        getPositiveValue(
+            "dailyGoal",
+            120
+        );
+
+
+    localStorage.setItem(
+        "studyforgeTimerSettings",
+        JSON.stringify(settings)
+    );
+
+
+    if(!timerRunning){
+
+        if(mode==="focus"){
+
+            totalSeconds =
+                settings.focus * 60;
+
+        }
+
+        else if(mode==="shortBreak"){
+
+            totalSeconds =
+                settings.shortBreak * 60;
+
+        }
+
+        else{
+
+            totalSeconds =
+                settings.longBreak * 60;
+
+        }
+
+        remainingSeconds =
+            totalSeconds;
+
+        updateDisplay();
+
+    }
+
+
+    alert("Settings saved successfully!");
+
+
+    updateGoal();
+
+}
+
+
+function getPositiveValue(id,fallback){
+
+    let n =
+        Number(
+            document.getElementById(id).value
+        );
+
+    if(!Number.isFinite(n) || n<=0){
+
+        return fallback;
+
+    }
+
+    return Math.round(n);
+
+}
+
+
+/* =========================
+   START TIMER
+========================= */
+
+function startTimer(){
+
+    if(timerRunning) return;
+
+    timerRunning=true;
+
+    document.getElementById(
+        "status"
+    ).textContent="Focus mode running...";
+
+
+    timerInterval =
+        setInterval(()=>{
+
+            if(remainingSeconds > 0){
+
+                remainingSeconds--;
+
+                updateDisplay();
+
+            }
+
+            else{
+
+                completeSession();
+
+            }
+
+        },1000);
+
+}
+
+
+/* =========================
+   PAUSE
+========================= */
+
+function pauseTimer(){
+
+    if(!timerRunning) return;
+
+    clearInterval(timerInterval);
+
+    timerInterval=null;
+
+    timerRunning=false;
+
+    document.getElementById(
+        "status"
+    ).textContent="Paused";
+
+}
+
+
+/* =========================
+   RESET
+========================= */
+
+function resetTimer(){
+
+    clearInterval(timerInterval);
+
+    timerInterval=null;
+
+    timerRunning=false;
+
+    if(mode==="focus"){
+
+        totalSeconds =
+            settings.focus * 60;
+
+    }
+
+    else if(mode==="shortBreak"){
+
+        totalSeconds =
+            settings.shortBreak * 60;
+
+    }
+
+    else{
+
+        totalSeconds =
+            settings.longBreak * 60;
+
+    }
+
+    remainingSeconds =
+        totalSeconds;
+
+    document.getElementById(
+        "status"
+    ).textContent="Ready to focus";
+
+    updateDisplay();
+
+}
+
+
+/* =========================
+   SKIP
+========================= */
+
+function skipSession(){
+
+    clearInterval(timerInterval);
+
+    timerInterval=null;
+
+    timerRunning=false;
+
+    switchMode();
+
+}
+
+
+/* =========================
+   COMPLETE
+========================= */
+
+function completeSession(){
+
+    clearInterval(timerInterval);
+
+    timerInterval=null;
+
+    timerRunning=false;
+
+
+    if(mode==="focus"){
+
+        completedSessions++;
+
+        focusMinutesToday += settings.focus;
+
+        saveDailyData();
+
+        updateStats();
+
+    }
+
+
+    playSound();
+
+    switchMode();
+
+}
+
+
+/* =========================
+   SWITCH MODE
+========================= */
+
+function switchMode(){
+
+    if(mode==="focus"){
+
+        if(
+            completedSessions > 0 &&
+            completedSessions %
+            settings.sessionsBeforeLong === 0
+        ){
+
+            mode="longBreak";
+
+            totalSeconds =
+                settings.longBreak*60;
+
+            document.getElementById(
+                "modeTitle"
+            ).textContent=
+                "🌿 Long Break";
+
+        }
+
+        else{
+
+            mode="shortBreak";
+
+            totalSeconds =
+                settings.shortBreak*60;
+
+            document.getElementById(
+                "modeTitle"
+            ).textContent=
+                "☕ Short Break";
+
+        }
+
+    }
+
+    else{
+
+        mode="focus";
+
+        totalSeconds =
+            settings.focus*60;
+
+        document.getElementById(
+            "modeTitle"
+        ).textContent=
+            "🎯 Focus Session";
+
+    }
+
+
+    remainingSeconds=totalSeconds;
+
+    document.getElementById(
+        "status"
+    ).textContent=
+        mode==="focus"
+        ? "Ready to focus"
+        : "Take a break";
+
+    updateDisplay();
+
+}
+
+
+/* =========================
+   DISPLAY
+========================= */
+
+function updateDisplay(){
+
+    let minutes =
+        Math.floor(
+            remainingSeconds/60
+        );
+
+    let seconds =
+        remainingSeconds%60;
+
+
+    document.getElementById(
+        "time"
+    ).textContent =
+        String(minutes).padStart(2,"0")
+        +":"+
+        String(seconds).padStart(2,"0");
+
+
+    let progress =
+        totalSeconds > 0
+        ? (
+            (totalSeconds-remainingSeconds)
+            /totalSeconds
+        )*360
+        : 0;
+
+
+    let circle =
+        document.getElementById(
+            "timerCircle"
+        );
+
+
+    circle.style.background =
+        `conic-gradient(
+            #2563eb ${progress}deg,
+            ${document.body.classList.contains("dark")
+                ? "#30394b"
+                : "#e5eaf2"} ${progress}deg
+        )`;
+
+
+    document.title =
+        document.getElementById(
+            "time"
+        ).textContent+
+        " — StudyForge";
+
+}
+
+
+/* =========================
+   QUICK TIME
+========================= */
+
+function setQuickTime(minutes){
+
+    clearInterval(timerInterval);
+
+    timerInterval=null;
+
+    timerRunning=false;
+
+    mode="focus";
+
+    totalSeconds =
+        minutes*60;
+
+    remainingSeconds =
+        totalSeconds;
+
+    document.getElementById(
+        "modeTitle"
+    ).textContent=
+        "🎯 Focus Session";
+
+    document.getElementById(
+        "status"
+    ).textContent=
+        "Ready to focus";
+
+    updateDisplay();
+
+}
+
+
+/* =========================
+   DAILY DATA
+========================= */
+
+function getTodayKey(){
+
+    let date =
+        new Date();
+
+    return date.getFullYear()
+        +"-"+
+        String(
+            date.getMonth()+1
+        ).padStart(2,"0")
+        +"-"+
+        String(
+            date.getDate()
+        ).padStart(2,"0");
+
+}
+
+
+function saveDailyData(){
+
+    let key =
+        getTodayKey();
+
+    localStorage.setItem(
+        "studyforgeDailyData",
+        JSON.stringify({
+            date:key,
+            sessions:completedSessions,
+            minutes:focusMinutesToday
+        })
+    );
+
+}
+
+
+/* =========================
+   LOAD DAILY DATA
+========================= */
+
+function loadDailyData(){
+
+    let saved =
+        localStorage.getItem(
+            "studyforgeDailyData"
+        );
+
+    if(!saved) return;
+
+    try{
+
+        let data =
+            JSON.parse(saved);
+
+        if(data.date===getTodayKey()){
+
+            completedSessions =
+                data.sessions || 0;
+
+            focusMinutesToday =
+                data.minutes || 0;
+
+        }
+
+    }catch(e){}
+
+}
+
+
+/* =========================
+   STATS
+========================= */
+
+function updateStats(){
+
+    document.getElementById(
+        "sessionCount"
+    ).textContent=
+        completedSessions;
+
+    document.getElementById(
+        "focusMinutes"
+    ).textContent=
+        focusMinutesToday;
+
+    updateGoal();
+
+    updateStreak();
+
+}
+
+
+/* =========================
+   GOAL
+========================= */
+
+function updateGoal(){
+
+    let goal =
+        settings.dailyGoal;
+
+    let percent =
+        Math.min(
+            (focusMinutesToday/goal)*100,
+            100
+        );
+
+    document.getElementById(
+        "goalProgress"
+    ).style.width=
+        percent+"%";
+
+
+    document.getElementById(
+        "goalText"
+    ).textContent=
+        focusMinutesToday+
+        " / "+
+        goal+
+        " minutes";
+
+
+}
+
+
+/* =========================
+   STREAK
+========================= */
+
+function updateStreak(){
+
+    let streak =
+        Number(
+            localStorage.getItem(
+                "studyforgeStreak"
+            ) || 0
+        );
+
+    let lastDate =
+        localStorage.getItem(
+            "studyforgeLastStudyDate"
+        );
+
+    let today =
+        getTodayKey();
+
+
+    if(completedSessions>0){
+
+        if(lastDate!==today){
+
+            let yesterday =
+                new Date();
+
+            yesterday.setDate(
+                yesterday.getDate()-1
+            );
+
+            let yesterdayKey =
+                yesterday.getFullYear()
+                +"-"+
+                String(
+                    yesterday.getMonth()+1
+                ).padStart(2,"0")
+                +"-"+
+                String(
+                    yesterday.getDate()
+                ).padStart(2,"0");
+
+
+            if(lastDate===yesterdayKey){
+
+                streak++;
+
+            }
+
+            else{
+
+                streak=1;
+
+            }
+
+
+            localStorage.setItem(
+                "studyforgeStreak",
+                streak
+            );
+
+            localStorage.setItem(
+                "studyforgeLastStudyDate",
+                today
+            );
+
+        }
+
+    }
+
+
+    document.getElementById(
+        "streak"
+    ).textContent=streak;
+
+}
+
+
+/* =========================
+   SOUND
+========================= */
+
+function playSound(){
+
+    try{
+
+        const AudioContext =
+            window.AudioContext ||
+            window.webkitAudioContext;
+
+        if(!AudioContext) return;
+
+        const ctx =
+            new AudioContext();
+
+        const oscillator =
+            ctx.createOscillator();
+
+        const gain =
+            ctx.createGain();
+
+        oscillator.connect(gain);
+
+        gain.connect(ctx.destination);
+
+        oscillator.frequency.value=800;
+
+        oscillator.type="sine";
+
+        gain.gain.setValueAtTime(
+            0.2,
+            ctx.currentTime
+        );
+
+        oscillator.start();
+
+        gain.gain.exponentialRampToValueAtTime(
+            0.001,
+            ctx.currentTime+1
+        );
+
+        oscillator.stop(
+            ctx.currentTime+1
+        );
+
+    }catch(e){}
+
+}
+
+
+/* =========================
+   DARK MODE
+========================= */
+
+function toggleTheme(){
+
+    document.body.classList.toggle("dark");
+
+    let dark =
+        document.body.classList.contains(
+            "dark"
+        );
+
+    localStorage.setItem(
+        "studyforgeTheme",
+        dark
+        ? "dark"
+        : "light"
+    );
+
+    document.querySelector(
+        ".theme-btn"
+    ).textContent =
+        dark
+        ? "☀️"
+        : "🌙";
+
+    updateDisplay();
+
+}
+
+
+function loadTheme(){
+
+    let theme =
+        localStorage.getItem(
+            "studyforgeTheme"
+        );
+
+    if(theme==="dark"){
+
+        document.body.classList.add("dark");
+
+        document.querySelector(
+            ".theme-btn"
+        ).textContent="☀️";
+
+    }
+
+}
+
+
+/* =========================
+   KEYBOARD
+========================= */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.code==="Space"){
+
+            event.preventDefault();
+
+            if(timerRunning){
+
+                pauseTimer();
+
+            }
+
+            else{
+
+                startTimer();
+
+            }
+
+        }
+
+        if(event.key==="r" ||
+           event.key==="R"){
+
+            resetTimer();
+
+        }
+
+    }
+);
+
+
+/* =========================
+   INITIALIZE
+========================= */
+
+loadTheme();
+
+loadSettings();
+
+loadDailyData();
+
+totalSeconds =
+    settings.focus*60;
+
+remainingSeconds =
+    totalSeconds;
+
+updateDisplay();
+
+updateStats();
+
+</script>
+
+</body>
+</html>

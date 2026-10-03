@@ -1,0 +1,1815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>StudyForge — Mathematics</title>
+
+<meta name="description"
+content="StudyForge Mathematics — Class 8, 9 and 10 concepts, formulas, practice questions and quizzes.">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f5f7fb;
+    color:#172033;
+    line-height:1.6;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+    background:#fff;
+    border-bottom:1px solid #e5e7eb;
+    padding:14px 5%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    font-size:23px;
+    font-weight:800;
+    color:#2563eb;
+    text-decoration:none;
+}
+
+.logo span{
+    color:#111827;
+}
+
+.nav-links{
+    display:flex;
+    gap:25px;
+    list-style:none;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:#374151;
+    font-weight:600;
+}
+
+.nav-links a:hover{
+    color:#2563eb;
+}
+
+.menu-btn{
+    display:none;
+    border:0;
+    background:#2563eb;
+    color:white;
+    padding:8px 12px;
+    border-radius:8px;
+    font-size:20px;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    padding:75px 5%;
+    text-align:center;
+    background:linear-gradient(135deg,#eff6ff,#fff);
+}
+
+.hero h1{
+    font-size:48px;
+    margin-bottom:15px;
+}
+
+.hero h1 span{
+    color:#2563eb;
+}
+
+.hero p{
+    max-width:700px;
+    margin:auto;
+    color:#64748b;
+    font-size:18px;
+}
+
+/* ================= STATS ================= */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+    padding:35px 5%;
+    background:white;
+}
+
+.stat{
+    text-align:center;
+}
+
+.stat h2{
+    color:#2563eb;
+    font-size:30px;
+}
+
+/* ================= SECTION ================= */
+
+section{
+    padding:65px 5%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.section-title h2{
+    font-size:32px;
+}
+
+.section-title p{
+    color:#64748b;
+}
+
+/* ================= CLASS ================= */
+
+.class-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.class-card{
+    background:white;
+    border-radius:18px;
+    padding:30px;
+    text-decoration:none;
+    color:#172033;
+    border:1px solid #e5e7eb;
+    transition:.25s;
+}
+
+.class-card:hover{
+    transform:translateY(-6px);
+    border-color:#2563eb;
+}
+
+.class-number{
+    font-size:42px;
+    font-weight:800;
+    color:#2563eb;
+}
+
+.class-card h3{
+    margin:10px 0;
+}
+
+.class-card p{
+    color:#64748b;
+}
+
+/* ================= FORMULAS ================= */
+
+.formula-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.formula-card{
+    background:white;
+    border:1px solid #e5e7eb;
+    border-radius:16px;
+    padding:25px;
+    text-decoration:none;
+    color:#172033;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.formula-card:hover{
+    transform:translateY(-5px);
+    border-color:#2563eb;
+}
+
+.formula-icon{
+    font-size:32px;
+    margin-bottom:10px;
+}
+
+.formula-card p{
+    color:#64748b;
+    font-size:14px;
+}
+
+/* ================= TOPICS ================= */
+
+.topic-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.topic-card{
+    background:white;
+    border:1px solid #e5e7eb;
+    border-radius:15px;
+    padding:22px;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.topic-card:hover{
+    transform:translateY(-5px);
+    border-color:#2563eb;
+}
+
+.topic-icon{
+    font-size:30px;
+}
+
+.topic-card h3{
+    margin:5px 0;
+}
+
+.topic-card p{
+    color:#64748b;
+    font-size:14px;
+}
+
+/* ================= PRACTICE ================= */
+
+.practice-box{
+    background:linear-gradient(135deg,#2563eb,#1d4ed8);
+    color:white;
+    border-radius:22px;
+    padding:45px;
+    text-align:center;
+}
+
+.practice-box h2{
+    font-size:32px;
+}
+
+.practice-box p{
+    margin:10px 0 25px;
+}
+
+.btn{
+    display:inline-block;
+    padding:12px 22px;
+    border-radius:10px;
+    border:0;
+    cursor:pointer;
+    text-decoration:none;
+    font-weight:700;
+    margin:4px;
+}
+
+.btn-light{
+    background:white;
+    color:#2563eb;
+}
+
+/* ================= FULL SCREEN LEARN ================= */
+
+.learn-page,
+.practice-page,
+.quiz-page{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:#f5f7fb;
+    z-index:3000;
+    overflow-y:auto;
+}
+
+.learn-header,
+.practice-header,
+.quiz-header{
+    position:sticky;
+    top:0;
+    z-index:10;
+    background:white;
+    border-bottom:1px solid #e5e7eb;
+    padding:15px 5%;
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.back-btn{
+    border:0;
+    background:#2563eb;
+    color:white;
+    padding:9px 15px;
+    border-radius:9px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.learn-content,
+.practice-content,
+.quiz-content{
+    max-width:1000px;
+    margin:auto;
+    padding:35px 5% 70px;
+}
+
+/* ================= LESSON ================= */
+
+.lesson-section{
+    background:white;
+    border:1px solid #e5e7eb;
+    border-radius:16px;
+    margin-bottom:20px;
+    overflow:hidden;
+}
+
+.lesson-title{
+    padding:18px 22px;
+    background:#eff6ff;
+    color:#1d4ed8;
+    font-size:20px;
+    font-weight:800;
+}
+
+.lesson-body{
+    padding:20px;
+}
+
+.formula-row{
+    padding:14px 0;
+    border-bottom:1px solid #edf0f4;
+}
+
+.formula-name{
+    font-weight:700;
+    margin-bottom:5px;
+}
+
+.formula-value{
+    background:#f8fafc;
+    border-left:4px solid #2563eb;
+    padding:10px;
+    border-radius:7px;
+    font-family:monospace;
+    overflow-x:auto;
+}
+
+.tip{
+    background:#ecfdf5;
+    border-left:4px solid #10b981;
+    padding:15px;
+    border-radius:8px;
+}
+
+/* ================= PRACTICE ================= */
+
+.practice-card{
+    background:white;
+    border-radius:18px;
+    padding:28px;
+    border:1px solid #e5e7eb;
+    margin-bottom:20px;
+}
+
+.practice-card h2{
+    color:#2563eb;
+    margin-bottom:15px;
+}
+
+.answer-input{
+    width:100%;
+    padding:13px;
+    border:1px solid #d1d5db;
+    border-radius:9px;
+    font-size:16px;
+    margin:10px 0;
+}
+
+.check-btn{
+    background:#2563eb;
+    color:white;
+}
+
+.result{
+    margin-top:12px;
+    font-weight:bold;
+}
+
+/* ================= QUIZ ================= */
+
+.quiz-box{
+    background:white;
+    border:1px solid #e5e7eb;
+    border-radius:18px;
+    padding:28px;
+}
+
+.quiz-progress{
+    color:#64748b;
+    margin-bottom:10px;
+}
+
+.quiz-question{
+    font-size:22px;
+    font-weight:700;
+    margin-bottom:20px;
+}
+
+.option{
+    display:block;
+    width:100%;
+    text-align:left;
+    background:#f8fafc;
+    border:1px solid #dbe1e8;
+    padding:14px;
+    border-radius:10px;
+    margin:10px 0;
+    cursor:pointer;
+    font-size:16px;
+}
+
+.option:hover{
+    border-color:#2563eb;
+    background:#eff6ff;
+}
+
+.option.correct{
+    background:#dcfce7;
+    border-color:#16a34a;
+}
+
+.option.wrong{
+    background:#fee2e2;
+    border-color:#dc2626;
+}
+
+.quiz-next{
+    background:#2563eb;
+    color:white;
+    margin-top:15px;
+}
+
+.quiz-score{
+    text-align:center;
+    background:white;
+    padding:35px;
+    border-radius:18px;
+    border:1px solid #e5e7eb;
+}
+
+.quiz-score h1{
+    color:#2563eb;
+    font-size:42px;
+}
+
+.restart-btn{
+    background:#2563eb;
+    color:white;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#111827;
+    color:white;
+    padding:35px 5%;
+    text-align:center;
+}
+
+footer p{
+    color:#9ca3af;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:850px){
+
+    .nav-links{
+        display:none;
+        position:absolute;
+        top:62px;
+        left:0;
+        width:100%;
+        background:white;
+        flex-direction:column;
+        padding:20px 5%;
+        border-bottom:1px solid #e5e7eb;
+    }
+
+    .nav-links.show{
+        display:flex;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .hero h1{
+        font-size:38px;
+    }
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .class-grid{
+        grid-template-columns:1fr;
+    }
+
+    .formula-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .topic-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:500px){
+
+    .hero h1{
+        font-size:32px;
+    }
+
+    .formula-grid,
+    .topic-grid{
+        grid-template-columns:1fr;
+    }
+
+    .practice-box{
+        padding:30px 20px;
+    }
+
+    .quiz-question{
+        font-size:19px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+<a href="index.html" class="logo">
+Study<span>Forge</span>
+</a>
+
+<button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+<ul class="nav-links" id="navLinks">
+<li><a href="index.html">Home</a></li>
+<li><a href="mathematics.html">Mathematics</a></li>
+<li><a href="physics.html">Physics</a></li>
+<li><a href="chemistry.html">Chemistry</a></li>
+</ul>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+<h1>
+Mathematics <span>Made Simple</span>
+</h1>
+
+<p>
+Learn Class 8, 9 and 10 Mathematics with concepts,
+formulas, important topics, practice and quizzes.
+</p>
+
+</section>
+
+
+<!-- ================= STATS ================= -->
+
+<div class="stats">
+
+<div class="stat">
+<h2>3+</h2>
+<p>Classes</p>
+</div>
+
+<div class="stat">
+<h2>100+</h2>
+<p>Questions</p>
+</div>
+
+<div class="stat">
+<h2>100+</h2>
+<p>Formulas</p>
+</div>
+
+<div class="stat">
+<h2>10+</h2>
+<p>Quizzes</p>
+</div>
+
+</div>
+
+
+<!-- ================= CLASSES ================= -->
+
+<section>
+
+<div class="section-title">
+<h2>Choose Your Class</h2>
+<p>Start learning according to your class.</p>
+</div>
+
+<div class="class-grid">
+
+<a href="math8.html" class="class-card">
+<div class="class-number">08</div>
+<h3>Class 8 Mathematics</h3>
+<p>
+Rational numbers, linear equations,
+algebra, geometry, mensuration and more.
+</p>
+</a>
+
+<a href="math9.html" class="class-card">
+<div class="class-number">09</div>
+<h3>Class 9 Mathematics</h3>
+<p>
+Number systems, polynomials, triangles,
+circles, statistics and more.
+</p>
+</a>
+
+<a href="math10.html" class="class-card">
+<div class="class-number">10</div>
+<h3>Class 10 Mathematics</h3>
+<p>
+Real numbers, quadratic equations,
+trigonometry, AP, statistics and probability.
+</p>
+</a>
+
+</div>
+
+</section>
+
+
+<!-- ================= FORMULAS ================= -->
+
+<section>
+
+<div class="section-title">
+<h2>Mathematics Formulas</h2>
+<p>Quick revision formulas for Class 8–10.</p>
+</div>
+
+<div class="formula-grid">
+
+<div class="formula-card"
+onclick="openLearn('all')">
+
+<div class="formula-icon">📚</div>
+<h3>All Formulas</h3>
+<p>Complete Class 8–10 formula library.</p>
+
+</div>
+
+<div class="formula-card"
+onclick="openLearn('algebra')">
+
+<div class="formula-icon">🔢</div>
+<h3>Algebra</h3>
+<p>Identities, equations, polynomials, quadratic equations and AP.</p>
+
+</div>
+
+<div class="formula-card"
+onclick="openLearn('geometry')">
+
+<div class="formula-icon">📐</div>
+<h3>Geometry</h3>
+<p>Lines, triangles, circles, coordinate geometry and trigonometry.</p>
+
+</div>
+
+<div class="formula-card"
+onclick="openLearn('mensuration')">
+
+<div class="formula-icon">📦</div>
+<h3>Mensuration</h3>
+<p>Area, perimeter, surface area and volume formulas.</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= POPULAR TOPICS ================= -->
+
+<section>
+
+<div class="section-title">
+<h2>Popular Mathematics Topics</h2>
+<p>Open a topic to learn its important concepts and formulas.</p>
+</div>
+
+<div class="topic-grid">
+
+<div class="topic-card" onclick="openLearn('percentage')">
+<div class="topic-icon">%</div>
+<h3>Percentage</h3>
+<p>Percentage, increase, decrease and applications.</p>
+</div>
+
+<div class="topic-card" onclick="openLearn('algebraic')">
+<div class="topic-icon">x²</div>
+<h3>Algebraic Identities</h3>
+<p>Important identities and their uses.</p>
+</div>
+
+<div class="topic-card" onclick="openLearn('linear')">
+<div class="topic-icon">📈</div>
+<h3>Linear Equations</h3>
+<p>Solve equations quickly and correctly.</p>
+</div>
+
+<div class="topic-card" onclick="openLearn('polynomial')">
+<div class="topic-icon">P(x)</div>
+<h3>Polynomials</h3>
+<p>Zeroes, factors and polynomial formulas.</p>
+</div>
+
+<div class="topic-card" onclick="openLearn('quadratic')">
+<div class="topic-icon">x²</div>
+<h3>Quadratic Equations</h3>
+<p>Roots, discriminant and quadratic formula.</p>
+</div>
+
+<div class="topic-card" onclick="openLearn('ap')">
+<div class="topic-icon">🔢</div>
+<h3>Arithmetic Progression</h3>
+<p>nth term and sum of AP.</p>
+</div>
+
+<div class="topic-card" onclick="openLearn('coordinate')">
+<div class="topic-icon">📍</div>
+<h3>Coordinate Geometry</h3>
+<p>Distance, midpoint, section and area.</p>
+</div>
+
+<div class="topic-card" onclick="openLearn('triangles')">
+<div class="topic-icon">△</div>
+<h3>Triangles</h3>
+<p>Similarity, area and Pythagoras theorem.</p>
+</div>
+
+<div class="topic-card" onclick="openLearn('circles')">
+<div class="topic-icon">⭕</div>
+<h3>Circles</h3>
+<p>Circumference, area, sectors and theorems.</p>
+</div>
+
+<div class="topic-card" onclick="openLearn('trigonometry')">
+<div class="topic-icon">📐</div>
+<h3>Trigonometry</h3>
+<p>Ratios, identities and standard values.</p>
+</div>
+
+<div class="topic-card" onclick="openLearn('mensuration')">
+<div class="topic-icon">📦</div>
+<h3>Mensuration</h3>
+<p>2D and 3D area and volume formulas.</p>
+</div>
+
+<div class="topic-card" onclick="openLearn('statistics')">
+<div class="topic-icon">📊</div>
+<h3>Statistics</h3>
+<p>Mean, median, mode and grouped data.</p>
+</div>
+
+<div class="topic-card" onclick="openLearn('probability')">
+<div class="topic-icon">🎲</div>
+<h3>Probability</h3>
+<p>Basic probability and complementary events.</p>
+</div>
+
+<div class="topic-card" onclick="openLearn('commercial')">
+<div class="topic-icon">💰</div>
+<h3>Profit & Loss</h3>
+<p>Profit, loss, discount and simple interest.</p>
+</div>
+
+<div class="topic-card" onclick="openLearn('number')">
+<div class="topic-icon">🔢</div>
+<h3>Number System</h3>
+<p>Rational numbers, exponents and real numbers.</p>
+</div>
+
+<div class="topic-card" onclick="openLearn('heron')">
+<div class="topic-icon">△</div>
+<h3>Heron's Formula</h3>
+<p>Find the area of a triangle from its sides.</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= READY TO PRACTICE ================= -->
+
+<section>
+
+<div class="practice-box">
+
+<h2>Ready to Practice?</h2>
+
+<p>
+Test your Mathematics knowledge with questions and quizzes.
+</p>
+
+<button class="btn btn-light"
+onclick="openPractice()">
+Practice Questions
+</button>
+
+<button class="btn btn-light"
+onclick="startQuiz()">
+Take Quiz
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<h3>StudyForge</h3>
+
+<p>Learn smarter. Practice better. Grow stronger.</p>
+
+<p>© 2026 StudyForge</p>
+
+</footer>
+
+
+<!-- =====================================================
+     LEARNING PAGE
+     ===================================================== -->
+
+<div class="learn-page" id="learnPage">
+
+<div class="learn-header">
+
+<button class="back-btn" onclick="closeAllPages()">
+← Back
+</button>
+
+<h2 id="learnTitle">Mathematics</h2>
+
+</div>
+
+<div class="learn-content" id="learnContent"></div>
+
+</div>
+
+
+<!-- =====================================================
+     PRACTICE PAGE
+     ===================================================== -->
+
+<div class="practice-page" id="practicePage">
+
+<div class="practice-header">
+
+<button class="back-btn" onclick="closeAllPages()">
+← Back
+</button>
+
+<h2>Practice Questions</h2>
+
+</div>
+
+<div class="practice-content">
+
+<div class="practice-card">
+
+<h2>Question 1</h2>
+
+<p>
+Find 25% of 240.
+</p>
+
+<input
+type="number"
+id="p1"
+class="answer-input"
+placeholder="Enter your answer">
+
+<button class="btn check-btn"
+onclick="checkPractice(1,60)">
+Check Answer
+</button>
+
+<div id="r1" class="result"></div>
+
+</div>
+
+
+<div class="practice-card">
+
+<h2>Question 2</h2>
+
+<p>
+Solve: 3x + 7 = 22
+</p>
+
+<input
+type="number"
+id="p2"
+class="answer-input"
+placeholder="Enter x">
+
+<button class="btn check-btn"
+onclick="checkPractice(2,5)">
+Check Answer
+</button>
+
+<div id="r2" class="result"></div>
+
+</div>
+
+
+<div class="practice-card">
+
+<h2>Question 3</h2>
+
+<p>
+Find the area of a rectangle with length 12 cm
+and breadth 8 cm.
+</p>
+
+<input
+type="number"
+id="p3"
+class="answer-input"
+placeholder="Area in cm²">
+
+<button class="btn check-btn"
+onclick="checkPractice(3,96)">
+Check Answer
+</button>
+
+<div id="r3" class="result"></div>
+
+</div>
+
+
+<div class="practice-card">
+
+<h2>Question 4</h2>
+
+<p>
+What is the value of 7² − 3²?
+</p>
+
+<input
+type="number"
+id="p4"
+class="answer-input"
+placeholder="Enter answer">
+
+<button class="btn check-btn"
+onclick="checkPractice(4,40)">
+Check Answer
+</button>
+
+<div id="r4" class="result"></div>
+
+</div>
+
+
+<div class="practice-card">
+
+<h2>Question 5</h2>
+
+<p>
+The first term of an AP is 5 and common difference
+is 3. Find the 10th term.
+</p>
+
+<input
+type="number"
+id="p5"
+class="answer-input"
+placeholder="Enter answer">
+
+<button class="btn check-btn"
+onclick="checkPractice(5,32)">
+Check Answer
+</button>
+
+<div id="r5" class="result"></div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     QUIZ PAGE
+     ===================================================== -->
+
+<div class="quiz-page" id="quizPage">
+
+<div class="quiz-header">
+
+<button class="back-btn" onclick="closeAllPages()">
+← Back
+</button>
+
+<h2>Mathematics Quiz</h2>
+
+</div>
+
+<div class="quiz-content" id="quizContent"></div>
+
+</div>
+
+
+<script>
+
+/* ================= MENU ================= */
+
+function toggleMenu(){
+
+document
+.getElementById("navLinks")
+.classList.toggle("show");
+
+}
+
+
+/* =====================================================
+   FORMULA DATABASE
+   ===================================================== */
+
+const groups={
+
+number:{
+title:"Number System & Exponents",
+items:[
+["Rational Number","Rational number = p/q, where q ≠ 0"],
+["Product of Powers","aᵐ × aⁿ = aᵐ⁺ⁿ"],
+["Division of Powers","aᵐ ÷ aⁿ = aᵐ⁻ⁿ"],
+["Power of a Power","(aᵐ)ⁿ = aᵐⁿ"],
+["Zero Exponent","a⁰ = 1"],
+["Negative Exponent","a⁻ᵐ = 1/aᵐ"],
+["Euclid Division Lemma","a = bq + r"],
+["HCF–LCM","HCF × LCM = Product of two positive integers"]
+]
+},
+
+commercial:{
+title:"Percentage & Commercial Mathematics",
+items:[
+["Percentage","Percentage = (Part / Whole) × 100"],
+["Percentage Increase","Increase% = (Increase / Original) × 100"],
+["Percentage Decrease","Decrease% = (Decrease / Original) × 100"],
+["Profit","Profit = SP − CP"],
+["Loss","Loss = CP − SP"],
+["Profit%","Profit% = Profit/CP × 100"],
+["Loss%","Loss% = Loss/CP × 100"],
+["Discount","Discount = MP − SP"],
+["Discount%","Discount% = Discount/MP × 100"],
+["Simple Interest","SI = PRT/100"],
+["Amount","A = P + SI"],
+["Compound Interest","A = P(1+R/100)ⁿ"],
+["Compound Interest","CI = A − P"]
+]
+},
+
+algebraic:{
+title:"Algebraic Identities",
+items:[
+["Identity 1","(a+b)² = a²+2ab+b²"],
+["Identity 2","(a−b)² = a²−2ab+b²"],
+["Identity 3","a²−b² = (a−b)(a+b)"],
+["Identity 4","(x+a)(x+b)=x²+(a+b)x+ab"],
+["Identity 5","(a+b+c)²=a²+b²+c²+2ab+2bc+2ca"],
+["Identity 6","(a+b)³=a³+3a²b+3ab²+b³"],
+["Identity 7","(a−b)³=a³−3a²b+3ab²−b³"],
+["Identity 8","a³+b³=(a+b)(a²−ab+b²)"],
+["Identity 9","a³−b³=(a−b)(a²+ab+b²)"]
+]
+},
+
+linear:{
+title:"Linear Equations",
+items:[
+["Basic Form","ax+b=0 ⇒ x=−b/a"],
+["Two Variable Form","ax+by+c=0"],
+["Example","3x+5=20 ⇒ x=5"]
+]
+},
+
+polynomial:{
+title:"Polynomials",
+items:[
+["Division Algorithm","p(x)=g(x)q(x)+r(x)"],
+["Remainder Theorem","Remainder for x−a = p(a)"],
+["Factor Theorem","p(a)=0 ⇒ x−a is a factor"],
+["Quadratic Polynomial","p(x)=ax²+bx+c"],
+["Sum of Zeroes","α+β=−b/a"],
+["Product of Zeroes","αβ=c/a"]
+]
+},
+
+quadratic:{
+title:"Quadratic Equations",
+items:[
+["Standard Form","ax²+bx+c=0"],
+["Quadratic Formula","x=(−b±√(b²−4ac))/2a"],
+["Discriminant","D=b²−4ac"],
+["D > 0","Two distinct real roots"],
+["D = 0","Two equal real roots"],
+["D < 0","No real roots"],
+["Sum of Roots","α+β=−b/a"],
+["Product of Roots","αβ=c/a"]
+]
+},
+
+ap:{
+title:"Arithmetic Progression",
+items:[
+["Common Difference","d=a₂−a₁"],
+["nth Term","aₙ=a+(n−1)d"],
+["Last Term","l=a+(n−1)d"],
+["Sum of n Terms","Sₙ=n/2[2a+(n−1)d]"],
+["Another Sum Formula","Sₙ=n/2(a+l)"]
+]
+},
+
+coordinate:{
+title:"Coordinate Geometry",
+items:[
+["Distance Formula","d=√[(x₂−x₁)²+(y₂−y₁)²]"],
+["Midpoint","((x₁+x₂)/2,(y₁+y₂)/2)"],
+["Section Formula","((mx₂+nx₁)/(m+n),(my₂+ny₁)/(m+n))"],
+["Area of Triangle","1/2|x₁(y₂−y₃)+x₂(y₃−y₁)+x₃(y₁−y₂)|"]
+]
+},
+
+lines:{
+title:"Lines & Angles",
+items:[
+["Complementary","Sum = 90°"],
+["Supplementary","Sum = 180°"],
+["Linear Pair","Sum = 180°"],
+["Vertically Opposite","Equal"],
+["Around a Point","Sum = 360°"],
+["Alternate Angles","Equal for parallel lines"],
+["Corresponding Angles","Equal for parallel lines"],
+["Co-interior Angles","Sum = 180°"]
+]
+},
+
+triangles:{
+title:"Triangles",
+items:[
+["Angle Sum","A+B+C=180°"],
+["Area","1/2 × base × height"],
+["Pythagoras","Hypotenuse²=Base²+Perpendicular²"],
+["Equilateral Area","(√3/4)a²"],
+["Equilateral Height","(√3/2)a"],
+["Similar Triangles","Corresponding sides are proportional"]
+]
+},
+
+quadrilateral:{
+title:"Quadrilaterals",
+items:[
+["Angle Sum","360°"],
+["Parallelogram","Opposite sides equal and parallel"],
+["Parallelogram","Diagonals bisect each other"],
+["Rectangle","All angles 90°"],
+["Rhombus","All sides equal"],
+["Square","All sides equal and all angles 90°"],
+["Trapezium","One pair of opposite sides parallel"]
+]
+},
+
+circles:{
+title:"Circles",
+items:[
+["Diameter","d=2r"],
+["Circumference","C=2πr"],
+["Area","A=πr²"],
+["Arc Length","θ/360 × 2πr"],
+["Sector Area","θ/360 × πr²"],
+["Angle in Semicircle","90°"],
+["Radius and Tangent","Radius ⟂ Tangent"]
+]
+},
+
+heron:{
+title:"Heron's Formula",
+items:[
+["Semi-perimeter","s=(a+b+c)/2"],
+["Heron's Formula","Area=√[s(s−a)(s−b)(s−c)]"]
+]
+},
+
+trigonometry:{
+title:"Trigonometry",
+items:[
+["sin θ","Perpendicular/Hypotenuse"],
+["cos θ","Base/Hypotenuse"],
+["tan θ","Perpendicular/Base"],
+["cosec θ","1/sin θ"],
+["sec θ","1/cos θ"],
+["cot θ","1/tan θ"],
+["Identity","sin²θ+cos²θ=1"],
+["Identity","1+tan²θ=sec²θ"],
+["Identity","1+cot²θ=cosec²θ"],
+["tan θ","sinθ/cosθ"],
+["sin 30°","1/2"],
+["sin 45°","1/√2"],
+["sin 60°","√3/2"],
+["cos 30°","√3/2"],
+["cos 45°","1/√2"],
+["cos 60°","1/2"],
+["tan 30°","1/√3"],
+["tan 45°","1"],
+["tan 60°","√3"]
+]
+},
+
+mensuration2d:{
+title:"2D Mensuration",
+items:[
+["Rectangle Area","A=l×b"],
+["Rectangle Perimeter","P=2(l+b)"],
+["Square Area","A=a²"],
+["Square Perimeter","P=4a"],
+["Triangle Area","A=1/2 bh"],
+["Parallelogram Area","A=bh"],
+["Rhombus Area","A=1/2 d₁d₂"],
+["Trapezium Area","A=1/2(a+b)h"],
+["Circle Area","A=πr²"]
+]
+},
+
+mensuration3d:{
+title:"3D Mensuration",
+items:[
+["Cuboid Volume","V=lbh"],
+["Cuboid TSA","2(lb+bh+hl)"],
+["Cube Volume","V=a³"],
+["Cube TSA","6a²"],
+["Cylinder Volume","V=πr²h"],
+["Cylinder CSA","2πrh"],
+["Cylinder TSA","2πr(h+r)"],
+["Cone Volume","1/3πr²h"],
+["Cone CSA","πrl"],
+["Sphere Volume","4/3πr³"],
+["Sphere Surface Area","4πr²"],
+["Hemisphere Volume","2/3πr³"],
+["Hemisphere TSA","3πr²"]
+]
+},
+
+statistics:{
+title:"Statistics",
+items:[
+["Mean","Sum of observations/Number of observations"],
+["Frequency Mean","Σfᵢxᵢ/Σfᵢ"],
+["Range","Highest−Lowest"],
+["Median","Middle value after arranging data"],
+["Grouped Median","l+[(n/2−cf)/f]h"],
+["Grouped Mode","l+[(f₁−f₀)/(2f₁−f₀−f₂)]h"]
+]
+},
+
+probability:{
+title:"Probability",
+items:[
+["Probability","Favourable outcomes/Total outcomes"],
+["Range","0≤P(E)≤1"],
+["Impossible Event","P(E)=0"],
+["Certain Event","P(E)=1"],
+["Complement","P(E')=1−P(E)"]
+]
+}
+
+};
+
+
+/* ================= CATEGORY MAP ================= */
+
+const categoryMap={
+
+all:Object.keys(groups),
+
+algebra:[
+"number","commercial","algebraic",
+"linear","polynomial","quadratic","ap"
+],
+
+geometry:[
+"coordinate","lines","triangles",
+"quadrilateral","circles","heron",
+"trigonometry"
+],
+
+mensuration:[
+"mensuration2d","mensuration3d","heron"
+]
+
+};
+
+
+/* ================= TOPIC MAP ================= */
+
+const topicMap={
+
+percentage:["commercial"],
+algebraic:["algebraic"],
+linear:["linear"],
+polynomial:["polynomial"],
+quadratic:["quadratic"],
+ap:["ap"],
+coordinate:["coordinate"],
+triangles:["triangles"],
+circles:["circles"],
+trigonometry:["trigonometry"],
+mensuration:["mensuration2d","mensuration3d"],
+statistics:["statistics"],
+probability:["probability"],
+commercial:["commercial"],
+number:["number"],
+heron:["heron"]
+
+};
+
+
+/* ================= OPEN LESSON ================= */
+
+function openLearn(type){
+
+let keys;
+let title="Mathematics";
+
+if(categoryMap[type]){
+
+keys=categoryMap[type];
+
+if(type==="all")
+title="Complete Mathematics Formula Library";
+
+if(type==="algebra")
+title="Algebra Formulas";
+
+if(type==="geometry")
+title="Geometry Formulas";
+
+if(type==="mensuration")
+title="Mensuration Formulas";
+
+}else{
+
+keys=topicMap[type];
+
+if(keys)
+title=groups[keys[0]].title;
+
+}
+
+if(!keys)return;
+
+let html="";
+
+keys.forEach(key=>{
+
+let group=groups[key];
+
+html+=`
+
+<div class="lesson-section">
+
+<div class="lesson-title">
+${group.title}
+</div>
+
+<div class="lesson-body">
+
+${group.items.map(item=>`
+
+<div class="formula-row">
+
+<div class="formula-name">
+${item[0]}
+</div>
+
+<div class="formula-value">
+${item[1]}
+</div>
+
+</div>
+
+`).join("")}
+
+</div>
+
+</div>
+
+`;
+
+});
+
+html+=`
+
+<div class="tip">
+
+<strong>StudyForge Tip:</strong><br>
+
+Formula ko sirf ratne ke bajay uska meaning samjho
+aur phir us formula se questions practice karo.
+
+</div>
+
+`;
+
+document.getElementById("learnTitle").textContent=title;
+
+document.getElementById("learnContent").innerHTML=html;
+
+closePagesOnly();
+
+document.getElementById("learnPage").style.display="block";
+
+document.body.style.overflow="hidden";
+
+}
+
+
+/* ================= PRACTICE ================= */
+
+function openPractice(){
+
+closePagesOnly();
+
+document.getElementById("practicePage").style.display="block";
+
+document.body.style.overflow="hidden";
+
+}
+
+
+function checkPractice(number,answer){
+
+let input=document.getElementById("p"+number);
+
+let result=document.getElementById("r"+number);
+
+let value=Number(input.value);
+
+if(input.value===""){
+
+result.textContent="Please enter an answer.";
+
+result.style.color="#d97706";
+
+return;
+
+}
+
+if(value===answer){
+
+result.textContent="✓ Correct! Great job.";
+
+result.style.color="#16a34a";
+
+}else{
+
+result.textContent="✗ Not correct. Try again.";
+
+result.style.color="#dc2626";
+
+}
+
+}
+
+
+/* ================= QUIZ DATA ================= */
+
+const quizQuestions=[
+
+{
+q:"What is 25% of 200?",
+options:["25","40","50","75"],
+answer:2
+},
+
+{
+q:"What is the value of 7²?",
+options:["14","21","49","56"],
+answer:2
+},
+
+{
+q:"Solve: 3x + 6 = 18.",
+options:["2","3","4","6"],
+answer:1
+},
+
+{
+q:"What is the area of a square with side 5 cm?",
+options:["10 cm²","20 cm²","25 cm²","30 cm²"],
+answer:2
+},
+
+{
+q:"What is the sum of angles of a triangle?",
+options:["90°","180°","270°","360°"],
+answer:1
+},
+
+{
+q:"What is the value of sin 30°?",
+options:["0","1/2","√3/2","1"],
+answer:1
+},
+
+{
+q:"What is the next term of AP: 2, 5, 8, 11, ...?",
+options:["12","13","14","15"],
+answer:2
+},
+
+{
+q:"What is the probability of getting a head when a fair coin is tossed?",
+options:["0","1/4","1/2","1"],
+answer:2
+},
+
+{
+q:"What is the circumference of a circle?",
+options:["πr²","2πr","r²","2r"],
+answer:1
+},
+
+{
+q:"What is the HCF of 12 and 18?",
+options:["2","3","6","9"],
+answer:2
+}
+
+];
+
+let currentQuestion=0;
+let quizScore=0;
+let quizAnswered=false;
+
+
+/* ================= START QUIZ ================= */
+
+function startQuiz(){
+
+currentQuestion=0;
+quizScore=0;
+
+closePagesOnly();
+
+document.getElementById("quizPage").style.display="block";
+
+document.body.style.overflow="hidden";
+
+showQuestion();
+
+}
+
+
+/* ================= SHOW QUESTION ================= */
+
+function showQuestion(){
+
+let q=quizQuestions[currentQuestion];
+
+quizAnswered=false;
+
+let html=`
+
+<div class="quiz-box">
+
+<div class="quiz-progress">
+
+Question ${currentQuestion+1} of ${quizQuestions.length}
+
+</div>
+
+<div class="quiz-question">
+
+${q.q}
+
+</div>
+
+<div id="options">
+
+${q.options.map((option,index)=>`
+
+<button
+class="option"
+onclick="selectAnswer(${index})">
+
+${option}
+
+</button>
+
+`).join("")}
+
+</div>
+
+<div id="quizMessage"></div>
+
+<button
+id="nextButton"
+class="btn quiz-next"
+style="display:none"
+onclick="nextQuestion()">
+
+Next Question →
+
+</button>
+
+</div>
+
+`;
+
+document.getElementById("quizContent").innerHTML=html;
+
+}
+
+
+/* ================= SELECT ANSWER ================= */
+
+function selectAnswer(index){
+
+if(quizAnswered)return;
+
+quizAnswered=true;
+
+let q=quizQuestions[currentQuestion];
+
+let buttons=document.querySelectorAll(".option");
+
+buttons[index].classList.add(
+index===q.answer ? "correct" : "wrong"
+);
+
+if(index===q.answer){
+
+quizScore++;
+
+document.getElementById("quizMessage").innerHTML=
+"<p style='color:#16a34a;font-weight:bold;margin-top:15px;'>✓ Correct! Well done.</p>";
+
+}else{
+
+buttons[q.answer].classList.add("correct");
+
+document.getElementById("quizMessage").innerHTML=
+"<p style='color:#dc2626;font-weight:bold;margin-top:15px;'>✗ Incorrect. The correct answer is highlighted.</p>";
+
+}
+
+document.getElementById("nextButton").style.display="inline-block";
+
+}
+
+
+/* ================= NEXT QUESTION ================= */
+
+function nextQuestion(){
+
+currentQuestion++;
+
+if(currentQuestion>=quizQuestions.length){
+
+showQuizResult();
+
+}else{
+
+showQuestion();
+
+}
+
+}
+
+
+/* ================= QUIZ RESULT ================= */
+
+function showQuizResult(){
+
+let percentage=Math.round(
+(quizScore/quizQuestions.length)*100
+);
+
+let message="Keep practicing!";
+
+if(percentage>=90)
+message="Excellent! Mathematics is getting strong.";
+
+else if(percentage>=70)
+message="Great work! Keep practicing.";
+
+else if(percentage>=50)
+message="Good start! A little more practice will help.";
+
+document.getElementById("quizContent").innerHTML=`
+
+<div class="quiz-score">
+
+<h1>${quizScore}/${quizQuestions.length}</h1>
+
+<h2>${percentage}%</h2>
+
+<p style="margin:15px 0;">
+${message}
+</p>
+
+<button
+class="btn restart-btn"
+onclick="startQuiz()">
+
+Restart Quiz
+
+</button>
+
+</div>
+
+`;
+
+}
+
+
+/* ================= CLOSE PAGES ================= */
+
+function closePagesOnly(){
+
+document.getElementById("learnPage").style.display="none";
+
+document.getElementById("practicePage").style.display="none";
+
+document.getElementById("quizPage").style.display="none";
+
+}
+
+
+function closeAllPages(){
+
+closePagesOnly();
+
+document.body.style.overflow="";
+
+}
+
+
+/* ================= ESC KEY ================= */
+
+document.addEventListener("keydown",function(e){
+
+if(e.key==="Escape"){
+
+closeAllPages();
+
+}
+
+});
+
+</script>
+
+</body>
+</html>

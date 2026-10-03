@@ -1,0 +1,3143 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0"><title>StudyForge — Quizzes</title><meta name="description"
+content="StudyForge Quizzes — Class 8, 9 and 10 Mathematics, Physics, Chemistry and Science quizzes with challenging questions.">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f5f7fb;
+    color:#172033;
+    line-height:1.6;
+}
+
+button{
+    font-family:inherit;
+}
+
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:#ffffff;
+    box-shadow:0 2px 12px rgba(0,0,0,.08);
+}
+
+.nav-container{
+    max-width:1200px;
+    margin:auto;
+    padding:14px 18px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:800;
+    color:#16a085;
+}
+
+.nav-links{
+    display:flex;
+    gap:8px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:#172033;
+    padding:9px 13px;
+    border-radius:8px;
+    font-weight:600;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+    background:#16a085;
+    color:white;
+}
+
+.menu-btn{
+    display:none;
+    border:none;
+    background:#16a085;
+    color:white;
+    font-size:22px;
+    padding:7px 11px;
+    border-radius:7px;
+}
+
+.hero{
+    background:linear-gradient(135deg,#16a085,#117864);
+    color:white;
+    padding:65px 20px;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:clamp(34px,7vw,58px);
+    margin-bottom:12px;
+}
+
+.hero p{
+    max-width:700px;
+    margin:auto;
+    font-size:17px;
+    opacity:.95;
+}
+
+.hero-buttons{
+    margin-top:25px;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.hero-btn{
+    border:none;
+    padding:13px 22px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:700;
+    font-size:15px;
+}
+
+.hero-btn.primary{
+    background:white;
+    color:#117864;
+}
+
+.hero-btn.secondary{
+    background:rgba(255,255,255,.15);
+    color:white;
+    border:1px solid rgba(255,255,255,.5);
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:35px 18px;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+    margin-top:-30px;
+    position:relative;
+}
+
+.stat{
+    background:white;
+    padding:22px;
+    text-align:center;
+    border-radius:14px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.stat h2{
+    color:#16a085;
+    font-size:28px;
+}
+
+.stat p{
+    color:#667085;
+    font-size:14px;
+}
+
+.section-title{
+    text-align:center;
+    margin:45px 0 25px;
+}
+
+.section-title h2{
+    font-size:31px;
+    margin-bottom:7px;
+}
+
+.section-title p{
+    color:#667085;
+}
+
+.quiz-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.quiz-card{
+    background:white;
+    padding:24px;
+    border-radius:16px;
+    box-shadow:0 5px 18px rgba(0,0,0,.07);
+    border:1px solid #e8edf3;
+    transition:.2s;
+}
+
+.quiz-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 10px 25px rgba(0,0,0,.11);
+}
+
+.badge{
+    display:inline-block;
+    padding:5px 10px;
+    background:#e9f8f4;
+    color:#117864;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.quiz-card h3{
+    font-size:21px;
+    margin-bottom:8px;
+}
+
+.quiz-card p{
+    color:#667085;
+    font-size:14px;
+    margin-bottom:15px;
+}
+
+.quiz-info{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-bottom:18px;
+}
+
+.quiz-info span{
+    background:#f1f4f8;
+    padding:5px 8px;
+    border-radius:6px;
+    font-size:12px;
+}
+
+.start-btn{
+    width:100%;
+    border:none;
+    background:#16a085;
+    color:white;
+    padding:12px;
+    border-radius:9px;
+    cursor:pointer;
+    font-weight:700;
+}
+
+.start-btn:hover{
+    background:#117864;
+}
+
+.challenge{
+    margin-top:35px;
+    background:linear-gradient(135deg,#172033,#26344d);
+    color:white;
+    padding:30px;
+    border-radius:18px;
+    text-align:center;
+}
+
+.challenge h2{
+    margin-bottom:8px;
+}
+
+.challenge p{
+    opacity:.85;
+    margin-bottom:18px;
+}
+
+.challenge button{
+    border:none;
+    background:#16a085;
+    color:white;
+    padding:13px 25px;
+    border-radius:9px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* QUIZ SCREEN */
+
+#quizScreen{
+    display:none;
+    min-height:100vh;
+    background:#f5f7fb;
+}
+
+.quiz-top{
+    position:sticky;
+    top:0;
+    z-index:20;
+    background:white;
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+
+.quiz-top-inner{
+    max-width:1000px;
+    margin:auto;
+    padding:13px 16px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+}
+
+.quiz-title{
+    font-weight:800;
+}
+
+.timer{
+    background:#eaf8f4;
+    color:#117864;
+    padding:8px 13px;
+    border-radius:8px;
+    font-weight:800;
+}
+
+.timer.warning{
+    background:#fff0f0;
+    color:#c0392b;
+}
+
+.quiz-container{
+    max-width:900px;
+    margin:auto;
+    padding:30px 16px 50px;
+}
+
+.progress-info{
+    display:flex;
+    justify-content:space-between;
+    color:#667085;
+    font-size:14px;
+    margin-bottom:8px;
+}
+
+.progress-bar{
+    width:100%;
+    height:9px;
+    background:#e1e7ee;
+    border-radius:10px;
+    overflow:hidden;
+    margin-bottom:25px;
+}
+
+.progress-fill{
+    height:100%;
+    width:0%;
+    background:#16a085;
+    transition:.3s;
+}
+
+.question-card{
+    background:white;
+    padding:28px;
+    border-radius:18px;
+    box-shadow:0 5px 22px rgba(0,0,0,.08);
+}
+
+.question-number{
+    color:#16a085;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.question{
+    font-size:22px;
+    font-weight:700;
+    line-height:1.4;
+    margin-bottom:25px;
+}
+
+.options{
+    display:grid;
+    gap:12px;
+}
+
+.option{
+    width:100%;
+    text-align:left;
+    border:2px solid #e1e6ed;
+    background:white;
+    padding:15px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:15px;
+    transition:.15s;
+}
+
+.option:hover{
+    border-color:#16a085;
+    background:#f2fbf8;
+}
+
+.option.correct{
+    background:#dff7ea;
+    border-color:#20a464;
+    color:#11643d;
+}
+
+.option.wrong{
+    background:#ffe4e4;
+    border-color:#d9534f;
+    color:#8f211e;
+}
+
+.option:disabled{
+    cursor:default;
+}
+
+.explanation{
+    display:none;
+    margin-top:18px;
+    padding:14px;
+    background:#f2f6fa;
+    border-left:4px solid #16a085;
+    border-radius:7px;
+    color:#465266;
+}
+
+.next-btn{
+    display:none;
+    width:100%;
+    margin-top:20px;
+    padding:14px;
+    border:none;
+    background:#16a085;
+    color:white;
+    border-radius:9px;
+    font-weight:800;
+    cursor:pointer;
+}
+
+.exit-btn{
+    border:none;
+    background:#f0f2f5;
+    padding:8px 12px;
+    border-radius:7px;
+    cursor:pointer;
+}
+
+/* RESULT */
+
+#resultScreen{
+    display:none;
+    min-height:100vh;
+    padding:45px 18px;
+    background:#f5f7fb;
+}
+
+.result-card{
+    max-width:650px;
+    margin:auto;
+    background:white;
+    padding:35px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 7px 25px rgba(0,0,0,.09);
+}
+
+.result-icon{
+    font-size:60px;
+}
+
+.result-card h1{
+    margin:10px 0;
+}
+
+.score{
+    font-size:48px;
+    color:#16a085;
+    font-weight:900;
+    margin:10px 0;
+}
+
+.result-stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+    margin:25px 0;
+}
+
+.result-stat{
+    background:#f5f7fb;
+    padding:15px;
+    border-radius:10px;
+}
+
+.result-stat strong{
+    display:block;
+    font-size:22px;
+}
+
+.result-actions{
+    display:grid;
+    gap:10px;
+}
+
+.result-actions button{
+    padding:13px;
+    border:none;
+    border-radius:9px;
+    cursor:pointer;
+    font-weight:700;
+}
+
+.restart{
+    background:#16a085;
+    color:white;
+}
+
+.home{
+    background:#edf0f4;
+    color:#172033;
+}
+
+.footer{
+    text-align:center;
+    padding:35px 15px;
+    color:#667085;
+    font-size:14px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:850px){
+    .quiz-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:650px){
+
+    .nav-links{
+        display:none;
+        position:absolute;
+        top:62px;
+        left:0;
+        right:0;
+        background:white;
+        padding:10px;
+        flex-direction:column;
+        box-shadow:0 5px 12px rgba(0,0,0,.1);
+    }
+
+    .nav-links.show{
+        display:flex;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .quiz-grid{
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .hero{
+        padding:50px 18px;
+    }
+
+    .question{
+        font-size:19px;
+    }
+
+    .question-card{
+        padding:20px;
+    }
+
+    .result-stats{
+        grid-template-columns:1fr;
+    }
+}
+</style></head><body><!-- NAVBAR --><nav class="navbar">
+<div class="nav-container"><div class="logo">StudyForge</div><button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+<div class="nav-links" id="navLinks">
+<a href="index.html">Home</a>
+<a href="mathematics.html">Mathematics</a>
+<a href="physics.html">Physics</a>
+<a href="chemistry.html">Chemistry</a>
+<a href="quizzes.html" class="active">Quizzes</a>
+</div></div>
+</nav><!-- MAIN --><div id="mainPage"><section class="hero"><h1>Test Your Knowledge</h1><p>
+Challenge yourself with StudyForge quizzes for Class 8, 9 and 10.
+Questions range from medium to hard and challenge level.
+</p><div class="hero-buttons">
+<button class="hero-btn primary" onclick="scrollToQuizzes()">
+Start Quiz
+</button><button class="hero-btn secondary" onclick="startQuiz('mixed')">
+🔥 Mixed Challenge
+</button>
+</div></section><div class="container"><div class="stats"><div class="stat">
+<h2>9+</h2>
+<p>Quiz Categories</p>
+</div><div class="stat">
+<h2>300+</h2>
+<p>Questions</p>
+</div><div class="stat">
+<h2>3</h2>
+<p>Classes</p>
+</div><div class="stat">
+<h2>4</h2>
+<p>Difficulty Levels</p>
+</div></div><section id="quizzes"><div class="section-title">
+<h2>Choose Your Quiz</h2>
+<p>Pick a subject and test yourself.</p>
+</div><div class="quiz-grid"><!-- CLASS 8 --><div class="quiz-card">
+<span class="badge">CLASS 8</span>
+<h3>Mathematics</h3>
+<p>Numbers, algebra, geometry, percentages and logical problems.</p>
+<div class="quiz-info">
+<span>30 Questions</span>
+<span>15 Min</span>
+<span>Hard</span>
+</div>
+<button class="start-btn" onclick="startQuiz('class8math')">Start Quiz</button>
+</div><div class="quiz-card">
+<span class="badge">CLASS 8</span>
+<h3>Science</h3>
+<p>Physics, chemistry and biology based conceptual questions.</p>
+<div class="quiz-info">
+<span>30 Questions</span>
+<span>15 Min</span>
+<span>Hard</span>
+</div>
+<button class="start-btn" onclick="startQuiz('class8science')">Start Quiz</button>
+</div><div class="quiz-card">
+<span class="badge">CLASS 8</span>
+<h3>Chemistry</h3>
+<p>Matter, atoms, reactions, acids, bases and chemical changes.</p>
+<div class="quiz-info">
+<span>30 Questions</span>
+<span>15 Min</span>
+<span>Hard</span>
+</div>
+<button class="start-btn" onclick="startQuiz('class8chem')">Start Quiz</button>
+</div><!-- CLASS 9 --><div class="quiz-card">
+<span class="badge">CLASS 9</span>
+<h3>Mathematics</h3>
+<p>Polynomials, coordinate geometry, number systems and advanced algebra.</p>
+<div class="quiz-info">
+<span>30 Questions</span>
+<span>18 Min</span>
+<span>Hard+</span>
+</div>
+<button class="start-btn" onclick="startQuiz('class9math')">Start Quiz</button>
+</div><div class="quiz-card">
+<span class="badge">CLASS 9</span>
+<h3>Physics</h3>
+<p>Motion, force, work, energy, gravitation and numerical problems.</p>
+<div class="quiz-info">
+<span>30 Questions</span>
+<span>18 Min</span>
+<span>Hard+</span>
+</div>
+<button class="start-btn" onclick="startQuiz('class9physics')">Start Quiz</button>
+</div><div class="quiz-card">
+<span class="badge">CLASS 9</span>
+<h3>Chemistry</h3>
+<p>Matter, atoms, molecules, valency and chemical calculations.</p>
+<div class="quiz-info">
+<span>30 Questions</span>
+<span>18 Min</span>
+<span>Hard+</span>
+</div>
+<button class="start-btn" onclick="startQuiz('class9chem')">Start Quiz</button>
+</div><!-- CLASS 10 --><div class="quiz-card">
+<span class="badge">CLASS 10</span>
+<h3>Mathematics</h3>
+<p>Quadratics, trigonometry, statistics, probability and geometry.</p>
+<div class="quiz-info">
+<span>30 Questions</span>
+<span>20 Min</span>
+<span>Challenge</span>
+</div>
+<button class="start-btn" onclick="startQuiz('class10math')">Start Quiz</button>
+</div><div class="quiz-card">
+<span class="badge">CLASS 10</span>
+<h3>Physics</h3>
+<p>Electricity, optics, energy, formulas and challenging numericals.</p>
+<div class="quiz-info">
+<span>30 Questions</span>
+<span>20 Min</span>
+<span>Challenge</span>
+</div>
+<button class="start-btn" onclick="startQuiz('class10physics')">Start Quiz</button>
+</div><div class="quiz-card">
+<span class="badge">CLASS 10</span>
+<h3>Chemistry</h3>
+<p>Reactions, acids, metals, carbon, periodic table and numericals.</p>
+<div class="quiz-info">
+<span>30 Questions</span>
+<span>20 Min</span>
+<span>Challenge</span>
+</div>
+<button class="start-btn" onclick="startQuiz('class10chem')">Start Quiz</button>
+</div></div><div class="challenge"><h2>🔥 Ultimate Mixed Challenge</h2><p>
+Math + Physics + Chemistry. 50 difficult questions.
+Can you reach 90%?
+</p><button onclick="startQuiz('mixed')">
+Start Ultimate Challenge
+</button></div></section></div><footer class="footer">
+StudyForge © 2026 — Learn • Practice • Improve
+</footer></div><!-- QUIZ SCREEN --><div id="quizScreen"><div class="quiz-top"><div class="quiz-top-inner"><button class="exit-btn" onclick="goHome()">
+← Exit
+</button><div class="quiz-title" id="quizTitle">
+StudyForge Quiz
+</div><div class="timer" id="timer">
+20:00
+</div></div></div><div class="quiz-container"><div class="progress-info">
+<span id="questionCounter">Question 1/30</span>
+<span id="difficultyText">Challenge</span>
+</div><div class="progress-bar">
+<div class="progress-fill" id="progressFill"></div>
+</div><div class="question-card"><div class="question-number" id="questionNumber">
+Question 1
+</div><div class="question" id="questionText">
+Loading...
+</div><div class="options" id="options"></div><div class="explanation" id="explanation"></div><button class="next-btn" id="nextBtn" onclick="nextQuestion()">
+Next Question →
+</button></div></div></div><!-- RESULT --><div id="resultScreen"><div class="result-card"><div class="result-icon" id="resultIcon">
+🏆
+</div><h1 id="resultTitle">
+Quiz Complete!
+</h1><div class="score" id="scoreText">
+0%
+</div><p id="resultMessage">
+Great effort!
+</p><div class="result-stats"><div class="result-stat">
+<strong id="correctCount">0</strong>
+Correct
+</div><div class="result-stat">
+<strong id="wrongCount">0</strong>
+Wrong
+</div><div class="result-stat">
+<strong id="totalCount">0</strong>
+Total
+</div></div><div class="result-actions"><button class="restart" onclick="restartQuiz()">
+🔄 Try Again
+</button><button class="home" onclick="goHome()">
+🏠 Back to Quizzes
+</button></div></div></div><script>
+
+/* =========================
+   QUESTION DATABASE
+========================= */
+
+const quizData = {
+
+/* CLASS 8 MATHEMATICS */
+
+class8math:[
+{
+q:"What is the smallest number which must be added to 999 to make it divisible by 17?",
+o:["1","2","4","5"],
+a:0,
+e:"999 ÷ 17 leaves remainder 14. Therefore 17 − 14 = 3 should be added."
+},
+{
+q:"If 3x − 7 = 20, what is x?",
+o:["7","8","9","10"],
+a:0,
+e:"3x = 27, therefore x = 9."
+},
+{
+q:"A number is increased by 20% and then decreased by 20%. What is the overall change?",
+o:["No change","4% decrease","4% increase","2% decrease"],
+a:1,
+e:"100 → 120 → 96, so there is a 4% decrease."
+},
+{
+q:"The angles of a quadrilateral are in the ratio 2:3:4:6. The largest angle is:",
+o:["120°","132°","144°","150°"],
+a:2,
+e:"15 parts = 360°, so 1 part = 24°. Largest = 6×24 = 144°."
+},
+{
+q:"If 2⁵ × 2³ ÷ 2⁴ = 2ⁿ, then n is:",
+o:["2","3","4","5"],
+a:2,
+e:"Using laws of exponents: 5+3−4 = 4."
+},
+{
+q:"The square of a number is 225. If the number is positive, it is:",
+o:["12","15","18","25"],
+a:1,
+e:"15² = 225."
+},
+{
+q:"A shopkeeper gives 15% discount on ₹800. The selling price is:",
+o:["₹660","₹680","₹700","₹720"],
+a:1,
+e:"15% of 800 = 120. SP = 800−120 = ₹680."
+},
+{
+q:"If a:b = 3:5 and b:c = 10:7, then a:c is:",
+o:["3:7","6:7","5:7","7:6"],
+a:1,
+e:"Make b common: 3:5 = 6:10. Therefore a:c = 6:7."
+},
+{
+q:"Which number is both a perfect square and a perfect cube?",
+o:["36","64","72","100"],
+a:1,
+e:"64 = 8² = 4³."
+},
+{
+q:"The value of (−3)² − (−3²) is:",
+o:["0","6","18","−18"],
+a:2,
+e:"(−3)² = 9, while −3² = −9. Difference = 18."
+},
+{
+q:"A rectangle has perimeter 50 cm and length 15 cm. Its area is:",
+o:["120 cm²","140 cm²","150 cm²","160 cm²"],
+a:2,
+e:"2(l+b)=50, so b=10. Area=150 cm²."
+},
+{
+q:"If 5 workers finish a job in 12 days, how many days would 10 workers take at the same rate?",
+o:["3","5","6","8"],
+a:2,
+e:"Workers × days is constant: 5×12 = 10×d, so d=6."
+},
+{
+q:"The mean of 5, 7, 9, 11 and x is 9. Find x.",
+o:["11","12","13","14"],
+a:2,
+e:"Total must be 45. Existing total=32, so x=13."
+},
+{
+q:"What is 25% of 25% of 400?",
+o:["20","25","30","40"],
+a:1,
+e:"25% of 400 = 100, and 25% of 100 = 25."
+},
+{
+q:"A cube has side 5 cm. Its volume is:",
+o:["25 cm³","75 cm³","100 cm³","125 cm³"],
+a:3,
+e:"Volume = a³ = 5³ = 125 cm³."
+},
+{
+q:"If x/3 = 7/9, x equals:",
+o:["7/3","21/9","7/3","9/7"],
+a:0,
+e:"x = 3×7/9 = 7/3."
+},
+{
+q:"Which fraction is greatest?",
+o:["5/8","7/12","3/5","11/20"],
+a:0,
+e:"5/8 = 0.625, which is greater than the others."
+},
+{
+q:"The sum of three consecutive integers is 72. The middle integer is:",
+o:["22","23","24","25"],
+a:2,
+e:"Let them be n−1,n,n+1. 3n=72, so n=24."
+},
+{
+q:"If the radius of a circle is doubled, its area becomes:",
+o:["2 times","3 times","4 times","8 times"],
+a:2,
+e:"Area ∝ r². Doubling radius makes area four times."
+},
+{
+q:"A number leaves remainder 5 when divided by 7. What remainder will its double leave?",
+o:["1","2","3","5"],
+a:1,
+e:"2×5 = 10, and 10 leaves remainder 3. Correct answer is 3."
+},
+{
+q:"The HCF of 84 and 126 is:",
+o:["21","28","42","63"],
+a:2,
+e:"126−84=42 and 84 is divisible by 42."
+},
+{
+q:"The product of two numbers is 360 and their HCF is 6. If one number is 30, the other is:",
+o:["10","12","15","18"],
+a:2,
+e:"360÷30 = 12. Correct answer is 12."
+},
+{
+q:"If a number is divisible by both 6 and 8, it must be divisible by:",
+o:["12","18","24","48"],
+a:2,
+e:"LCM(6,8)=24."
+},
+{
+q:"The exterior angle of a regular hexagon is:",
+o:["45°","60°","72°","90°"],
+a:1,
+e:"Exterior angle = 360°/6 = 60°."
+},
+{
+q:"If 4x + 3 = 2x + 17, x is:",
+o:["5","6","7","8"],
+a:2,
+e:"2x=14, so x=7."
+},
+{
+q:"A train travels 180 km in 3 hours. Its average speed is:",
+o:["50 km/h","60 km/h","70 km/h","80 km/h"],
+a:1,
+e:"Speed = distance/time = 180/3 = 60 km/h."
+},
+{
+q:"The reciprocal of −5/7 is:",
+o:["5/7","−7/5","7/5","−5/7"],
+a:1,
+e:"Reciprocal means interchange numerator and denominator."
+},
+{
+q:"If 40% of a number is 72, the number is:",
+o:["160","180","200","220"],
+a:1,
+e:"0.4x=72, so x=180."
+},
+{
+q:"The diagonal of a square of side 10 cm is:",
+o:["10√2 cm","20 cm","100 cm","5√2 cm"],
+a:0,
+e:"Diagonal = a√2 = 10√2 cm."
+},
+{
+q:"If 2x + 5 > 13, then:",
+o:["x>4","x<4","x>9","x<9"],
+a:0,
+e:"2x>8, therefore x>4."
+}
+],
+
+/* CLASS 8 SCIENCE */
+
+class8science:[
+{
+q:"Which organelle controls most activities of a cell?",
+o:["Mitochondria","Nucleus","Ribosome","Vacuole"],
+a:1,
+e:"The nucleus contains genetic material and controls cell activities."
+},
+{
+q:"Which force always acts toward the centre of Earth?",
+o:["Friction","Magnetic force","Gravitational force","Muscular force"],
+a:2,
+e:"Gravity attracts objects toward Earth."
+},
+{
+q:"Sound cannot travel through:",
+o:["Air","Water","Steel","Vacuum"],
+a:3,
+e:"Sound needs a material medium."
+},
+{
+q:"Which microorganism is commonly used in baking?",
+o:["Yeast","Algae","Virus","Protozoa"],
+a:0,
+e:"Yeast produces carbon dioxide during fermentation."
+},
+{
+q:"The pressure exerted by a liquid generally increases with:",
+o:["Height above surface","Depth","Temperature only","Colour"],
+a:1,
+e:"Liquid pressure increases as depth increases."
+},
+{
+q:"Which blood cells help fight infections?",
+o:["RBC","WBC","Platelets","Plasma"],
+a:1,
+e:"White blood cells defend the body against pathogens."
+},
+{
+q:"The process by which green plants prepare food is:",
+o:["Respiration","Photosynthesis","Transpiration","Digestion"],
+a:1,
+e:"Plants use light energy to make food by photosynthesis."
+},
+{
+q:"Which material is generally a good conductor of electricity?",
+o:["Rubber","Glass","Copper","Wood"],
+a:2,
+e:"Copper has high electrical conductivity."
+},
+{
+q:"The SI unit of force is:",
+o:["Joule","Watt","Newton","Pascal"],
+a:2,
+e:"Force is measured in newtons."
+},
+{
+q:"A push or pull acting on an object is called:",
+o:["Energy","Force","Pressure","Power"],
+a:1,
+e:"A force is a push or pull."
+},
+{
+q:"Which part of a flower develops into a fruit?",
+o:["Petal","Ovary","Stigma","Anther"],
+a:1,
+e:"After fertilisation, the ovary generally develops into the fruit."
+},
+{
+q:"The frictional force generally acts:",
+o:["In direction of motion","Opposite relative motion","Vertically upward only","Toward centre"],
+a:1,
+e:"Friction opposes relative motion between surfaces."
+},
+{
+q:"Which gas is released by plants during photosynthesis?",
+o:["Nitrogen","Oxygen","Carbon dioxide","Hydrogen"],
+a:1,
+e:"Oxygen is released as a product of photosynthesis."
+},
+{
+q:"The boiling point of pure water at normal atmospheric pressure is:",
+o:["0°C","50°C","100°C","212°C only"],
+a:2,
+e:"Water boils at 100°C at standard atmospheric pressure."
+},
+{
+q:"Which force helps us walk without slipping?",
+o:["Gravity only","Friction","Magnetic force","Buoyant force"],
+a:1,
+e:"Friction between feet and ground provides grip."
+},
+{
+q:"Which component of blood transports oxygen?",
+o:["Plasma","RBC","Platelets","WBC"],
+a:1,
+e:"Haemoglobin in RBCs binds oxygen."
+},
+{
+q:"A change in which a new substance is formed is called:",
+o:["Physical change","Chemical change","Temporary change","Mechanical change"],
+a:1,
+e:"Chemical changes produce one or more new substances."
+},
+{
+q:"The force acting on a submerged object due to displaced liquid is related to:",
+o:["Buoyancy","Friction","Magnetism","Elasticity"],
+a:0,
+e:"The upward buoyant force is caused by pressure differences in the liquid."
+},
+{
+q:"Which metal is liquid at ordinary room temperature?",
+o:["Iron","Copper","Mercury","Aluminium"],
+a:2,
+e:"Mercury is liquid at ordinary room temperature."
+},
+{
+q:"Which simple machine is a seesaw?",
+o:["Pulley","Lever","Screw","Wheel"],
+a:1,
+e:"A seesaw works as a lever."
+},
+{
+q:"The process of conversion of water vapour into liquid is:",
+o:["Evaporation","Condensation","Sublimation","Melting"],
+a:1,
+e:"Condensation changes gas into liquid."
+},
+{
+q:"Which disease is caused by a virus?",
+o:["Tuberculosis","Common cold","Typhoid","Malaria"],
+a:1,
+e:"Common cold is commonly caused by viruses."
+},
+{
+q:"Which nutrient mainly helps growth and repair of tissues?",
+o:["Proteins","Fats","Water","Minerals only"],
+a:0,
+e:"Proteins are essential for growth and tissue repair."
+},
+{
+q:"The green pigment in plants is:",
+o:["Haemoglobin","Chlorophyll","Melanin","Keratin"],
+a:1,
+e:"Chlorophyll absorbs light for photosynthesis."
+},
+{
+q:"The energy possessed by a moving object is:",
+o:["Potential energy","Kinetic energy","Chemical energy","Nuclear energy"],
+a:1,
+e:"Moving objects possess kinetic energy."
+},
+{
+q:"Which of these is biodegradable?",
+o:["Plastic bottle","Glass","Vegetable waste","Aluminium can"],
+a:2,
+e:"Vegetable waste can be decomposed by microorganisms."
+},
+{
+q:"The basic unit of life is:",
+o:["Tissue","Organ","Cell","Organ system"],
+a:2,
+e:"Cells are the basic structural and functional units of living organisms."
+},
+{
+q:"Which phenomenon causes a straw to appear bent in water?",
+o:["Reflection","Refraction","Diffusion","Absorption"],
+a:1,
+e:"Light changes direction when passing between media."
+},
+{
+q:"Which gas is mainly responsible for rusting of iron along with moisture?",
+o:["Oxygen","Nitrogen","Hydrogen","Helium"],
+a:0,
+e:"Rusting requires oxygen and moisture."
+},
+{
+q:"The conversion of solid directly into gas is called:",
+o:["Melting","Freezing","Sublimation","Condensation"],
+a:2,
+e:"Sublimation is direct solid-to-gas conversion."
+}
+],
+
+/* CLASS 8 CHEMISTRY */
+
+class8chem:[
+{
+q:"Which of the following is a chemical change?",
+o:["Melting ice","Cutting paper","Rusting iron","Breaking glass"],
+a:2,
+e:"Rusting forms a new substance."
+},
+{
+q:"Which particle has a negative charge?",
+o:["Proton","Neutron","Electron","Nucleus"],
+a:2,
+e:"Electrons carry negative charge."
+},
+{
+q:"Which substance is acidic?",
+o:["Soap solution","Lemon juice","Baking soda solution","Lime water"],
+a:1,
+e:"Lemon juice contains citric acid."
+},
+{
+q:"A substance with pH below 7 is generally:",
+o:["Acidic","Neutral","Basic","Metallic"],
+a:0,
+e:"pH below 7 indicates an acidic solution."
+},
+{
+q:"Which gas supports combustion?",
+o:["Nitrogen","Oxygen","Carbon dioxide","Hydrogen only"],
+a:1,
+e:"Oxygen supports combustion."
+},
+{
+q:"The smallest unit of an element that retains its chemical identity is:",
+o:["Atom","Mixture","Solution","Crystal"],
+a:0,
+e:"An atom is the basic unit of an element."
+},
+{
+q:"Which is a homogeneous mixture?",
+o:["Sand and water","Oil and water","Salt solution","Soil"],
+a:2,
+e:"Salt solution has uniform composition."
+},
+{
+q:"The process of separating insoluble solid from liquid is:",
+o:["Filtration","Distillation","Chromatography","Sublimation"],
+a:0,
+e:"Filtration separates insoluble solids from liquids."
+},
+{
+q:"Which metal reacts strongly with oxygen to form an oxide?",
+o:["Magnesium","Gold","Platinum","Silver"],
+a:0,
+e:"Magnesium burns/reacts with oxygen to form magnesium oxide."
+},
+{
+q:"What is the chemical formula of water?",
+o:["CO₂","H₂O","O₂","H₂"],
+a:1,
+e:"Water contains two hydrogen atoms and one oxygen atom."
+},
+{
+q:"Which of these is a non-metal?",
+o:["Sodium","Iron","Sulfur","Calcium"],
+a:2,
+e:"Sulfur is a non-metal."
+},
+{
+q:"A substance made of two or more elements chemically combined is a:",
+o:["Mixture","Compound","Solution","Suspension"],
+a:1,
+e:"A compound contains elements chemically bonded in fixed proportions."
+},
+{
+q:"Which gas is produced when many metals react with dilute acids?",
+o:["Oxygen","Hydrogen","Nitrogen","Carbon dioxide"],
+a:1,
+e:"Metal + dilute acid commonly produces hydrogen gas."
+},
+{
+q:"The ability of a metal to be drawn into wires is:",
+o:["Malleability","Ductility","Sonority","Hardness"],
+a:1,
+e:"Ductility is the ability to draw a metal into wires."
+},
+{
+q:"The ability of a metal to be beaten into sheets is:",
+o:["Ductility","Malleability","Elasticity","Conductivity"],
+a:1,
+e:"Malleability allows metals to form sheets."
+},
+{
+q:"Which method can separate different coloured dyes?",
+o:["Filtration","Chromatography","Sedimentation","Decantation"],
+a:1,
+e:"Chromatography separates components based on different movement through a medium."
+},
+{
+q:"The atomic number of an element equals the number of:",
+o:["Neutrons only","Protons","Nucleons","Shells"],
+a:1,
+e:"Atomic number is the number of protons in the nucleus."
+},
+{
+q:"If an atom loses electrons, it forms a:",
+o:["Anion","Cation","Molecule only","Neutron"],
+a:1,
+e:"Loss of electrons produces a positively charged ion called a cation."
+},
+{
+q:"If an atom gains electrons, it forms a:",
+o:["Cation","Anion","Proton","Nucleus"],
+a:1,
+e:"Gain of electrons produces a negatively charged anion."
+},
+{
+q:"Which is an example of physical change?",
+o:["Burning paper","Cooking food","Melting wax","Rusting iron"],
+a:2,
+e:"Melting changes state but does not create a new substance."
+},
+{
+q:"Which substance is commonly used to neutralise excess stomach acid?",
+o:["Antacid","Vinegar","Lemon juice","Salt"],
+a:0,
+e:"Antacids are basic substances that neutralise excess stomach acid."
+},
+{
+q:"The reaction between an acid and a base is called:",
+o:["Oxidation","Neutralisation","Combustion","Sublimation"],
+a:1,
+e:"Acid + base → salt + water is neutralisation."
+},
+{
+q:"Which indicator turns red in an acidic solution?",
+o:["Blue litmus","Red litmus","Turmeric only","Phenolphthalein only"],
+a:0,
+e:"Blue litmus turns red in acidic conditions."
+},
+{
+q:"Which gas makes limewater milky?",
+o:["O₂","CO₂","H₂","N₂"],
+a:1,
+e:"Carbon dioxide reacts with limewater to form insoluble calcium carbonate."
+},
+{
+q:"Which element has the symbol Na?",
+o:["Nitrogen","Sodium","Neon","Nickel"],
+a:1,
+e:"Na is the symbol for sodium."
+},
+{
+q:"Which element has the symbol K?",
+o:["Krypton","Potassium","Calcium","Copper"],
+a:1,
+e:"K is the symbol for potassium."
+},
+{
+q:"The combining capacity of an element is called:",
+o:["Atomic mass","Valency","Density","Solubility"],
+a:1,
+e:"Valency describes combining capacity."
+},
+{
+q:"Which of these is an alloy?",
+o:["Oxygen","Brass","Sulfur","Water"],
+a:1,
+e:"Brass is an alloy mainly of copper and zinc."
+},
+{
+q:"Which process changes liquid into gas?",
+o:["Condensation","Evaporation","Freezing","Deposition"],
+a:1,
+e:"Evaporation changes liquid to vapour."
+},
+{
+q:"Which of these is not a mixture?",
+o:["Air","Soil","Water","Salt solution"],
+a:2,
+e:"Pure water is a compound, while the others are mixtures."
+}
+],
+
+/* CLASS 9 MATH */
+
+class9math:[
+{
+q:"If x + 1/x = 3, then x² + 1/x² equals:",
+o:["5","7","9","11"],
+a:1,
+e:"Square: x²+2+1/x²=9, so result=7."
+},
+{
+q:"The zero of polynomial 3x−12 is:",
+o:["3","4","6","12"],
+a:1,
+e:"3x−12=0 gives x=4."
+},
+{
+q:"If a+b=10 and ab=21, then a²+b² is:",
+o:["42","58","79","100"],
+a:1,
+e:"a²+b²=(a+b)²−2ab=100−42=58."
+},
+{
+q:"The coordinates of a point on the y-axis have:",
+o:["x=1","x=0","y=0","x=y"],
+a:1,
+e:"Every point on y-axis has x-coordinate zero."
+},
+{
+q:"The distance between (0,0) and (3,4) is:",
+o:["3","4","5","7"],
+a:2,
+e:"Distance = √(3²+4²)=5."
+},
+{
+q:"If two parallel lines are cut by a transversal, alternate interior angles are:",
+o:["Unequal","Equal","Supplementary always","90° always"],
+a:1,
+e:"Alternate interior angles are equal for parallel lines."
+},
+{
+q:"The sum of angles of a triangle is:",
+o:["90°","180°","270°","360°"],
+a:1,
+e:"Triangle angle sum is 180°."
+},
+{
+q:"A rational number has a terminating decimal expansion when the denominator in lowest form has prime factors only:",
+o:["2 and 3","2 and 5","3 and 5","2,3,5"],
+a:1,
+e:"Only powers of 2 and/or 5 produce terminating decimals."
+},
+{
+q:"If p(x)=x²−5x+6, then p(2) is:",
+o:["0","1","2","4"],
+a:0,
+e:"4−10+6=0."
+},
+{
+q:"The graph of a linear equation in two variables is generally a:",
+o:["Circle","Straight line","Parabola","Point"],
+a:1,
+e:"A first-degree equation in two variables represents a straight line."
+},
+{
+q:"If 2x+3y=12 and x=3, then y is:",
+o:["1","2","3","4"],
+a:1,
+e:"6+3y=12, so y=2."
+},
+{
+q:"The area of a triangle with base 12 cm and height 7 cm is:",
+o:["42 cm²","84 cm²","19 cm²","36 cm²"],
+a:0,
+e:"Area=1/2×12×7=42 cm²."
+},
+{
+q:"Heron's formula is used to find:",
+o:["Volume","Area of triangle","Circumference","Surface area"],
+a:1,
+e:"Heron's formula calculates triangle area from its three sides."
+},
+{
+q:"If sides of a triangle are 3,4,5, it is:",
+o:["Equilateral","Isosceles","Right-angled","Obtuse"],
+a:2,
+e:"3²+4²=5²."
+},
+{
+q:"The probability of an impossible event is:",
+o:["0","1","1/2","−1"],
+a:0,
+e:"Impossible event has probability 0."
+},
+{
+q:"The probability of a certain event is:",
+o:["0","1/2","1","2"],
+a:2,
+e:"Certain event always occurs, so probability is 1."
+},
+{
+q:"Mean of 4,8,12,16 is:",
+o:["8","10","12","14"],
+a:1,
+e:"Sum=40, number=4, mean=10."
+},
+{
+q:"If the median of 3,5,7,9,11 is:",
+o:["5","7","9","11"],
+a:1,
+e:"Middle value is 7."
+},
+{
+q:"The degree of polynomial 7x⁴−2x+1 is:",
+o:["1","2","3","4"],
+a:3,
+e:"Highest power of x is 4."
+},
+{
+q:"If x²−9=0, positive x is:",
+o:["−3","0","3","9"],
+a:2,
+e:"x²=9, positive x=3."
+},
+{
+q:"The point (−2,3) lies in which quadrant?",
+o:["I","II","III","IV"],
+a:1,
+e:"x negative and y positive means Quadrant II."
+},
+{
+q:"If two angles are complementary and one is 35°, the other is:",
+o:["45°","55°","65°","145°"],
+a:1,
+e:"Complementary angles sum to 90°."
+},
+{
+q:"The rationalising factor of √5 is:",
+o:["√5","5","1/√5","√25"],
+a:0,
+e:"Multiplying √5 by √5 gives 5."
+},
+{
+q:"If x−y=4 and xy=12, then (x+y)² is:",
+o:["16","40","64","88"],
+a:3,
+e:"(x+y)²=(x−y)²+4xy=16+48=64. Correct answer is 64."
+},
+{
+q:"A quadrilateral with all sides equal is always a:",
+o:["Square","Rhombus","Rectangle","Trapezium"],
+a:1,
+e:"A rhombus has all four sides equal; angles need not be 90°."
+},
+{
+q:"The diagonal of a rectangle divides it into:",
+o:["Two equal triangles","Three triangles","Four squares","Two circles"],
+a:0,
+e:"A diagonal divides a rectangle into two congruent triangles."
+},
+{
+q:"If a line has slope 0, it is:",
+o:["Vertical","Horizontal","Diagonal only","Curved"],
+a:1,
+e:"A horizontal line has zero slope."
+},
+{
+q:"The product of two negative rational numbers is:",
+o:["Negative","Positive","Zero always","Undefined"],
+a:1,
+e:"Negative × negative = positive."
+},
+{
+q:"If 5x−2=3x+10, x equals:",
+o:["4","5","6","7"],
+a:2,
+e:"2x=12, so x=6."
+}
+],
+
+/* CLASS 9 PHYSICS */
+
+class9physics:[
+{
+q:"A car travels 120 m in 10 s. Its average speed is:",
+o:["10 m/s","12 m/s","20 m/s","1200 m/s"],
+a:1,
+e:"v=d/t=120/10=12 m/s."
+},
+{
+q:"A body moving with uniform velocity has:",
+o:["Changing speed","Constant velocity","Increasing acceleration","Zero distance"],
+a:1,
+e:"Uniform velocity means both speed and direction remain constant."
+},
+{
+q:"The slope of a distance-time graph represents:",
+o:["Acceleration","Speed","Force","Momentum"],
+a:1,
+e:"Slope = change in distance/change in time = speed."
+},
+{
+q:"The SI unit of acceleration is:",
+o:["m/s","m/s²","N","J"],
+a:1,
+e:"Acceleration is measured in metres per second squared."
+},
+{
+q:"A body starts from rest and reaches 20 m/s in 5 s. Acceleration is:",
+o:["2 m/s²","4 m/s²","5 m/s²","10 m/s²"],
+a:1,
+e:"a=(20−0)/5=4 m/s²."
+},
+{
+q:"Newton's first law is also called the law of:",
+o:["Acceleration","Inertia","Action-reaction","Gravitation"],
+a:1,
+e:"Newton's first law describes inertia."
+},
+{
+q:"Momentum is given by:",
+o:["m/v","mv","ma","m+v"],
+a:1,
+e:"p=mv."
+},
+{
+q:"A force of 20 N acts on a mass of 5 kg. Acceleration is:",
+o:["2 m/s²","4 m/s²","5 m/s²","100 m/s²"],
+a:1,
+e:"a=F/m=20/5=4 m/s²."
+},
+{
+q:"The force of attraction between masses is called:",
+o:["Friction","Gravitation","Pressure","Buoyancy"],
+a:1,
+e:"Gravitational force attracts masses."
+},
+{
+q:"Weight of an object is:",
+o:["Mass only","Force due to gravity","Volume","Density"],
+a:1,
+e:"Weight W=mg."
+},
+{
+q:"If mass is doubled while g remains constant, weight:",
+o:["Halves","Doubles","Becomes zero","Remains same"],
+a:1,
+e:"W=mg, so weight is directly proportional to mass."
+},
+{
+q:"Work done is zero when force and displacement are:",
+o:["Parallel","Opposite","Perpendicular","Same direction"],
+a:2,
+e:"W=Fs cosθ; at 90°, cosθ=0."
+},
+{
+q:"A force of 10 N moves an object 5 m in its direction. Work done:",
+o:["2 J","15 J","50 J","100 J"],
+a:2,
+e:"W=Fs=10×5=50 J."
+},
+{
+q:"Power is the rate of doing:",
+o:["Force","Work","Mass","Acceleration"],
+a:1,
+e:"P=W/t."
+},
+{
+q:"The energy possessed due to position is:",
+o:["Kinetic","Potential","Thermal only","Sound"],
+a:1,
+e:"Potential energy depends on position/configuration."
+},
+{
+q:"Kinetic energy depends on:",
+o:["Mass and square of velocity","Only mass","Only height","Only force"],
+a:0,
+e:"KE=1/2 mv²."
+},
+{
+q:"If velocity doubles, kinetic energy becomes:",
+o:["2 times","3 times","4 times","8 times"],
+a:2,
+e:"KE is proportional to v²."
+},
+{
+q:"Pressure is defined as:",
+o:["Force×area","Force/area","Area/force","Mass/volume"],
+a:1,
+e:"P=F/A."
+},
+{
+q:"A sharp knife cuts more easily because it has:",
+o:["Large area","Small area and greater pressure","Less force","Zero pressure"],
+a:1,
+e:"For the same force, smaller area gives greater pressure."
+},
+{
+q:"The SI unit of pressure is:",
+o:["Newton","Joule","Pascal","Watt"],
+a:2,
+e:"Pressure is measured in pascals."
+},
+{
+q:"Sound is produced by:",
+o:["Vibrating objects","Stationary objects","Light only","Heat only"],
+a:0,
+e:"Sound originates from vibrations."
+},
+{
+q:"The frequency of a wave determines the:",
+o:["Loudness","Pitch","Speed only","Amplitude only"],
+a:1,
+e:"Higher frequency means higher pitch."
+},
+{
+q:"Amplitude mainly affects the:",
+o:["Pitch","Loudness","Wavelength only","Frequency only"],
+a:1,
+e:"Greater amplitude generally produces louder sound."
+},
+{
+q:"The time period of a wave is 0.02 s. Its frequency is:",
+o:["20 Hz","40 Hz","50 Hz","100 Hz"],
+a:2,
+e:"f=1/T=1/0.02=50 Hz."
+},
+{
+q:"If a body covers equal distances in equal intervals of time, its motion is:",
+o:["Non-uniform","Uniform","Circular only","Random"],
+a:1,
+e:"Equal distances in equal time intervals means uniform motion."
+},
+{
+q:"When net force on an object is zero, acceleration is:",
+o:["Zero","Maximum","Negative always","Infinite"],
+a:0,
+e:"F=ma. If net force is zero, acceleration is zero."
+},
+{
+q:"A body can have zero velocity but non-zero acceleration at an instant. This can happen at:",
+o:["Highest point of a vertically thrown ball","Uniform motion only","Rest forever","A stationary wall"],
+a:0,
+e:"At the highest point velocity is momentarily zero, but gravity still provides acceleration."
+},
+{
+q:"Which quantity has both magnitude and direction?",
+o:["Distance","Speed","Mass","Velocity"],
+a:3,
+e:"Velocity is a vector quantity."
+},
+{
+q:"Which quantity is scalar?",
+o:["Velocity","Acceleration","Displacement","Speed"],
+a:3,
+e:"Speed has magnitude only."
+},
+{
+q:"If displacement is zero, distance:",
+o:["Must be zero","Can be non-zero","Must be negative","Cannot exist"],
+a:1,
+e:"An object can return to its starting point after travelling a non-zero distance."
+}
+],
+
+/* CLASS 9 CHEMISTRY */
+
+class9chem:[
+{
+q:"The law stating that mass is neither created nor destroyed in a chemical reaction is:",
+o:["Law of constant proportions","Law of conservation of mass","Avogadro law","Ohm law"],
+a:1,
+e:"Mass remains conserved during a chemical reaction."
+},
+{
+q:"One mole contains approximately:",
+o:["6.022×10²³ particles","6.022×10²² particles","3.011×10²³ particles","10²³ particles"],
+a:0,
+e:"Avogadro constant is approximately 6.022×10²³ mol⁻¹."
+},
+{
+q:"The molecular mass of H₂O is:",
+o:["16 u","17 u","18 u","20 u"],
+a:2,
+e:"2×1 + 16 = 18 u."
+},
+{
+q:"The valency of oxygen in most compounds is:",
+o:["1","2","3","4"],
+a:1,
+e:"Oxygen commonly forms two bonds or has valency 2."
+},
+{
+q:"The formula of magnesium chloride is:",
+o:["MgCl","MgCl₂","Mg₂Cl","Mg₂Cl₂"],
+a:1,
+e:"Mg²⁺ requires two Cl⁻ ions."
+},
+{
+q:"Which subatomic particle has no charge?",
+o:["Proton","Electron","Neutron","Ion"],
+a:2,
+e:"Neutrons are electrically neutral."
+},
+{
+q:"The atomic number of carbon is:",
+o:["4","6","8","12"],
+a:1,
+e:"Carbon has 6 protons."
+},
+{
+q:"The mass number equals:",
+o:["Protons only","Neutrons only","Protons + neutrons","Electrons + protons"],
+a:2,
+e:"Mass number = number of protons + neutrons."
+},
+{
+q:"Isotopes have the same:",
+o:["Mass number","Number of neutrons","Atomic number","Physical mass"],
+a:2,
+e:"Isotopes have the same atomic number but different mass numbers."
+},
+{
+q:"Which is a pure substance?",
+o:["Air","Brass","Distilled water","Soil"],
+a:2,
+e:"Distilled water is treated as a pure compound."
+},
+{
+q:"A solution with pH 7 is:",
+o:["Acidic","Neutral","Basic","Strongly acidic"],
+a:1,
+e:"At standard conditions, pH 7 is neutral."
+},
+{
+q:"The formula of sodium carbonate is:",
+o:["NaCO₃","Na₂CO₃","Na₃CO₂","NaCO₂"],
+a:1,
+e:"Two Na⁺ ions balance CO₃²⁻."
+},
+{
+q:"Which process is used to obtain salt from seawater?",
+o:["Evaporation","Filtration only","Magnetic separation","Sublimation"],
+a:0,
+e:"Water evaporates, leaving dissolved salt behind."
+},
+{
+q:"Which component of a solution is present in larger amount?",
+o:["Solute","Solvent","Residue","Precipitate"],
+a:1,
+e:"The solvent is generally the component present in greater amount."
+},
+{
+q:"The concentration of a solution can be expressed as:",
+o:["Mass by mass percentage","Mass only","Colour","Temperature only"],
+a:0,
+e:"Mass percentage is one common concentration expression."
+},
+{
+q:"The formula for density is:",
+o:["Mass×volume","Mass/volume","Volume/mass","Mass+volume"],
+a:1,
+e:"Density = mass/volume."
+},
+{
+q:"Which state of matter has definite volume but no definite shape?",
+o:["Solid","Liquid","Gas","Plasma only"],
+a:1,
+e:"Liquids have definite volume but take the container's shape."
+},
+{
+q:"Diffusion is fastest in:",
+o:["Solids","Liquids","Gases","All equally"],
+a:2,
+e:"Gas particles have greater freedom of movement."
+},
+{
+q:"Evaporation causes:",
+o:["Cooling","Heating only","Freezing instantly","No energy change"],
+a:0,
+e:"Higher-energy particles escape, causing cooling."
+},
+{
+q:"The temperature at which a liquid changes to gas throughout the liquid is:",
+o:["Melting point","Boiling point","Freezing point","Triple point only"],
+a:1,
+e:"Boiling occurs throughout the liquid at its boiling point."
+},
+{
+q:"Which separation method is useful for miscible liquids with different boiling points?",
+o:["Filtration","Distillation","Sedimentation","Handpicking"],
+a:1,
+e:"Distillation separates liquids based on boiling points."
+},
+{
+q:"A colloid shows:",
+o:["Tyndall effect","No light scattering","Only sedimentation","Immediate crystallisation"],
+a:0,
+e:"Colloidal particles scatter light, producing the Tyndall effect."
+},
+{
+q:"Which is an element?",
+o:["Oxygen","Water","Carbon dioxide","Sodium chloride"],
+a:0,
+e:"Oxygen consists of only one type of atom."
+},
+{
+q:"The chemical formula of calcium oxide is:",
+o:["CaO","Ca₂O","CaO₂","Ca₂O₂"],
+a:0,
+e:"Ca²⁺ and O²⁻ combine in a 1:1 ratio."
+},
+{
+q:"Which law says a pure compound always contains elements in fixed proportions by mass?",
+o:["Conservation of mass","Constant proportions","Multiple proportions only","Gas law"],
+a:1,
+e:"The law of constant proportions states fixed mass ratios."
+},
+{
+q:"The relative atomic mass of oxygen is approximately:",
+o:["8","12","16","32"],
+a:2,
+e:"Oxygen's relative atomic mass is approximately 16."
+},
+{
+q:"If 1 mole of oxygen molecules O₂ is present, number of O₂ molecules is:",
+o:["6.022×10²³","3.011×10²³","1.204×10²⁴","16"],
+a:0,
+e:"One mole contains Avogadro's number of particles."
+},
+{
+q:"The chemical formula of aluminium oxide is:",
+o:["AlO","Al₂O₃","Al₃O₂","AlO₂"],
+a:1,
+e:"Al³⁺ and O²⁻ combine as Al₂O₃."
+},
+{
+q:"Which particle determines the chemical identity of an element through its number in the nucleus?",
+o:["Neutron","Proton","Electron only","Photon"],
+a:1,
+e:"The number of protons is the atomic number."
+},
+{
+q:"A positively charged ion is called:",
+o:["Anion","Cation","Isotope","Molecule"],
+a:1,
+e:"Cations are positively charged ions."
+}
+],
+
+/* CLASS 10 MATHEMATICS */
+
+class10math:[
+{
+q:"The roots of x²−7x+12=0 are:",
+o:["2,6","3,4","1,12","−3,−4"],
+a:1,
+e:"x²−7x+12=(x−3)(x−4)."
+},
+{
+q:"If α and β are roots of x²−5x+6, α+β equals:",
+o:["−5","5","6","−6"],
+a:1,
+e:"Sum of roots = −b/a = 5."
+},
+{
+q:"If αβ are roots of 2x²−3x−5, αβ equals:",
+o:["−5/2","5/2","3/2","−3/2"],
+a:0,
+e:"Product of roots = c/a = −5/2."
+},
+{
+q:"The discriminant of x²−4x+4 is:",
+o:["0","4","8","16"],
+a:0,
+e:"D=b²−4ac=16−16=0."
+},
+{
+q:"If the discriminant of a quadratic equation is negative, the equation has:",
+o:["Two distinct real roots","Equal roots","No real roots","One positive root"],
+a:2,
+e:"Negative discriminant means no real roots."
+},
+{
+q:"The 10th term of AP 3,7,11,... is:",
+o:["35","39","43","47"],
+a:1,
+e:"a=3,d=4. a10=3+9×4=39."
+},
+{
+q:"The sum of first 20 natural numbers is:",
+o:["200","210","220","400"],
+a:1,
+e:"n(n+1)/2 = 20×21/2 = 210."
+},
+{
+q:"If sin θ = 3/5 for an acute angle, cos θ is:",
+o:["3/4","4/5","5/4","2/5"],
+a:1,
+e:"Using 3-4-5 triangle, cosθ=4/5."
+},
+{
+q:"tan 45° equals:",
+o:["0","1","√3","1/√3"],
+a:1,
+e:"tan45°=1."
+},
+{
+q:"If sec θ = 13/12, then tan θ for acute θ is:",
+o:["5/12","12/5","13/12","1/12"],
+a:0,
+e:"Using sec²−tan²=1: tan=5/12."
+},
+{
+q:"Distance between (1,2) and (4,6) is:",
+o:["4","5","6","7"],
+a:1,
+e:"√(3²+4²)=5."
+},
+{
+q:"The midpoint of (2,4) and (6,10) is:",
+o:["(4,7)","(8,14)","(3,5)","(2,7)"],
+a:0,
+e:"Midpoint=((2+6)/2,(4+10)/2)=(4,7)."
+},
+{
+q:"If a line joins two points dividing them internally in ratio 2:3, section formula is used to find:",
+o:["Area","Coordinates of division point","Slope only","Radius"],
+a:1,
+e:"Section formula finds coordinates of a point dividing a line segment in a given ratio."
+},
+{
+q:"The probability of getting a prime number on a fair die is:",
+o:["1/6","1/3","1/2","2/3"],
+a:1,
+e:"Prime outcomes are 2,3,5 = 3/6 = 1/2. Correct answer is 1/2."
+},
+{
+q:"If P(E)=0.35, P(not E) is:",
+o:["0.35","0.45","0.65","1.35"],
+a:2,
+e:"P(not E)=1−0.35=0.65."
+},
+{
+q:"The mean of 10,20,30,40,50 is:",
+o:["20","25","30","35"],
+a:2,
+e:"Total=150, divided by 5 = 30."
+},
+{
+q:"For grouped data, the class with highest frequency is called:",
+o:["Median class","Modal class","Mean class","Quartile class"],
+a:1,
+e:"The class having maximum frequency is the modal class."
+},
+{
+q:"If a tangent touches a circle at P, the radius through P is:",
+o:["Parallel to tangent","Perpendicular to tangent","Equal to tangent","At 45°"],
+a:1,
+e:"Radius at point of contact is perpendicular to tangent."
+},
+{
+q:"The tangent length from an external point to a circle is:",
+o:["Always zero","Equal to the other tangent from same point","Always radius","Always diameter"],
+a:1,
+e:"Tangents drawn from the same external point are equal."
+},
+{
+q:"If two triangles have their corresponding sides proportional and included angles equal, they are similar by:",
+o:["AA","SAS","SSS only","RHS only"],
+a:1,
+e:"SAS similarity requires two proportional sides and included angle equal."
+},
+{
+q:"The area ratio of two similar triangles is equal to:",
+o:["Ratio of corresponding sides","Square of ratio of corresponding sides","Cube of ratio","Sum of sides"],
+a:1,
+e:"Areas of similar figures are proportional to squares of corresponding sides."
+},
+{
+q:"If corresponding sides of two similar triangles are in ratio 2:3, their areas are in ratio:",
+o:["2:3","4:9","8:27","3:2"],
+a:1,
+e:"Area ratio = 2²:3² = 4:9."
+},
+{
+q:"A cone has radius 3 cm and height 4 cm. Its slant height is:",
+o:["4 cm","5 cm","6 cm","7 cm"],
+a:1,
+e:"l=√(r²+h²)=√25=5 cm."
+},
+{
+q:"The volume of a sphere of radius r is:",
+o:["πr²","2πr","4/3πr³","πr³"],
+a:2,
+e:"Sphere volume = 4/3πr³."
+},
+{
+q:"If the radius of a sphere is doubled, its volume becomes:",
+o:["2 times","4 times","6 times","8 times"],
+a:3,
+e:"Volume ∝ r³, so doubling gives 8 times."
+},
+{
+q:"If HCF(a,b)=6 and LCM(a,b)=180, then ab equals:",
+o:["30","186","1080","2160"],
+a:2,
+e:"For positive integers, HCF×LCM=product. 6×180=1080."
+},
+{
+q:"Euclid's division algorithm is based on:",
+o:["a=bq+r","a=br+q","a=q+r","a=ab+r"],
+a:0,
+e:"Euclidean division uses a=bq+r with 0≤r<b."
+},
+{
+q:"The decimal expansion of 13/40 is:",
+o:["0.125","0.25","0.325","0.375"],
+a:2,
+e:"13÷40=0.325."
+},
+{
+q:"If a quadratic polynomial has equal roots, its discriminant is:",
+o:["Positive","Negative","Zero","One"],
+a:2,
+e:"Equal roots occur when D=0."
+}
+],
+
+/* CLASS 10 PHYSICS */
+
+class10physics:[
+{
+q:"A resistor of 6 Ω is connected to 12 V. Current is:",
+o:["0.5 A","2 A","6 A","72 A"],
+a:1,
+e:"I=V/R=12/6=2 A."
+},
+{
+q:"Two resistors 4 Ω and 6 Ω are connected in series. Equivalent resistance is:",
+o:["2 Ω","10 Ω","24 Ω","1.5 Ω"],
+a:1,
+e:"Series resistance = 4+6=10 Ω."
+},
+{
+q:"Two resistors 6 Ω and 3 Ω are in parallel. Equivalent resistance is:",
+o:["2 Ω","3 Ω","9 Ω","18 Ω"],
+a:0,
+e:"1/R=1/6+1/3=1/2, so R=2 Ω."
+},
+{
+q:"Electrical power is given by:",
+o:["VI","V/I","I/R","R/V"],
+a:0,
+e:"P=VI."
+},
+{
+q:"A 100 W bulb operates for 5 hours. Energy consumed is:",
+o:["0.5 kWh","5 kWh","50 kWh","500 kWh"],
+a:0,
+e:"100 W=0.1 kW; energy=0.1×5=0.5 kWh."
+},
+{
+q:"The SI unit of electric charge is:",
+o:["Volt","Ampere","Coulomb","Ohm"],
+a:2,
+e:"Charge is measured in coulombs."
+},
+{
+q:"A fuse is connected in the:",
+o:["Neutral only","Live wire","Earth only","Both always"],
+a:1,
+e:"The fuse is placed in the live wire for safety."
+},
+{
+q:"The magnetic field around a straight current-carrying wire consists of:",
+o:["Straight lines","Concentric circles","Parabolas","Random lines"],
+a:1,
+e:"The field lines form concentric circles around the wire."
+},
+{
+q:"The direction of force on a current-carrying conductor in a magnetic field is determined by:",
+o:["Fleming's left-hand rule","Right-hand thumb rule","Ohm's law","Lenz law only"],
+a:0,
+e:"Fleming's left-hand rule gives motor-force direction."
+},
+{
+q:"An electric motor converts:",
+o:["Mechanical to electrical","Electrical to mechanical","Heat to chemical","Light to sound"],
+a:1,
+e:"A motor converts electrical energy into mechanical energy."
+},
+{
+q:"An electric generator converts:",
+o:["Electrical to mechanical","Mechanical to electrical","Chemical to heat","Light to electrical only"],
+a:1,
+e:"Generator converts mechanical energy into electrical energy."
+},
+{
+q:"The SI unit of power is:",
+o:["Joule","Watt","Volt","Ampere"],
+a:1,
+e:"Power is measured in watts."
+},
+{
+q:"The focal length of a convex lens is:",
+o:["Always negative","Positive under Cartesian convention","Zero","Infinite"],
+a:1,
+e:"A convex lens has positive focal length under the standard Cartesian sign convention."
+},
+{
+q:"A concave lens always forms an image that is:",
+o:["Real and enlarged","Virtual, erect and diminished","Real and inverted","Same size always"],
+a:1,
+e:"A concave lens forms a virtual, erect and diminished image for a real object."
+},
+{
+q:"The power of a lens with focal length 0.5 m is:",
+o:["+2 D","+0.5 D","−2 D","−0.5 D"],
+a:0,
+e:"P=1/f=1/0.5=+2 D."
+},
+{
+q:"The refractive index of a medium is related to speed of light by:",
+o:["n=v/c","n=c/v","n=cv","n=c+v"],
+a:1,
+e:"n=c/v."
+},
+{
+q:"When light travels from air to glass, it generally bends:",
+o:["Away from normal","Towards normal","Along surface","Not at all"],
+a:1,
+e:"Light slows in glass and bends towards the normal."
+},
+{
+q:"The splitting of white light into colours is called:",
+o:["Reflection","Dispersion","Diffusion","Interference only"],
+a:1,
+e:"Dispersion separates white light into constituent colours."
+},
+{
+q:"The human eye forms the image on the:",
+o:["Cornea","Retina","Iris","Pupil"],
+a:1,
+e:"The retina is the light-sensitive screen of the eye."
+},
+{
+q:"Myopia is corrected using:",
+o:["Convex lens","Concave lens","Plane mirror","Cylindrical mirror only"],
+a:1,
+e:"A concave lens diverges light to correct myopia."
+},
+{
+q:"Hypermetropia is corrected using:",
+o:["Concave lens","Convex lens","Plane glass","Prism only"],
+a:1,
+e:"A convex lens converges light to correct hypermetropia."
+},
+{
+q:"The energy of an electron is quantised in:",
+o:["Random values","Fixed energy levels","Only zero","Any value without restriction"],
+a:1,
+e:"Electrons occupy discrete energy levels in the atomic model."
+},
+{
+q:"The heating effect of current is given by:",
+o:["H=I²Rt","H=IR/t","H=V/R","H=I/R"],
+a:0,
+e:"Joule heating: H=I²Rt."
+},
+{
+q:"If current through a resistor doubles, heat produced in same time becomes:",
+o:["2 times","3 times","4 times","8 times"],
+a:2,
+e:"H∝I², so doubling current gives four times heat."
+},
+{
+q:"If resistance remains constant and voltage doubles, current becomes:",
+o:["Half","Double","Four times","Unchanged"],
+a:1,
+e:"I=V/R."
+},
+{
+q:"The commercial unit of electrical energy is:",
+o:["Joule","Kilowatt-hour","Watt","Volt"],
+a:1,
+e:"Electricity bills commonly use kWh."
+},
+{
+q:"A 2 kW heater runs for 3 hours. Energy used is:",
+o:["2 kWh","5 kWh","6 kWh","9 kWh"],
+a:2,
+e:"Energy=2×3=6 kWh."
+},
+{
+q:"Which device protects circuits from excessive current?",
+o:["Fuse","Switch only","Ammeter","Voltmeter"],
+a:0,
+e:"A fuse melts when excessive current flows."
+},
+{
+q:"The unit of resistance is:",
+o:["Volt","Ampere","Ohm","Coulomb"],
+a:2,
+e:"Resistance is measured in ohms."
+}
+],
+
+/* CLASS 10 CHEMISTRY */
+
+class10chem:[
+{
+q:"Which reaction is an example of oxidation?",
+o:["Removal of oxygen","Addition of oxygen","Removal of electrons only never","Addition of hydrogen only"],
+a:1,
+e:"Oxidation can be described as addition of oxygen or loss of electrons."
+},
+{
+q:"Fe²⁺ → Fe³⁺ represents:",
+o:["Gain of one electron","Loss of one electron","Gain of two electrons","No electron change"],
+a:1,
+e:"Fe²⁺ becomes Fe³⁺ by losing one electron."
+},
+{
+q:"The pH of a strongly acidic solution is generally:",
+o:["Below 7","Exactly 7","Above 7","Always 14"],
+a:0,
+e:"Acidic solutions have pH below 7."
+},
+{
+q:"Which acid is present in vinegar?",
+o:["Hydrochloric acid","Acetic acid","Sulfuric acid","Nitric acid"],
+a:1,
+e:"Vinegar contains dilute acetic acid."
+},
+{
+q:"The formula of washing soda is:",
+o:["NaHCO₃","Na₂CO₃·10H₂O","NaCl","CaCO₃"],
+a:1,
+e:"Washing soda is sodium carbonate decahydrate."
+},
+{
+q:"Baking soda is:",
+o:["NaOH","NaHCO₃","Na₂CO₃","Ca(OH)₂"],
+a:1,
+e:"Sodium hydrogen carbonate is baking soda."
+},
+{
+q:"Which metal is extracted from bauxite?",
+o:["Iron","Aluminium","Copper","Zinc"],
+a:1,
+e:"Bauxite is the major ore of aluminium."
+},
+{
+q:"Which metal is highly reactive among these?",
+o:["Gold","Potassium","Copper","Silver"],
+a:1,
+e:"Potassium is very high in the reactivity series."
+},
+{
+q:"Ionic compounds generally have:",
+o:["Low melting points","High melting points","No ions","No electrostatic forces"],
+a:1,
+e:"Strong electrostatic attractions give ionic compounds high melting points."
+},
+{
+q:"Which carbon compound contains a C=C bond?",
+o:["Ethane","Ethene","Methane","Ethyne only"],
+a:1,
+e:"Ethene contains a carbon-carbon double bond."
+},
+{
+q:"The functional group −OH is called:",
+o:["Aldehyde","Alcohol","Ketone","Carboxylic acid"],
+a:1,
+e:"−OH is the hydroxyl group characteristic of alcohols."
+},
+{
+q:"The functional group −COOH represents:",
+o:["Alcohol","Carboxylic acid","Ketone","Amine"],
+a:1,
+e:"−COOH is the carboxyl group."
+},
+{
+q:"Methane has the formula:",
+o:["CH₄","C₂H₆","C₂H₄","CH₃OH"],
+a:0,
+e:"Methane is CH₄."
+},
+{
+q:"Ethene undergoes addition reactions because it contains:",
+o:["Single bond only","Double bond","Triple bond only","No carbon bond"],
+a:1,
+e:"The C=C bond allows addition reactions."
+},
+{
+q:"Soap works poorly in hard water mainly because it forms:",
+o:["Sugar","Scum with Ca²⁺/Mg²⁺","Oxygen","Acid gas"],
+a:1,
+e:"Soap forms insoluble salts with calcium and magnesium ions."
+},
+{
+q:"The modern periodic table is arranged by increasing:",
+o:["Atomic mass","Atomic number","Density","Valency only"],
+a:1,
+e:"Elements are arranged by increasing atomic number."
+},
+{
+q:"Elements in the same group generally have similar:",
+o:["Number of shells","Valence electron pattern","Atomic masses","Neutron numbers"],
+a:1,
+e:"Similar valence-electron configurations produce similar chemical properties."
+},
+{
+q:"Across a period, atomic size generally:",
+o:["Increases strongly","Decreases","Remains exactly same","Becomes infinite"],
+a:1,
+e:"Effective nuclear charge generally increases across a period."
+},
+{
+q:"A metal reacting with dilute hydrochloric acid generally produces:",
+o:["Hydrogen","Oxygen","Nitrogen","Chlorine only"],
+a:0,
+e:"Reactive metals above hydrogen commonly release H₂ with dilute HCl."
+},
+{
+q:"Which reaction is displacement?",
+o:["Zn + CuSO₄ → ZnSO₄ + Cu","HCl + NaOH → NaCl + H₂O","CaCO₃ → CaO + CO₂","C + O₂ → CO₂"],
+a:0,
+e:"Zinc displaces copper from copper sulfate."
+},
+{
+q:"CaCO₃ → CaO + CO₂ is:",
+o:["Combination","Decomposition","Displacement","Neutralisation"],
+a:1,
+e:"One compound breaks into simpler substances."
+},
+{
+q:"2Mg + O₂ → 2MgO is:",
+o:["Combination","Decomposition","Double displacement","Neutralisation"],
+a:0,
+e:"Two reactants form one main product."
+},
+{
+q:"The substance reduced in a redox reaction:",
+o:["Loses electrons","Gains electrons","Always gains oxygen","Must be a metal"],
+a:1,
+e:"Reduction involves gain of electrons."
+},
+{
+q:"The substance oxidised in a redox reaction acts as:",
+o:["Reducing agent","Oxidising agent only","Catalyst always","Solvent"],
+a:0,
+e:"The reducing agent donates electrons and is itself oxidised."
+},
+{
+q:"Corrosion of iron is commonly called:",
+o:["Rusting","Melting","Sublimation","Distillation"],
+a:0,
+e:"Iron corrosion produces rust."
+},
+{
+q:"Which method can protect iron from corrosion by coating it with zinc?",
+o:["Galvanisation","Distillation","Crystallisation","Electrolysis only"],
+a:0,
+e:"Galvanisation coats iron/steel with zinc."
+},
+{
+q:"The reaction of an acid with a metal carbonate produces salt, water and:",
+o:["Hydrogen","Carbon dioxide","Oxygen","Nitrogen"],
+a:1,
+e:"Acid + carbonate → salt + water + CO₂."
+},
+{
+q:"The empirical formula represents:",
+o:["Actual molecular mass always","Simplest whole-number ratio of atoms","Number of electrons","Only ions"],
+a:1,
+e:"Empirical formula gives the simplest atom ratio."
+},
+{
+q:"The molar mass of CO₂ is:",
+o:["28 g/mol","32 g/mol","44 g/mol","48 g/mol"],
+a:2,
+e:"12+16+16=44 g/mol."
+},
+{
+q:"If 0.5 mol of CO₂ is present, its mass is:",
+o:["11 g","22 g","44 g","88 g"],
+a:1,
+e:"Mass = moles × molar mass = 0.5×44 = 22 g."
+}
+],
+
+/* MIXED */
+
+mixed:[
+{
+q:"A 12 V battery is connected to a 4 Ω resistor. Current is:",
+o:["2 A","3 A","4 A","48 A"],
+a:1,
+e:"I=V/R=12/4=3 A."
+},
+{
+q:"If x + 1/x = 4, then x² + 1/x² equals:",
+o:["12","14","16","18"],
+a:1,
+e:"Square: x²+2+1/x²=16, so result=14."
+},
+{
+q:"Fe²⁺ → Fe³⁺ is an example of:",
+o:["Reduction","Oxidation","Neutralisation","Precipitation"],
+a:1,
+e:"Fe²⁺ loses one electron, so it is oxidised."
+},
+{
+q:"A body travels 100 m in 5 s. Its speed is:",
+o:["10 m/s","20 m/s","25 m/s","50 m/s"],
+a:1,
+e:"v=100/5=20 m/s."
+},
+{
+q:"The probability of getting an even number on a fair die is:",
+o:["1/6","1/3","1/2","2/3"],
+a:2,
+e:"Even outcomes are 2,4,6: 3/6=1/2."
+},
+{
+q:"Which particle determines atomic number?",
+o:["Electron","Proton","Neutron","Molecule"],
+a:1,
+e:"Atomic number equals the number of protons."
+},
+{
+q:"If current doubles through a fixed resistor, power becomes:",
+o:["2 times","3 times","4 times","8 times"],
+a:2,
+e:"P=I²R, so doubling I makes power four times."
+},
+{
+q:"A 15% discount on ₹2000 gives a selling price of:",
+o:["₹1600","₹1700","₹1750","₹1850"],
+a:1,
+e:"15% of 2000=300, so SP=1700."
+},
+{
+q:"Which lens corrects myopia?",
+o:["Convex","Concave","Cylindrical only","Plane"],
+a:1,
+e:"Myopia is corrected with a concave lens."
+},
+{
+q:"Which gas turns limewater milky?",
+o:["O₂","CO₂","H₂","N₂"],
+a:1,
+e:"CO₂ forms calcium carbonate with limewater."
+},
+{
+q:"If a sphere's radius becomes 3 times, its volume becomes:",
+o:["3 times","6 times","9 times","27 times"],
+a:3,
+e:"Volume ∝ r³, so 3³=27."
+},
+{
+q:"A force of 50 N acts over 4 m in its direction. Work done:",
+o:["54 J","100 J","200 J","250 J"],
+a:2,
+e:"W=Fs=50×4=200 J."
+},
+{
+q:"Which has the greatest frequency?",
+o:["Red light","Green light","Blue light","All visible colours same"],
+a:2,
+e:"Among these, blue light has higher frequency than green and red."
+},
+{
+q:"If HCF=5 and LCM=60, product of two positive integers is:",
+o:["12","55","300","600"],
+a:2,
+e:"Product=HCF×LCM=5×60=300."
+},
+{
+q:"The formula of calcium chloride is:",
+o:["CaCl","CaCl₂","Ca₂Cl","Ca₂Cl₂"],
+a:1,
+e:"Ca²⁺ requires two Cl⁻ ions."
+},
+{
+q:"Which quantity is vector?",
+o:["Distance","Speed","Mass","Displacement"],
+a:3,
+e:"Displacement has magnitude and direction."
+},
+{
+q:"If sinθ=5/13 for acute θ, cosθ is:",
+o:["5/12","12/13","13/12","8/13"],
+a:1,
+e:"Using the 5-12-13 triangle, cosθ=12/13."
+},
+{
+q:"A quadratic equation has equal roots when:",
+o:["D>0","D<0","D=0","D=1"],
+a:2,
+e:"Equal roots occur when discriminant is zero."
+},
+{
+q:"Which substance is an alloy?",
+o:["Brass","Oxygen","Water","Carbon dioxide"],
+a:0,
+e:"Brass is mainly copper and zinc."
+},
+{
+q:"The energy possessed by a moving object is:",
+o:["Potential","Kinetic","Chemical only","Nuclear only"],
+a:1,
+e:"Motion gives an object kinetic energy."
+},
+{
+q:"A solution with pH 9 is:",
+o:["Acidic","Neutral","Basic","Always pure water"],
+a:2,
+e:"pH above 7 indicates a basic solution."
+},
+{
+q:"If velocity changes from 5 to 25 m/s in 4 s, acceleration is:",
+o:["4 m/s²","5 m/s²","6 m/s²","8 m/s²"],
+a:1,
+e:"a=(25−5)/4=5 m/s²."
+},
+{
+q:"The 8th term of AP 2,5,8,... is:",
+o:["20","21","23","24"],
+a:2,
+e:"a=2,d=3. a8=2+7×3=23."
+},
+{
+q:"Which reaction produces salt and water from acid and base?",
+o:["Combustion","Neutralisation","Displacement","Decomposition"],
+a:1,
+e:"Acid + base → salt + water."
+},
+{
+q:"If a resistor has R=10 Ω and I=2 A, power is:",
+o:["20 W","40 W","100 W","200 W"],
+a:1,
+e:"P=I²R=4×10=40 W."
+},
+{
+q:"Which gas is required for aerobic respiration?",
+o:["Oxygen","Nitrogen","Carbon dioxide","Helium"],
+a:0,
+e:"Aerobic respiration uses oxygen."
+},
+{
+q:"The diagonal of a square of side 6 cm is:",
+o:["6 cm","12 cm","6√2 cm","36 cm"],
+a:2,
+e:"Diagonal=a√2=6√2 cm."
+},
+{
+q:"One mole contains:",
+o:["6.022×10²³ particles","6.022×10²²","10²⁰","100 particles"],
+a:0,
+e:"One mole contains Avogadro's number of particles."
+},
+{
+q:"If KE is proportional to v², doubling v makes KE:",
+o:["2 times","4 times","6 times","8 times"],
+a:1,
+e:"(2v)²=4v²."
+},
+{
+q:"Which component carries oxygen in blood?",
+o:["Platelets","RBC","WBC","Plasma only"],
+a:1,
+e:"Haemoglobin in RBCs transports oxygen."
+},
+{
+q:"A number leaves remainder 3 when divided by 5. Its square leaves remainder:",
+o:["1","2","3","4"],
+a:3,
+e:"3²=9, and 9 leaves remainder 4 when divided by 5."
+},
+{
+q:"Which separation technique separates an insoluble solid from a liquid?",
+o:["Filtration","Distillation","Chromatography","Sublimation"],
+a:0,
+e:"Filtration separates insoluble solids from liquids."
+},
+{
+q:"A 2 kW appliance operates for 4 hours. Energy used:",
+o:["2 kWh","4 kWh","6 kWh","8 kWh"],
+a:3,
+e:"Energy=power×time=2×4=8 kWh."
+},
+{
+q:"The radius of a circle is doubled. Its circumference becomes:",
+o:["Half","Same","Double","Four times"],
+a:2,
+e:"Circumference=2πr, so it is directly proportional to r."
+},
+{
+q:"Which law gives F=ma?",
+o:["Newton's first law","Newton's second law","Newton's third law","Ohm's law"],
+a:1,
+e:"Newton's second law gives F=ma in the standard constant-mass form."
+},
+{
+q:"The functional group −COOH is found in:",
+o:["Alcohols","Carboxylic acids","Alkanes only","Amines"],
+a:1,
+e:"−COOH is the carboxyl group."
+},
+{
+q:"The mean of 6,8,10,12 is:",
+o:["8","9","10","11"],
+a:1,
+e:"36÷4=9."
+},
+{
+q:"If a body has mass 5 kg and acceleration 3 m/s², force is:",
+o:["8 N","15 N","20 N","30 N"],
+a:1,
+e:"F=ma=5×3=15 N."
+},
+{
+q:"Which is a non-metal?",
+o:["Magnesium","Sulfur","Sodium","Calcium"],
+a:1,
+e:"Sulfur is a non-metal."
+},
+{
+q:"If 40% of a number is 96, the number is:",
+o:["200","220","240","260"],
+a:2,
+e:"0.4x=96, so x=240."
+},
+{
+q:"A concave mirror can form a real inverted image when the object is:",
+o:["Between pole and focus","Beyond focus","Only at pole","Always behind mirror"],
+a:1,
+e:"For suitable positions beyond the focus, a concave mirror forms a real inverted image."
+},
+{
+q:"The SI unit of work is:",
+o:["Newton","Joule","Watt","Pascal"],
+a:1,
+e:"Work is measured in joules."
+},
+{
+q:"Which ion is negatively charged?",
+o:["Na⁺","Ca²⁺","Cl⁻","Al³⁺"],
+a:2,
+e:"Cl⁻ has a negative charge."
+},
+{
+q:"If two angles are supplementary and one is 112°, the other is:",
+o:["58°","68°","78°","88°"],
+a:0,
+e:"180−112=68°. Correct answer is 68°."
+},
+{
+q:"Which quantity remains constant for an object moving with uniform circular motion?",
+o:["Velocity","Speed","Direction","Displacement"],
+a:1,
+e:"Speed remains constant while velocity changes direction."
+},
+{
+q:"The molar mass of H₂SO₄ is:",
+o:["96 g/mol","98 g/mol","100 g/mol","102 g/mol"],
+a:1,
+e:"2+32+64=98 g/mol."
+},
+{
+q:"If 2x−5=11, x is:",
+o:["6","7","8","9"],
+a:2,
+e:"2x=16, so x=8."
+},
+{
+q:"The image formed by a plane mirror is:",
+o:["Real and inverted","Virtual and erect","Real and enlarged","Always diminished"],
+a:1,
+e:"A plane mirror forms a virtual, erect image of equal size."
+},
+{
+q:"Which metal is liquid at room temperature?",
+o:["Iron","Mercury","Aluminium","Copper"],
+a:1,
+e:"Mercury is liquid at ordinary room temperature."
+},
+{
+q:"If resistance doubles at constant voltage, current becomes:",
+o:["Double","Half","Four times","Unchanged"],
+a:1,
+e:"I=V/R, so current is inversely proportional to resistance."
+}
+]
+
+};
+
+
+/* =========================
+   QUIZ ENGINE
+========================= */
+
+let currentQuiz=[];
+let currentType="";
+let currentIndex=0;
+let score=0;
+let answered=false;
+let timerSeconds=1200;
+let timerInterval=null;
+
+
+/* Make question bank larger without repeating identical questions
+   by shuffling questions and taking 30. */
+
+function prepareQuestions(type){
+
+    let bank=[...quizData[type]];
+
+    bank=shuffle(bank);
+
+    if(type==="mixed"){
+        return bank.slice(0,50);
+    }
+
+    return bank.slice(0,30);
+}
+
+
+function shuffle(array){
+
+    for(let i=array.length-1;i>0;i--){
+
+        const j=Math.floor(Math.random()*(i+1));
+
+        [array[i],array[j]]=[array[j],array[i]];
+
+    }
+
+    return array;
+}
+
+
+/* =========================
+   START QUIZ
+========================= */
+
+function startQuiz(type){
+
+    currentType=type;
+
+    currentQuiz=prepareQuestions(type);
+
+    currentIndex=0;
+    score=0;
+    answered=false;
+
+    if(type==="mixed"){
+        timerSeconds=1500;
+        document.getElementById("quizTitle").textContent=
+        "🔥 Ultimate Mixed Challenge";
+        document.getElementById("difficultyText").textContent=
+        "Extreme Challenge";
+    }
+    else{
+
+        timerSeconds=1200;
+
+        const titles={
+            class8math:"Class 8 Mathematics",
+            class8science:"Class 8 Science",
+            class8chem:"Class 8 Chemistry",
+            class9math:"Class 9 Mathematics",
+            class9physics:"Class 9 Physics",
+            class9chem:"Class 9 Chemistry",
+            class10math:"Class 10 Mathematics",
+            class10physics:"Class 10 Physics",
+            class10chem:"Class 10 Chemistry"
+        };
+
+        document.getElementById("quizTitle").textContent=
+        titles[type];
+
+        document.getElementById("difficultyText").textContent=
+        type.includes("10") ? "Challenge" :
+        type.includes("9") ? "Hard+" :
+        "Hard";
+    }
+
+    document.getElementById("mainPage").style.display="none";
+    document.getElementById("resultScreen").style.display="none";
+    document.getElementById("quizScreen").style.display="block";
+
+    window.scrollTo(0,0);
+
+    startTimer();
+    showQuestion();
+}
+
+
+/* =========================
+   SHOW QUESTION
+========================= */
+
+function showQuestion(){
+
+    answered=false;
+
+    const q=currentQuiz[currentIndex];
+
+    document.getElementById("questionNumber").textContent=
+    "Question "+(currentIndex+1);
+
+    document.getElementById("questionCounter").textContent=
+    "Question "+(currentIndex+1)+"/"+currentQuiz.length;
+
+    document.getElementById("questionText").textContent=q.q;
+
+    const progress=
+    ((currentIndex)/currentQuiz.length)*100;
+
+    document.getElementById("progressFill").style.width=
+    progress+"%";
+
+    const options=document.getElementById("options");
+
+    options.innerHTML="";
+
+    q.o.forEach((option,index)=>{
+
+        const button=document.createElement("button");
+
+        button.className="option";
+        button.textContent=
+        String.fromCharCode(65+index)+". "+option;
+
+        button.onclick=()=>selectAnswer(index,button);
+
+        options.appendChild(button);
+
+    });
+
+    document.getElementById("explanation").style.display="none";
+    document.getElementById("explanation").textContent="";
+
+    document.getElementById("nextBtn").style.display="none";
+}
+
+
+/* =========================
+   ANSWER
+========================= */
+
+function selectAnswer(selected,button){
+
+    if(answered) return;
+
+    answered=true;
+
+    const q=currentQuiz[currentIndex];
+
+    const allOptions=document.querySelectorAll(".option");
+
+    allOptions.forEach((option,index)=>{
+
+        option.disabled=true;
+
+        if(index===q.a){
+            option.classList.add("correct");
+        }
+
+    });
+
+    if(selected===q.a){
+
+        score++;
+
+    }else{
+
+        button.classList.add("wrong");
+
+    }
+
+    const explanation=document.getElementById("explanation");
+
+    explanation.textContent="💡 "+q.e;
+    explanation.style.display="block";
+
+    const next=document.getElementById("nextBtn");
+
+    next.style.display="block";
+
+    if(currentIndex===currentQuiz.length-1){
+
+        next.textContent="🏆 Finish Quiz";
+
+    }else{
+
+        next.textContent="Next Question →";
+
+    }
+}
+
+
+/* =========================
+   NEXT
+========================= */
+
+function nextQuestion(){
+
+    if(!answered) return;
+
+    currentIndex++;
+
+    if(currentIndex>=currentQuiz.length){
+
+        finishQuiz();
+
+    }else{
+
+        showQuestion();
+
+        window.scrollTo({
+            top:0,
+            behavior:"smooth"
+        });
+
+    }
+}
+
+
+/* =========================
+   TIMER
+========================= */
+
+function startTimer(){
+
+    clearInterval(timerInterval);
+
+    updateTimer();
+
+    timerInterval=setInterval(()=>{
+
+        timerSeconds--;
+
+        updateTimer();
+
+        if(timerSeconds<=0){
+
+            clearInterval(timerInterval);
+
+            finishQuiz();
+
+        }
+
+    },1000);
+}
+
+
+function updateTimer(){
+
+    const min=Math.floor(timerSeconds/60);
+
+    const sec=timerSeconds%60;
+
+    const timer=document.getElementById("timer");
+
+    timer.textContent=
+    String(min).padStart(2,"0")+
+    ":"+
+    String(sec).padStart(2,"0");
+
+    if(timerSeconds<=60){
+
+        timer.classList.add("warning");
+
+    }else{
+
+        timer.classList.remove("warning");
+
+    }
+}
+
+
+/* =========================
+   FINISH
+========================= */
+
+function finishQuiz(){
+
+    clearInterval(timerInterval);
+
+    document.getElementById("quizScreen").style.display="none";
+
+    document.getElementById("resultScreen").style.display="block";
+
+    const total=currentQuiz.length;
+
+    const percentage=Math.round((score/total)*100);
+
+    document.getElementById("scoreText").textContent=
+    percentage+"%";
+
+    document.getElementById("correctCount").textContent=
+    score;
+
+    document.getElementById("wrongCount").textContent=
+    total-score;
+
+    document.getElementById("totalCount").textContent=
+    total;
+
+    let title;
+    let icon;
+    let message;
+
+    if(percentage>=90){
+
+        icon="🏆";
+        title="Excellent!";
+        message="Outstanding performance! You handled the challenge extremely well.";
+
+    }
+    else if(percentage>=75){
+
+        icon="🔥";
+        title="Great Job!";
+        message="Strong performance. Try again to push your score even higher.";
+
+    }
+    else if(percentage>=50){
+
+        icon="💪";
+        title="Good Attempt!";
+        message="You have a solid base. Review the explanations and try again.";
+
+    }
+    else{
+
+        icon="📚";
+        title="Keep Practising!";
+        message="Every attempt improves your understanding. Review and retry.";
+
+    }
+
+    document.getElementById("resultIcon").textContent=icon;
+    document.getElementById("resultTitle").textContent=title;
+    document.getElementById("resultMessage").textContent=message;
+
+    window.scrollTo(0,0);
+}
+
+
+/* =========================
+   RESTART
+========================= */
+
+function restartQuiz(){
+
+    document.getElementById("resultScreen").style.display="none";
+
+    startQuiz(currentType);
+}
+
+
+/* =========================
+   HOME
+========================= */
+
+function goHome(){
+
+    clearInterval(timerInterval);
+
+    document.getElementById("quizScreen").style.display="none";
+    document.getElementById("resultScreen").style.display="none";
+    document.getElementById("mainPage").style.display="block";
+
+    window.scrollTo(0,0);
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+function toggleMenu(){
+
+    document.getElementById("navLinks").classList.toggle("show");
+
+}
+
+
+function scrollToQuizzes(){
+
+    document.getElementById("quizzes").scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =========================
+   ESCAPE KEY
+========================= */
+
+document.addEventListener("keydown",function(e){
+
+    if(e.key==="Escape"){
+
+        if(document.getElementById("quizScreen").style.display==="block"){
+
+            if(confirm("Exit this quiz? Your current progress will be lost.")){
+
+                goHome();
+
+            }
+
+        }
+
+    }
+
+});
+
+
+/* =========================
+   INITIAL
+========================= */
+
+console.log(
+"StudyForge Quiz Engine Loaded — "+
+Object.keys(quizData).length+
+" categories"
+);
+
+</script></body>
+</html>

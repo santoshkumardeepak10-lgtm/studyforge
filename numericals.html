@@ -1,0 +1,1417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Physics Numericals | StudyForge</title>
+    <meta name="description" content="StudyForge Physics Numericals — 30 levels and 1500 random physics questions.">
+
+    <link rel="stylesheet" href="numericals.css">
+</head>
+
+<body>
+
+<!-- ==============================
+     NAVBAR
+============================== -->
+
+<header class="navbar">
+
+    <div class="nav-container">
+
+        <a href="index.html" class="logo">
+            ⚡ StudyForge
+        </a>
+
+        <button class="menu-btn" onclick="toggleMenu()">
+            ☰
+        </button>
+
+        <nav id="navMenu">
+            <a href="index.html">Home</a>
+            <a href="physics.html">Physics</a>
+            <a href="formula.html">Formulas</a>
+            <a href="numericals.html" class="active">Numericals</a>
+        </nav>
+
+        <button class="theme-btn" onclick="toggleTheme()">
+            🌙
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- ==============================
+     MAIN
+============================== -->
+
+<main>
+
+<section class="numericals-section">
+
+    <div class="section-heading">
+
+        <h1>🔢 Physics Numericals</h1>
+
+        <p>
+            30 Levels • 1500 Questions • Easy → Extreme
+        </p>
+
+    </div>
+
+
+    <!-- ==============================
+         LEVEL SELECTOR
+    ============================== -->
+
+    <div class="numerical-box">
+
+        <h2>🎯 Select Difficulty Level</h2>
+
+        <select
+            id="levelSelect"
+            onchange="changeLevel()"
+        ></select>
+
+
+        <!-- IMPOSSIBLE MODE -->
+
+        <button
+            class="btn primary"
+            onclick="startImpossibleMode()"
+            style="margin-top:15px;"
+        >
+            ☠️ Impossible Mode
+        </button>
+
+
+        <div class="score">
+
+            <span id="levelText">
+                Level 1
+            </span>
+
+            <span id="questionProgress">
+                Question 1 / 50
+            </span>
+
+            <span id="scoreText">
+                Score: 0
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==============================
+         QUESTION BOX
+============================== -->
+
+    <div class="numerical-box">
+
+        <div
+            class="question-number"
+            id="questionNumber"
+        >
+            Level 1 • Question 1 / 50
+        </div>
+
+
+        <div
+            class="question"
+            id="question"
+        >
+            Loading question...
+        </div>
+
+
+        <!-- NORMAL ANSWER AREA -->
+
+        <div
+            class="answer-area"
+            id="answerArea"
+        >
+
+            <input
+                type="number"
+                id="answerInput"
+                placeholder="Enter your answer"
+                step="any"
+                autocomplete="off"
+            >
+
+            <button
+                class="btn primary"
+                onclick="checkAnswer()"
+            >
+                ✅ Check Answer
+            </button>
+
+        </div>
+
+
+        <!-- IMPOSSIBLE CHECK BUTTON -->
+
+        <button
+            class="btn primary"
+            id="impossibleCheckBtn"
+            onclick="checkAnswer()"
+            style="display:none; margin-top:15px;"
+        >
+            🔬 Check Answer
+        </button>
+
+
+        <!-- MESSAGE -->
+
+        <div
+            class="message"
+            id="message"
+        ></div>
+
+
+        <!-- NEXT BUTTON -->
+
+        <button
+            class="next-btn"
+            id="nextBtn"
+            onclick="nextQuestion()"
+            style="display:none;"
+        >
+            ➡️ Next Question
+        </button>
+
+    </div>
+
+
+    <!-- ==============================
+         RESULT BOX
+============================== -->
+
+    <div
+        class="numerical-box"
+        id="resultBox"
+        style="display:none;"
+    >
+
+        <h2>
+            🏆 Level Complete!
+        </h2>
+
+        <p id="resultText"></p>
+
+        <button
+            class="btn primary"
+            id="nextLevelBtn"
+            onclick="goToNextLevel()"
+        >
+            🚀 Next Level
+        </button>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- ==============================
+     FOOTER
+============================== -->
+
+<footer>
+
+    <p>
+        © 2026 StudyForge • Learn Smarter ⚡
+    </p>
+
+</footer>
+
+
+<!-- ==============================
+     JAVASCRIPT
+============================== -->
+
+<script>
+
+/* ==============================
+   SETTINGS
+============================== */
+
+const TOTAL_LEVELS = 30;
+const QUESTIONS_PER_LEVEL = 50;
+
+
+/* ==============================
+   VARIABLES
+============================== */
+
+let currentLevel = 1;
+let currentQuestion = 1;
+let score = 0;
+let answered = false;
+let currentData = null;
+let currentMode = "normal";
+
+
+/* ==============================
+   RANDOM NUMBER
+============================== */
+
+function randomInt(min, max) {
+
+    return Math.floor(
+        Math.random() * (max - min + 1)
+    ) + min;
+
+}
+
+
+/* ==============================
+   SPEED
+============================== */
+
+function speedQuestion(level) {
+
+    let distance =
+        randomInt(20 + level, 100 + level * 10);
+
+    let time =
+        randomInt(2, 10);
+
+    return {
+
+        text:
+            `A car travels ${distance} km in ${time} hours. Find its speed.`,
+
+        answer:
+            distance / time,
+
+        unit:
+            "km/h"
+    };
+}
+
+
+/* ==============================
+   DISTANCE
+============================== */
+
+function distanceQuestion(level) {
+
+    let speed =
+        randomInt(5 + level, 20 + level * 2);
+
+    let time =
+        randomInt(2, 10);
+
+    return {
+
+        text:
+            `An object moves with a speed of ${speed} m/s for ${time} seconds. Find the distance.`,
+
+        answer:
+            speed * time,
+
+        unit:
+            "m"
+    };
+}
+
+
+/* ==============================
+   FORCE
+============================== */
+
+function forceQuestion(level) {
+
+    let mass =
+        randomInt(2 + level, 10 + level * 2);
+
+    let acceleration =
+        randomInt(
+            2,
+            5 + Math.floor(level / 5)
+        );
+
+    return {
+
+        text:
+            `A body of mass ${mass} kg accelerates at ${acceleration} m/s². Find the force.`,
+
+        answer:
+            mass * acceleration,
+
+        unit:
+            "N"
+    };
+}
+
+
+/* ==============================
+   ACCELERATION
+============================== */
+
+function accelerationQuestion(level) {
+
+    let force =
+        randomInt(
+            10 + level,
+            30 + level * 3
+        );
+
+    let mass =
+        randomInt(
+            2,
+            10 + Math.floor(level / 3)
+        );
+
+    return {
+
+        text:
+            `A force of ${force} N acts on a body of mass ${mass} kg. Find its acceleration.`,
+
+        answer:
+            force / mass,
+
+        unit:
+            "m/s²"
+    };
+}
+
+
+/* ==============================
+   WORK
+============================== */
+
+function workQuestion(level) {
+
+    let force =
+        randomInt(
+            5 + level,
+            20 + level * 2
+        );
+
+    let distance =
+        randomInt(
+            2,
+            10 + Math.floor(level / 3)
+        );
+
+    return {
+
+        text:
+            `A force of ${force} N moves an object through ${distance} m. Find the work done.`,
+
+        answer:
+            force * distance,
+
+        unit:
+            "J"
+    };
+}
+
+
+/* ==============================
+   POWER
+============================== */
+
+function powerQuestion(level) {
+
+    let work =
+        randomInt(
+            50 + level * 10,
+            300 + level * 30
+        );
+
+    let time =
+        randomInt(2, 10);
+
+    return {
+
+        text:
+            `A machine does ${work} J of work in ${time} seconds. Find its power.`,
+
+        answer:
+            work / time,
+
+        unit:
+            "W"
+    };
+}
+
+
+/* ==============================
+   KINETIC ENERGY
+============================== */
+
+function kineticEnergyQuestion(level) {
+
+    let mass =
+        randomInt(
+            2 + Math.floor(level / 3),
+            10 + level
+        );
+
+    let velocity =
+        randomInt(
+            2,
+            5 + Math.floor(level / 4)
+        );
+
+    return {
+
+        text:
+            `Find the kinetic energy of a ${mass} kg object moving at ${velocity} m/s.`,
+
+        answer:
+            0.5 * mass * velocity * velocity,
+
+        unit:
+            "J"
+    };
+}
+
+
+/* ==============================
+   POTENTIAL ENERGY
+============================== */
+
+function potentialEnergyQuestion(level) {
+
+    let mass =
+        randomInt(
+            2 + Math.floor(level / 3),
+            10 + level
+        );
+
+    let height =
+        randomInt(
+            2,
+            5 + Math.floor(level / 3)
+        );
+
+    return {
+
+        text:
+            `Find the potential energy of a ${mass} kg object at a height of ${height} m. Take g = 10 m/s².`,
+
+        answer:
+            mass * 10 * height,
+
+        unit:
+            "J"
+    };
+}
+
+
+/* ==============================
+   DENSITY
+============================== */
+
+function densityQuestion(level) {
+
+    let mass =
+        randomInt(
+            20 + level,
+            100 + level * 5
+        );
+
+    let volume =
+        randomInt(
+            2,
+            10 + Math.floor(level / 4)
+        );
+
+    return {
+
+        text:
+            `A substance has mass ${mass} kg and volume ${volume} m³. Find its density.`,
+
+        answer:
+            mass / volume,
+
+        unit:
+            "kg/m³"
+    };
+}
+
+
+/* ==============================
+   PRESSURE
+============================== */
+
+function pressureQuestion(level) {
+
+    let force =
+        randomInt(
+            20 + level,
+            100 + level * 5
+        );
+
+    let area =
+        randomInt(2, 10);
+
+    return {
+
+        text:
+            `A force of ${force} N acts on an area of ${area} m². Find the pressure.`,
+
+        answer:
+            force / area,
+
+        unit:
+            "Pa"
+    };
+}
+
+
+/* ==============================
+   CURRENT
+============================== */
+
+function currentQuestionGenerator(level) {
+
+    let voltage =
+        randomInt(
+            6 + level,
+            20 + level * 2
+        );
+
+    let resistance =
+        randomInt(2, 10);
+
+    return {
+
+        text:
+            `A ${voltage} V battery is connected to a ${resistance} Ω resistor. Find the current.`,
+
+        answer:
+            voltage / resistance,
+
+        unit:
+            "A"
+    };
+}
+
+
+/* ==============================
+   VOLTAGE
+============================== */
+
+function voltageQuestion(level) {
+
+    let current =
+        randomInt(2, 10);
+
+    let resistance =
+        randomInt(2, 10);
+
+    return {
+
+        text:
+            `A current of ${current} A flows through a ${resistance} Ω resistor. Find the voltage.`,
+
+        answer:
+            current * resistance,
+
+        unit:
+            "V"
+    };
+}
+
+
+/* ==============================
+   ELECTRIC POWER
+============================== */
+
+function electricPowerQuestion(level) {
+
+    let voltage =
+        randomInt(
+            10 + level,
+            30 + level * 2
+        );
+
+    let current =
+        randomInt(2, 8);
+
+    return {
+
+        text:
+            `An electrical device works at ${voltage} V and draws ${current} A. Find its power.`,
+
+        answer:
+            voltage * current,
+
+        unit:
+            "W"
+    };
+}
+
+
+/* ==============================
+   TOUGH QUESTION
+============================== */
+
+function toughQuestion(level) {
+
+    let mass =
+        randomInt(
+            5 + level,
+            20 + level
+        );
+
+    let velocity =
+        randomInt(3, 8);
+
+    let force =
+        randomInt(10, 30);
+
+    let distance =
+        randomInt(2, 10);
+
+    let answer =
+        force * distance +
+        0.5 * mass * velocity * velocity;
+
+    return {
+
+        text:
+            `A ${mass} kg body is moving at ${velocity} m/s. A force of ${force} N then acts through ${distance} m in the same direction. Find the total of its initial kinetic energy and the work done.`,
+
+        answer:
+            answer,
+
+        unit:
+            "J"
+    };
+}
+
+
+/* =================================================
+   ☠️ IMPOSSIBLE MODE QUESTIONS
+================================================= */
+
+const impossibleQuestions = [
+
+    {
+        question:
+            "Can we create one complete theory that unifies Quantum Mechanics and General Relativity?",
+
+        answer:
+            "OPEN PROBLEM — No complete universally accepted theory of quantum gravity exists yet."
+    },
+
+    {
+        question:
+            "What is the exact fundamental nature of dark matter?",
+
+        answer:
+            "OPEN PROBLEM — Its fundamental physical nature has not been conclusively identified."
+    },
+
+    {
+        question:
+            "Can we completely solve the mathematics of turbulence for all physical conditions?",
+
+        answer:
+            "OPEN PROBLEM — A complete general solution remains an active research problem."
+    },
+
+    {
+        question:
+            "What exactly happens to information inside a black hole?",
+
+        answer:
+            "OPEN PROBLEM — The black-hole information problem remains unresolved."
+    },
+
+    {
+        question:
+            "Why does the universe contain much more matter than antimatter?",
+
+        answer:
+            "OPEN PROBLEM — The observed matter-antimatter asymmetry is not completely explained."
+    },
+
+    {
+        question:
+            "What is the exact physical nature of dark energy?",
+
+        answer:
+            "OPEN PROBLEM — The underlying nature of dark energy is still unknown."
+    },
+
+    {
+        question:
+            "Can we construct a complete quantum theory of gravity?",
+
+        answer:
+            "OPEN PROBLEM — A complete experimentally confirmed quantum theory of gravity has not been established."
+    },
+
+    {
+        question:
+            "Can spacetime itself be completely explained as an emergent quantum phenomenon?",
+
+        answer:
+            "OPEN PROBLEM — Whether spacetime emerges from deeper quantum physics remains unresolved."
+    },
+
+    {
+        question:
+            "What is the complete microscopic mechanism behind high-temperature superconductivity?",
+
+        answer:
+            "OPEN PROBLEM — A complete universally accepted microscopic explanation is still lacking."
+    },
+
+    {
+        question:
+            "Can all fundamental laws of physics be derived from one deeper theory?",
+
+        answer:
+            "OPEN PROBLEM — No experimentally confirmed final unified theory has been established."
+    }
+
+];
+
+
+let impossibleIndex = 0;
+
+
+/* ==============================
+   START IMPOSSIBLE MODE
+============================== */
+
+function startImpossibleMode() {
+
+    currentMode = "impossible";
+
+    document.getElementById("resultBox").style.display =
+        "none";
+
+    document.getElementById("answerArea").style.display =
+        "none";
+
+    document.getElementById("impossibleCheckBtn").style.display =
+        "block";
+
+    document.getElementById("scoreText").textContent =
+        "☠️ Impossible";
+
+    document.getElementById("levelText").textContent =
+        "☠️ Impossible Mode";
+
+    document.getElementById("questionProgress").textContent =
+        "∞ Open Problems";
+
+    impossibleIndex =
+        randomInt(
+            0,
+            impossibleQuestions.length - 1
+        );
+
+    showImpossibleQuestion();
+}
+
+
+/* ==============================
+   SHOW IMPOSSIBLE QUESTION
+============================== */
+
+function showImpossibleQuestion() {
+
+    let q =
+        impossibleQuestions[impossibleIndex];
+
+    document.getElementById("questionNumber").textContent =
+        "☠️ IMPOSSIBLE CHALLENGE";
+
+    document.getElementById("question").textContent =
+        q.question;
+
+    document.getElementById("answerArea").style.display =
+        "none";
+
+    document.getElementById("impossibleCheckBtn").style.display =
+        "block";
+
+    document.getElementById("message").textContent =
+        "";
+
+    document.getElementById("nextBtn").style.display =
+        "none";
+
+    document.getElementById("nextBtn").textContent =
+        "☠️ Another Impossible Question";
+
+    currentData = q;
+}
+
+
+/* ==============================
+   NEXT IMPOSSIBLE QUESTION
+============================== */
+
+function nextImpossibleQuestion() {
+
+    impossibleIndex =
+        randomInt(
+            0,
+            impossibleQuestions.length - 1
+        );
+
+    showImpossibleQuestion();
+}
+
+
+/* ==============================
+   REVEAL IMPOSSIBLE STATUS
+============================== */
+
+function revealImpossibleAnswer() {
+
+    let q =
+        impossibleQuestions[impossibleIndex];
+
+    document.getElementById("message").textContent =
+        "🔬 " + q.answer;
+
+    document.getElementById("impossibleCheckBtn").style.display =
+        "none";
+
+    document.getElementById("nextBtn").style.display =
+        "block";
+}
+
+
+/* ==============================
+   LEVEL BASED QUESTIONS
+============================== */
+
+function generateQuestion(level) {
+
+    let generators = [];
+
+
+    if (level <= 5) {
+
+        generators = [
+            speedQuestion,
+            distanceQuestion,
+            forceQuestion,
+            workQuestion
+        ];
+
+    }
+
+    else if (level <= 10) {
+
+        generators = [
+            speedQuestion,
+            distanceQuestion,
+            forceQuestion,
+            accelerationQuestion,
+            workQuestion,
+            powerQuestion
+        ];
+
+    }
+
+    else if (level <= 15) {
+
+        generators = [
+            forceQuestion,
+            accelerationQuestion,
+            workQuestion,
+            powerQuestion,
+            kineticEnergyQuestion,
+            potentialEnergyQuestion
+        ];
+
+    }
+
+    else if (level <= 20) {
+
+        generators = [
+            kineticEnergyQuestion,
+            potentialEnergyQuestion,
+            densityQuestion,
+            pressureQuestion,
+            currentQuestionGenerator
+        ];
+
+    }
+
+    else if (level <= 25) {
+
+        generators = [
+            densityQuestion,
+            pressureQuestion,
+            currentQuestionGenerator,
+            voltageQuestion,
+            electricPowerQuestion
+        ];
+
+    }
+
+    else {
+
+        generators = [
+            kineticEnergyQuestion,
+            potentialEnergyQuestion,
+            densityQuestion,
+            pressureQuestion,
+            currentQuestionGenerator,
+            voltageQuestion,
+            electricPowerQuestion,
+            toughQuestion
+        ];
+
+    }
+
+
+    let generator =
+        generators[
+            randomInt(
+                0,
+                generators.length - 1
+            )
+        ];
+
+
+    return generator(level);
+}
+
+
+/* ==============================
+   CREATE LEVELS
+============================== */
+
+function createLevels() {
+
+    const select =
+        document.getElementById("levelSelect");
+
+    select.innerHTML = "";
+
+
+    for (
+        let i = 1;
+        i <= TOTAL_LEVELS;
+        i++
+    ) {
+
+        const option =
+            document.createElement("option");
+
+        option.value = i;
+
+        option.textContent =
+            `Level ${i} — ${getDifficultyName(i)}`;
+
+        select.appendChild(option);
+
+    }
+}
+
+
+/* ==============================
+   DIFFICULTY NAME
+============================== */
+
+function getDifficultyName(level) {
+
+    if (level <= 5)
+        return "Easy";
+
+    if (level <= 10)
+        return "Medium";
+
+    if (level <= 15)
+        return "Hard";
+
+    if (level <= 20)
+        return "Very Hard";
+
+    if (level <= 25)
+        return "Expert";
+
+    return "🔥 Extreme";
+}
+
+
+/* ==============================
+   START LEVEL
+============================== */
+
+function startLevel(level) {
+
+    currentMode = "normal";
+
+    currentLevel =
+        Number(level);
+
+    currentQuestion = 1;
+
+    score = 0;
+
+    answered = false;
+
+
+    document.getElementById("levelSelect").value =
+        currentLevel;
+
+    document.getElementById("resultBox").style.display =
+        "none";
+
+    document.getElementById("answerArea").style.display =
+        "flex";
+
+    document.getElementById("impossibleCheckBtn").style.display =
+        "none";
+
+    document.getElementById("nextBtn").style.display =
+        "none";
+
+    document.getElementById("answerInput").value =
+        "";
+
+    document.getElementById("message").textContent =
+        "";
+
+    document.getElementById("scoreText").textContent =
+        "Score: 0";
+
+    loadQuestion();
+}
+
+
+/* ==============================
+   LOAD QUESTION
+============================== */
+
+function loadQuestion() {
+
+    answered = false;
+
+    currentData =
+        generateQuestion(currentLevel);
+
+
+    document.getElementById("questionNumber").textContent =
+        `Level ${currentLevel} • Question ${currentQuestion} / ${QUESTIONS_PER_LEVEL}`;
+
+    document.getElementById("question").textContent =
+        currentData.text;
+
+    document.getElementById("questionProgress").textContent =
+        `Question ${currentQuestion} / ${QUESTIONS_PER_LEVEL}`;
+
+    document.getElementById("levelText").textContent =
+        `Level ${currentLevel}`;
+
+    document.getElementById("scoreText").textContent =
+        `Score: ${score}`;
+
+    document.getElementById("answerInput").value =
+        "";
+
+    document.getElementById("message").textContent =
+        "";
+
+    document.getElementById("nextBtn").style.display =
+        "none";
+
+}
+
+
+/* ==============================
+   CHECK ANSWER
+============================== */
+
+function checkAnswer() {
+
+    /* ☠️ IMPOSSIBLE MODE */
+
+    if (currentMode === "impossible") {
+
+        revealImpossibleAnswer();
+
+        return;
+    }
+
+
+    /* NORMAL MODE */
+
+    if (answered)
+        return;
+
+
+    const input =
+        document.getElementById("answerInput");
+
+    const userAnswer =
+        parseFloat(input.value);
+
+
+    if (isNaN(userAnswer)) {
+
+        document.getElementById("message").textContent =
+            "⚠️ Please enter an answer.";
+
+        return;
+    }
+
+
+    const correct =
+        currentData.answer;
+
+
+    const tolerance =
+        Math.max(
+            Math.abs(correct) * 0.01,
+            0.01
+        );
+
+
+    answered = true;
+
+
+    if (
+        Math.abs(userAnswer - correct)
+        <= tolerance
+    ) {
+
+        score += 10;
+
+        document.getElementById("message").innerHTML =
+            `✅ Correct! +10 Points<br>
+             Answer: ${formatNumber(correct)} ${currentData.unit}`;
+
+    }
+
+    else {
+
+        document.getElementById("message").innerHTML =
+            `❌ Wrong!<br>
+             Correct Answer: <strong>${formatNumber(correct)} ${currentData.unit}</strong>`;
+
+    }
+
+
+    document.getElementById("scoreText").textContent =
+        `Score: ${score}`;
+
+    document.getElementById("nextBtn").style.display =
+        "block";
+
+}
+
+
+/* ==============================
+   NEXT QUESTION
+============================== */
+
+function nextQuestion() {
+
+    /* IMPOSSIBLE MODE */
+
+    if (currentMode === "impossible") {
+
+        nextImpossibleQuestion();
+
+        return;
+    }
+
+
+    /* NORMAL MODE */
+
+    if (!answered)
+        return;
+
+
+    if (currentQuestion >= QUESTIONS_PER_LEVEL) {
+
+        finishLevel();
+
+        return;
+    }
+
+
+    currentQuestion++;
+
+    loadQuestion();
+}
+
+
+/* ==============================
+   FINISH LEVEL
+============================== */
+
+function finishLevel() {
+
+    document.getElementById("answerArea").style.display =
+        "none";
+
+    document.getElementById("impossibleCheckBtn").style.display =
+        "none";
+
+    document.getElementById("nextBtn").style.display =
+        "none";
+
+    document.getElementById("resultBox").style.display =
+        "block";
+
+
+    document.getElementById("resultText").innerHTML =
+        `You completed Level ${currentLevel}.<br>
+         🎯 Score: <strong>${score}</strong> / ${QUESTIONS_PER_LEVEL * 10}`;
+
+
+    if (currentLevel >= TOTAL_LEVELS) {
+
+        document.getElementById("nextLevelBtn").style.display =
+            "none";
+
+        document.getElementById("resultText").innerHTML +=
+            `<br><br>🏆 You completed all 30 levels!`;
+
+    }
+
+}
+
+
+/* ==============================
+   NEXT LEVEL
+============================== */
+
+function goToNextLevel() {
+
+    if (currentLevel >= TOTAL_LEVELS)
+        return;
+
+
+    startLevel(currentLevel + 1);
+}
+
+
+/* ==============================
+   CHANGE LEVEL
+============================== */
+
+function changeLevel() {
+
+    const level =
+        document.getElementById("levelSelect").value;
+
+    startLevel(level);
+}
+
+
+/* ==============================
+   FORMAT NUMBER
+============================== */
+
+function formatNumber(number) {
+
+    if (Number.isInteger(number))
+        return number;
+
+    return Number(number.toFixed(2));
+}
+
+
+/* ==============================
+   MENU
+============================== */
+
+function toggleMenu() {
+
+    const menu =
+        document.getElementById("navMenu");
+
+    menu.classList.toggle("show");
+
+}
+
+
+/* ==============================
+   THEME
+============================== */
+
+function toggleTheme() {
+
+    document.body.classList.toggle("dark");
+
+    if (
+        document.body.classList.contains("dark")
+    ) {
+
+        localStorage.setItem(
+            "studyforge-theme",
+            "dark"
+        );
+
+    }
+
+    else {
+
+        localStorage.setItem(
+            "studyforge-theme",
+            "light"
+        );
+
+    }
+
+}
+
+
+/* ==============================
+   LOAD THEME
+============================== */
+
+function loadTheme() {
+
+    const theme =
+        localStorage.getItem(
+            "studyforge-theme"
+        );
+
+
+    if (theme === "dark") {
+
+        document.body.classList.add("dark");
+
+    }
+
+}
+
+
+/* ==============================
+   START APP
+============================== */
+
+createLevels();
+
+loadTheme();
+
+startLevel(1);
+
+</script>
+
+</body>
+</html>
+
+Isme "numericals.css" ko bilkul change mat karna.
+Ab flow:
+
+☠️ Impossible Mode → Question → 🔬 Check Answer → 🔬 Open Problem status → ☠️ Another Impossible Question
+
+Normal 30 levels × 50 questions bhi waise hi chalenge.

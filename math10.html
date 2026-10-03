@@ -1,0 +1,1749 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>StudyForge — Class 10 Mathematics</title><meta name="description"
+content="StudyForge Class 10 Mathematics — concepts, solved examples, formulas, proofs, exam tips and interactive practice.">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+:root{
+    --bg:#f5f7fb;
+    --card:#ffffff;
+    --text:#172033;
+    --muted:#667085;
+    --primary:#5b5ce2;
+    --secondary:#7c3aed;
+    --soft:#eef0ff;
+    --border:#e5e7ef;
+    --green:#16834b;
+    --red:#c73b3b;
+    --shadow:0 12px 35px rgba(30,40,80,.08);
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.65;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+/* NAVBAR */
+
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    min-height:68px;
+    padding:0 6%;
+    background:rgba(255,255,255,.96);
+    border-bottom:1px solid var(--border);
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.logo{
+    font-size:23px;
+    font-weight:800;
+    white-space:nowrap;
+}
+
+.logo span{
+    color:var(--primary);
+}
+
+.navbar nav{
+    margin-left:auto;
+    display:flex;
+    gap:22px;
+}
+
+.navbar nav a{
+    font-size:14px;
+    font-weight:600;
+    color:var(--muted);
+}
+
+.navbar nav a:hover{
+    color:var(--primary);
+}
+
+.menu-btn,
+.theme-btn{
+    border:0;
+    background:none;
+    cursor:pointer;
+    font-size:22px;
+}
+
+.menu-btn{
+    display:none;
+}
+
+/* HERO */
+
+.hero{
+    padding:75px 6%;
+    background:
+    radial-gradient(circle at 85% 20%,#dddfff 0,transparent 30%),
+    linear-gradient(135deg,#f5f7ff,#ffffff);
+}
+
+.hero-inner{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1.4fr .8fr;
+    gap:45px;
+    align-items:center;
+}
+
+.badge{
+    display:inline-block;
+    padding:7px 13px;
+    border-radius:30px;
+    background:var(--soft);
+    color:var(--primary);
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:.5px;
+}
+
+.hero h1{
+    margin-top:18px;
+    font-size:clamp(42px,6vw,70px);
+    line-height:1.05;
+}
+
+.gradient{
+    color:var(--primary);
+}
+
+.hero p{
+    margin-top:22px;
+    max-width:680px;
+    color:var(--muted);
+    font-size:17px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:13px;
+    margin-top:28px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-block;
+    padding:12px 18px;
+    border-radius:12px;
+    font-weight:700;
+    font-size:14px;
+    transition:.2s;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+.primary{
+    background:var(--primary);
+    color:white;
+}
+
+.secondary{
+    background:var(--soft);
+    color:var(--primary);
+}
+
+.hero-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:24px;
+    padding:35px;
+    box-shadow:var(--shadow);
+}
+
+.hero-card .big{
+    font-size:70px;
+    color:var(--primary);
+    font-weight:800;
+}
+
+.hero-card h3{
+    margin-top:10px;
+    font-size:23px;
+}
+
+.hero-card p{
+    font-size:15px;
+    margin-top:10px;
+}
+
+/* SECTIONS */
+
+.section{
+    padding:70px 6%;
+}
+
+.section-inner{
+    max-width:1200px;
+    margin:auto;
+}
+
+.heading{
+    text-align:center;
+    margin-bottom:38px;
+}
+
+.heading h2{
+    font-size:34px;
+}
+
+.heading p{
+    color:var(--muted);
+    margin-top:8px;
+}
+
+/* CHAPTERS */
+
+.chapter-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.chapter{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:23px;
+    box-shadow:var(--shadow);
+    transition:.2s;
+}
+
+.chapter:hover{
+    transform:translateY(-4px);
+    border-color:#cfd2ff;
+}
+
+.num{
+    width:38px;
+    height:38px;
+    border-radius:11px;
+    background:var(--soft);
+    color:var(--primary);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:800;
+    margin-bottom:15px;
+}
+
+.chapter h3{
+    font-size:19px;
+}
+
+.chapter p{
+    color:var(--muted);
+    font-size:14px;
+    margin:8px 0 15px;
+}
+
+.tag{
+    color:var(--primary);
+    font-weight:700;
+    font-size:13px;
+}
+
+/* LESSONS */
+
+.lesson{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:30px;
+    margin-bottom:25px;
+    box-shadow:var(--shadow);
+}
+
+.lesson h2{
+    font-size:26px;
+}
+
+.lesson h3{
+    margin-top:23px;
+    margin-bottom:8px;
+    font-size:19px;
+}
+
+.sub{
+    color:var(--muted);
+    margin-top:5px;
+}
+
+.lesson ul{
+    padding-left:22px;
+}
+
+.lesson li{
+    margin:7px 0;
+}
+
+.example{
+    margin-top:20px;
+    padding:18px;
+    background:#f8f9ff;
+    border-left:4px solid var(--primary);
+    border-radius:10px;
+}
+
+.example strong{
+    color:var(--primary);
+}
+
+.mistake{
+    margin-top:18px;
+    padding:15px;
+    background:#fff5f5;
+    border-left:4px solid var(--red);
+    border-radius:10px;
+}
+
+.tip{
+    margin-top:18px;
+    padding:15px;
+    background:#f1fff7;
+    border-left:4px solid var(--green);
+    border-radius:10px;
+}
+
+.formula-box{
+    padding:16px;
+    margin-top:12px;
+    background:#f8f9ff;
+    border:1px solid var(--border);
+    border-radius:12px;
+    font-family:Arial,sans-serif;
+    overflow-x:auto;
+}
+
+/* PROOFS */
+
+.proof-list{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.proof{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:23px;
+    box-shadow:var(--shadow);
+}
+
+.proof-number{
+    color:var(--primary);
+    font-weight:800;
+    font-size:13px;
+    margin-bottom:6px;
+}
+
+.proof h3{
+    font-size:19px;
+    margin-bottom:12px;
+}
+
+.proof p{
+    margin:8px 0;
+}
+
+.proof ol,
+.proof ul{
+    padding-left:22px;
+}
+
+.proof li{
+    margin:6px 0;
+}
+
+.result{
+    margin-top:14px;
+    padding:12px;
+    border-radius:10px;
+    background:var(--soft);
+    font-weight:700;
+}
+
+/* FORMULAS */
+
+.formula-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+}
+
+.formula{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:20px;
+    box-shadow:var(--shadow);
+}
+
+.formula h3{
+    font-size:17px;
+    margin-bottom:8px;
+}
+
+.formula p{
+    color:var(--muted);
+}
+
+/* QUIZ */
+
+.practice{
+    max-width:850px;
+    margin:auto;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:22px;
+    padding:30px;
+    box-shadow:var(--shadow);
+}
+
+.progress{
+    height:8px;
+    background:#e9ebf3;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.bar{
+    width:0%;
+    height:100%;
+    background:var(--primary);
+    transition:.3s;
+}
+
+.question{
+    margin-top:25px;
+}
+
+.question h3{
+    font-size:22px;
+}
+
+.options{
+    display:grid;
+    gap:11px;
+    margin-top:18px;
+}
+
+.option{
+    padding:14px;
+    border:1px solid var(--border);
+    border-radius:12px;
+    cursor:pointer;
+    background:white;
+}
+
+.option:hover{
+    border-color:var(--primary);
+}
+
+.option.correct{
+    background:#eaf9f0;
+    border-color:var(--green);
+}
+
+.option.wrong{
+    background:#fff0f0;
+    border-color:var(--red);
+}
+
+.quiz-actions{
+    display:flex;
+    justify-content:space-between;
+    margin-top:22px;
+    gap:10px;
+}
+
+.qbtn{
+    border:0;
+    padding:11px 17px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:700;
+}
+
+.qnext{
+    background:var(--primary);
+    color:white;
+}
+
+.result{
+    display:none;
+    text-align:center;
+}
+
+.score{
+    font-size:42px;
+    color:var(--primary);
+    font-weight:800;
+}
+
+/* FOOTER */
+
+footer{
+    margin-top:40px;
+    padding:35px 6%;
+    background:#172033;
+    color:white;
+    text-align:center;
+}
+
+footer p{
+    color:#aeb7c8;
+    font-size:14px;
+    margin-top:6px;
+}
+
+/* MOBILE */
+
+@media(max-width:850px){
+
+    .navbar{
+        padding:0 5%;
+    }
+
+    .menu-btn{
+        display:block;
+        margin-left:auto;
+    }
+
+    .navbar nav{
+        display:none;
+        position:absolute;
+        top:68px;
+        left:0;
+        right:0;
+        padding:20px;
+        background:white;
+        border-bottom:1px solid var(--border);
+        flex-direction:column;
+        gap:16px;
+    }
+
+    .navbar nav.open{
+        display:flex;
+    }
+
+    .theme-btn{
+        margin-left:0;
+    }
+
+    .hero-inner{
+        grid-template-columns:1fr;
+    }
+
+    .chapter-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .formula-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .proof-list{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:560px){
+
+    .hero{
+        padding:55px 5%;
+    }
+
+    .section{
+        padding:50px 5%;
+    }
+
+    .hero h1{
+        font-size:43px;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    .chapter-grid,
+    .formula-grid{
+        grid-template-columns:1fr;
+    }
+
+    .lesson,
+    .practice{
+        padding:21px;
+    }
+
+    .heading h2{
+        font-size:28px;
+    }
+
+    .navbar nav{
+        padding:18px 5%;
+    }
+}
+</style></head><body><!-- NAVBAR --><header class="navbar"><a class="logo" href="mathematics.html">
+⚡ Study<span>Forge</span>
+</a><button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+<nav id="nav">
+<a href="index.html">Home</a>
+<a href="mathematics.html">Mathematics</a>
+<a href="math8.html">Class 8</a>
+<a href="math9.html">Class 9</a>
+<a href="math10.html">Class 10</a>
+</nav><button class="theme-btn" onclick="toggleTheme()">🌙</button>
+
+</header><!-- HERO --><section class="hero"><div class="hero-inner"><div><span class="badge">
+CLASS 10 • MATHEMATICS
+</span><h1>
+Master Maths.<br>
+<span class="gradient">
+Think Like a Solver.
+</span>
+</h1><p>
+Learn Class 10 Mathematics with useful concepts,
+step-by-step examples, formulas, important proofs,
+common mistakes, exam tips and interactive practice.
+</p><div class="hero-buttons"><a href="#chapters" class="btn primary">
+Explore Chapters 🚀
+</a><a href="#practice" class="btn secondary">
+Start Practice 🧠
+</a><a href="#proofs" class="btn secondary">
+Important Proofs 📐
+</a></div></div><div class="hero-card"><div class="big">∑</div><h3>
+Learn beyond memorising
+</h3><p>
+Understand why a method works, identify which method
+to use and check whether your answer makes sense.
+</p></div></div></section><!-- CHAPTERS --><section class="section" id="chapters"><div class="section-inner"><div class="heading"><h2>Class 10 Chapters</h2><p>
+Build concepts chapter by chapter.
+</p></div><div class="chapter-grid"><a class="chapter" href="#real">
+<div class="num">01</div>
+<h3>Real Numbers</h3>
+<p>Euclid's algorithm, HCF, LCM and irrational numbers.</p>
+<span class="tag">Learn →</span>
+</a><a class="chapter" href="#poly">
+<div class="num">02</div>
+<h3>Polynomials</h3>
+<p>Zeros, graphs and relationships between zeroes and coefficients.</p>
+<span class="tag">Learn →</span>
+</a><a class="chapter" href="#linear">
+<div class="num">03</div>
+<h3>Pair of Linear Equations</h3>
+<p>Graphical and algebraic methods with consistency.</p>
+<span class="tag">Learn →</span>
+</a><a class="chapter" href="#quadratic">
+<div class="num">04</div>
+<h3>Quadratic Equations</h3>
+<p>Roots, factorisation and discriminant.</p>
+<span class="tag">Learn →</span>
+</a><a class="chapter" href="#ap">
+<div class="num">05</div>
+<h3>Arithmetic Progressions</h3>
+<p>nth term and sum of first n terms.</p>
+<span class="tag">Learn →</span>
+</a><a class="chapter" href="#triangles">
+<div class="num">06</div>
+<h3>Triangles</h3>
+<p>Similarity, BPT and Pythagoras theorem.</p>
+<span class="tag">Learn →</span>
+</a><a class="chapter" href="#coordinate">
+<div class="num">07</div>
+<h3>Coordinate Geometry</h3>
+<p>Distance, section formula and area of triangle.</p>
+<span class="tag">Learn →</span>
+</a><a class="chapter" href="#trig">
+<div class="num">08</div>
+<h3>Introduction to Trigonometry</h3>
+<p>Ratios, identities and standard angles.</p>
+<span class="tag">Learn →</span>
+</a><a class="chapter" href="#application">
+<div class="num">09</div>
+<h3>Applications of Trigonometry</h3>
+<p>Heights and distances.</p>
+<span class="tag">Learn →</span>
+</a><a class="chapter" href="#circles">
+<div class="num">10</div>
+<h3>Circles</h3>
+<p>Tangents and important tangent theorems.</p>
+<span class="tag">Learn →</span>
+</a><a class="chapter" href="#areas">
+<div class="num">11</div>
+<h3>Areas Related to Circles</h3>
+<p>Sector, arc and segment calculations.</p>
+<span class="tag">Learn →</span>
+</a><a class="chapter" href="#surface">
+<div class="num">12</div>
+<h3>Surface Areas & Volumes</h3>
+<p>Solids, combinations and conversions.</p>
+<span class="tag">Learn →</span>
+</a><a class="chapter" href="#stats">
+<div class="num">13</div>
+<h3>Statistics</h3>
+<p>Mean, median, mode and grouped data.</p>
+<span class="tag">Learn →</span>
+</a><a class="chapter" href="#prob">
+<div class="num">14</div>
+<h3>Probability</h3>
+<p>Classical probability and complementary events.</p>
+<span class="tag">Learn →</span>
+</a><a class="chapter" href="#proofs">
+<div class="num">15</div>
+<h3>Proofs & Theorems</h3>
+<p>Important Class 10 proofs and formula derivations.</p>
+<span class="tag">Learn →</span>
+</a></div></div></section><!-- LESSONS --><section class="section"><div class="section-inner"><!-- REAL NUMBERS --><article class="lesson" id="real"><h2>1. Real Numbers</h2><p class="sub">
+Use prime factorisation and Euclid's algorithm to work with HCF and LCM.
+</p><h3>Important ideas</h3><ul>
+<li>Euclid's division lemma: a = bq + r, where 0 ≤ r &lt; b.</li>
+<li>Repeated division can be used to find HCF.</li>
+<li>For positive integers a and b: HCF × LCM = a × b.</li>
+<li>Prime factorisation gives the HCF and LCM.</li>
+<li>Numbers such as √2 and √3 are irrational.</li>
+</ul><div class="example"><strong>Example:</strong><br><br>
+
+Find HCF of 225 and 135.
+
+<br><br>
+
+225 = 135 × 1 + 90<br>
+135 = 90 × 1 + 45<br>
+90 = 45 × 2 + 0
+
+<br><br>
+
+Therefore,
+
+<strong>HCF = 45.</strong>
+
+</div><div class="mistake">
+<strong>Common mistake:</strong>
+In Euclid's algorithm, continue until the remainder becomes zero. The last non-zero remainder is the HCF.
+</div><div class="tip">
+<strong>Exam tip:</strong>
+Write every division step clearly.
+</div></article><!-- POLYNOMIALS --><article class="lesson" id="poly"><h2>2. Polynomials</h2><p class="sub">
+Understand zeroes and their relationship with coefficients.
+</p><h3>For ax² + bx + c</h3><div class="formula-box">
+Sum of zeroes = −b/a<br><br>
+Product of zeroes = c/a
+</div><div class="example"><strong>Example:</strong><br><br>
+
+For 2x² − 7x + 3,
+
+Sum = 7/2<br>
+Product = 3/2
+
+</div><div class="mistake">
+<strong>Common mistake:</strong>
+The sum of zeroes has a negative sign: −b/a.
+</div></article><!-- LINEAR --><article class="lesson" id="linear"><h2>3. Pair of Linear Equations</h2><p class="sub">
+Solve two equations using substitution, elimination or graphical methods.
+</p><h3>Consistency conditions</h3><div class="formula-box">a₁/a₂ ≠ b₁/b₂ → unique solution<br><br>
+
+a₁/a₂ = b₁/b₂ ≠ c₁/c₂ → no solution<br><br>
+
+a₁/a₂ = b₁/b₂ = c₁/c₂ → infinitely many solutions
+
+</div><div class="example"><strong>Example:</strong><br><br>
+
+2x + y = 7<br>
+x − y = 2
+
+<br><br>
+
+Adding both equations:
+
+3x = 9
+
+<br>x = 3
+
+<br><br>
+
+Therefore y = 1.
+
+</div></article><!-- QUADRATIC --><article class="lesson" id="quadratic"><h2>4. Quadratic Equations</h2><p class="sub">
+Solve ax² + bx + c = 0 using factorisation or the quadratic formula.
+</p><h3>Discriminant</h3><div class="formula-box">D = b² − 4ac
+
+<br><br>
+
+D > 0 → two distinct real roots<br>
+D = 0 → two equal real roots<br>
+D < 0 → no real roots
+
+</div><div class="example"><strong>Example:</strong><br><br>
+
+x² − 5x + 6 = 0
+
+<br><br>
+
+(x − 2)(x − 3) = 0
+
+<br><br>
+
+x = 2 or x = 3
+
+</div></article><!-- AP --><article class="lesson" id="ap"><h2>5. Arithmetic Progressions</h2><p class="sub">
+An AP has a constant common difference.
+</p><div class="formula-box">aₙ = a + (n − 1)d
+
+<br><br>
+
+Sₙ = n/2 [2a + (n − 1)d]
+
+</div><div class="example"><strong>Example:</strong><br><br>
+
+7, 11, 15, 19,...
+
+a = 7<br>
+d = 4
+
+<br><br>
+
+10th term:
+
+a₁₀ = 7 + 9(4) = 43
+
+</div></article><!-- TRIANGLES --><article class="lesson" id="triangles"><h2>6. Triangles</h2><p class="sub">
+Similarity and proportionality are the main ideas in this chapter.
+</p><h3>Similarity criteria</h3><ul>
+<li>AA similarity</li>
+<li>SSS similarity</li>
+<li>SAS similarity</li>
+</ul><h3>Important result</h3><p>
+Corresponding sides of similar triangles are proportional.
+</p><div class="example">If ΔABC ~ ΔDEF and
+
+AB = 6, DE = 9, EF = 12,
+
+then
+
+BC/EF = AB/DE
+
+<br><br>
+
+BC/12 = 6/9
+
+<br><strong>BC = 8</strong>
+
+</div></article><!-- COORDINATE --><article class="lesson" id="coordinate"><h2>7. Coordinate Geometry</h2><p class="sub">
+Use formulas systematically and keep the coordinates in the correct order.
+</p><div class="formula-box">Distance:
+
+√[(x₂ − x₁)² + (y₂ − y₁)²]
+
+<br><br>
+
+Section formula:
+
+((mx₂ + nx₁)/(m+n),
+(my₂ + ny₁)/(m+n))
+
+<br><br>
+
+Area:
+
+1/2 |x₁(y₂−y₃)+x₂(y₃−y₁)+x₃(y₁−y₂)|
+
+</div><div class="example"><strong>Example:</strong><br><br>
+
+Distance between (1,2) and (4,6):
+
+√[(4−1)²+(6−2)²]
+
+= √(9+16)
+
+= <strong>5</strong>
+
+</div></article><!-- TRIG --><article class="lesson" id="trig"><h2>8. Introduction to Trigonometry</h2><p class="sub">
+Trigonometric ratios connect angles and sides of a right triangle.
+</p><div class="formula-box">sin A = Perpendicular/Hypotenuse<br><br>
+
+cos A = Base/Hypotenuse<br><br>
+
+tan A = Perpendicular/Base<br><br>
+
+tan A = sin A / cos A
+
+</div><h3>Important identities</h3><div class="formula-box">sin²A + cos²A = 1<br><br>
+
+1 + tan²A = sec²A<br><br>
+
+1 + cot²A = cosec²A
+
+</div></article><!-- APPLICATION --><article class="lesson" id="application"><h2>9. Applications of Trigonometry</h2><p class="sub">
+Use a diagram first, then select the correct trigonometric ratio.
+</p><h3>Basic approach</h3><ul>
+<li>Draw the right triangle.</li>
+<li>Mark the known angle and sides.</li>
+<li>Identify perpendicular, base and hypotenuse.</li>
+<li>Select sin, cos or tan.</li>
+<li>Solve for the unknown.</li>
+</ul><div class="example"><strong>Example:</strong><br><br>
+
+If angle = 45° and horizontal distance = 20 m,
+
+tan45° = height/20
+
+<br><br>
+
+1 = height/20
+
+<br><br>
+
+<strong>height = 20 m</strong>
+
+</div></article><!-- CIRCLES --><article class="lesson" id="circles"><h2>10. Circles</h2><p class="sub">
+Focus on tangent properties.
+</p><h3>Important theorems</h3><ul>
+<li>The tangent at any point of a circle is perpendicular to the radius through the point of contact.</li>
+<li>The lengths of tangents drawn from an external point to a circle are equal.</li>
+</ul><div class="example"><strong>If PA and PB are tangents from P:</strong>
+
+<br><br>
+
+PA = PB
+
+</div></article><!-- AREAS --><article class="lesson" id="areas"><h2>11. Areas Related to Circles</h2><p class="sub">
+Break complicated figures into familiar shapes.
+</p><h3>Important formulas</h3><div class="formula-box">Area of circle = πr²<br><br>
+
+Circumference = 2πr<br><br>
+
+Sector area = (θ/360°)πr²<br><br>
+
+Arc length = (θ/360°)2πr
+
+</div><div class="tip">
+<strong>Tip:</strong>
+For shaded regions, calculate the larger area and subtract the unwanted part.
+</div></article><!-- SURFACE --><article class="lesson" id="surface"><h2>12. Surface Areas & Volumes</h2><p class="sub">
+Break combined solids into simpler solids.
+</p><h3>Important formulas</h3><div class="formula-box">Cylinder:
+
+CSA = 2πrh<br>
+TSA = 2πr(h+r)<br>
+V = πr²h
+
+<br><br>
+
+Cone:
+
+l = √(r²+h²)<br>
+CSA = πrl<br>
+TSA = πr(l+r)<br>
+V = 1/3πr²h
+
+<br><br>
+
+Sphere:
+
+SA = 4πr²<br>
+V = 4/3πr³
+
+<br><br>
+
+Hemisphere:
+
+CSA = 2πr²<br>
+TSA = 3πr²<br>
+V = 2/3πr³
+
+</div></article><!-- STATISTICS --><article class="lesson" id="stats"><h2>13. Statistics</h2><p class="sub">
+Grouped data can be analysed using mean, median and mode.
+</p><h3>Mean</h3><div class="formula-box">Mean = Σfᵢxᵢ / Σfᵢ
+
+<br><br>
+
+Assumed mean method:
+
+x̄ = a + Σfᵢdᵢ / Σfᵢ
+
+<br><br>
+
+Step deviation:
+
+x̄ = a + h(Σfᵢuᵢ / Σfᵢ)
+
+</div><h3>Median</h3><div class="formula-box">Median = l + [(n/2 − cf)/f]h
+
+</div><h3>Mode</h3><div class="formula-box">Mode = l + [(f₁−f₀)/(2f₁−f₀−f₂)]h
+
+</div></article><!-- PROBABILITY --><article class="lesson" id="prob"><h2>14. Probability</h2><p class="sub">
+Probability measures how likely an event is.
+</p><div class="formula-box">P(E) = Number of favourable outcomes /
+Total number of equally likely outcomes
+
+<br><br>
+
+0 ≤ P(E) ≤ 1
+
+<br><br>
+
+P(not E) = 1 − P(E)
+
+</div><div class="example"><strong>Example:</strong><br><br>
+
+For a fair die, probability of getting an even number:
+
+Favourable outcomes = {2,4,6} = 3
+
+Total outcomes = 6
+
+<br><br>
+
+P(E) = 3/6 = <strong>1/2</strong>
+
+</div></article></div>
+</section><!-- PROOFS & THEOREMS --><section class="section" id="proofs"><div class="section-inner"><div class="heading"><h2>📐 Important Proofs & Theorems</h2><p>
+Class 10 exam-ready proofs and important formula derivations.
+</p></div><div class="proof-list"><!-- 1 --><article class="proof"><div class="proof-number">PROOF 01</div><h3>Euclid's Division Algorithm</h3><p><strong>Statement:</strong>
+For positive integers a and b, there exist unique integers q and r such that
+</p><div class="formula-box">
+a = bq + r, &nbsp; 0 ≤ r &lt; b
+</div><p>
+To find HCF(a,b), divide a by b. Then divide b by the remainder.
+Continue until the remainder becomes zero.
+</p><p>
+The last non-zero remainder is the HCF.
+</p><div class="result">
+Therefore, Euclid's algorithm gives HCF.
+</div></article><!-- 2 --><article class="proof"><div class="proof-number">PROOF 02</div><h3>√2 is Irrational</h3><p>
+Assume √2 is rational.
+</p><p>
+Then √2 = p/q, where p and q are integers and q ≠ 0, with no common factor.
+</p><p>
+Squaring:
+</p><div class="formula-box">
+2 = p²/q²
+<br>
+p² = 2q²
+</div><p>
+Therefore p² is even, so p is even.
+Let p = 2k.
+</p><p>
+Then:
+</p><div class="formula-box">
+4k² = 2q²
+<br>
+q² = 2k²
+</div><p>
+Thus q is also even.
+This contradicts the assumption that p and q have no common factor.
+</p><div class="result">
+Hence √2 is irrational.
+</div></article><!-- 3 --><article class="proof"><div class="proof-number">PROOF 03</div><h3>√p is Irrational for a Prime p</h3><p>
+Suppose √p = a/b in lowest form, where p is prime.
+</p><p>
+Squaring gives:
+</p><div class="formula-box">
+a² = pb²
+</div><p>
+Therefore p divides a². Since p is prime, p divides a.
+Let a = pk.
+</p><p>
+Substituting:
+</p><div class="formula-box">
+p²k² = pb²
+<br>
+b² = pk²
+</div><p>
+So p also divides b, contradicting that a/b is in lowest form.
+</p><div class="result">
+Therefore √p is irrational.
+</div></article><!-- 4 --><article class="proof"><div class="proof-number">PROOF 04</div><h3>Sum of Zeroes of a Quadratic Polynomial</h3><p>
+Let α and β be zeroes of
+</p><div class="formula-box">
+ax² + bx + c
+</div><p>
+The polynomial can be written as:
+</p><div class="formula-box">
+a(x−α)(x−β)
+</div><p>
+Expanding:
+</p><div class="formula-box">
+ax² − a(α+β)x + aαβ
+</div><p>
+Comparing with ax² + bx + c:
+</p><div class="formula-box">
+−a(α+β) = b
+<br><br>
+α+β = −b/a
+</div><div class="result">
+Sum of zeroes = −b/a.
+</div></article><!-- 5 --><article class="proof"><div class="proof-number">PROOF 05</div><h3>Product of Zeroes of a Quadratic Polynomial</h3><p>
+From:
+</p><div class="formula-box">
+a(x−α)(x−β)
+= ax² − a(α+β)x + aαβ
+</div><p>
+Comparing the constant term with c:
+</p><div class="formula-box">
+aαβ = c
+<br><br>
+αβ = c/a
+</div><div class="result">
+Product of zeroes = c/a.
+</div></article><!-- 6 --><article class="proof"><div class="proof-number">PROOF 06</div><h3>Relation Between Roots and Coefficients</h3><p>
+For ax² + bx + c = 0 with roots α and β:
+</p><div class="formula-box">
+α + β = −b/a
+<br><br>
+αβ = c/a
+</div><p>
+These follow directly by writing the equation in factorised form:
+</p><div class="formula-box">
+a(x−α)(x−β)=0
+</div><div class="result">
+These relations are extremely useful in exam questions.
+</div></article><!-- 7 --><article class="proof"><div class="proof-number">PROOF 07</div><h3>nth Term of an AP</h3><p>
+Consider the AP:
+</p><div class="formula-box">
+a, a+d, a+2d, a+3d, ...
+</div><p>
+First term = a.
+</p><p>
+Second term = a+d.
+</p><p>
+Third term = a+2d.
+</p><p>
+Therefore, the nth term contains d exactly n−1 times.
+</p><div class="formula-box">
+aₙ = a + (n−1)d
+</div><div class="result">
+Hence, nth term of an AP = a + (n−1)d.
+</div></article><!-- 8 --><article class="proof"><div class="proof-number">PROOF 08</div><h3>Sum of First n Terms of an AP</h3><p>
+Let:
+</p><div class="formula-box">
+S = a + (a+d) + (a+2d) + ... + [a+(n−1)d]
+</div><p>
+Write the same sum in reverse order:
+</p><div class="formula-box">
+S = [a+(n−1)d] + ... + (a+d) + a
+</div><p>
+Adding:
+</p><div class="formula-box">
+2S = n[2a+(n−1)d]
+</div><p>
+Therefore:
+</p><div class="formula-box">
+S = n/2[2a+(n−1)d]
+</div><div class="result">
+Hence proved.
+</div></article><!-- 9 --><article class="proof"><div class="proof-number">PROOF 09</div><h3>Basic Proportionality Theorem</h3><p>
+In ΔABC, let D lie on AB and E lie on AC such that DE ∥ BC.
+Prove:
+</p><div class="formula-box">
+AD/DB = AE/EC
+</div><p>
+Triangles ADE and BDE have the same altitude from E to AB.
+Therefore:
+</p><div class="formula-box">
+Area(ADE)/Area(BDE) = AD/DB
+</div><p>
+Similarly, triangles ADE and CDE have the same altitude from D to AC:
+</p><div class="formula-box">
+Area(ADE)/Area(CDE) = AE/EC
+</div><p>
+Triangles BDE and CDE have the same base DE and lie between the same parallels DE and BC.
+Hence their areas are equal.
+</p><p>
+Therefore:
+</p><div class="formula-box">
+AD/DB = AE/EC
+</div><div class="result">
+Hence, Basic Proportionality Theorem is proved.
+</div></article><!-- 10 --><article class="proof"><div class="proof-number">PROOF 10</div><h3>Converse of Basic Proportionality Theorem</h3><p>
+In ΔABC, D lies on AB and E lies on AC.
+Suppose:
+</p><div class="formula-box">
+AD/DB = AE/EC
+</div><p>
+Through D draw DE' parallel to BC meeting AC at E'.
+</p><p>
+By BPT:
+</p><div class="formula-box">
+AD/DB = AE'/E'C
+</div><p>
+But given:
+</p><div class="formula-box">
+AD/DB = AE/EC
+</div><p>
+Therefore E' and E represent the same point on AC.
+</p><div class="result">
+Hence DE ∥ BC.
+</div></article><!-- 11 --><article class="proof"><div class="proof-number">PROOF 11</div><h3>Pythagoras Theorem</h3><p>
+In right-angled ΔABC, let ∠C = 90°.
+Draw CD perpendicular to hypotenuse AB.
+</p><p>
+From similarity:
+</p><div class="formula-box">
+AC² = AD × AB
+<br><br>
+BC² = BD × AB
+</div><p>
+Adding:
+</p><div class="formula-box">
+AC² + BC²
+= AB(AD+BD)
+</div><p>
+Since AD + BD = AB:
+</p><div class="formula-box">
+AC² + BC² = AB²
+</div><div class="result">
+Hence, Pythagoras theorem is proved.
+</div></article><!-- 12 --><article class="proof"><div class="proof-number">PROOF 12</div><h3>Converse of Pythagoras Theorem</h3><p>
+Suppose in ΔABC:
+</p><div class="formula-box">
+AB² = AC² + BC²
+</div><p>
+Construct a right triangle having sides AC and BC as its perpendicular sides.
+Let its hypotenuse be AD.
+</p><p>
+By Pythagoras:
+</p><div class="formula-box">
+AD² = AC² + BC²
+</div><p>
+But:
+</p><div class="formula-box">
+AB² = AC² + BC²
+</div><p>
+Therefore:
+</p><div class="formula-box">
+AD² = AB²
+<br>
+AD = AB
+</div><p>
+Thus the constructed right triangle has the same corresponding sides as ΔABC.
+Hence the angle between AC and BC is 90°.
+</p><div class="result">
+Therefore the converse is proved.
+</div></article><!-- 13 --><article class="proof"><div class="proof-number">PROOF 13</div><h3>Area Ratio of Similar Triangles</h3><p>
+If ΔABC ~ ΔDEF, then corresponding sides are proportional.
+</p><div class="formula-box">
+AB/DE = BC/EF = CA/FD
+</div><p>
+Area of triangles can be expressed using the same included-angle relationship.
+Therefore, if corresponding sides have ratio k, their areas have ratio k².
+</p><div class="formula-box">
+Area(ABC)/Area(DEF)
+= (AB/DE)²
+</div><div class="result">
+Ratio of areas of similar triangles = square of ratio of corresponding sides.
+</div></article><!-- 14 --><article class="proof"><div class="proof-number">PROOF 14</div><h3>Distance Formula</h3><p>
+Let A(x₁,y₁) and B(x₂,y₂).
+Draw a horizontal and vertical line to form a right triangle.
+</p><p>
+Horizontal distance:
+</p><div class="formula-box">
+|x₂−x₁|
+</div><p>
+Vertical distance:
+</p><div class="formula-box">
+|y₂−y₁|
+</div><p>
+Using Pythagoras:
+</p><div class="formula-box">
+AB² = (x₂−x₁)² + (y₂−y₁)²
+</div><p>
+Taking square root:
+</p><div class="formula-box">
+AB = √[(x₂−x₁)²+(y₂−y₁)²]
+</div><div class="result">
+Distance formula derived.
+</div></article><!-- 15 --><article class="proof"><div class="proof-number">PROOF 15</div><h3>Section Formula</h3><p>
+Let P(x,y) divide A(x₁,y₁) and B(x₂,y₂) internally in the ratio m:n.
+</p><p>
+By proportional division along the x-axis:
+</p><div class="formula-box">
+(x−x₁)/(x₂−x) = m/n
+</div><p>
+Cross multiplication gives:
+</p><div class="formula-box">
+n(x−x₁)=m(x₂−x)
+</div><p>
+Solving:
+</p><div class="formula-box">
+x = (mx₂ + nx₁)/(m+n)
+</div><p>
+Similarly:
+</p><div class="formula-box">
+y = (my₂ + ny₁)/(m+n)
+</div><div class="result">
+Section formula is obtained.
+</div></article><!-- 16 --><article class="proof"><div class="proof-number">PROOF 16</div><h3>Area of Triangle Using Coordinates</h3><p>
+For vertices:
+</p><div class="formula-box">
+A(x₁,y₁), B(x₂,y₂), C(x₃,y₃)
+</div><p>
+Using coordinate geometry and signed areas of the component triangles, the area simplifies to:
+</p><div class="formula-box">Area =
+1/2 |x₁(y₂−y₃)
+
++ x₂(y₃−y₁)
++ x₃(y₁−y₂)|
+
+</div><div class="result">
+If the area is zero, the three points are collinear.
+</div></article><!-- 17 --><article class="proof"><div class="proof-number">PROOF 17</div><h3>Fundamental Trigonometric Identity</h3><p>
+In a right triangle, let perpendicular = P, base = B and hypotenuse = H.
+</p><p>
+By Pythagoras:
+</p><div class="formula-box">
+P² + B² = H²
+</div><p>
+Divide throughout by H²:
+</p><div class="formula-box">
+P²/H² + B²/H² = 1
+</div><p>
+Since:
+</p><div class="formula-box">
+P/H = sin A
+<br>
+B/H = cos A
+</div><p>
+Therefore:
+</p><div class="formula-box">
+sin²A + cos²A = 1
+</div><div class="result">
+Hence proved.
+</div></article><!-- 18 --><article class="proof"><div class="proof-number">PROOF 18</div><h3>1 + tan²A = sec²A</h3><p>
+Start with:
+</p><div class="formula-box">
+sin²A + cos²A = 1
+</div><p>
+Divide throughout by cos²A:
+</p><div class="formula-box">
+sin²A/cos²A + 1 = 1/cos²A
+</div><p>
+Using:
+</p><div class="formula-box">
+tan A = sin A/cos A
+<br>
+sec A = 1/cos A
+</div><p>
+Therefore:
+</p><div class="formula-box">
+tan²A + 1 = sec²A
+</div><div class="result">
+Hence proved.
+</div></article><!-- 19 --><article class="proof"><div class="proof-number">PROOF 19</div><h3>1 + cot²A = cosec²A</h3><p>
+Start with:
+</p><div class="formula-box">
+sin²A + cos²A = 1
+</div><p>
+Divide by sin²A:
+</p><div class="formula-box">
+1 + cos²A/sin²A = 1/sin²A
+</div><p>
+Using:
+</p><div class="formula-box">
+cot A = cos A/sin A
+<br>
+cosec A = 1/sin A
+</div><p>
+Therefore:
+</p><div class="formula-box">
+1 + cot²A = cosec²A
+</div><div class="result">
+Hence proved.
+</div></article><!-- 20 --><article class="proof"><div class="proof-number">PROOF 20</div><h3>Tangent is Perpendicular to Radius</h3><p>
+Let PT be tangent to a circle with centre O at T.
+</p><p>
+Draw OM perpendicular to PT.
+</p><p>
+If OM were smaller than OT, then M would lie inside the circle because OT is the radius.
+A line passing through an interior point of a circle meets the circle at two points.
+</p><p>
+But PT is a tangent and should meet the circle at only one point T.
+This is a contradiction.
+</p><div class="result">
+Therefore OT ⟂ PT.
+</div></article><!-- 21 --><article class="proof"><div class="proof-number">PROOF 21</div><h3>Tangents from an External Point are Equal</h3><p>
+Let PA and PB be tangents from external point P to a circle with centre O.
+</p><p>
+OA and OB are radii, so:
+</p><div class="formula-box">
+OA = OB
+</div><p>
+Also, radius is perpendicular to tangent:
+</p><div class="formula-box">
+∠OAP = ∠OBP = 90°
+</div><p>
+OP is common to both triangles.
+</p><p>
+Therefore:
+</p><div class="formula-box">
+ΔOAP ≅ ΔOBP
+</div><p>
+by RHS congruence.
+</p><div class="result">
+Hence PA = PB.
+</div></article><!-- 22 --><article class="proof"><div class="proof-number">PROOF 22</div><h3>Complementary Probability Rule</h3><p>
+Let E be an event and E' be its complement.
+</p><p>
+If total outcomes = n and favourable outcomes for E = m, then:
+</p><div class="formula-box">
+P(E) = m/n
+</div><p>
+The number of outcomes not favourable to E is n−m.
+</p><div class="formula-box">
+P(E') = (n−m)/n
+</div><p>
+Therefore:
+</p><div class="formula-box">
+P(E') = 1 − m/n
+</div><div class="result">
+P(E') = 1 − P(E)
+</div></article><!-- 23 --><article class="proof"><div class="proof-number">DERIVATION 23</div><h3>Assumed Mean Formula</h3><p>
+Let the assumed mean be a.
+For every observation:
+</p><div class="formula-box">
+dᵢ = xᵢ − a
+<br>
+xᵢ = a + dᵢ
+</div><p>
+Multiply by frequency fᵢ:
+</p><div class="formula-box">
+fᵢxᵢ = fᵢa + fᵢdᵢ
+</div><p>
+Adding all values:
+</p><div class="formula-box">
+Σfᵢxᵢ = aΣfᵢ + Σfᵢdᵢ
+</div><p>
+Divide by Σfᵢ:
+</p><div class="formula-box">
+x̄ = a + Σfᵢdᵢ/Σfᵢ
+</div><div class="result">
+Assumed mean formula derived.
+</div></article><!-- 24 --><article class="proof"><div class="proof-number">DERIVATION 24</div><h3>Step-Deviation Formula</h3><p>
+Let:
+</p><div class="formula-box">
+uᵢ = (xᵢ−a)/h
+</div><p>
+Therefore:
+</p><div class="formula-box">
+xᵢ = a + huᵢ
+</div><p>
+Multiply by fᵢ and add:
+</p><div class="formula-box">
+Σfᵢxᵢ
+= aΣfᵢ + hΣfᵢuᵢ
+</div><p>
+Dividing by Σfᵢ:
+</p><div class="formula-box">
+x̄ = a + h(Σfᵢuᵢ/Σfᵢ)
+</div><div class="result">
+Step-deviation formula derived.
+</div></article></div></div></section><!-- FORMULA SHEET --><section class="section" id="formulas"><div class="section-inner"><div class="heading"><h2>⚡ Class 10 Formula Sheet</h2><p>
+Quick revision before solving questions.
+</p></div><div class="formula-grid"><div class="formula">
+<h3>Real Numbers</h3>
+<p>HCF × LCM = Product of two positive integers.</p>
+</div><div class="formula">
+<h3>Polynomials</h3>
+<p>α+β = −b/a<br>αβ = c/a</p>
+</div><div class="formula">
+<h3>Quadratic</h3>
+<p>x = [−b ± √(b²−4ac)] / 2a</p>
+</div><div class="formula">
+<h3>AP</h3>
+<p>aₙ = a+(n−1)d<br>Sₙ=n/2[2a+(n−1)d]</p>
+</div><div class="formula">
+<h3>Distance</h3>
+<p>√[(x₂−x₁)²+(y₂−y₁)²]</p>
+</div><div class="formula">
+<h3>Section</h3>
+<p>((mx₂+nx₁)/(m+n), (my₂+ny₁)/(m+n))</p>
+</div><div class="formula">
+<h3>Trigonometry</h3>
+<p>sin²A+cos²A=1</p>
+</div><div class="formula">
+<h3>Identities</h3>
+<p>1+tan²A=sec²A<br>1+cot²A=cosec²A</p>
+</div><div class="formula">
+<h3>Circle</h3>
+<p>Tangent ⟂ radius at point of contact.</p>
+</div><div class="formula">
+<h3>Probability</h3>
+<p>P(E)=favourable outcomes/total outcomes.</p>
+</div><div class="formula">
+<h3>Circle Area</h3>
+<p>πr²</p>
+</div><div class="formula">
+<h3>Cylinder Volume</h3>
+<p>πr²h</p>
+</div></div></div></section><!-- PRACTICE --><section class="section" id="practice"><div class="section-inner"><div class="heading"><h2>🧠 Quick Practice</h2><p>
+Test your Class 10 Mathematics basics.
+</p></div><div class="practice"><div class="progress">
+<div class="bar" id="bar"></div>
+</div><div class="question" id="question"></div><div class="options" id="options"></div><div class="quiz-actions"><button class="qbtn" onclick="restartQuiz()">
+Restart
+</button><button class="qbtn qnext" onclick="nextQuestion()">
+Next →
+</button></div><div class="result" id="result"><p>Your Score</p><div class="score" id="score"></div><p id="resultText"></p></div></div></div></section><!-- FOOTER --><footer><h3>⚡ StudyForge</h3><p>
+Learn smarter. Practice better. Understand deeper.
+</p><p>
+Class 10 Mathematics • Free Student Learning Platform
+</p></footer><script>
+
+function toggleMenu(){
+
+    document.getElementById("nav").classList.toggle("open");
+
+}
+
+
+function toggleTheme(){
+
+    document.body.classList.toggle("dark");
+
+}
+
+
+const questions = [
+
+{
+q:"What is the discriminant of x² − 5x + 6 = 0?",
+options:["1","25","−1","49"],
+answer:0
+},
+
+{
+q:"The 10th term of the AP 7, 11, 15,... is:",
+options:["39","41","43","45"],
+answer:2
+},
+
+{
+q:"If α and β are zeroes of ax²+bx+c, then α+β is:",
+options:["b/a","−b/a","c/a","−c/a"],
+answer:1
+},
+
+{
+q:"The value of sin²A + cos²A is:",
+options:["0","1","2","sin A"],
+answer:1
+},
+
+{
+q:"The distance between (0,0) and (3,4) is:",
+options:["3","4","5","7"],
+answer:2
+},
+
+{
+q:"A tangent to a circle is perpendicular to the:",
+options:["Chord","Diameter only","Radius at point of contact","Arc"],
+answer:2
+},
+
+{
+q:"P(E) can have a value between:",
+options:["−1 and 1","0 and 1","1 and 2","−∞ and ∞"],
+answer:1
+},
+
+{
+q:"If D = b²−4ac is zero, the quadratic equation has:",
+options:["No real roots","Two distinct roots","Two equal real roots","Three roots"],
+answer:2
+},
+
+{
+q:"The volume of a cylinder is:",
+options:["2πrh","πr²h","4πr²","πrl"],
+answer:1
+},
+
+{
+q:"The BPT is also known as:",
+options:["Thales theorem","Pythagoras theorem","Tangent theorem","Midpoint theorem"],
+answer:0
+},
+
+{
+q:"For a right triangle, a²+b² equals:",
+options:["a+b","ab","c²","2c"],
+answer:2
+},
+
+{
+q:"The complement of event E is written as:",
+options:["E²","E'","2E","1/E"],
+answer:1
+}
+
+];
+
+
+let currentQuestion = 0;
+let score = 0;
+let answered = false;
+
+
+function loadQuestion(){
+
+    answered = false;
+
+    const q = questions[currentQuestion];
+
+    document.getElementById("question").innerHTML =
+        "<h3>" + (currentQuestion+1) + ". " + q.q + "</h3>";
+
+    const options =
+        document.getElementById("options");
+
+    options.innerHTML = "";
+
+    q.options.forEach((option,index)=>{
+
+        const div = document.createElement("div");
+
+        div.className = "option";
+        div.textContent = option;
+
+        div.onclick = function(){
+
+            checkAnswer(index,div);
+
+        };
+
+        options.appendChild(div);
+
+    });
+
+    document.getElementById("bar").style.width =
+        ((currentQuestion)/questions.length*100) + "%";
+
+}
+
+
+function checkAnswer(index,element){
+
+    if(answered) return;
+
+    answered = true;
+
+    const correct =
+        questions[currentQuestion].answer;
+
+    const all =
+        document.querySelectorAll(".option");
+
+    if(index === correct){
+
+        element.classList.add("correct");
+        score++;
+
+    }else{
+
+        element.classList.add("wrong");
+        all[correct].classList.add("correct");
+
+    }
+
+}
+
+
+function nextQuestion(){
+
+    if(!answered) return;
+
+    currentQuestion++;
+
+    if(currentQuestion >= questions.length){
+
+        showResult();
+        return;
+
+    }
+
+    loadQuestion();
+
+}
+
+
+function showResult(){
+
+    document.getElementById("question").style.display="none";
+    document.getElementById("options").style.display="none";
+    document.querySelector(".quiz-actions").style.display="none";
+
+    document.getElementById("bar").style.width="100%";
+
+    const result =
+        document.getElementById("result");
+
+    result.style.display="block";
+
+    document.getElementById("score").textContent =
+        score + " / " + questions.length;
+
+    let text="Keep practising!";
+
+    if(score >= 10){
+        text="Excellent work! 🔥";
+    }else if(score >= 7){
+        text="Great job! 💪";
+    }else if(score >= 4){
+        text="Good start! Keep practising.";
+    }
+
+    document.getElementById("resultText").textContent=text;
+
+}
+
+
+function restartQuiz(){
+
+    currentQuestion=0;
+    score=0;
+
+    document.getElementById("question").style.display="block";
+    document.getElementById("options").style.display="grid";
+    document.querySelector(".quiz-actions").style.display="flex";
+    document.getElementById("result").style.display="none";
+
+    loadQuestion();
+
+}
+
+
+loadQuestion();
+
+</script></body>
+</html>

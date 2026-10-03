@@ -1,0 +1,1844 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Class 9 Mathematics — StudyForge</title><meta name="description" content="StudyForge Class 9 Mathematics — concepts, solved examples, formulas, important proofs and interactive practice."><style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f5f7fb;
+    color:#172033;
+    line-height:1.6;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+/* NAVBAR */
+
+.navbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:15px 6%;
+    background:rgba(255,255,255,.97);
+    border-bottom:1px solid #e5e7eb;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:800;
+}
+
+.nav-links{
+    display:flex;
+    gap:25px;
+}
+
+.nav-links a{
+    font-weight:600;
+}
+
+.nav-links a:hover{
+    color:#2563eb;
+}
+
+.menu-btn{
+    display:none;
+    border:none;
+    background:none;
+    font-size:25px;
+    cursor:pointer;
+}
+
+/* HERO */
+
+.hero{
+    padding:85px 6% 75px;
+    background:linear-gradient(135deg,#eef4ff,#ffffff);
+}
+
+.hero-content{
+    max-width:850px;
+    margin:auto;
+    text-align:center;
+}
+
+.badge,
+.tag{
+    display:inline-block;
+    padding:7px 14px;
+    border-radius:20px;
+    background:#e8f0ff;
+    color:#2563eb;
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:1px;
+}
+
+.hero h1{
+    margin-top:18px;
+    font-size:clamp(38px,7vw,68px);
+    line-height:1.1;
+}
+
+.hero h1 span{
+    color:#2563eb;
+}
+
+.hero p{
+    max-width:680px;
+    margin:20px auto;
+    color:#5f6b7a;
+    font-size:17px;
+}
+
+.hero-buttons{
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    margin-top:28px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:13px 22px;
+    border-radius:10px;
+    font-weight:700;
+    display:inline-block;
+}
+
+.primary{
+    background:#2563eb;
+    color:white;
+}
+
+.secondary{
+    background:white;
+    border:1px solid #d8dee9;
+}
+
+/* SECTIONS */
+
+.section{
+    padding:75px 6%;
+    max-width:1200px;
+    margin:auto;
+}
+
+.heading{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.heading h2{
+    font-size:34px;
+    margin-top:10px;
+}
+
+.heading p{
+    color:#697586;
+    margin-top:8px;
+}
+
+/* CHAPTERS */
+
+.chapter-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.chapter{
+    background:white;
+    border:1px solid #e5e7eb;
+    border-radius:16px;
+    padding:25px;
+    transition:.25s;
+}
+
+.chapter:hover{
+    transform:translateY(-4px);
+    box-shadow:0 12px 30px rgba(20,30,50,.08);
+}
+
+.chapter-number{
+    font-size:13px;
+    font-weight:800;
+    color:#2563eb;
+    margin-bottom:10px;
+}
+
+.chapter h3{
+    font-size:19px;
+    margin-bottom:8px;
+}
+
+.chapter p{
+    color:#697586;
+    font-size:14px;
+}
+
+.chapter-link{
+    display:inline-block;
+    margin-top:15px;
+    color:#2563eb;
+    font-weight:700;
+}
+
+/* TOPICS */
+
+.topic-details{
+    background:#f5f7fb;
+}
+
+.topic-box{
+    margin-bottom:30px;
+    padding:32px;
+    border-radius:18px;
+    background:white;
+    border:1px solid #e5e7eb;
+}
+
+.topic-header{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:15px;
+}
+
+.topic-number{
+    min-width:48px;
+    height:48px;
+    display:grid;
+    place-items:center;
+    border-radius:12px;
+    background:#2563eb;
+    color:white;
+    font-weight:800;
+}
+
+.topic-header h2{
+    font-size:27px;
+}
+
+.topic-box>p{
+    color:#5f6b7a;
+    margin-bottom:25px;
+}
+
+.learn-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+}
+
+.learn-card{
+    padding:22px;
+    border-radius:14px;
+    background:#f7f9fc;
+    margin-bottom:18px;
+}
+
+.learn-card h3{
+    margin-bottom:12px;
+}
+
+.learn-card ul{
+    padding-left:20px;
+    color:#5f6b7a;
+}
+
+.example{
+    margin-top:20px;
+    padding:20px;
+    border-left:4px solid #2563eb;
+    background:#f7f9fc;
+    border-radius:8px;
+}
+
+.example strong{
+    display:block;
+    margin-bottom:8px;
+}
+
+.example p{
+    color:#5f6b7a;
+    margin-bottom:6px;
+}
+
+.tip-box{
+    margin-top:20px;
+    padding:20px;
+    border-radius:12px;
+    background:#eef4ff;
+}
+
+.tip-box strong{
+    color:#2563eb;
+}
+
+.back-btn{
+    display:inline-block;
+    margin-top:22px;
+    color:#2563eb;
+    font-weight:700;
+}
+
+/* PROOFS */
+
+.proof-card{
+    margin-bottom:22px;
+    padding:25px;
+    border-radius:15px;
+    background:#f7f9fc;
+    border:1px solid #e5e7eb;
+}
+
+.proof-card h3{
+    margin-bottom:12px;
+}
+
+.proof-statement{
+    padding:12px 15px;
+    background:#eef4ff;
+    border-radius:10px;
+    margin-bottom:15px;
+}
+
+.proof{
+    padding:18px;
+    background:white;
+    border-left:4px solid #2563eb;
+    border-radius:8px;
+}
+
+.proof p{
+    margin-bottom:8px;
+}
+
+.reason{
+    color:#2563eb;
+    font-weight:700;
+}
+
+/* FORMULAS */
+
+.formula-section{
+    max-width:none;
+    background:#eef4ff;
+}
+
+.formula-box{
+    max-width:1100px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+}
+
+.formula{
+    background:white;
+    padding:20px;
+    border-radius:12px;
+}
+
+.formula strong{
+    display:block;
+    margin-bottom:6px;
+}
+
+.formula span{
+    color:#2563eb;
+    font-weight:700;
+}
+
+/* PRACTICE */
+
+.practice{
+    padding:80px 6%;
+    background:#172033;
+    color:white;
+    text-align:center;
+}
+
+.practice .tag{
+    background:rgba(255,255,255,.12);
+    color:white;
+}
+
+.practice h2{
+    font-size:36px;
+    margin:12px 0;
+}
+
+.practice>p{
+    color:#cbd5e1;
+    max-width:650px;
+    margin:auto;
+}
+
+.quiz-box{
+    max-width:700px;
+    margin:35px auto 0;
+    background:white;
+    color:#172033;
+    border-radius:18px;
+    padding:25px;
+    text-align:left;
+}
+
+.quiz-top{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:20px;
+    font-size:14px;
+    font-weight:700;
+}
+
+.question{
+    font-size:22px;
+    font-weight:800;
+    margin-bottom:22px;
+}
+
+.options{
+    display:grid;
+    gap:12px;
+}
+
+.option-btn{
+    width:100%;
+    padding:14px;
+    border:1px solid #d9dee8;
+    background:#f8fafc;
+    border-radius:10px;
+    text-align:left;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.option-btn:hover{
+    border-color:#2563eb;
+}
+
+.option-btn.correct{
+    background:#dcfce7;
+    border-color:#16a34a;
+}
+
+.option-btn.wrong{
+    background:#fee2e2;
+    border-color:#dc2626;
+}
+
+.feedback{
+    margin-top:18px;
+    font-weight:700;
+    min-height:25px;
+}
+
+.next-btn,
+.restart-btn{
+    margin-top:20px;
+    padding:12px 22px;
+    border:none;
+    border-radius:10px;
+    background:#2563eb;
+    color:white;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.result-box{
+    text-align:center;
+}
+
+.result-box h3{
+    font-size:28px;
+    margin-bottom:10px;
+}
+
+/* FOOTER */
+
+.footer{
+    padding:45px 6%;
+    background:#0f172a;
+    color:white;
+    text-align:center;
+}
+
+.footer p{
+    color:#aeb8c7;
+    margin-top:8px;
+}
+
+.footer-links{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+    margin:20px 0;
+}
+
+.footer-links a:hover{
+    color:#60a5fa;
+}
+
+.copyright{
+    font-size:13px;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+    .nav-links{
+        display:none;
+        position:absolute;
+        top:65px;
+        left:0;
+        right:0;
+        padding:20px;
+        background:white;
+        flex-direction:column;
+        border-bottom:1px solid #e5e7eb;
+    }
+
+    .nav-links.show{
+        display:flex;
+    }
+
+    .menu-btn{
+        display:block;
+        margin-left:auto;
+    }
+
+    .chapter-grid,
+    .learn-grid,
+    .formula-box{
+        grid-template-columns:1fr;
+    }
+
+    .topic-box{
+        padding:23px;
+    }
+}
+
+@media(max-width:500px){
+
+    .logo{
+        font-size:19px;
+    }
+
+    .hero{
+        padding-top:65px;
+    }
+
+    .hero h1{
+        font-size:40px;
+    }
+
+    .section{
+        padding:55px 5%;
+    }
+
+    .topic-header h2{
+        font-size:22px;
+    }
+
+    .practice{
+        padding:60px 5%;
+    }
+
+    .quiz-box{
+        padding:20px;
+    }
+
+    .question{
+        font-size:19px;
+    }
+}
+</style></head><body><!-- NAVBAR --><header class="navbar"><a href="mathematics.html" class="logo">
+📐 StudyForge
+</a><button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+<nav class="nav-links" id="navLinks"><a href="index.html">Home</a>
+<a href="mathematics.html">Mathematics</a>
+<a href="physics.html">Physics</a>
+<a href="chemistry.html">Chemistry</a>
+
+</nav></header><main><!-- HERO --><section class="hero"><div class="hero-content"><span class="badge">CLASS 9 MATHEMATICS</span>
+
+<h1>
+Master Class 9<br>
+<span>Mathematics.</span>
+</h1><p>
+Go beyond definitions. Learn concepts, problem-solving methods,
+important properties, proofs, solved examples and exam tips.
+</p><div class="hero-buttons"><a href="#chapters" class="btn primary">
+Explore Chapters →
+</a><a href="#practice" class="btn secondary">
+Start Practice →
+</a></div></div></section><!-- CHAPTERS --><section class="section" id="chapters"><div class="heading"><span class="tag">CLASS 9</span>
+
+<h2>Mathematics Chapters</h2><p>
+Learn the concept first, then master the problems.
+</p></div><div class="chapter-grid"><a href="#number-systems" class="chapter">
+<div class="chapter-number">01</div>
+<h3>Number Systems</h3>
+<p>Real numbers, rationalisation and decimal expansions.</p>
+<span class="chapter-link">Learn →</span>
+</a><a href="#polynomials" class="chapter">
+<div class="chapter-number">02</div>
+<h3>Polynomials</h3>
+<p>Terms, degree, zeros, identities and factorisation.</p>
+<span class="chapter-link">Learn →</span>
+</a><a href="#coordinate-geometry" class="chapter">
+<div class="chapter-number">03</div>
+<h3>Coordinate Geometry</h3>
+<p>Cartesian plane, coordinates and plotting points.</p>
+<span class="chapter-link">Learn →</span>
+</a><a href="#linear-equations" class="chapter">
+<div class="chapter-number">04</div>
+<h3>Linear Equations</h3>
+<p>Solutions, tables and graphs of equations in two variables.</p>
+<span class="chapter-link">Learn →</span>
+</a><a href="#lines-angles" class="chapter">
+<div class="chapter-number">05</div>
+<h3>Lines & Angles</h3>
+<p>Angle relationships, transversals and parallel lines.</p>
+<span class="chapter-link">Learn →</span>
+</a><a href="#triangles" class="chapter">
+<div class="chapter-number">06</div>
+<h3>Triangles</h3>
+<p>Congruence rules, properties and proofs.</p>
+<span class="chapter-link">Learn →</span>
+</a><a href="#quadrilaterals" class="chapter">
+<div class="chapter-number">07</div>
+<h3>Quadrilaterals</h3>
+<p>Parallelograms and important properties.</p>
+<span class="chapter-link">Learn →</span>
+</a><a href="#circles" class="chapter">
+<div class="chapter-number">08</div>
+<h3>Circles</h3>
+<p>Chords, arcs and important circle theorems.</p>
+<span class="chapter-link">Learn →</span>
+</a><a href="#herons-formula" class="chapter">
+<div class="chapter-number">09</div>
+<h3>Heron's Formula</h3>
+<p>Find triangle area using three sides.</p>
+<span class="chapter-link">Learn →</span>
+</a><a href="#surface-area" class="chapter">
+<div class="chapter-number">10</div>
+<h3>Surface Areas & Volumes</h3>
+<p>Surface area and volume of 3D objects.</p>
+<span class="chapter-link">Learn →</span>
+</a><a href="#statistics" class="chapter">
+<div class="chapter-number">11</div>
+<h3>Statistics</h3>
+<p>Data representation, mean, median and mode.</p>
+<span class="chapter-link">Learn →</span>
+</a><a href="#probability" class="chapter">
+<div class="chapter-number">12</div>
+<h3>Probability</h3>
+<p>Experimental probability and basic events.</p>
+<span class="chapter-link">Learn →</span>
+</a><a href="#proofs" class="chapter">
+<div class="chapter-number">13</div>
+<h3>Proofs & Theorems</h3>
+<p>Important Class 9 geometry proofs with exam-ready steps.</p>
+<span class="chapter-link">View Proofs →</span>
+</a></div>
+</section><!-- TOPIC DETAILS --><section class="section topic-details"><!-- NUMBER SYSTEMS --><div class="topic-box" id="number-systems"><div class="topic-header">
+<div class="topic-number">01</div>
+<h2>Number Systems</h2>
+</div><p>
+The number system becomes more powerful in Class 9 because we move
+beyond rational numbers and study irrational numbers, real numbers,
+decimal expansions and rationalisation.
+</p><div class="learn-grid"><div class="learn-card">
+<h3>📌 Rational vs Irrational</h3>
+<ul>
+<li>Rational numbers can be written as p/q, where q ≠ 0.</li>
+<li>Irrational numbers cannot be expressed as p/q.</li>
+<li>√2, √3 and π are irrational.</li>
+<li>A rational number has a terminating or recurring decimal expansion.</li>
+<li>An irrational number has a non-terminating, non-recurring decimal expansion.</li>
+</ul>
+</div><div class="learn-card">
+<h3>📌 Important Idea</h3>
+<ul>
+<li>Every rational and irrational number is a real number.</li>
+<li>Between any two rational numbers, infinitely many rational numbers exist.</li>
+<li>Between any two real numbers, infinitely many real numbers exist.</li>
+<li>√n is irrational when n is not a perfect square.</li>
+</ul>
+</div></div><div class="example">
+<strong>🧠 Solved Example:</strong>
+<p>Is √50 rational or irrational?</p>
+<p>√50 = √(25 × 2) = 5√2.</p>
+<p>Since √2 is irrational, 5√2 is also irrational.</p>
+</div><div class="example">
+<strong>🧠 Rationalisation Example:</strong>
+<p>Consider 1/√5.</p>
+<p>Multiply numerator and denominator by √5:</p>
+<p>1/√5 × √5/√5 = √5/5</p>
+<p>So the denominator no longer contains a radical.</p>
+</div><div class="tip-box">
+<strong>🎯 Exam Tip:</strong>
+Do not simply say “√50 is irrational because it contains a root.”
+First simplify it to 5√2.
+</div><a href="#chapters" class="back-btn">↑ Back to Chapters</a>
+
+</div><!-- POLYNOMIALS --><div class="topic-box" id="polynomials"><div class="topic-header">
+<div class="topic-number">02</div>
+<h2>Polynomials</h2>
+</div><p>
+Polynomials combine variables, constants and powers. In Class 9,
+you learn how to identify their degree, find zeros and use identities.
+</p><div class="learn-grid"><div class="learn-card">
+<h3>📌 Degree & Zeros</h3>
+<ul>
+<li>The highest power of the variable is the degree.</li>
+<li>A zero is a value of x for which p(x)=0.</li>
+<li>A non-zero constant polynomial has degree 0.</li>
+<li>A linear polynomial generally has one zero.</li>
+</ul>
+</div><div class="learn-card">
+<h3>📌 Useful Identities</h3>
+<ul>
+<li>(a+b)² = a² + 2ab + b²</li>
+<li>(a-b)² = a² - 2ab + b²</li>
+<li>a²-b² = (a-b)(a+b)</li>
+<li>(x+a)(x+b)=x²+(a+b)x+ab</li>
+</ul>
+</div></div><div class="example">
+<strong>🧠 Solved Example:</strong>
+<p>Find the zero of p(x)=2x-6.</p>
+<p>2x-6=0</p>
+<p>2x=6</p>
+<p><strong>x=3</strong></p>
+</div><div class="example">
+<strong>🧠 Identity Example:</strong>
+<p>Calculate 103² quickly.</p>
+<p>103²=(100+3)²</p>
+<p>=10000+600+9</p>
+<p>=<strong>10609</strong></p>
+</div><a href="#chapters" class="back-btn">↑ Back to Chapters</a>
+
+</div><!-- COORDINATE GEOMETRY --><div class="topic-box" id="coordinate-geometry"><div class="topic-header">
+<div class="topic-number">03</div>
+<h2>Coordinate Geometry</h2>
+</div><p>
+Coordinate Geometry connects algebra with geometry using ordered pairs.
+</p><div class="learn-grid"><div class="learn-card">
+<h3>📌 Cartesian Plane</h3>
+<ul>
+<li>Horizontal line = x-axis.</li>
+<li>Vertical line = y-axis.</li>
+<li>Intersection = origin O(0,0).</li>
+<li>Plane has four quadrants.</li>
+</ul>
+</div><div class="learn-card">
+<h3>📌 Quadrants</h3>
+<ul>
+<li>I → (+,+)</li>
+<li>II → (-,+)</li>
+<li>III → (-,-)</li>
+<li>IV → (+,-)</li>
+</ul>
+</div><div class="learn-card">
+<h3>📌 Special Points</h3>
+<ul>
+<li>x-axis → y=0</li>
+<li>y-axis → x=0</li>
+<li>Origin → (0,0)</li>
+<li>(0,5) lies on y-axis.</li>
+</ul>
+</div><div class="learn-card">
+<h3>📌 Coordinate Order</h3>
+<ul>
+<li>x-coordinate is written first.</li>
+<li>y-coordinate is written second.</li>
+<li>Same x → vertical line.</li>
+<li>Same y → horizontal line.</li>
+</ul>
+</div></div><div class="example">
+<strong>🧠 Example:</strong>
+<p>Determine the quadrant of A(-5,3).</p>
+<p>x is negative and y is positive.</p>
+<p>Therefore A lies in the <strong>II quadrant</strong>.</p>
+</div><div class="tip-box">
+<strong>🎯 Exam Tip:</strong>
+Remember: x first, y second.
+</div><a href="#chapters" class="back-btn">↑ Back to Chapters</a>
+
+</div><!-- LINEAR EQUATIONS --><div class="topic-box" id="linear-equations"><div class="topic-header">
+<div class="topic-number">04</div>
+<h2>Linear Equations in Two Variables</h2>
+</div><p>
+A linear equation in two variables has variables whose highest power is 1.
+Its solutions can be represented graphically.
+</p><div class="learn-grid"><div class="learn-card">
+<h3>📌 General Form</h3>
+<ul>
+<li>ax + by + c = 0</li>
+<li>a and b cannot both be zero.</li>
+<li>Generally, infinitely many solutions exist.</li>
+<li>Every solution represents a point on the line.</li>
+</ul>
+</div><div class="learn-card">
+<h3>📌 Finding Solutions</h3>
+<ul>
+<li>Choose x.</li>
+<li>Substitute into the equation.</li>
+<li>Find y.</li>
+<li>Write the ordered pair.</li>
+</ul>
+</div></div><div class="example">
+<strong>🧠 Example:</strong>
+<p>Find two solutions of x+y=6.</p>
+<p>x=0 → y=6 → (0,6)</p>
+<p>x=2 → y=4 → (2,4)</p>
+</div><a href="#chapters" class="back-btn">↑ Back to Chapters</a>
+
+</div><!-- LINES AND ANGLES --><div class="topic-box" id="lines-angles"><div class="topic-header">
+<div class="topic-number">05</div>
+<h2>Lines & Angles</h2>
+</div><p>
+This chapter is mainly about recognising angle relationships and applying
+them logically.
+</p><div class="learn-grid"><div class="learn-card">
+<h3>📌 Core Relationships</h3>
+<ul>
+<li>Linear pair → sum = 180°.</li>
+<li>Vertically opposite angles are equal.</li>
+<li>Complementary angles → sum = 90°.</li>
+<li>Supplementary angles → sum = 180°.</li>
+</ul>
+</div><div class="learn-card">
+<h3>📌 Parallel Lines</h3>
+<ul>
+<li>Corresponding angles are equal.</li>
+<li>Alternate interior angles are equal.</li>
+<li>Co-interior angles are supplementary.</li>
+</ul>
+</div></div><div class="example">
+<strong>🧠 Example:</strong>
+<p>One angle of a linear pair is 65°.</p>
+<p>Other angle = 180°−65°</p>
+<p><strong>=115°</strong></p>
+</div><a href="#proofs" class="btn secondary">
+📐 Important Proofs
+</a><br><a href="#chapters" class="back-btn">↑ Back to Chapters</a>
+
+</div><!-- TRIANGLES --><div class="topic-box" id="triangles"><div class="topic-header">
+<div class="topic-number">06</div>
+<h2>Triangles</h2>
+</div><p>
+Triangles are studied through sides, angles and congruence.
+The key skill is identifying the correct congruence criterion.
+</p><div class="learn-grid"><div class="learn-card">
+<h3>📌 Congruence Rules</h3>
+<ul>
+<li>SSS → three corresponding sides equal.</li>
+<li>SAS → two sides and included angle equal.</li>
+<li>ASA → two angles and included side equal.</li>
+<li>RHS → right angle, hypotenuse and one side equal.</li>
+</ul>
+</div><div class="learn-card">
+<h3>📌 Important Properties</h3>
+<ul>
+<li>Angle sum of a triangle = 180°.</li>
+<li>Equal sides have equal opposite angles.</li>
+<li>Greater side has greater opposite angle.</li>
+<li>Greater angle has greater opposite side.</li>
+</ul>
+</div></div><a href="#proofs" class="btn secondary">
+📐 Important Proofs
+</a><br><a href="#chapters" class="back-btn">↑ Back to Chapters</a>
+
+</div><!-- QUADRILATERALS --><div class="topic-box" id="quadrilaterals"><div class="topic-header">
+<div class="topic-number">07</div>
+<h2>Quadrilaterals</h2>
+</div><p>
+Quadrilaterals have four sides and four angles. Parallelograms are
+especially important in Class 9.
+</p><div class="learn-grid"><div class="learn-card">
+<h3>📌 Parallelogram Properties</h3>
+<ul>
+<li>Opposite sides are equal.</li>
+<li>Opposite angles are equal.</li>
+<li>Adjacent angles are supplementary.</li>
+<li>Diagonals bisect each other.</li>
+</ul>
+</div><div class="learn-card">
+<h3>📌 Angle Sum</h3>
+<ul>
+<li>Sum of interior angles = 360°.</li>
+<li>A diagonal divides a quadrilateral into two triangles.</li>
+</ul>
+</div></div><a href="#proofs" class="btn secondary">
+📐 Important Proofs
+</a><br><a href="#chapters" class="back-btn">↑ Back to Chapters</a>
+
+</div><!-- CIRCLES --><div class="topic-box" id="circles"><div class="topic-header">
+<div class="topic-number">08</div>
+<h2>Circles</h2>
+</div><p>
+Circles introduce important relationships involving chords, angles,
+arcs and the centre.
+</p><div class="learn-grid"><div class="learn-card">
+<h3>📌 Important Terms</h3>
+<ul>
+<li>Radius: centre to circumference.</li>
+<li>Diameter: chord passing through centre.</li>
+<li>Chord: line segment joining two points on circle.</li>
+<li>Arc: part of circumference.</li>
+</ul>
+</div><div class="learn-card">
+<h3>📌 Important Results</h3>
+<ul>
+<li>Equal chords are equidistant from the centre.</li>
+<li>Perpendicular from centre to a chord bisects the chord.</li>
+<li>Equal chords subtend equal angles at centre.</li>
+</ul>
+</div></div><a href="#proofs" class="btn secondary">
+📐 Important Proofs
+</a><br><a href="#chapters" class="back-btn">↑ Back to Chapters</a>
+
+</div><!-- HERON --><div class="topic-box" id="herons-formula"><div class="topic-header">
+<div class="topic-number">09</div>
+<h2>Heron's Formula</h2>
+</div><p>
+Heron's formula allows us to find the area of a triangle when all three
+side lengths are known.
+</p><div class="example">
+<strong>📌 Formula:</strong>
+<p>s = (a+b+c)/2</p>
+<p><strong>Area = √[s(s−a)(s−b)(s−c)]</strong></p>
+</div><div class="example">
+<strong>🧠 Example:</strong>
+<p>For sides 3 cm, 4 cm and 5 cm:</p>
+<p>s=(3+4+5)/2=6</p>
+<p>Area=√[6×3×2×1]</p>
+<p>=√36</p>
+<p><strong>=6 cm²</strong></p>
+</div><a href="#chapters" class="back-btn">↑ Back to Chapters</a>
+
+</div><!-- SURFACE AREA --><div class="topic-box" id="surface-area"><div class="topic-header">
+<div class="topic-number">10</div>
+<h2>Surface Areas & Volumes</h2>
+</div><p>
+This chapter deals with surface area and volume of common three-dimensional
+objects.
+</p><div class="learn-grid"><div class="learn-card">
+<h3>📌 Cuboid</h3>
+<ul>
+<li>TSA = 2(lb+bh+hl)</li>
+<li>Volume = lbh</li>
+</ul>
+</div><div class="learn-card">
+<h3>📌 Cube</h3>
+<ul>
+<li>TSA = 6a²</li>
+<li>Volume = a³</li>
+</ul>
+</div><div class="learn-card">
+<h3>📌 Cylinder</h3>
+<ul>
+<li>CSA = 2πrh</li>
+<li>TSA = 2πr(r+h)</li>
+<li>Volume = πr²h</li>
+</ul>
+</div><div class="learn-card">
+<h3>📌 Sphere</h3>
+<ul>
+<li>Surface Area = 4πr²</li>
+<li>Volume = 4/3 πr³</li>
+</ul>
+</div></div><a href="#chapters" class="back-btn">↑ Back to Chapters</a>
+
+</div><!-- STATISTICS --><div class="topic-box" id="statistics"><div class="topic-header">
+<div class="topic-number">11</div>
+<h2>Statistics</h2>
+</div><p>
+Statistics helps us organise, represent and interpret numerical data.
+</p><div class="learn-grid"><div class="learn-card">
+<h3>📌 Mean</h3>
+<ul>
+<li>Mean = Sum of observations / Number of observations.</li>
+</ul>
+</div><div class="learn-card">
+<h3>📌 Median</h3>
+<ul>
+<li>Arrange observations in ascending order.</li>
+<li>For odd number: middle observation.</li>
+<li>For even number: average of two middle observations.</li>
+</ul>
+</div><div class="learn-card">
+<h3>📌 Mode</h3>
+<ul>
+<li>Mode is the observation occurring most frequently.</li>
+</ul>
+</div></div><a href="#chapters" class="back-btn">↑ Back to Chapters</a>
+
+</div><!-- PROBABILITY --><div class="topic-box" id="probability"><div class="topic-header">
+<div class="topic-number">12</div>
+<h2>Probability</h2>
+</div><p>
+Probability describes how likely an event is to occur.
+</p><div class="example">
+<strong>📌 Basic Formula:</strong>
+<p>
+Probability of an event =
+Number of favourable outcomes /
+Total number of equally likely outcomes
+</p>
+</div><div class="learn-grid"><div class="learn-card">
+<h3>📌 Range</h3>
+<ul>
+<li>0 ≤ P(E) ≤ 1</li>
+<li>P(E)=0 means impossible event.</li>
+<li>P(E)=1 means certain event.</li>
+</ul>
+</div><div class="learn-card">
+<h3>📌 Example</h3>
+<ul>
+<li>A fair die has 6 outcomes.</li>
+<li>Probability of getting 3 = 1/6.</li>
+</ul>
+</div></div><a href="#chapters" class="back-btn">↑ Back to Chapters</a>
+
+</div><!-- ========================= --><!-- PROOFS & THEOREMS --><!-- ========================= --><div class="topic-box" id="proofs"><div class="topic-header">
+<div class="topic-number">★</div>
+<h2>Important Proofs & Theorems</h2>
+</div><p>
+This section contains important Class 9 geometry proofs in
+step-by-step exam-ready form. Learn the reason behind every step.
+</p><!-- PROOF 1 --><div class="proof-card"><h3>📐 1. Linear Pair of Angles</h3><div class="proof-statement">
+<strong>Statement:</strong>
+If two adjacent angles form a straight line, their sum is 180°.
+</div><div class="proof"><p>
+Let ∠1 and ∠2 form a linear pair.
+</p><p>
+They together form a straight angle.
+</p><p>
+Therefore,
+<strong>∠1 + ∠2 = 180°</strong>
+<span class="reason">(Straight Angle)</span>
+</p><p><strong>Hence proved.</strong></p></div>
+</div><!-- PROOF 2 --><div class="proof-card"><h3>📐 2. Vertically Opposite Angles are Equal</h3><div class="proof-statement">
+<strong>Statement:</strong>
+When two lines intersect, vertically opposite angles are equal.
+</div><div class="proof"><p>
+Let lines AB and CD intersect at O.
+</p><p>
+∠AOC + ∠AOD = 180°
+<span class="reason">(Linear Pair)</span>
+</p><p>
+∠AOD + ∠BOD = 180°
+<span class="reason">(Linear Pair)</span>
+</p><p>
+Therefore,
+</p><p>
+∠AOC + ∠AOD = ∠AOD + ∠BOD
+</p><p>
+Subtracting ∠AOD from both sides:
+</p><p>
+<strong>∠AOC = ∠BOD</strong>
+</p><p>
+Similarly,
+<strong>∠AOD = ∠BOC</strong>.
+</p><p><strong>Hence proved.</strong></p></div>
+</div><!-- PROOF 3 --><div class="proof-card"><h3>📏 3. Corresponding Angles</h3><div class="proof-statement">
+<strong>Statement:</strong>
+If two parallel lines are cut by a transversal, corresponding angles are equal.
+</div><div class="proof"><p>
+Let l ∥ m and a transversal t intersect them.
+</p><p>
+Consider a pair of corresponding angles ∠1 and ∠2.
+</p><p>
+Using the angle relationships formed by the transversal and the parallel
+lines, the corresponding angles have equal measure.
+</p><p>
+Therefore,
+<strong>∠1 = ∠2</strong>.
+</p><p class="reason">
+This property is used extensively in Class 9 angle proofs.
+</p></div>
+</div><!-- PROOF 4 --><div class="proof-card"><h3>📏 4. Alternate Interior Angles</h3><div class="proof-statement">
+<strong>Statement:</strong>
+When a transversal intersects two parallel lines, alternate interior
+angles are equal.
+</div><div class="proof"><p>
+Let l ∥ m and t be a transversal.
+</p><p>
+Let ∠1 and ∠2 be alternate interior angles.
+</p><p>
+Because the two lines are parallel, the angle relationships created by
+the transversal give equal alternate interior angles.
+</p><p>
+Therefore,
+<strong>∠1 = ∠2</strong>.
+</p><p class="reason">
+Remember: alternate interior angles lie between the parallel lines
+on opposite sides of the transversal.
+</p></div>
+</div><!-- PROOF 5 --><div class="proof-card"><h3>🔺 5. Angle Sum Property of a Triangle</h3><div class="proof-statement">
+<strong>Statement:</strong>
+The sum of the three angles of a triangle is 180°.
+</div><div class="proof"><p>
+In △ABC, draw a line through A parallel to BC.
+</p><p>
+Since the line through A is parallel to BC:
+</p><p>
+∠XAB = ∠ABC
+<span class="reason">(Alternate Interior Angles)</span>
+</p><p>
+∠CAY = ∠ACB
+<span class="reason">(Alternate Interior Angles)</span>
+</p><p>
+XAY is a straight line.
+</p><p>
+Therefore:
+</p><p>
+∠XAB + ∠BAC + ∠CAY = 180°
+</p><p>
+Substituting the equal angles:
+</p><p>
+<strong>∠ABC + ∠BAC + ∠ACB = 180°</strong>
+</p><p><strong>Hence proved.</strong></p></div>
+</div><!-- PROOF 6 --><div class="proof-card"><h3>🔺 6. Exterior Angle Theorem</h3><div class="proof-statement">
+<strong>Statement:</strong>
+An exterior angle of a triangle is equal to the sum of its two
+opposite interior angles.
+</div><div class="proof"><p>
+In △ABC, extend BC to D.
+</p><p>
+From the angle sum property:
+</p><p>
+∠A + ∠B + ∠C = 180°
+</p><p>
+Since ∠ACD and ∠C form a linear pair:
+</p><p>
+∠ACD + ∠C = 180°
+</p><p>
+Comparing both equations:
+</p><p>
+<strong>∠ACD = ∠A + ∠B</strong>
+</p><p><strong>Hence proved.</strong></p></div>
+</div><!-- PROOF 7 --><div class="proof-card"><h3>🔺 7. SSS Congruence Criterion</h3><div class="proof-statement">
+<strong>Statement:</strong>
+If three corresponding sides of two triangles are equal, the triangles
+are congruent.
+</div><div class="proof"><p>
+Consider △ABC and △DEF.
+</p><p>
+Suppose:
+</p><p>
+AB = DE
+</p><p>
+BC = EF
+</p><p>
+CA = FD
+</p><p>
+All three corresponding sides are equal.
+</p><p>
+Therefore:
+</p><p>
+<strong>△ABC ≅ △DEF (SSS)</strong>
+</p><p>
+Hence their corresponding parts are equal.
+</p></div>
+</div><!-- PROOF 8 --><div class="proof-card"><h3>🔺 8. SAS Congruence Criterion</h3><div class="proof-statement">
+<strong>Statement:</strong>
+If two sides and the included angle of one triangle are equal to the
+corresponding two sides and included angle of another triangle, the
+triangles are congruent.
+</div><div class="proof"><p>
+Consider △ABC and △DEF.
+</p><p>
+AB = DE
+</p><p>
+∠B = ∠E
+</p><p>
+BC = EF
+</p><p>
+The equal angle is included between the two equal sides.
+</p><p>
+Therefore:
+</p><p>
+<strong>△ABC ≅ △DEF (SAS)</strong>
+</p></div>
+</div><!-- PROOF 9 --><div class="proof-card"><h3>🔺 9. ASA Congruence Criterion</h3><div class="proof-statement">
+<strong>Statement:</strong>
+If two angles and the included side of one triangle are equal to the
+corresponding two angles and included side of another triangle, the
+triangles are congruent.
+</div><div class="proof"><p>
+Suppose in △ABC and △DEF:</p><p>
+∠A = ∠D
+</p><p>
+AB = DE
+</p><p>
+∠B = ∠E
+</p><p>
+The side lies between the two equal angles.
+</p><p>
+Therefore:
+</p><p>
+<strong>△ABC ≅ △DEF (ASA)</strong>
+</p></div>
+</div><!-- PROOF 10 --><div class="proof-card"><h3>🔺 10. RHS Congruence Criterion</h3><div class="proof-statement">
+<strong>Statement:</strong>
+In two right triangles, if the hypotenuse and one corresponding side
+are equal, the triangles are congruent.
+</div><div class="proof"><p>
+Consider two right triangles ABC and DEF.
+</p><p>
+∠B = ∠E = 90°
+</p><p>
+AC = DF
+<span class="reason">(Hypotenuse)</span>
+</p><p>
+AB = DE
+<span class="reason">(One corresponding side)</span>
+</p><p>
+Therefore:
+</p><p>
+<strong>△ABC ≅ △DEF (RHS)</strong>
+</p></div>
+</div><!-- PROOF 11 --><div class="proof-card"><h3>🔺 11. Isosceles Triangle Theorem</h3><div class="proof-statement">
+<strong>Statement:</strong>
+If two sides of a triangle are equal, the angles opposite those sides
+are equal.
+</div><div class="proof"><p>
+In △ABC, let:
+</p><p>
+<strong>AB = AC</strong>
+<span class="reason">(Given)</span>
+</p><p>
+Draw angle bisector AD of ∠A.
+</p><p>
+∠BAD = ∠DAC
+<span class="reason">(Angle Bisector)</span>
+</p><p>
+AD = AD
+<span class="reason">(Common Side)</span>
+</p><p>
+Therefore:
+</p><p>
+△ABD ≅ △ACD
+<span class="reason">(SAS)</span>
+</p><p>
+Therefore:
+</p><p>
+<strong>∠B = ∠C</strong>
+<span class="reason">(CPCT)</span>
+</p><p><strong>Hence proved.</strong></p></div>
+</div><!-- PROOF 12 --><div class="proof-card"><h3>▱ 12. Opposite Sides of a Parallelogram</h3><div class="proof-statement">
+<strong>Statement:</strong>
+Opposite sides of a parallelogram are equal.
+</div><div class="proof"><p>
+Let ABCD be a parallelogram.
+Draw diagonal AC.
+</p><p>
+AB ∥ CD
+</p><p>
+Therefore:
+</p><p>
+∠BAC = ∠DCA
+<span class="reason">(Alternate Interior Angles)</span>
+</p><p>
+AD ∥ BC
+</p><p>
+Therefore:
+</p><p>
+∠BCA = ∠DAC
+<span class="reason">(Alternate Interior Angles)</span>
+</p><p>
+AC = AC
+<span class="reason">(Common Side)</span>
+</p><p>
+Therefore:
+</p><p>
+△ABC ≅ △CDA
+<span class="reason">(ASA)</span>
+</p><p>
+Hence:
+</p><p>
+<strong>AB = CD</strong>
+</p><p>
+and
+</p><p>
+<strong>BC = AD</strong>.
+</p></div>
+</div><!-- PROOF 13 --><div class="proof-card"><h3>▱ 13. Opposite Angles of a Parallelogram</h3><div class="proof-statement">
+<strong>Statement:</strong>
+Opposite angles of a parallelogram are equal.
+</div><div class="proof"><p>
+Let ABCD be a parallelogram.
+</p><p>
+AB ∥ CD.
+</p><p>
+Therefore:
+</p><p>
+∠A + ∠B = 180°
+</p><p>
+Also AD ∥ BC, so:
+</p><p>
+∠B + ∠C = 180°
+</p><p>
+Therefore:
+</p><p>
+∠A + ∠B = ∠B + ∠C
+</p><p>
+Subtracting ∠B:
+</p><p>
+<strong>∠A = ∠C</strong>
+</p><p>
+Similarly:
+</p><p>
+<strong>∠B = ∠D</strong>
+</p><p><strong>Hence proved.</strong></p></div>
+</div><!-- PROOF 14 --><div class="proof-card"><h3>▱ 14. Diagonals of a Parallelogram Bisect Each Other</h3><div class="proof-statement">
+<strong>Statement:</strong>
+The diagonals of a parallelogram bisect each other.
+</div><div class="proof"><p>
+Let diagonals AC and BD of parallelogram ABCD intersect at O.
+</p><p>
+From the opposite-side property:
+</p><p>
+AB = CD
+</p><p>
+Since AB ∥ CD:
+</p><p>
+∠ABO = ∠CDO
+<span class="reason">(Alternate Interior Angles)</span>
+</p><p>
+∠BAO = ∠DCO
+<span class="reason">(Alternate Interior Angles)</span>
+</p><p>
+Therefore:
+</p><p>
+△AOB ≅ △COD
+<span class="reason">(ASA)</span>
+</p><p>
+Hence:
+</p><p>
+<strong>AO = OC</strong>
+</p><p>
+and
+</p><p>
+<strong>BO = OD</strong>.
+</p><p>
+Therefore the diagonals bisect each other.
+</p></div>
+</div><!-- PROOF 15 --><div class="proof-card"><h3>⭕ 15. Perpendicular from Centre to a Chord Bisects the Chord</h3><div class="proof-statement">
+<strong>Statement:</strong>
+The perpendicular from the centre of a circle to a chord bisects the chord.
+</div><div class="proof"><p>
+Let AB be a chord of a circle with centre O.
+</p><p>
+OM ⟂ AB.
+</p><p>
+OA = OB
+<span class="reason">(Radii of same circle)</span>
+</p><p>
+OM = OM
+<span class="reason">(Common Side)</span>
+</p><p>
+∠OMA = ∠OMB = 90°
+</p><p>
+Therefore:
+</p><p>
+△OMA ≅ △OMB
+<span class="reason">(RHS)</span>
+</p><p>
+Hence:
+</p><p>
+<strong>AM = MB</strong>
+<span class="reason">(CPCT)</span>
+</p><p>
+Thus OM bisects chord AB.
+</p></div>
+</div><!-- PROOF 16 --><div class="proof-card"><h3>⭕ 16. Equal Chords are Equidistant from the Centre</h3><div class="proof-statement">
+<strong>Statement:</strong>
+Equal chords of a circle are equidistant from the centre.
+</div><div class="proof"><p>
+Let AB and CD be equal chords of a circle with centre O.
+</p><p>
+Draw OM ⟂ AB and ON ⟂ CD.
+</p><p>
+From the perpendicular-chord theorem:
+</p><p>
+AM = MB
+</p><p>
+CN = ND
+</p><p>
+Since AB = CD:
+</p><p>
+<strong>AM = CN</strong>
+</p><p>
+Also:
+</p><p>
+OA = OC
+<span class="reason">(Radii)</span>
+</p><p>
+∠OMA = ∠ONC = 90°
+</p><p>
+Therefore:
+</p><p>
+△OMA ≅ △ONC
+<span class="reason">(RHS)</span>
+</p><p>
+Hence:
+</p><p>
+<strong>OM = ON</strong>.
+</p><p>
+Therefore the chords are equidistant from the centre.
+</p></div>
+</div><!-- PROOF 17 --><div class="proof-card"><h3>⭕ 17. Equal Chords Subtend Equal Angles at Centre</h3><div class="proof-statement">
+<strong>Statement:</strong>
+Equal chords of a circle subtend equal angles at the centre.
+</div><div class="proof"><p>
+Let AB and CD be equal chords of a circle with centre O.
+</p><p>
+OA = OC
+<span class="reason">(Radii)</span>
+</p><p>
+OB = OD
+<span class="reason">(Radii)</span>
+</p><p>
+AB = CD
+<span class="reason">(Given)</span>
+</p><p>
+Therefore:
+</p><p>
+△AOB ≅ △COD
+<span class="reason">(SSS)</span>
+</p><p>
+Hence:
+</p><p>
+<strong>∠AOB = ∠COD</strong>
+<span class="reason">(CPCT)</span>
+</p><p><strong>Hence proved.</strong></p></div>
+</div><!-- PROOF 18 --><div class="proof-card"><h3>🔷 18. Interior Angle Sum of a Polygon</h3><div class="proof-statement">
+<strong>Statement:</strong>
+The sum of the interior angles of an n-sided polygon is
+(n−2)×180°.
+</div><div class="proof"><p>
+Take an n-sided polygon.
+</p><p>
+From one vertex, draw diagonals to all non-adjacent vertices.
+</p><p>
+The polygon is divided into:
+</p><p>
+<strong>(n−2) triangles</strong>
+</p><p>
+Each triangle has angle sum 180°.
+</p><p>
+Therefore:
+</p><p>
+<strong>Interior Angle Sum = (n−2)×180°</strong>
+</p><p><strong>Hence proved.</strong></p></div>
+</div><!-- PROOF 19 --><div class="proof-card"><h3>🔺 19. Greater Side has Greater Opposite Angle</h3><div class="proof-statement">
+<strong>Statement:</strong>
+In a triangle, the side opposite the greater angle is greater.
+</div><div class="proof"><p>
+In △ABC, suppose:
+</p><p>
+∠B &gt; ∠C.
+</p><p>
+The side opposite ∠B is AC.
+</p><p>
+The side opposite ∠C is AB.
+</p><p>
+Therefore:
+</p><p>
+<strong>AC &gt; AB</strong>.
+</p><p>
+Thus, the greater angle has the greater opposite side.
+</p></div>
+</div><!-- PROOF 20 --><div class="proof-card"><h3>🔺 20. Greater Angle has Greater Opposite Side</h3><div class="proof-statement">
+<strong>Statement:</strong>
+In a triangle, the greater side has the greater opposite angle.
+</div><div class="proof"><p>
+In △ABC, suppose:
+</p><p>
+<strong>AC &gt; AB</strong>.
+</p><p>
+AC is opposite ∠B.
+</p><p>
+AB is opposite ∠C.
+</p><p>
+Therefore:
+</p><p>
+<strong>∠B &gt; ∠C</strong>.
+</p><p><strong>Hence proved.</strong></p></div>
+</div><!-- PROOF 21 --><div class="proof-card"><h3>📐 21. Two Lines Parallel to the Same Line are Parallel</h3><div class="proof-statement">
+<strong>Statement:</strong>
+If two lines are parallel to the same line, then they are parallel to
+each other.
+</div><div class="proof"><p>
+Suppose:
+</p><p>
+l ∥ m
+</p><p>
+and
+</p><p>
+n ∥ m.
+</p><p>
+A transversal creates corresponding angles with the parallel lines.
+</p><p>
+Therefore the corresponding angles made by l and n are equal.
+</p><p>
+Hence:
+</p><p>
+<strong>l ∥ n</strong>.
+</p><p><strong>Hence proved.</strong></p></div>
+</div><div class="tip-box"><strong>🎯 PROOF WRITING FORMULA:</strong>
+
+<p>
+<strong>Given → Construction → Angle/Side relation → Congruence →
+CPCT → Required result</strong>
+</p><p>
+For Class 9 geometry, always write the reason:
+<strong>Given, Common Side, Linear Pair, Alternate Interior Angles,
+SSS, SAS, ASA, RHS, CPCT</strong>.
+</p></div><a href="#chapters" class="back-btn">↑ Back to Chapters</a>
+
+</div></section><!-- FORMULA SHEET --><section class="section formula-section"><div class="heading"><span class="tag">QUICK REVISION</span>
+
+<h2>Class 9 Formula Sheet</h2><p>Important formulas for fast revision.</p></div><div class="formula-box"><div class="formula">
+<strong>Heron's Formula</strong>
+<span>Area = √[s(s−a)(s−b)(s−c)]</span>
+</div><div class="formula">
+<strong>Semi-perimeter</strong>
+<span>s = (a+b+c)/2</span>
+</div><div class="formula">
+<strong>Triangle Angle Sum</strong>
+<span>A+B+C = 180°</span>
+</div><div class="formula">
+<strong>Quadrilateral Angle Sum</strong>
+<span>A+B+C+D = 360°</span>
+</div><div class="formula">
+<strong>Cube Volume</strong>
+<span>a³</span>
+</div><div class="formula">
+<strong>Cuboid Volume</strong>
+<span>lbh</span>
+</div><div class="formula">
+<strong>Cylinder Volume</strong>
+<span>πr²h</span>
+</div><div class="formula">
+<strong>Sphere Volume</strong>
+<span>4/3 πr³</span>
+</div><div class="formula">
+<strong>Sphere Surface Area</strong>
+<span>4πr²</span>
+</div><div class="formula">
+<strong>Probability</strong>
+<span>P(E)=Favourable Outcomes/Total Outcomes</span>
+</div><div class="formula">
+<strong>Polygon Interior Angle Sum</strong>
+<span>(n−2)×180°</span>
+</div><div class="formula">
+<strong>Polynomial Identity</strong>
+<span>(a+b)²=a²+2ab+b²</span>
+</div></div></section><!-- PRACTICE --><section class="practice" id="practice"><span class="tag">INTERACTIVE PRACTICE</span>
+
+<h2>Test Your Class 9 Maths</h2><p>
+Solve the questions and check your understanding.
+</p><div class="quiz-box" id="quizBox"><div class="quiz-top">
+<span id="questionNumber">Question 1/12</span>
+<span id="score">Score: 0</span>
+</div><div class="question" id="question">
+Loading...
+</div><div class="options" id="options"></div><div class="feedback" id="feedback"></div><button class="next-btn" id="nextBtn" onclick="nextQuestion()" style="display:none;">
+Next Question →
+</button></div></section></main><!-- FOOTER --><footer class="footer"><h3>📐 StudyForge</h3><p>Learn smarter. Practice better. Build confidence.</p><div class="footer-links"><a href="index.html">Home</a>
+<a href="mathematics.html">Mathematics</a>
+<a href="physics.html">Physics</a>
+<a href="chemistry.html">Chemistry</a>
+
+</div><p class="copyright">
+© 2026 StudyForge. All rights reserved.
+</p></footer><script>
+
+/* MOBILE MENU */
+
+function toggleMenu(){
+
+    document.getElementById("navLinks").classList.toggle("show");
+
+}
+
+
+/* QUIZ */
+
+const quiz = [
+
+{
+question:"What is the value of √49?",
+options:["5","6","7","8"],
+answer:2
+},
+
+{
+question:"Which of the following is irrational?",
+options:["1/2","0.25","√2","4"],
+answer:2
+},
+
+{
+question:"What is the degree of 5x³+2x−1?",
+options:["1","2","3","5"],
+answer:2
+},
+
+{
+question:"The point (−3,4) lies in which quadrant?",
+options:["I","II","III","IV"],
+answer:1
+},
+
+{
+question:"The sum of angles of a triangle is:",
+options:["90°","180°","270°","360°"],
+answer:1
+},
+
+{
+question:"Which congruence rule uses three corresponding sides?",
+options:["SAS","ASA","SSS","RHS"],
+answer:2
+},
+
+{
+question:"Opposite angles of a parallelogram are:",
+options:["Always 90°","Equal","Always 45°","Unequal"],
+answer:1
+},
+
+{
+question:"The sum of interior angles of a quadrilateral is:",
+options:["180°","270°","360°","540°"],
+answer:2
+},
+
+{
+question:"Heron's formula uses:",
+options:["Only angles","Three sides","Only radius","Only height"],
+answer:1
+},
+
+{
+question:"Volume of a cube of side a is:",
+options:["6a²","4a²","a³","3a"],
+answer:2
+},
+
+{
+question:"Probability of a certain event is:",
+options:["0","1/2","1","2"],
+answer:2
+},
+
+{
+question:"The interior angle sum of an n-sided polygon is:",
+options:[
+"(n−1)×180°",
+"(n−2)×180°",
+"n×180°",
+"(n+2)×180°"
+],
+answer:1
+}
+
+];
+
+let currentQuestion=0;
+let score=0;
+let answered=false;
+
+const questionEl=document.getElementById("question");
+const optionsEl=document.getElementById("options");
+const feedbackEl=document.getElementById("feedback");
+const nextBtn=document.getElementById("nextBtn");
+const questionNumberEl=document.getElementById("questionNumber");
+const scoreEl=document.getElementById("score");
+
+
+function loadQuestion(){
+
+    answered=false;
+
+    const q=quiz[currentQuestion];
+
+    questionNumberEl.textContent=
+        "Question "+(currentQuestion+1)+"/"+quiz.length;
+
+    scoreEl.textContent="Score: "+score;
+
+    questionEl.textContent=q.question;
+
+    optionsEl.innerHTML="";
+
+    feedbackEl.textContent="";
+
+    nextBtn.style.display="none";
+
+    q.options.forEach((option,index)=>{
+
+        const button=document.createElement("button");
+
+        button.className="option-btn";
+
+        button.textContent=option;
+
+        button.onclick=()=>checkAnswer(index,button);
+
+        optionsEl.appendChild(button);
+
+    });
+
+}
+
+
+function checkAnswer(index,button){
+
+    if(answered) return;
+
+    answered=true;
+
+    const correct=quiz[currentQuestion].answer;
+
+    const buttons=document.querySelectorAll(".option-btn");
+
+    buttons.forEach((btn,i)=>{
+
+        btn.disabled=true;
+
+        if(i===correct){
+            btn.classList.add("correct");
+        }
+
+    });
+
+    if(index===correct){
+
+        score++;
+
+        button.classList.add("correct");
+
+        feedbackEl.textContent="✅ Correct!";
+
+    }else{
+
+        button.classList.add("wrong");
+
+        feedbackEl.textContent=
+            "❌ Incorrect. The correct answer is "+quiz[currentQuestion].options[correct]+".";
+
+    }
+
+    scoreEl.textContent="Score: "+score;
+
+    nextBtn.style.display="inline-block";
+
+}
+
+
+function nextQuestion(){
+
+    currentQuestion++;
+
+    if(currentQuestion>=quiz.length){
+
+        showResult();
+
+    }else{
+
+        loadQuestion();
+
+    }
+
+}
+
+
+function showResult(){
+
+    document.getElementById("quizBox").innerHTML=`
+
+        <div class="result-box">
+
+            <h3>🎉 Quiz Complete!</h3>
+
+            <p>
+                You scored <strong>${score}/${quiz.length}</strong>
+            </p>
+
+            <button class="restart-btn" onclick="restartQuiz()">
+                Restart Quiz
+            </button>
+
+        </div>
+
+    `;
+
+}
+
+
+function restartQuiz(){
+
+    currentQuestion=0;
+
+    score=0;
+
+    document.getElementById("quizBox").innerHTML=`
+
+        <div class="quiz-top">
+            <span id="questionNumber">Question 1/12</span>
+            <span id="score">Score: 0</span>
+        </div>
+
+        <div class="question" id="question">
+            Loading...
+        </div>
+
+        <div class="options" id="options"></div>
+
+        <div class="feedback" id="feedback"></div>
+
+        <button class="next-btn" id="nextBtn"
+        onclick="nextQuestion()" style="display:none;">
+            Next Question →
+        </button>
+
+    `;
+
+    location.reload();
+
+}
+
+
+loadQuestion();
+
+</script></body>
+</html>
