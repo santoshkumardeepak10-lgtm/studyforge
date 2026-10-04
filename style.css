@@ -470,3 +470,26 @@ body.dark .theme-btn {
 body.dark footer {
     background: #05070a;
 }
+
+/* =========================
+   DASHBOARD LINK
+========================= */
+
+.dashboard-link{
+    display:block;
+    width:100%;
+    box-sizing:border-box;
+    padding:10px;
+    margin-bottom:8px;
+    border-radius:8px;
+    background:#6366f1;
+    color:white;
+    text-decoration:none;
+    text-align:center;
+    font-weight:700;
+    font-size:14px;
+}
+
+.dashboard-link:hover{
+    opacity:.9;
+}
