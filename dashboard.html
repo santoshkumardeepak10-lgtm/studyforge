@@ -10,7 +10,6 @@
 content="StudyForge student dashboard — points, quizzes, progress, study time, scores and achievements.">
 
 <style>
-
 *{
     margin:0;
     padding:0;
@@ -32,10 +31,6 @@ body.dark{
     background:#101522;
     color:#f2f5ff;
 }
-
-/* =========================
-   NAVBAR
-========================= */
 
 .navbar{
     width:100%;
@@ -88,15 +83,35 @@ body.dark .home-btn{
     color:#fff;
 }
 
-/* =========================
-   MAIN
-========================= */
-
 .container{
     width:92%;
     max-width:1150px;
     margin:auto;
     padding:35px 0 60px;
+}
+
+.loading{
+    text-align:center;
+    padding:40px 20px;
+    font-weight:600;
+}
+
+.error-box{
+    display:none;
+    margin:20px auto;
+    max-width:700px;
+    padding:20px;
+    border-radius:14px;
+    background:#fff0f0;
+    border:1px solid #ffb4b4;
+    color:#9b1c1c;
+    text-align:center;
+}
+
+body.dark .error-box{
+    background:#351d23;
+    border-color:#71323b;
+    color:#ffb4b4;
 }
 
 .welcome{
@@ -115,10 +130,6 @@ body.dark .home-btn{
 body.dark .welcome p{
     color:#aab2c5;
 }
-
-/* =========================
-   STAT CARDS
-========================= */
 
 .stats{
     display:grid;
@@ -161,10 +172,6 @@ body.dark .stat-title{
     font-weight:800;
 }
 
-/* =========================
-   GRID
-========================= */
-
 .dashboard-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
@@ -183,10 +190,6 @@ body.dark .stat-title{
     font-size:21px;
     margin-bottom:20px;
 }
-
-/* =========================
-   PROGRESS
-========================= */
 
 .progress-box{
     margin-bottom:18px;
@@ -220,10 +223,6 @@ body.dark .progress-bar{
     transition:width .7s ease;
 }
 
-/* =========================
-   SCORES
-========================= */
-
 .score-list{
     display:flex;
     flex-direction:column;
@@ -251,10 +250,6 @@ body.dark .score-item{
     font-weight:800;
     color:#6c4cff;
 }
-
-/* =========================
-   ACHIEVEMENTS
-========================= */
 
 .achievements{
     display:grid;
@@ -300,10 +295,6 @@ body.dark .achievement-desc{
     color:#aab2c5;
 }
 
-/* =========================
-   LOGIN MESSAGE
-========================= */
-
 .login-message{
     text-align:center;
     padding:60px 20px;
@@ -319,22 +310,23 @@ body.dark .achievement-desc{
     margin-bottom:20px;
 }
 
-/* =========================
-   LOADING
-========================= */
-
-.loading{
-    text-align:center;
-    padding:40px;
-    font-weight:600;
+body.dark .login-message p{
+    color:#aab2c5;
 }
 
-/* =========================
-   MOBILE
-========================= */
+.status{
+    text-align:center;
+    padding:15px;
+    margin-top:15px;
+    font-size:14px;
+    color:#667085;
+}
+
+body.dark .status{
+    color:#aab2c5;
+}
 
 @media(max-width:850px){
-
     .stats{
         grid-template-columns:repeat(2,1fr);
     }
@@ -342,11 +334,9 @@ body.dark .achievement-desc{
     .dashboard-grid{
         grid-template-columns:1fr;
     }
-
 }
 
 @media(max-width:520px){
-
     .navbar{
         padding:13px 4%;
     }
@@ -388,17 +378,11 @@ body.dark .achievement-desc{
     .achievements{
         grid-template-columns:1fr 1fr;
     }
-
 }
-
 </style>
 </head>
 
 <body>
-
-<!-- =========================
-     NAVBAR
-========================= -->
 
 <nav class="navbar">
 
@@ -412,7 +396,7 @@ body.dark .achievement-desc{
             Home
         </a>
 
-        <button class="nav-btn" id="themeBtn">
+        <button class="nav-btn" id="themeBtn" type="button">
             🌙
         </button>
 
@@ -420,19 +404,16 @@ body.dark .achievement-desc{
 
 </nav>
 
-
-<!-- =========================
-     MAIN
-========================= -->
-
 <main class="container">
 
     <div id="loading" class="loading">
         Loading dashboard...
     </div>
 
-
-    <!-- LOGIN MESSAGE -->
+    <div id="errorBox" class="error-box">
+        <strong>⚠️ Dashboard Error</strong>
+        <div id="errorText" style="margin-top:8px;"></div>
+    </div>
 
     <div id="loginMessage"
          class="login-message"
@@ -452,11 +433,7 @@ body.dark .achievement-desc{
 
     </div>
 
-
-    <!-- DASHBOARD -->
-
-    <div id="dashboard"
-         style="display:none;">
+    <div id="dashboard" style="display:none;">
 
         <section class="welcome">
 
@@ -470,102 +447,39 @@ body.dark .achievement-desc{
 
         </section>
 
-
-        <!-- =========================
-             STATISTICS
-        ========================= -->
-
         <section class="stats">
 
             <div class="stat-card">
-
-                <div class="stat-icon">
-                    🏆
-                </div>
-
-                <div class="stat-title">
-                    Points
-                </div>
-
-                <div class="stat-value"
-                     id="points">
-                    0
-                </div>
-
+                <div class="stat-icon">🏆</div>
+                <div class="stat-title">Points</div>
+                <div class="stat-value" id="points">0</div>
             </div>
 
-
             <div class="stat-card">
-
-                <div class="stat-icon">
-                    📝
-                </div>
-
-                <div class="stat-title">
-                    Quiz Completed
-                </div>
-
-                <div class="stat-value"
-                     id="quizzes">
-                    0
-                </div>
-
+                <div class="stat-icon">📝</div>
+                <div class="stat-title">Quiz Completed</div>
+                <div class="stat-value" id="quizzes">0</div>
             </div>
 
-
             <div class="stat-card">
-
-                <div class="stat-icon">
-                    📚
-                </div>
-
-                <div class="stat-title">
-                    Progress
-                </div>
-
-                <div class="stat-value"
-                     id="progress">
-                    0%
-                </div>
-
+                <div class="stat-icon">📚</div>
+                <div class="stat-title">Progress</div>
+                <div class="stat-value" id="progress">0%</div>
             </div>
 
-
             <div class="stat-card">
-
-                <div class="stat-icon">
-                    ⏱️
-                </div>
-
-                <div class="stat-title">
-                    Study Time
-                </div>
-
-                <div class="stat-value"
-                     id="studyTime">
-                    0 min
-                </div>
-
+                <div class="stat-icon">⏱️</div>
+                <div class="stat-title">Study Time</div>
+                <div class="stat-value" id="studyTime">0 min</div>
             </div>
 
         </section>
 
-
-        <!-- =========================
-             LOWER GRID
-        ========================= -->
-
         <div class="dashboard-grid">
-
-
-            <!-- PROGRESS -->
 
             <section class="section">
 
-                <h2>
-                    📚 Your Progress
-                </h2>
-
+                <h2>📚 Your Progress</h2>
 
                 <div class="progress-box">
 
@@ -575,15 +489,10 @@ body.dark .achievement-desc{
                     </div>
 
                     <div class="progress-bar">
-
-                        <div class="progress-fill"
-                             id="progressBar">
-                        </div>
-
+                        <div class="progress-fill" id="progressBar"></div>
                     </div>
 
                 </div>
-
 
                 <div class="progress-box">
 
@@ -593,15 +502,10 @@ body.dark .achievement-desc{
                     </div>
 
                     <div class="progress-bar">
-
-                        <div class="progress-fill"
-                             id="quizProgressBar">
-                        </div>
-
+                        <div class="progress-fill" id="quizProgressBar"></div>
                     </div>
 
                 </div>
-
 
                 <div class="progress-box">
 
@@ -611,28 +515,18 @@ body.dark .achievement-desc{
                     </div>
 
                     <div class="progress-bar">
-
-                        <div class="progress-fill"
-                             id="pointsProgressBar">
-                        </div>
-
+                        <div class="progress-fill" id="pointsProgressBar"></div>
                     </div>
 
                 </div>
 
             </section>
 
-
-            <!-- SCORES -->
-
             <section class="section">
 
-                <h2>
-                    📊 Recent Scores
-                </h2>
+                <h2>📊 Recent Scores</h2>
 
-                <div class="score-list"
-                     id="scoreList">
+                <div class="score-list" id="scoreList">
 
                     <div class="score-item">
 
@@ -650,124 +544,58 @@ body.dark .achievement-desc{
 
             </section>
 
+            <section class="section" style="grid-column:1/-1;">
 
-            <!-- ACHIEVEMENTS -->
-
-            <section class="section"
-                     style="grid-column:1/-1;">
-
-                <h2>
-                    🎯 Achievements
-                </h2>
+                <h2>🎯 Achievements</h2>
 
                 <div class="achievements">
 
-
-                    <div class="achievement"
-                         id="achievement1">
-
-                        <div class="achievement-icon">
-                            🌱
-                        </div>
-
-                        <div class="achievement-title">
-                            First Step
-                        </div>
-
+                    <div class="achievement" id="achievement1">
+                        <div class="achievement-icon">🌱</div>
+                        <div class="achievement-title">First Step</div>
                         <div class="achievement-desc">
                             Complete your first quiz
                         </div>
-
                     </div>
 
-
-                    <div class="achievement"
-                         id="achievement2">
-
-                        <div class="achievement-icon">
-                            🔥
-                        </div>
-
-                        <div class="achievement-title">
-                            Quiz Streak
-                        </div>
-
+                    <div class="achievement" id="achievement2">
+                        <div class="achievement-icon">🔥</div>
+                        <div class="achievement-title">Quiz Streak</div>
                         <div class="achievement-desc">
                             Complete 5 quizzes
                         </div>
-
                     </div>
 
-
-                    <div class="achievement"
-                         id="achievement3">
-
-                        <div class="achievement-icon">
-                            🏆
-                        </div>
-
-                        <div class="achievement-title">
-                            High Scorer
-                        </div>
-
+                    <div class="achievement" id="achievement3">
+                        <div class="achievement-icon">🏆</div>
+                        <div class="achievement-title">High Scorer</div>
                         <div class="achievement-desc">
                             Earn 500 points
                         </div>
-
                     </div>
 
-
-                    <div class="achievement"
-                         id="achievement4">
-
-                        <div class="achievement-icon">
-                            📚
-                        </div>
-
-                        <div class="achievement-title">
-                            Dedicated Learner
-                        </div>
-
+                    <div class="achievement" id="achievement4">
+                        <div class="achievement-icon">📚</div>
+                        <div class="achievement-title">Dedicated Learner</div>
                         <div class="achievement-desc">
                             Study for 60 minutes
                         </div>
-
                     </div>
 
-
-                    <div class="achievement"
-                         id="achievement5">
-
-                        <div class="achievement-icon">
-                            🚀
-                        </div>
-
-                        <div class="achievement-title">
-                            Quiz Master
-                        </div>
-
+                    <div class="achievement" id="achievement5">
+                        <div class="achievement-icon">🚀</div>
+                        <div class="achievement-title">Quiz Master</div>
                         <div class="achievement-desc">
                             Complete 20 quizzes
                         </div>
-
                     </div>
 
-
-                    <div class="achievement"
-                         id="achievement6">
-
-                        <div class="achievement-icon">
-                            💎
-                        </div>
-
-                        <div class="achievement-title">
-                            StudyForge Pro
-                        </div>
-
+                    <div class="achievement" id="achievement6">
+                        <div class="achievement-icon">💎</div>
+                        <div class="achievement-title">StudyForge Pro</div>
                         <div class="achievement-desc">
                             Earn 1000 points
                         </div>
-
                     </div>
 
                 </div>
@@ -776,14 +604,11 @@ body.dark .achievement-desc{
 
         </div>
 
+        <div id="status" class="status"></div>
+
     </div>
 
 </main>
-
-
-<!-- =========================
-     FIREBASE DASHBOARD SCRIPT
-========================= -->
 
 <script type="module">
 
@@ -791,12 +616,10 @@ import {
     initializeApp
 } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
 
-
 import {
     getAuth,
     onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
-
 
 import {
     getFirestore,
@@ -805,144 +628,212 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 
 
-// ============================================
-// FIREBASE CONFIG
-// ============================================
+/* =========================================
+   FIREBASE CONFIG
+========================================= */
 
 const firebaseConfig = {
-
     apiKey: "AIzaSyBDRJgCd3X-tGxddbJ_XnuvcIb6VoJDE5A",
-
     authDomain: "studyforge-5049d.firebaseapp.com",
-
     projectId: "studyforge-5049d",
-
     storageBucket: "studyforge-5049d.firebasestorage.app",
-
     messagingSenderId: "817969982200",
-
     appId: "1:817969982200:web:a95fc8395a1a5089eb690d",
-
     measurementId: "G-3BSP1C938M"
-
 };
 
 
-// ============================================
-// INITIALIZE
-// ============================================
+/* =========================================
+   ELEMENTS
+========================================= */
 
-const app = initializeApp(firebaseConfig);
+const loading = document.getElementById("loading");
+const dashboard = document.getElementById("dashboard");
+const loginMessage = document.getElementById("loginMessage");
+const errorBox = document.getElementById("errorBox");
+const errorText = document.getElementById("errorText");
+const statusEl = document.getElementById("status");
 
-const auth = getAuth(app);
+const userEmail = document.getElementById("userEmail");
 
-const db = getFirestore(app);
+const pointsEl = document.getElementById("points");
+const quizzesEl = document.getElementById("quizzes");
+const progressEl = document.getElementById("progress");
+const studyTimeEl = document.getElementById("studyTime");
 
+const progressText = document.getElementById("progressText");
+const progressBar = document.getElementById("progressBar");
 
-// ============================================
-// ELEMENTS
-// ============================================
+const quizProgressText = document.getElementById("quizProgressText");
+const quizProgressBar = document.getElementById("quizProgressBar");
 
-const loading =
-    document.getElementById("loading");
+const pointsProgressText = document.getElementById("pointsProgressText");
+const pointsProgressBar = document.getElementById("pointsProgressBar");
 
-const dashboard =
-    document.getElementById("dashboard");
+const scoreList = document.getElementById("scoreList");
 
-const loginMessage =
-    document.getElementById("loginMessage");
-
-const userEmail =
-    document.getElementById("userEmail");
-
-const pointsEl =
-    document.getElementById("points");
-
-const quizzesEl =
-    document.getElementById("quizzes");
-
-const progressEl =
-    document.getElementById("progress");
-
-const studyTimeEl =
-    document.getElementById("studyTime");
-
-const progressText =
-    document.getElementById("progressText");
-
-const progressBar =
-    document.getElementById("progressBar");
-
-const quizProgressText =
-    document.getElementById("quizProgressText");
-
-const quizProgressBar =
-    document.getElementById("quizProgressBar");
-
-const pointsProgressText =
-    document.getElementById("pointsProgressText");
-
-const pointsProgressBar =
-    document.getElementById("pointsProgressBar");
+const themeBtn = document.getElementById("themeBtn");
 
 
-// ============================================
-// AUTH STATE
-// ============================================
+/* =========================================
+   THEME
+========================================= */
 
-onAuthStateChanged(auth, async (user) => {
+function loadTheme(){
 
-    loading.style.display = "none";
+    const savedTheme =
+        localStorage.getItem("studyforge-theme");
 
+    if(savedTheme === "dark"){
 
-    if (!user) {
+        document.body.classList.add("dark");
 
-        dashboard.style.display = "none";
+        themeBtn.textContent = "☀️";
 
-        loginMessage.style.display = "block";
+    }else{
 
-        return;
+        document.body.classList.remove("dark");
 
+        themeBtn.textContent = "🌙";
     }
+}
 
+themeBtn.addEventListener("click",function(){
 
-    loginMessage.style.display = "none";
+    document.body.classList.toggle("dark");
 
-    dashboard.style.display = "block";
+    const isDark =
+        document.body.classList.contains("dark");
 
+    localStorage.setItem(
+        "studyforge-theme",
+        isDark ? "dark" : "light"
+    );
 
-    userEmail.textContent =
-        user.email || "Student";
-
-
-    await loadDashboard(user.uid);
+    themeBtn.textContent =
+        isDark ? "☀️" : "🌙";
 
 });
 
+loadTheme();
 
-// ============================================
-// LOAD DASHBOARD
-// ============================================
 
-async function loadDashboard(uid) {
+/* =========================================
+   SHOW ERROR
+========================================= */
 
-    try {
+function showError(message){
+
+    loading.style.display = "none";
+
+    errorBox.style.display = "block";
+
+    errorText.textContent = message;
+
+}
+
+
+/* =========================================
+   FIREBASE START
+========================================= */
+
+let app;
+let auth;
+let db;
+
+try{
+
+    app = initializeApp(firebaseConfig);
+
+    auth = getAuth(app);
+
+    db = getFirestore(app);
+
+}catch(error){
+
+    console.error(
+        "Firebase initialization failed:",
+        error
+    );
+
+    showError(
+        "Firebase could not start. Please refresh the page."
+    );
+}
+
+
+/* =========================================
+   AUTH STATE
+========================================= */
+
+if(auth){
+
+    onAuthStateChanged(
+        auth,
+        async function(user){
+
+            loading.style.display = "none";
+
+            if(!user){
+
+                dashboard.style.display = "none";
+
+                loginMessage.style.display = "block";
+
+                return;
+            }
+
+            loginMessage.style.display = "none";
+
+            dashboard.style.display = "block";
+
+            userEmail.textContent =
+                user.email || "Student";
+
+            await loadDashboard(user.uid);
+
+        },
+        function(error){
+
+            console.error(
+                "Authentication error:",
+                error
+            );
+
+            showError(
+                "Authentication failed. Please return to StudyForge and login again."
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================
+   LOAD DASHBOARD
+========================================= */
+
+async function loadDashboard(uid){
+
+    try{
+
+        statusEl.textContent =
+            "Loading your StudyForge data...";
 
         const userRef =
-            doc(db, "users", uid);
+            doc(db,"users",uid);
 
         const userSnap =
             await getDoc(userRef);
 
 
-        if (!userSnap.exists()) {
+        if(!userSnap.exists()){
 
-            console.log(
-                "User profile not found."
-            );
+            statusEl.textContent =
+                "Your account is active, but no dashboard profile was found yet.";
 
             return;
-
         }
 
 
@@ -960,9 +851,7 @@ async function loadDashboard(uid) {
             Number(data.studyTime || 0);
 
 
-        // ========================================
-        // BASIC STATS
-        // ========================================
+        /* BASIC STATS */
 
         pointsEl.textContent =
             points;
@@ -970,14 +859,11 @@ async function loadDashboard(uid) {
         quizzesEl.textContent =
             quizzes;
 
-
         studyTimeEl.textContent =
             formatStudyTime(studyTime);
 
 
-        // ========================================
-        // PROGRESS
-        // ========================================
+        /* PROGRESS */
 
         const overallProgress =
             Math.min(
@@ -987,7 +873,6 @@ async function loadDashboard(uid) {
                 )
             );
 
-
         const quizProgress =
             Math.min(
                 100,
@@ -995,7 +880,6 @@ async function loadDashboard(uid) {
                     (quizzes / 20) * 100
                 )
             );
-
 
         const pointsProgress =
             Math.min(
@@ -1008,7 +892,6 @@ async function loadDashboard(uid) {
 
         progressEl.textContent =
             overallProgress + "%";
-
 
         progressText.textContent =
             overallProgress + "%";
@@ -1031,9 +914,7 @@ async function loadDashboard(uid) {
             pointsProgress + "%";
 
 
-        // ========================================
-        // ACHIEVEMENTS
-        // ========================================
+        /* ACHIEVEMENTS */
 
         updateAchievements(
             points,
@@ -1042,18 +923,25 @@ async function loadDashboard(uid) {
         );
 
 
-        // ========================================
-        // SCORES
-        // ========================================
+        /* SCORES */
 
         loadScores(data);
 
 
-    } catch (error) {
+        statusEl.textContent =
+            "Dashboard synced successfully.";
+
+    }catch(error){
 
         console.error(
-            "Dashboard error:",
+            "Firestore dashboard error:",
             error
+        );
+
+        statusEl.textContent = "";
+
+        showError(
+            getFirestoreErrorMessage(error)
         );
 
     }
@@ -1061,18 +949,18 @@ async function loadDashboard(uid) {
 }
 
 
-// ============================================
-// STUDY TIME FORMAT
-// ============================================
+/* =========================================
+   STUDY TIME
+========================================= */
 
-function formatStudyTime(minutes) {
+function formatStudyTime(minutes){
 
-    if (minutes < 60) {
+    minutes = Number(minutes) || 0;
+
+    if(minutes < 60){
 
         return minutes + " min";
-
     }
-
 
     const hours =
         Math.floor(minutes / 60);
@@ -1080,13 +968,207 @@ function formatStudyTime(minutes) {
     const remainingMinutes =
         minutes % 60;
 
-
-    if (remainingMinutes === 0) {
+    if(remainingMinutes === 0){
 
         return hours + " hr";
+    }
+
+    return (
+        hours +
+        " hr " +
+        remainingMinutes +
+        " min"
+    );
+}
+
+
+/* =========================================
+   ACHIEVEMENTS
+========================================= */
+
+function updateAchievements(
+    points,
+    quizzes,
+    studyTime
+){
+
+    setAchievement(
+        "achievement1",
+        quizzes >= 1
+    );
+
+    setAchievement(
+        "achievement2",
+        quizzes >= 5
+    );
+
+    setAchievement(
+        "achievement3",
+        points >= 500
+    );
+
+    setAchievement(
+        "achievement4",
+        studyTime >= 60
+    );
+
+    setAchievement(
+        "achievement5",
+        quizzes >= 20
+    );
+
+    setAchievement(
+        "achievement6",
+        points >= 1000
+    );
+
+}
+
+
+function setAchievement(
+    id,
+    unlocked
+){
+
+    const element =
+        document.getElementById(id);
+
+    if(!element) return;
+
+    if(unlocked){
+
+        element.classList.add("unlocked");
+
+    }else{
+
+        element.classList.remove("unlocked");
 
     }
 
+}
+
+
+/* =========================================
+   RECENT SCORES
+========================================= */
+
+function loadScores(data){
+
+    if(!scoreList) return;
+
+
+    const scores =
+        Array.isArray(data.recentScores)
+            ? data.recentScores
+            : [];
+
+
+    if(scores.length === 0){
+
+        scoreList.innerHTML = `
+            <div class="score-item">
+                <span class="score-subject">
+                    No quiz scores yet
+                </span>
+
+                <span class="score-value">
+                    —
+                </span>
+            </div>
+        `;
+
+        return;
+    }
+
+
+    scoreList.innerHTML = "";
+
+
+    scores
+        .slice(-5)
+        .reverse()
+        .forEach(function(item){
+
+            const row =
+                document.createElement("div");
+
+            row.className =
+                "score-item";
+
+
+            const subject =
+                document.createElement("span");
+
+            subject.className =
+                "score-subject";
+
+            subject.textContent =
+                item.subject ||
+                item.quiz ||
+                "Quiz";
+
+
+            const score =
+                document.createElement("span");
+
+            score.className =
+                "score-value";
+
+            score.textContent =
+                item.score !== undefined
+                    ? item.score
+                    : "—";
+
+
+            row.appendChild(subject);
+
+            row.appendChild(score);
+
+            scoreList.appendChild(row);
+
+        });
+
+}
+
+
+/* =========================================
+   FIRESTORE ERROR MESSAGE
+========================================= */
+
+function getFirestoreErrorMessage(error){
+
+    if(
+        error &&
+        error.code === "permission-denied"
+    ){
+
+        return "Firestore permission denied. Please check your Firestore rules.";
+    }
+
+    if(
+        error &&
+        error.code === "unavailable"
+    ){
+
+        return "Firestore is temporarily unavailable. Check your internet connection and refresh.";
+    }
+
+    if(
+        error &&
+        error.code === "failed-precondition"
+    ){
+
+        return "Firestore is not ready yet. Please refresh and try again.";
+    }
 
     return (
-        
+        "Could not load your dashboard data. " +
+        "Please refresh the page and try again."
+    );
+
+}
+
+</script>
+
+</body>
+</html>
