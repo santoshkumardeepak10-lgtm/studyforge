@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>StudyForge — Dashboard</title>
+
+<meta name="description"
+content="StudyForge student dashboard — points, quizzes, progress, study time, scores and achievements.">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f5f7fb;
+    color:#172033;
+    min-height:100vh;
+}
+
+body.dark{
+    background:#101522;
+    color:#f2f5ff;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar{
+    width:100%;
+    padding:15px 6%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:white;
+    box-shadow:0 3px 15px rgba(0,0,0,.08);
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+body.dark .navbar{
+    background:#171d2b;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:800;
+    color:#6c4cff;
+}
+
+.nav-right{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.nav-btn{
+    border:none;
+    background:#6c4cff;
+    color:white;
+    padding:10px 15px;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.home-btn{
+    text-decoration:none;
+    color:#172033;
+    padding:10px 14px;
+    border-radius:10px;
+    font-weight:600;
+}
+
+body.dark .home-btn{
+    color:#fff;
+}
+
+/* =========================
+   MAIN
+========================= */
+
+.container{
+    width:92%;
+    max-width:1150px;
+    margin:auto;
+    padding:35px 0 60px;
+}
+
+.welcome{
+    margin-bottom:28px;
+}
+
+.welcome h1{
+    font-size:32px;
+    margin-bottom:8px;
+}
+
+.welcome p{
+    color:#667085;
+}
+
+body.dark .welcome p{
+    color:#aab2c5;
+}
+
+/* =========================
+   STAT CARDS
+========================= */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+    margin-bottom:25px;
+}
+
+.stat-card{
+    background:white;
+    padding:22px;
+    border-radius:18px;
+    box-shadow:0 5px 20px rgba(0,0,0,.07);
+    border:1px solid #edf0f5;
+}
+
+body.dark .stat-card,
+body.dark .section{
+    background:#171d2b;
+    border-color:#252d40;
+}
+
+.stat-icon{
+    font-size:28px;
+    margin-bottom:12px;
+}
+
+.stat-title{
+    color:#667085;
+    font-size:14px;
+    margin-bottom:7px;
+}
+
+body.dark .stat-title{
+    color:#aab2c5;
+}
+
+.stat-value{
+    font-size:27px;
+    font-weight:800;
+}
+
+/* =========================
+   GRID
+========================= */
+
+.dashboard-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.section{
+    background:white;
+    border-radius:18px;
+    padding:24px;
+    box-shadow:0 5px 20px rgba(0,0,0,.07);
+    border:1px solid #edf0f5;
+}
+
+.section h2{
+    font-size:21px;
+    margin-bottom:20px;
+}
+
+/* =========================
+   PROGRESS
+========================= */
+
+.progress-box{
+    margin-bottom:18px;
+}
+
+.progress-top{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:8px;
+    font-size:14px;
+    font-weight:600;
+}
+
+.progress-bar{
+    width:100%;
+    height:12px;
+    background:#e8ebf2;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+body.dark .progress-bar{
+    background:#293144;
+}
+
+.progress-fill{
+    height:100%;
+    width:0%;
+    background:#6c4cff;
+    border-radius:20px;
+    transition:width .7s ease;
+}
+
+/* =========================
+   SCORES
+========================= */
+
+.score-list{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.score-item{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:13px 15px;
+    background:#f7f8fc;
+    border-radius:12px;
+}
+
+body.dark .score-item{
+    background:#202738;
+}
+
+.score-subject{
+    font-weight:700;
+}
+
+.score-value{
+    font-weight:800;
+    color:#6c4cff;
+}
+
+/* =========================
+   ACHIEVEMENTS
+========================= */
+
+.achievements{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+}
+
+.achievement{
+    padding:16px;
+    border-radius:14px;
+    background:#f7f8fc;
+    text-align:center;
+    border:2px solid transparent;
+    opacity:.45;
+}
+
+body.dark .achievement{
+    background:#202738;
+}
+
+.achievement.unlocked{
+    opacity:1;
+    border-color:#6c4cff;
+}
+
+.achievement-icon{
+    font-size:30px;
+    margin-bottom:7px;
+}
+
+.achievement-title{
+    font-weight:800;
+    font-size:14px;
+}
+
+.achievement-desc{
+    font-size:12px;
+    margin-top:5px;
+    color:#667085;
+}
+
+body.dark .achievement-desc{
+    color:#aab2c5;
+}
+
+/* =========================
+   LOGIN MESSAGE
+========================= */
+
+.login-message{
+    text-align:center;
+    padding:60px 20px;
+}
+
+.login-message h2{
+    font-size:26px;
+    margin-bottom:12px;
+}
+
+.login-message p{
+    color:#667085;
+    margin-bottom:20px;
+}
+
+/* =========================
+   LOADING
+========================= */
+
+.loading{
+    text-align:center;
+    padding:40px;
+    font-weight:600;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:850px){
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .dashboard-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:520px){
+
+    .navbar{
+        padding:13px 4%;
+    }
+
+    .logo{
+        font-size:19px;
+    }
+
+    .home-btn{
+        display:none;
+    }
+
+    .container{
+        width:94%;
+        padding-top:25px;
+    }
+
+    .welcome h1{
+        font-size:26px;
+    }
+
+    .stats{
+        grid-template-columns:1fr 1fr;
+        gap:12px;
+    }
+
+    .stat-card{
+        padding:17px;
+    }
+
+    .stat-value{
+        font-size:23px;
+    }
+
+    .section{
+        padding:18px;
+    }
+
+    .achievements{
+        grid-template-columns:1fr 1fr;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        ⚡ StudyForge
+    </div>
+
+    <div class="nav-right">
+
+        <a href="index.html" class="home-btn">
+            Home
+        </a>
+
+        <button class="nav-btn" id="themeBtn">
+            🌙
+        </button>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<main class="container">
+
+    <div id="loading" class="loading">
+        Loading dashboard...
+    </div>
+
+
+    <!-- LOGIN MESSAGE -->
+
+    <div id="loginMessage"
+         class="login-message"
+         style="display:none;">
+
+        <h2>🔐 Login Required</h2>
+
+        <p>
+            Please login to StudyForge to view your dashboard.
+        </p>
+
+        <a href="index.html"
+           class="nav-btn"
+           style="display:inline-block;text-decoration:none;">
+            Go to StudyForge
+        </a>
+
+    </div>
+
+
+    <!-- DASHBOARD -->
+
+    <div id="dashboard"
+         style="display:none;">
+
+        <section class="welcome">
+
+            <h1>
+                Welcome back! 👋
+            </h1>
+
+            <p id="userEmail">
+                Student
+            </p>
+
+        </section>
+
+
+        <!-- =========================
+             STATISTICS
+        ========================= -->
+
+        <section class="stats">
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    🏆
+                </div>
+
+                <div class="stat-title">
+                    Points
+                </div>
+
+                <div class="stat-value"
+                     id="points">
+                    0
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    📝
+                </div>
+
+                <div class="stat-title">
+                    Quiz Completed
+                </div>
+
+                <div class="stat-value"
+                     id="quizzes">
+                    0
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    📚
+                </div>
+
+                <div class="stat-title">
+                    Progress
+                </div>
+
+                <div class="stat-value"
+                     id="progress">
+                    0%
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    ⏱️
+                </div>
+
+                <div class="stat-title">
+                    Study Time
+                </div>
+
+                <div class="stat-value"
+                     id="studyTime">
+                    0 min
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             LOWER GRID
+        ========================= -->
+
+        <div class="dashboard-grid">
+
+
+            <!-- PROGRESS -->
+
+            <section class="section">
+
+                <h2>
+                    📚 Your Progress
+                </h2>
+
+
+                <div class="progress-box">
+
+                    <div class="progress-top">
+                        <span>Overall Progress</span>
+                        <span id="progressText">0%</span>
+                    </div>
+
+                    <div class="progress-bar">
+
+                        <div class="progress-fill"
+                             id="progressBar">
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="progress-box">
+
+                    <div class="progress-top">
+                        <span>Quiz Progress</span>
+                        <span id="quizProgressText">0%</span>
+                    </div>
+
+                    <div class="progress-bar">
+
+                        <div class="progress-fill"
+                             id="quizProgressBar">
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="progress-box">
+
+                    <div class="progress-top">
+                        <span>Points Progress</span>
+                        <span id="pointsProgressText">0%</span>
+                    </div>
+
+                    <div class="progress-bar">
+
+                        <div class="progress-fill"
+                             id="pointsProgressBar">
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- SCORES -->
+
+            <section class="section">
+
+                <h2>
+                    📊 Recent Scores
+                </h2>
+
+                <div class="score-list"
+                     id="scoreList">
+
+                    <div class="score-item">
+
+                        <span class="score-subject">
+                            No quiz scores yet
+                        </span>
+
+                        <span class="score-value">
+                            —
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ACHIEVEMENTS -->
+
+            <section class="section"
+                     style="grid-column:1/-1;">
+
+                <h2>
+                    🎯 Achievements
+                </h2>
+
+                <div class="achievements">
+
+
+                    <div class="achievement"
+                         id="achievement1">
+
+                        <div class="achievement-icon">
+                            🌱
+                        </div>
+
+                        <div class="achievement-title">
+                            First Step
+                        </div>
+
+                        <div class="achievement-desc">
+                            Complete your first quiz
+                        </div>
+
+                    </div>
+
+
+                    <div class="achievement"
+                         id="achievement2">
+
+                        <div class="achievement-icon">
+                            🔥
+                        </div>
+
+                        <div class="achievement-title">
+                            Quiz Streak
+                        </div>
+
+                        <div class="achievement-desc">
+                            Complete 5 quizzes
+                        </div>
+
+                    </div>
+
+
+                    <div class="achievement"
+                         id="achievement3">
+
+                        <div class="achievement-icon">
+                            🏆
+                        </div>
+
+                        <div class="achievement-title">
+                            High Scorer
+                        </div>
+
+                        <div class="achievement-desc">
+                            Earn 500 points
+                        </div>
+
+                    </div>
+
+
+                    <div class="achievement"
+                         id="achievement4">
+
+                        <div class="achievement-icon">
+                            📚
+                        </div>
+
+                        <div class="achievement-title">
+                            Dedicated Learner
+                        </div>
+
+                        <div class="achievement-desc">
+                            Study for 60 minutes
+                        </div>
+
+                    </div>
+
+
+                    <div class="achievement"
+                         id="achievement5">
+
+                        <div class="achievement-icon">
+                            🚀
+                        </div>
+
+                        <div class="achievement-title">
+                            Quiz Master
+                        </div>
+
+                        <div class="achievement-desc">
+                            Complete 20 quizzes
+                        </div>
+
+                    </div>
+
+
+                    <div class="achievement"
+                         id="achievement6">
+
+                        <div class="achievement-icon">
+                            💎
+                        </div>
+
+                        <div class="achievement-title">
+                            StudyForge Pro
+                        </div>
+
+                        <div class="achievement-desc">
+                            Earn 1000 points
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<!-- =========================
+     FIREBASE DASHBOARD SCRIPT
+========================= -->
+
+<script type="module">
+
+import {
+    initializeApp
+} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+
+
+import {
+    getAuth,
+    onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+
+
+import {
+    getFirestore,
+    doc,
+    getDoc
+} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+
+
+// ============================================
+// FIREBASE CONFIG
+// ============================================
+
+const firebaseConfig = {
+
+    apiKey: "AIzaSyBDRJgCd3X-tGxddbJ_XnuvcIb6VoJDE5A",
+
+    authDomain: "studyforge-5049d.firebaseapp.com",
+
+    projectId: "studyforge-5049d",
+
+    storageBucket: "studyforge-5049d.firebasestorage.app",
+
+    messagingSenderId: "817969982200",
+
+    appId: "1:817969982200:web:a95fc8395a1a5089eb690d",
+
+    measurementId: "G-3BSP1C938M"
+
+};
+
+
+// ============================================
+// INITIALIZE
+// ============================================
+
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+
+const db = getFirestore(app);
+
+
+// ============================================
+// ELEMENTS
+// ============================================
+
+const loading =
+    document.getElementById("loading");
+
+const dashboard =
+    document.getElementById("dashboard");
+
+const loginMessage =
+    document.getElementById("loginMessage");
+
+const userEmail =
+    document.getElementById("userEmail");
+
+const pointsEl =
+    document.getElementById("points");
+
+const quizzesEl =
+    document.getElementById("quizzes");
+
+const progressEl =
+    document.getElementById("progress");
+
+const studyTimeEl =
+    document.getElementById("studyTime");
+
+const progressText =
+    document.getElementById("progressText");
+
+const progressBar =
+    document.getElementById("progressBar");
+
+const quizProgressText =
+    document.getElementById("quizProgressText");
+
+const quizProgressBar =
+    document.getElementById("quizProgressBar");
+
+const pointsProgressText =
+    document.getElementById("pointsProgressText");
+
+const pointsProgressBar =
+    document.getElementById("pointsProgressBar");
+
+
+// ============================================
+// AUTH STATE
+// ============================================
+
+onAuthStateChanged(auth, async (user) => {
+
+    loading.style.display = "none";
+
+
+    if (!user) {
+
+        dashboard.style.display = "none";
+
+        loginMessage.style.display = "block";
+
+        return;
+
+    }
+
+
+    loginMessage.style.display = "none";
+
+    dashboard.style.display = "block";
+
+
+    userEmail.textContent =
+        user.email || "Student";
+
+
+    await loadDashboard(user.uid);
+
+});
+
+
+// ============================================
+// LOAD DASHBOARD
+// ============================================
+
+async function loadDashboard(uid) {
+
+    try {
+
+        const userRef =
+            doc(db, "users", uid);
+
+        const userSnap =
+            await getDoc(userRef);
+
+
+        if (!userSnap.exists()) {
+
+            console.log(
+                "User profile not found."
+            );
+
+            return;
+
+        }
+
+
+        const data =
+            userSnap.data();
+
+
+        const points =
+            Number(data.points || 0);
+
+        const quizzes =
+            Number(data.quizzesCompleted || 0);
+
+        const studyTime =
+            Number(data.studyTime || 0);
+
+
+        // ========================================
+        // BASIC STATS
+        // ========================================
+
+        pointsEl.textContent =
+            points;
+
+        quizzesEl.textContent =
+            quizzes;
+
+
+        studyTimeEl.textContent =
+            formatStudyTime(studyTime);
+
+
+        // ========================================
+        // PROGRESS
+        // ========================================
+
+        const overallProgress =
+            Math.min(
+                100,
+                Math.round(
+                    (points / 1000) * 100
+                )
+            );
+
+
+        const quizProgress =
+            Math.min(
+                100,
+                Math.round(
+                    (quizzes / 20) * 100
+                )
+            );
+
+
+        const pointsProgress =
+            Math.min(
+                100,
+                Math.round(
+                    (points / 1000) * 100
+                )
+            );
+
+
+        progressEl.textContent =
+            overallProgress + "%";
+
+
+        progressText.textContent =
+            overallProgress + "%";
+
+        progressBar.style.width =
+            overallProgress + "%";
+
+
+        quizProgressText.textContent =
+            quizProgress + "%";
+
+        quizProgressBar.style.width =
+            quizProgress + "%";
+
+
+        pointsProgressText.textContent =
+            pointsProgress + "%";
+
+        pointsProgressBar.style.width =
+            pointsProgress + "%";
+
+
+        // ========================================
+        // ACHIEVEMENTS
+        // ========================================
+
+        updateAchievements(
+            points,
+            quizzes,
+            studyTime
+        );
+
+
+        // ========================================
+        // SCORES
+        // ========================================
+
+        loadScores(data);
+
+
+    } catch (error) {
+
+        console.error(
+            "Dashboard error:",
+            error
+        );
+
+    }
+
+}
+
+
+// ============================================
+// STUDY TIME FORMAT
+// ============================================
+
+function formatStudyTime(minutes) {
+
+    if (minutes < 60) {
+
+        return minutes + " min";
+
+    }
+
+
+    const hours =
+        Math.floor(minutes / 60);
+
+    const remainingMinutes =
+        minutes % 60;
+
+
+    if (remainingMinutes === 0) {
+
+        return hours + " hr";
+
+    }
+
+
+    return (
+        
