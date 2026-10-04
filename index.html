@@ -11,11 +11,278 @@
         content="StudyForge is a free student learning platform for Math, Physics, Chemistry, quizzes, formulas and study tools.">
 
     <link rel="stylesheet" href="style.css">
+
+    <!-- Firebase Authentication -->
+    <script type="module" src="firebase-auth.js"></script>
+
+    <style>
+        /* ==============================
+           FIREBASE AUTH BUTTON
+        ============================== */
+
+        .auth-area {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-left: 10px;
+        }
+
+        .auth-btn {
+            border: none;
+            padding: 9px 14px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 700;
+            background: #6366f1;
+            color: white;
+            transition: 0.2s;
+        }
+
+        .auth-btn:hover {
+            transform: translateY(-1px);
+            opacity: 0.9;
+        }
+
+        .user-email {
+            display: none;
+            max-width: 150px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        /* ==============================
+           AUTH MODAL
+        ============================== */
+
+        .auth-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.65);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            padding: 20px;
+        }
+
+        .auth-modal.show {
+            display: flex;
+        }
+
+        .auth-box {
+            width: 100%;
+            max-width: 390px;
+            background: #ffffff;
+            color: #111827;
+            border-radius: 20px;
+            padding: 25px;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: authPop 0.2s ease;
+        }
+
+        @keyframes authPop {
+            from {
+                transform: scale(0.94);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .auth-close {
+            position: absolute;
+            top: 12px;
+            right: 14px;
+            border: none;
+            background: transparent;
+            font-size: 25px;
+            cursor: pointer;
+            color: #555;
+        }
+
+        .auth-box h2 {
+            margin: 0 0 6px;
+            font-size: 25px;
+        }
+
+        .auth-subtitle {
+            margin: 0 0 20px;
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .auth-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .auth-form input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 13px 14px;
+            border: 1px solid #d1d5db;
+            border-radius: 10px;
+            outline: none;
+            font-size: 15px;
+        }
+
+        .auth-form input:focus {
+            border-color: #6366f1;
+        }
+
+        .auth-submit {
+            width: 100%;
+            padding: 13px;
+            border: none;
+            border-radius: 10px;
+            background: #6366f1;
+            color: white;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .auth-submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .auth-switch {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .auth-switch button,
+        .forgot-btn {
+            border: none;
+            background: none;
+            color: #4f46e5;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .forgot-wrap {
+            text-align: right;
+            margin-top: -3px;
+        }
+
+        .auth-message {
+            display: none;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        .auth-message.show {
+            display: block;
+        }
+
+        .auth-message.error {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .auth-message.success {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        /* Logged-in account menu */
+
+        .account-menu {
+            position: relative;
+            display: none;
+        }
+
+        .account-btn {
+            border: none;
+            padding: 9px 13px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 700;
+            background: #6366f1;
+            color: white;
+        }
+
+        .account-dropdown {
+            position: absolute;
+            right: 0;
+            top: calc(100% + 8px);
+            width: 210px;
+            background: white;
+            color: #111827;
+            border-radius: 12px;
+            padding: 12px;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+            display: none;
+            z-index: 10000;
+        }
+
+        .account-dropdown.show {
+            display: block;
+        }
+
+        .account-email {
+            font-size: 12px;
+            color: #6b7280;
+            word-break: break-all;
+            margin-bottom: 10px;
+        }
+
+        .logout-btn {
+            width: 100%;
+            border: none;
+            padding: 10px;
+            border-radius: 8px;
+            background: #ef4444;
+            color: white;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        /* Mobile */
+
+        @media (max-width: 700px) {
+
+            .auth-area {
+                margin-left: 4px;
+            }
+
+            .auth-btn,
+            .account-btn {
+                padding: 8px 10px;
+                font-size: 12px;
+            }
+
+            .user-email {
+                display: none !important;
+            }
+
+            .auth-box {
+                padding: 22px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
+<!-- ==============================
+     NAVBAR
+============================== -->
+
 <header class="navbar">
 
     <div class="logo">⚡ StudyForge</div>
@@ -29,19 +296,226 @@
         <a href="#features">Features</a>
     </nav>
 
+    <div class="auth-area">
+
+        <!-- Login button -->
+        <button
+            id="loginBtn"
+            class="auth-btn"
+            type="button">
+            Login
+        </button>
+
+        <!-- Logged-in account -->
+        <div
+            id="accountMenu"
+            class="account-menu">
+
+            <button
+                id="accountBtn"
+                class="account-btn"
+                type="button">
+                👤 Account
+            </button>
+
+            <div
+                id="accountDropdown"
+                class="account-dropdown">
+
+                <div
+                    id="accountEmail"
+                    class="account-email">
+                </div>
+
+                <button
+                    id="logoutBtn"
+                    class="logout-btn"
+                    type="button">
+                    Logout
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
     <button class="theme-btn" onclick="toggleTheme()">🌙</button>
 
 </header>
 
 
-<!-- HERO -->
+<!-- ==============================
+     AUTH MODAL
+============================== -->
+
+<div
+    id="authModal"
+    class="auth-modal">
+
+    <div class="auth-box">
+
+        <button
+            id="authClose"
+            class="auth-close"
+            type="button">
+            ×
+        </button>
+
+        <!-- LOGIN -->
+
+        <div id="loginView">
+
+            <h2>Welcome Back 👋</h2>
+
+            <p class="auth-subtitle">
+                Login to continue using StudyForge.
+            </p>
+
+            <div
+                id="loginMessage"
+                class="auth-message">
+            </div>
+
+            <form
+                id="loginForm"
+                class="auth-form">
+
+                <input
+                    id="loginEmail"
+                    type="email"
+                    placeholder="Email address"
+                    autocomplete="email"
+                    required>
+
+                <input
+                    id="loginPassword"
+                    type="password"
+                    placeholder="Password"
+                    autocomplete="current-password"
+                    minlength="6"
+                    required>
+
+                <div class="forgot-wrap">
+
+                    <button
+                        id="forgotPasswordBtn"
+                        class="forgot-btn"
+                        type="button">
+                        Forgot password?
+                    </button>
+
+                </div>
+
+                <button
+                    id="loginSubmit"
+                    class="auth-submit"
+                    type="submit">
+                    Login
+                </button>
+
+            </form>
+
+            <div class="auth-switch">
+
+                Don't have an account?
+
+                <button
+                    id="showSignup"
+                    type="button">
+                    Create Account
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- SIGN UP -->
+
+        <div
+            id="signupView"
+            style="display:none;">
+
+            <h2>Create Account 🚀</h2>
+
+            <p class="auth-subtitle">
+                Create your free StudyForge account.
+            </p>
+
+            <div
+                id="signupMessage"
+                class="auth-message">
+            </div>
+
+            <form
+                id="signupForm"
+                class="auth-form">
+
+                <input
+                    id="signupEmail"
+                    type="email"
+                    placeholder="Email address"
+                    autocomplete="email"
+                    required>
+
+                <input
+                    id="signupPassword"
+                    type="password"
+                    placeholder="Password (minimum 6 characters)"
+                    autocomplete="new-password"
+                    minlength="6"
+                    required>
+
+                <input
+                    id="signupConfirmPassword"
+                    type="password"
+                    placeholder="Confirm password"
+                    autocomplete="new-password"
+                    minlength="6"
+                    required>
+
+                <button
+                    id="signupSubmit"
+                    class="auth-submit"
+                    type="submit">
+                    Create Account
+                </button>
+
+            </form>
+
+            <div class="auth-switch">
+
+                Already have an account?
+
+                <button
+                    id="showLogin"
+                    type="button">
+                    Login
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ==============================
+     HERO
+============================== -->
+
 <main>
 
     <section class="hero" id="home">
 
         <div class="hero-content">
 
-            <span class="badge">FREE STUDY PLATFORM</span>
+            <span class="badge">
+                FREE STUDY PLATFORM
+            </span>
 
             <h1>
                 Learn Smarter.<br>
@@ -54,13 +528,19 @@
             </p>
 
             <div class="hero-buttons">
-                <a href="#subjects" class="btn primary">
+
+                <a
+                    href="#subjects"
+                    class="btn primary">
                     Start Learning 🚀
                 </a>
 
-                <a href="#tools" class="btn secondary">
+                <a
+                    href="#tools"
+                    class="btn secondary">
                     Explore Tools
                 </a>
+
             </div>
 
         </div>
@@ -68,78 +548,125 @@
     </section>
 
 
-    <!-- SUBJECTS -->
-    <section class="section" id="subjects">
+    <!-- ==============================
+         SUBJECTS
+    ============================== -->
+
+    <section
+        class="section"
+        id="subjects">
 
         <div class="section-heading">
+
             <span>LEARNING</span>
+
             <h2>Choose Your Subject</h2>
-            <p>Learn concepts, practice questions and test yourself.</p>
+
+            <p>
+                Learn concepts, practice questions and test yourself.
+            </p>
+
         </div>
 
 
         <div class="card-grid">
 
             <!-- MATH -->
-            <a href="mathematics.html" class="subject-card">
 
-                <div class="card-icon">📐</div>
+            <a
+                href="mathematics.html"
+                class="subject-card">
 
-                <h3>Mathematics</h3>
+                <div class="card-icon">
+                    📐
+                </div>
+
+                <h3>
+                    Mathematics
+                </h3>
 
                 <p>
                     Formulas, concepts, quizzes and practice.
                 </p>
 
-                <span>Explore →</span>
+                <span>
+                    Explore →
+                </span>
 
             </a>
 
 
             <!-- PHYSICS -->
-            <a href="physics.html" class="subject-card">
 
-                <div class="card-icon">⚡</div>
+            <a
+                href="physics.html"
+                class="subject-card">
 
-                <h3>Physics</h3>
+                <div class="card-icon">
+                    ⚡
+                </div>
+
+                <h3>
+                    Physics
+                </h3>
 
                 <p>
                     Numericals, formulas and physics concepts.
                 </p>
 
-                <span>Explore →</span>
+                <span>
+                    Explore →
+                </span>
 
             </a>
 
 
             <!-- CHEMISTRY -->
-            <a href="chemistry.html" class="subject-card">
 
-                <div class="card-icon">🧪</div>
+            <a
+                href="chemistry.html"
+                class="subject-card">
 
-                <h3>Chemistry</h3>
+                <div class="card-icon">
+                    🧪
+                </div>
+
+                <h3>
+                    Chemistry
+                </h3>
 
                 <p>
                     Reactions, formulas, concepts and quizzes.
                 </p>
 
-                <span>Explore →</span>
+                <span>
+                    Explore →
+                </span>
 
             </a>
 
 
             <!-- QUIZZES -->
-            <a href="quizzes.html" class="subject-card">
 
-                <div class="card-icon">📝</div>
+            <a
+                href="quizzes.html"
+                class="subject-card">
 
-                <h3>Quizzes</h3>
+                <div class="card-icon">
+                    📝
+                </div>
+
+                <h3>
+                    Quizzes
+                </h3>
 
                 <p>
                     Test your knowledge with interactive quizzes.
                 </p>
 
-                <span>Start Quiz →</span>
+                <span>
+                    Start Quiz →
+                </span>
 
             </a>
 
@@ -148,14 +675,23 @@
     </section>
 
 
-    <!-- TOOLS -->
-    <section class="section tools-section" id="tools">
+    <!-- ==============================
+         TOOLS
+    ============================== -->
+
+    <section
+        class="section tools-section"
+        id="tools">
 
         <div class="section-heading">
 
-            <span>STUDY TOOLS</span>
+            <span>
+                STUDY TOOLS
+            </span>
 
-            <h2>Powerful Tools</h2>
+            <h2>
+                Powerful Tools
+            </h2>
 
             <p>
                 Useful tools to make studying easier.
@@ -166,13 +702,19 @@
 
         <div class="card-grid">
 
-
             <!-- CALCULATOR -->
-            <a href="calculator.html" class="tool-card">
 
-                <div>🧮</div>
+            <a
+                href="calculator.html"
+                class="tool-card">
 
-                <h3>Calculator</h3>
+                <div>
+                    🧮
+                </div>
+
+                <h3>
+                    Calculator
+                </h3>
 
                 <p>
                     Quick calculations for your studies.
@@ -182,11 +724,18 @@
 
 
             <!-- PERCENTAGE -->
-            <a href="percentage.html" class="tool-card">
 
-                <div>📊</div>
+            <a
+                href="percentage.html"
+                class="tool-card">
 
-                <h3>Percentage</h3>
+                <div>
+                    📊
+                </div>
+
+                <h3>
+                    Percentage
+                </h3>
 
                 <p>
                     Calculate percentages instantly.
@@ -196,11 +745,18 @@
 
 
             <!-- STUDY TIMER -->
-            <a href="study-timer.html" class="tool-card">
 
-                <div>⏱️</div>
+            <a
+                href="study-timer.html"
+                class="tool-card">
 
-                <h3>Study Timer</h3>
+                <div>
+                    ⏱️
+                </div>
+
+                <h3>
+                    Study Timer
+                </h3>
 
                 <p>
                     Focus better with a study timer.
@@ -210,11 +766,18 @@
 
 
             <!-- NUMERICALS -->
-            <a href="numericals.html" class="tool-card">
 
-                <div>🔢</div>
+            <a
+                href="numericals.html"
+                class="tool-card">
 
-                <h3>Numericals</h3>
+                <div>
+                    🔢
+                </div>
+
+                <h3>
+                    Numericals
+                </h3>
 
                 <p>
                     Practice physics numerical problems.
@@ -227,26 +790,38 @@
     </section>
 
 
-    <!-- FEATURES -->
-    <section class="section" id="features">
+    <!-- ==============================
+         FEATURES
+    ============================== -->
+
+    <section
+        class="section"
+        id="features">
 
         <div class="section-heading">
 
-            <span>WHY STUDYFORGE?</span>
+            <span>
+                WHY STUDYFORGE?
+            </span>
 
-            <h2>Everything You Need to Learn</h2>
+            <h2>
+                Everything You Need to Learn
+            </h2>
 
         </div>
 
 
         <div class="features-grid">
 
-
             <div class="feature">
 
-                <div>📚</div>
+                <div>
+                    📚
+                </div>
 
-                <h3>Free Learning</h3>
+                <h3>
+                    Free Learning
+                </h3>
 
                 <p>
                     Useful study resources without complicated setup.
@@ -257,9 +832,13 @@
 
             <div class="feature">
 
-                <div>📱</div>
+                <div>
+                    📱
+                </div>
 
-                <h3>Mobile Friendly</h3>
+                <h3>
+                    Mobile Friendly
+                </h3>
 
                 <p>
                     Designed to work smoothly on phones and computers.
@@ -270,9 +849,13 @@
 
             <div class="feature">
 
-                <div>🎯</div>
+                <div>
+                    🎯
+                </div>
 
-                <h3>Practice</h3>
+                <h3>
+                    Practice
+                </h3>
 
                 <p>
                     Quizzes and numericals to strengthen your concepts.
@@ -283,9 +866,13 @@
 
             <div class="feature">
 
-                <div>🌙</div>
+                <div>
+                    🌙
+                </div>
 
-                <h3>Dark Mode</h3>
+                <h3>
+                    Dark Mode
+                </h3>
 
                 <p>
                     Switch between light and dark themes.
@@ -300,10 +887,15 @@
 </main>
 
 
-<!-- FOOTER -->
+<!-- ==============================
+     FOOTER
+============================== -->
+
 <footer>
 
-    <h2>⚡ StudyForge</h2>
+    <h2>
+        ⚡ StudyForge
+    </h2>
 
     <p>
         Learn • Practice • Improve
@@ -316,6 +908,7 @@
 </footer>
 
 
+<!-- YOUR EXISTING JAVASCRIPT -->
 <script src="script.js"></script>
 
 </body>
