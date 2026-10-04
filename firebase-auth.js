@@ -1,541 +1,517 @@
-// ======================================================
-// STUDYFORGE FIREBASE AUTHENTICATION
-// ======================================================
+// ============================================
+// STUDYFORGE - FIREBASE AUTH + FIRESTORE
+// ============================================
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
 
 import {
-    initializeApp
-} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
-
-import {
-    getAuth,
-    createUserWithEmailAndPassword,
-    signInWithEmailAndPassword,
-    signOut,
-    onAuthStateChanged,
-    sendPasswordResetEmail
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged,
+  sendPasswordResetEmail
 } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
 
+import {
+  getFirestore,
+  doc,
+  setDoc,
+  serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 
-// ======================================================
+
+// ============================================
 // FIREBASE CONFIG
-// ======================================================
+// ============================================
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBDRJgCd3X-tGxddbJ_XnuvcIb6VoJDE5A",
-    authDomain: "studyforge-5049d.firebaseapp.com",
-    projectId: "studyforge-5049d",
-    storageBucket: "studyforge-5049d.firebasestorage.app",
-    messagingSenderId: "817969982200",
-    appId: "1:817969982200:web:a95fc8395a1a5089eb690d",
-    measurementId: "G-3BSP1C938M"
+  apiKey: "AIzaSyBDRJgCd3X-tGxddbJ_XnuvcIb6VoJDE5A",
+  authDomain: "studyforge-5049d.firebaseapp.com",
+  projectId: "studyforge-5049d",
+  storageBucket: "studyforge-5049d.firebasestorage.app",
+  messagingSenderId: "817969982200",
+  appId: "1:817969982200:web:a95fc8395a1a5089eb690d",
+  measurementId: "G-3BSP1C938M"
 };
 
 
-// ======================================================
+// ============================================
 // INITIALIZE FIREBASE
-// ======================================================
+// ============================================
 
 const app = initializeApp(firebaseConfig);
 
 const auth = getAuth(app);
 
-
-// ======================================================
-// ELEMENTS
-// ======================================================
-
-const authModal =
-    document.getElementById("authModal");
-
-const loginBtn =
-    document.getElementById("loginBtn");
-
-const authClose =
-    document.getElementById("authClose");
-
-const loginView =
-    document.getElementById("loginView");
-
-const signupView =
-    document.getElementById("signupView");
-
-const showSignup =
-    document.getElementById("showSignup");
-
-const showLogin =
-    document.getElementById("showLogin");
-
-const loginForm =
-    document.getElementById("loginForm");
-
-const signupForm =
-    document.getElementById("signupForm");
-
-const loginMessage =
-    document.getElementById("loginMessage");
-
-const signupMessage =
-    document.getElementById("signupMessage");
-
-const accountMenu =
-    document.getElementById("accountMenu");
-
-const accountBtn =
-    document.getElementById("accountBtn");
-
-const accountDropdown =
-    document.getElementById("accountDropdown");
-
-const accountEmail =
-    document.getElementById("accountEmail");
-
-const logoutBtn =
-    document.getElementById("logoutBtn");
-
-const forgotPasswordBtn =
-    document.getElementById("forgotPasswordBtn");
+const db = getFirestore(app);
 
 
-// ======================================================
+// ============================================
+// GET ELEMENTS
+// ============================================
+
+const authModal = document.getElementById("authModal");
+
+const loginBtn = document.getElementById("loginBtn");
+
+const accountMenu = document.getElementById("accountMenu");
+
+const accountBtn = document.getElementById("accountBtn");
+
+const accountDropdown = document.getElementById("accountDropdown");
+
+const accountEmail = document.getElementById("accountEmail");
+
+const logoutBtn = document.getElementById("logoutBtn");
+
+const closeAuth = document.getElementById("closeAuth");
+
+const loginView = document.getElementById("loginView");
+
+const signupView = document.getElementById("signupView");
+
+const showSignup = document.getElementById("showSignup");
+
+const showLogin = document.getElementById("showLogin");
+
+const loginForm = document.getElementById("loginForm");
+
+const signupForm = document.getElementById("signupForm");
+
+const resetPassword = document.getElementById("resetPassword");
+
+
+// ============================================
 // OPEN LOGIN MODAL
-// ======================================================
+// ============================================
 
-loginBtn.addEventListener("click", () => {
+if (loginBtn) {
 
-    clearMessages();
+  loginBtn.addEventListener("click", () => {
 
-    loginView.style.display = "block";
-    signupView.style.display = "none";
+    if (authModal) {
 
-    authModal.classList.add("show");
+      authModal.style.display = "flex";
 
-});
+      if (loginView) loginView.style.display = "block";
+
+      if (signupView) signupView.style.display = "none";
+
+    }
+
+  });
+
+}
 
 
-// ======================================================
+// ============================================
 // CLOSE MODAL
-// ======================================================
+// ============================================
 
-authClose.addEventListener("click", () => {
+if (closeAuth) {
 
-    authModal.classList.remove("show");
+  closeAuth.addEventListener("click", () => {
 
-});
-
-
-// Close when clicking outside box
-
-authModal.addEventListener("click", (event) => {
-
-    if (event.target === authModal) {
-
-        authModal.classList.remove("show");
-
+    if (authModal) {
+      authModal.style.display = "none";
     }
 
-});
+  });
+
+}
 
 
-// ======================================================
-// LOGIN → SIGNUP
-// ======================================================
+// ============================================
+// SWITCH TO SIGNUP
+// ============================================
 
-showSignup.addEventListener("click", () => {
+if (showSignup) {
 
-    clearMessages();
-
-    loginView.style.display = "none";
-    signupView.style.display = "block";
-
-});
-
-
-// ======================================================
-// SIGNUP → LOGIN
-// ======================================================
-
-showLogin.addEventListener("click", () => {
-
-    clearMessages();
-
-    signupView.style.display = "none";
-    loginView.style.display = "block";
-
-});
-
-
-// ======================================================
-// LOGIN
-// ======================================================
-
-loginForm.addEventListener("submit", async (event) => {
+  showSignup.addEventListener("click", (event) => {
 
     event.preventDefault();
 
-    clearMessages();
+    if (loginView) loginView.style.display = "none";
 
-    const email =
-        document.getElementById("loginEmail").value.trim();
+    if (signupView) signupView.style.display = "block";
 
-    const password =
-        document.getElementById("loginPassword").value;
+  });
 
-    const submitButton =
-        document.getElementById("loginSubmit");
-
-    submitButton.disabled = true;
-    submitButton.textContent = "Logging in...";
+}
 
 
-    try {
+// ============================================
+// SWITCH TO LOGIN
+// ============================================
 
-        await signInWithEmailAndPassword(
-            auth,
-            email,
-            password
-        );
+if (showLogin) {
 
-        showMessage(
-            loginMessage,
-            "Login successful! Welcome back. 🎉",
-            "success"
-        );
+  showLogin.addEventListener("click", (event) => {
 
-        setTimeout(() => {
+    event.preventDefault();
 
-            authModal.classList.remove("show");
+    if (signupView) signupView.style.display = "none";
 
-        }, 800);
+    if (loginView) loginView.style.display = "block";
 
-    }
+  });
 
-    catch (error) {
-
-        showMessage(
-            loginMessage,
-            getFriendlyError(error),
-            "error"
-        );
-
-    }
-
-    finally {
-
-        submitButton.disabled = false;
-        submitButton.textContent = "Login";
-
-    }
-
-});
+}
 
 
-// ======================================================
+// ============================================
 // SIGN UP
-// ======================================================
+// ============================================
 
-signupForm.addEventListener("submit", async (event) => {
+if (signupForm) {
+
+  signupForm.addEventListener("submit", async (event) => {
 
     event.preventDefault();
 
-    clearMessages();
+    const emailInput = document.getElementById("signupEmail");
 
-    const email =
-        document.getElementById("signupEmail").value.trim();
+    const passwordInput = document.getElementById("signupPassword");
 
-    const password =
-        document.getElementById("signupPassword").value;
+    const confirmInput = document.getElementById("signupConfirmPassword");
 
-    const confirmPassword =
-        document.getElementById("signupConfirmPassword").value;
+    if (!emailInput || !passwordInput || !confirmInput) {
+      return;
+    }
 
-    const submitButton =
-        document.getElementById("signupSubmit");
+    const email = emailInput.value.trim();
+
+    const password = passwordInput.value;
+
+    const confirmPassword = confirmInput.value;
 
 
-    // Check passwords
+    // Password confirmation
 
     if (password !== confirmPassword) {
 
-        showMessage(
-            signupMessage,
-            "Passwords do not match.",
-            "error"
-        );
+      alert("Passwords do not match.");
 
-        return;
+      return;
 
     }
 
+
+    // Password length
 
     if (password.length < 6) {
 
-        showMessage(
-            signupMessage,
-            "Password must be at least 6 characters.",
-            "error"
-        );
+      alert("Password must be at least 6 characters.");
 
-        return;
+      return;
 
     }
-
-
-    submitButton.disabled = true;
-    submitButton.textContent = "Creating account...";
 
 
     try {
 
+      const userCredential =
         await createUserWithEmailAndPassword(
-            auth,
-            email,
-            password
+          auth,
+          email,
+          password
         );
 
-        showMessage(
-            signupMessage,
-            "Account created successfully! 🎉",
-            "success"
-        );
 
-        signupForm.reset();
+      const user = userCredential.user;
 
-        setTimeout(() => {
 
-            authModal.classList.remove("show");
+      // ========================================
+      // CREATE FIRESTORE USER PROFILE
+      // ========================================
 
-        }, 1000);
+      await setDoc(
+        doc(db, "users", user.uid),
+        {
+
+          email: user.email,
+
+          points: 0,
+
+          quizzesCompleted: 0,
+
+          studyTime: 0,
+
+          createdAt: serverTimestamp()
+
+        }
+      );
+
+
+      alert("Account created successfully!");
+
+      signupForm.reset();
+
+
+      if (authModal) {
+        authModal.style.display = "none";
+      }
+
+
+    } catch (error) {
+
+      alert(getFirebaseError(error.code));
 
     }
 
-    catch (error) {
+  });
 
-        showMessage(
-            signupMessage,
-            getFriendlyError(error),
-            "error"
-        );
+}
+
+
+// ============================================
+// LOGIN
+// ============================================
+
+if (loginForm) {
+
+  loginForm.addEventListener("submit", async (event) => {
+
+    event.preventDefault();
+
+
+    const emailInput = document.getElementById("loginEmail");
+
+    const passwordInput = document.getElementById("loginPassword");
+
+
+    if (!emailInput || !passwordInput) {
+      return;
+    }
+
+
+    const email = emailInput.value.trim();
+
+    const password = passwordInput.value;
+
+
+    try {
+
+      await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+
+
+      alert("Login successful!");
+
+
+      loginForm.reset();
+
+
+      if (authModal) {
+        authModal.style.display = "none";
+      }
+
+
+    } catch (error) {
+
+      alert(getFirebaseError(error.code));
 
     }
 
-    finally {
+  });
 
-        submitButton.disabled = false;
-        submitButton.textContent = "Create Account";
-
-    }
-
-});
+}
 
 
-// ======================================================
+// ============================================
 // FORGOT PASSWORD
-// ======================================================
+// ============================================
 
-forgotPasswordBtn.addEventListener("click", async () => {
+if (resetPassword) {
 
-    clearMessages();
+  resetPassword.addEventListener("click", async (event) => {
 
-    const email =
-        document.getElementById("loginEmail").value.trim();
+    event.preventDefault();
+
+
+    const emailInput = document.getElementById("loginEmail");
+
+
+    if (!emailInput) {
+      return;
+    }
+
+
+    const email = emailInput.value.trim();
 
 
     if (!email) {
 
-        showMessage(
-            loginMessage,
-            "Enter your email address first.",
-            "error"
-        );
+      alert("Please enter your email address first.");
 
-        return;
+      return;
 
     }
 
 
     try {
 
-        await sendPasswordResetEmail(
-            auth,
-            email
-        );
+      await sendPasswordResetEmail(
+        auth,
+        email
+      );
 
-        showMessage(
-            loginMessage,
-            "Password reset email sent. Check your inbox. 📧",
-            "success"
-        );
 
-    }
+      alert(
+        "Password reset email sent. Check your inbox."
+      );
 
-    catch (error) {
 
-        showMessage(
-            loginMessage,
-            getFriendlyError(error),
-            "error"
-        );
+    } catch (error) {
+
+      alert(getFirebaseError(error.code));
 
     }
 
-});
+  });
+
+}
 
 
-// ======================================================
+// ============================================
 // ACCOUNT DROPDOWN
-// ======================================================
+// ============================================
 
-accountBtn.addEventListener("click", () => {
+if (accountBtn) {
 
-    accountDropdown.classList.toggle("show");
+  accountBtn.addEventListener("click", () => {
 
-});
+    if (!accountDropdown) {
+      return;
+    }
 
 
-// Close dropdown if clicking elsewhere
+    if (accountDropdown.style.display === "block") {
 
-document.addEventListener("click", (event) => {
+      accountDropdown.style.display = "none";
 
-    if (
-        !accountMenu.contains(event.target)
-    ) {
+    } else {
 
-        accountDropdown.classList.remove("show");
+      accountDropdown.style.display = "block";
 
     }
 
-});
+  });
+
+}
 
 
-// ======================================================
+// ============================================
 // LOGOUT
-// ======================================================
+// ============================================
 
-logoutBtn.addEventListener("click", async () => {
+if (logoutBtn) {
+
+  logoutBtn.addEventListener("click", async () => {
 
     try {
 
-        await signOut(auth);
+      await signOut(auth);
 
-        accountDropdown.classList.remove("show");
+      if (accountDropdown) {
+        accountDropdown.style.display = "none";
+      }
+
+      alert("Logged out successfully.");
+
+    } catch (error) {
+
+      alert(getFirebaseError(error.code));
 
     }
 
-    catch (error) {
+  });
 
-        console.error(
-            "Logout error:",
-            error
-        );
-
-    }
-
-});
+}
 
 
-// ======================================================
+// ============================================
 // AUTH STATE
-// ======================================================
+// ============================================
 
 onAuthStateChanged(auth, (user) => {
 
-    if (user) {
+  if (user) {
 
-        // User logged in
+    // USER LOGGED IN
 
-        loginBtn.style.display = "none";
-
-        accountMenu.style.display = "block";
-
-        accountEmail.textContent =
-            user.email || "Signed-in user";
-
+    if (loginBtn) {
+      loginBtn.style.display = "none";
     }
 
-    else {
-
-        // User logged out
-
-        loginBtn.style.display = "block";
-
-        accountMenu.style.display = "none";
-
-        accountDropdown.classList.remove("show");
-
-        accountEmail.textContent = "";
-
+    if (accountMenu) {
+      accountMenu.style.display = "block";
     }
+
+    if (accountEmail) {
+      accountEmail.textContent = user.email;
+    }
+
+  } else {
+
+    // USER LOGGED OUT
+
+    if (loginBtn) {
+      loginBtn.style.display = "inline-flex";
+    }
+
+    if (accountMenu) {
+      accountMenu.style.display = "none";
+    }
+
+    if (accountDropdown) {
+      accountDropdown.style.display = "none";
+    }
+
+  }
 
 });
 
 
-// ======================================================
-// MESSAGE FUNCTIONS
-// ======================================================
+// ============================================
+// FIREBASE ERROR MESSAGES
+// ============================================
 
-function showMessage(
-    element,
-    message,
-    type
-) {
+function getFirebaseError(code) {
 
-    element.textContent = message;
+  switch (code) {
 
-    element.className =
-        "auth-message show " + type;
+    case "auth/email-already-in-use":
+      return "This email is already registered.";
 
-}
+    case "auth/invalid-email":
+      return "Please enter a valid email address.";
 
+    case "auth/weak-password":
+      return "Password is too weak. Use at least 6 characters.";
 
-function clearMessages() {
+    case "auth/invalid-credential":
+      return "Incorrect email or password.";
 
-    loginMessage.textContent = "";
-    loginMessage.className = "auth-message";
+    case "auth/user-not-found":
+      return "No account found with this email.";
 
-    signupMessage.textContent = "";
-    signupMessage.className = "auth-message";
+    case "auth/wrong-password":
+      return "Incorrect password.";
 
-}
+    case "auth/too-many-requests":
+      return "Too many attempts. Please try again later.";
 
+    case "auth/network-request-failed":
+      return "Network error. Check your internet connection.";
 
-// ======================================================
-// FIREBASE ERROR TRANSLATOR
-// ======================================================
-
-function getFriendlyError(error) {
-
-    const code = error?.code || "";
-
-    switch (code) {
-
-        case "auth/invalid-email":
-            return "Please enter a valid email address.";
-
-        case "auth/email-already-in-use":
-            return "This email is already registered. Try logging in.";
-
-        case "auth/weak-password":
-            return "Password is too weak. Use at least 6 characters.";
-
-        case "auth/invalid-credential":
-            return "Incorrect email or password.";
-
-        case "auth/user-not-found":
-            return "No account was found with this email.";
-
-        case "auth/wrong-password":
-            return "Incorrect password.";
-
-        case "auth/too-many-requests":
-            return "Too many attempts. Please try again later.";
-
-        case "auth/network-request-failed":
-            return "Network error. Check your internet connection.";
-
-        default:
-            return error?.message ||
-                "Something went wrong. Please try again.";
-
-    }
+    default:
+      return "Something went wrong. Please try again.";
 
   }
+
+}
