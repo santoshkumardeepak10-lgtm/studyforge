@@ -2,11 +2,15 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 <title>StudyForge — Mathematics</title>
 
+<meta name="description"
+content="StudyForge Mathematics — Class 8, 9 and 10 concepts, formulas, practice questions and quizzes.">
+
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -18,28 +22,31 @@ html{
 }
 
 body{
-    font-family:Arial,sans-serif;
+    font-family:Arial,Helvetica,sans-serif;
     background:#f5f7fb;
     color:#172033;
+    line-height:1.6;
 }
+
+/* ================= NAVBAR ================= */
 
 .navbar{
     background:#fff;
-    padding:15px 5%;
+    border-bottom:1px solid #e5e7eb;
+    padding:14px 5%;
     display:flex;
-    justify-content:space-between;
     align-items:center;
-    border-bottom:1px solid #ddd;
+    justify-content:space-between;
     position:sticky;
     top:0;
     z-index:1000;
 }
 
 .logo{
-    text-decoration:none;
-    font-size:24px;
+    font-size:23px;
     font-weight:800;
     color:#2563eb;
+    text-decoration:none;
 }
 
 .logo span{
@@ -55,7 +62,11 @@ body{
 .nav-links a{
     text-decoration:none;
     color:#374151;
-    font-weight:bold;
+    font-weight:600;
+}
+
+.nav-links a:hover{
+    color:#2563eb;
 }
 
 .menu-btn{
@@ -67,6 +78,8 @@ body{
     border-radius:8px;
     font-size:20px;
 }
+
+/* ================= HERO ================= */
 
 .hero{
     padding:75px 5%;
@@ -90,12 +103,14 @@ body{
     font-size:18px;
 }
 
+/* ================= STATS ================= */
+
 .stats{
-    background:white;
     display:grid;
     grid-template-columns:repeat(4,1fr);
     gap:20px;
-    padding:30px 5%;
+    padding:35px 5%;
+    background:white;
 }
 
 .stat{
@@ -107,13 +122,15 @@ body{
     font-size:30px;
 }
 
+/* ================= SECTION ================= */
+
 section{
-    padding:60px 5%;
+    padding:65px 5%;
 }
 
 .section-title{
     text-align:center;
-    margin-bottom:30px;
+    margin-bottom:35px;
 }
 
 .section-title h2{
@@ -124,77 +141,120 @@ section{
     color:#64748b;
 }
 
+/* ================= CLASS ================= */
+
 .class-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:20px;
+    gap:25px;
 }
 
 .class-card{
     background:white;
-    border:1px solid #ddd;
     border-radius:18px;
-    padding:28px;
+    padding:30px;
     text-decoration:none;
     color:#172033;
+    border:1px solid #e5e7eb;
+    transition:.25s;
 }
 
 .class-card:hover{
+    transform:translateY(-6px);
     border-color:#2563eb;
-    transform:translateY(-4px);
 }
 
 .class-number{
-    color:#2563eb;
     font-size:42px;
-    font-weight:bold;
+    font-weight:800;
+    color:#2563eb;
+}
+
+.class-card h3{
+    margin:10px 0;
 }
 
 .class-card p{
     color:#64748b;
 }
 
-.formula-grid,
+/* ================= FORMULAS ================= */
+
+.formula-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.formula-card{
+    background:white;
+    border:1px solid #e5e7eb;
+    border-radius:16px;
+    padding:25px;
+    text-decoration:none;
+    color:#172033;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.formula-card:hover{
+    transform:translateY(-5px);
+    border-color:#2563eb;
+}
+
+.formula-icon{
+    font-size:32px;
+    margin-bottom:10px;
+}
+
+.formula-card p{
+    color:#64748b;
+    font-size:14px;
+}
+
+/* ================= TOPICS ================= */
+
 .topic-grid{
     display:grid;
     grid-template-columns:repeat(4,1fr);
     gap:18px;
 }
 
-.formula-card,
 .topic-card{
     background:white;
-    border:1px solid #ddd;
+    border:1px solid #e5e7eb;
     border-radius:15px;
     padding:22px;
     cursor:pointer;
-    transition:.2s;
+    transition:.25s;
 }
 
-.formula-card:hover,
 .topic-card:hover{
-    transform:translateY(-4px);
+    transform:translateY(-5px);
     border-color:#2563eb;
 }
 
-.formula-icon,
 .topic-icon{
     font-size:30px;
-    margin-bottom:8px;
 }
 
-.formula-card p,
+.topic-card h3{
+    margin:5px 0;
+}
+
 .topic-card p{
     color:#64748b;
     font-size:14px;
 }
 
+/* ================= PRACTICE ================= */
+
 .practice-box{
     background:linear-gradient(135deg,#2563eb,#1d4ed8);
     color:white;
+    border-radius:22px;
     padding:45px;
     text-align:center;
-    border-radius:20px;
 }
 
 .practice-box h2{
@@ -202,16 +262,18 @@ section{
 }
 
 .practice-box p{
-    margin:10px 0 20px;
+    margin:10px 0 25px;
 }
 
 .btn{
+    display:inline-block;
+    padding:12px 22px;
+    border-radius:10px;
     border:0;
-    border-radius:9px;
-    padding:12px 20px;
     cursor:pointer;
-    font-weight:bold;
-    margin:5px;
+    text-decoration:none;
+    font-weight:700;
+    margin:4px;
 }
 
 .btn-light{
@@ -219,25 +281,31 @@ section{
     color:#2563eb;
 }
 
-.overlay{
+/* ================= FULL SCREEN LEARN ================= */
+
+.learn-page,
+.practice-page,
+.quiz-page{
     display:none;
     position:fixed;
     inset:0;
-    z-index:5000;
     background:#f5f7fb;
+    z-index:3000;
     overflow-y:auto;
 }
 
-.overlay-header{
-    background:white;
-    padding:15px 5%;
-    border-bottom:1px solid #ddd;
-    display:flex;
-    align-items:center;
-    gap:15px;
+.learn-header,
+.practice-header,
+.quiz-header{
     position:sticky;
     top:0;
     z-index:10;
+    background:white;
+    border-bottom:1px solid #e5e7eb;
+    padding:15px 5%;
+    display:flex;
+    align-items:center;
+    gap:15px;
 }
 
 .back-btn{
@@ -245,121 +313,137 @@ section{
     background:#2563eb;
     color:white;
     padding:9px 15px;
-    border-radius:8px;
+    border-radius:9px;
     cursor:pointer;
     font-weight:bold;
 }
 
-.page-content{
+.learn-content,
+.practice-content,
+.quiz-content{
     max-width:1000px;
     margin:auto;
-    padding:30px 5% 70px;
+    padding:35px 5% 70px;
 }
 
-.card{
+/* ================= LESSON ================= */
+
+.lesson-section{
     background:white;
-    border:1px solid #ddd;
+    border:1px solid #e5e7eb;
     border-radius:16px;
-    padding:25px;
+    margin-bottom:20px;
+    overflow:hidden;
+}
+
+.lesson-title{
+    padding:18px 22px;
+    background:#eff6ff;
+    color:#1d4ed8;
+    font-size:20px;
+    font-weight:800;
+}
+
+.lesson-body{
+    padding:20px;
+}
+
+.formula-row{
+    padding:14px 0;
+    border-bottom:1px solid #edf0f4;
+}
+
+.formula-name{
+    font-weight:700;
+    margin-bottom:5px;
+}
+
+.formula-value{
+    background:#f8fafc;
+    border-left:4px solid #2563eb;
+    padding:10px;
+    border-radius:7px;
+    font-family:monospace;
+    overflow-x:auto;
+}
+
+.tip{
+    background:#ecfdf5;
+    border-left:4px solid #10b981;
+    padding:15px;
+    border-radius:8px;
+}
+
+/* ================= PRACTICE ================= */
+
+.practice-card{
+    background:white;
+    border-radius:18px;
+    padding:28px;
+    border:1px solid #e5e7eb;
     margin-bottom:20px;
 }
 
-.card h2{
+.practice-card h2{
     color:#2563eb;
-    margin-bottom:12px;
+    margin-bottom:15px;
 }
 
-.input{
+.answer-input{
     width:100%;
     padding:13px;
-    margin:10px 0;
-    border:1px solid #ccc;
-    border-radius:8px;
+    border:1px solid #d1d5db;
+    border-radius:9px;
     font-size:16px;
+    margin:10px 0;
 }
 
-.check{
+.check-btn{
     background:#2563eb;
     color:white;
 }
 
 .result{
-    margin-top:10px;
+    margin-top:12px;
     font-weight:bold;
 }
 
-.formula-row{
-    padding:15px 0;
-    border-bottom:1px solid #eee;
-}
+/* ================= QUIZ ================= */
 
-.formula-name{
-    font-weight:bold;
-}
-
-.formula-value{
-    background:#f8fafc;
-    padding:10px;
-    margin-top:5px;
-    border-left:4px solid #2563eb;
-    font-family:monospace;
-}
-
-.quiz-info{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:10px;
-    margin-bottom:15px;
-}
-
-.info{
+.quiz-box{
     background:white;
-    border:1px solid #ddd;
-    border-radius:10px;
-    padding:12px;
-    text-align:center;
-}
-
-.info strong{
-    display:block;
-    color:#2563eb;
-    font-size:20px;
-}
-
-.quiz-card{
-    background:white;
-    border:1px solid #ddd;
+    border:1px solid #e5e7eb;
     border-radius:18px;
-    padding:25px;
+    padding:28px;
 }
 
-.question{
+.quiz-progress{
+    color:#64748b;
+    margin-bottom:10px;
+}
+
+.quiz-question{
     font-size:22px;
-    font-weight:bold;
-    margin:15px 0;
+    font-weight:700;
+    margin-bottom:20px;
 }
 
 .option{
     display:block;
     width:100%;
-    padding:14px;
-    margin:10px 0;
-    border:1px solid #ddd;
-    border-radius:10px;
-    background:#f8fafc;
     text-align:left;
+    background:#f8fafc;
+    border:1px solid #dbe1e8;
+    padding:14px;
+    border-radius:10px;
+    margin:10px 0;
     cursor:pointer;
     font-size:16px;
 }
 
 .option:hover{
-    background:#eff6ff;
     border-color:#2563eb;
-}
-
-.option.selected{
-    background:#dbeafe;
-    border:2px solid #2563eb;
+    background:#eff6ff;
 }
 
 .option.correct{
@@ -372,45 +456,36 @@ section{
     border-color:#dc2626;
 }
 
-.quiz-message{
+.quiz-next{
+    background:#2563eb;
+    color:white;
     margin-top:15px;
-    padding:14px;
-    border-radius:10px;
-    font-weight:bold;
 }
 
-.good{
-    background:#dcfce7;
-    color:#166534;
+.quiz-score{
+    text-align:center;
+    background:white;
+    padding:35px;
+    border-radius:18px;
+    border:1px solid #e5e7eb;
 }
 
-.bad{
-    background:#fee2e2;
-    color:#991b1b;
+.quiz-score h1{
+    color:#2563eb;
+    font-size:42px;
 }
 
-.quiz-btn{
+.restart-btn{
     background:#2563eb;
     color:white;
 }
 
-.score{
-    text-align:center;
-    background:white;
-    padding:40px 20px;
-    border-radius:18px;
-    border:1px solid #ddd;
-}
-
-.score h1{
-    color:#2563eb;
-    font-size:50px;
-}
+/* ================= FOOTER ================= */
 
 footer{
     background:#111827;
     color:white;
-    padding:35px;
+    padding:35px 5%;
     text-align:center;
 }
 
@@ -418,17 +493,20 @@ footer p{
     color:#9ca3af;
 }
 
+/* ================= MOBILE ================= */
+
 @media(max-width:850px){
 
     .nav-links{
         display:none;
         position:absolute;
-        top:60px;
+        top:62px;
         left:0;
         width:100%;
         background:white;
         flex-direction:column;
-        padding:20px;
+        padding:20px 5%;
+        border-bottom:1px solid #e5e7eb;
     }
 
     .nav-links.show{
@@ -439,16 +517,23 @@ footer p{
         display:block;
     }
 
+    .hero h1{
+        font-size:38px;
+    }
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
     .class-grid{
         grid-template-columns:1fr;
     }
 
-    .formula-grid,
-    .topic-grid{
+    .formula-grid{
         grid-template-columns:repeat(2,1fr);
     }
 
-    .stats{
+    .topic-grid{
         grid-template-columns:repeat(2,1fr);
     }
 }
@@ -456,7 +541,7 @@ footer p{
 @media(max-width:500px){
 
     .hero h1{
-        font-size:34px;
+        font-size:32px;
     }
 
     .formula-grid,
@@ -468,22 +553,22 @@ footer p{
         padding:30px 20px;
     }
 
-    .quiz-info{
-        grid-template-columns:1fr;
-    }
-
-    .question{
+    .quiz-question{
         font-size:19px;
     }
 }
+
 </style>
-</head>
+<link rel="stylesheet" href="sf2.css">
+<style>.sf25-banner{max-width:1100px;margin:24px auto;padding:26px 18px;border-radius:20px;background:#e9f1ff;color:#152949;text-align:center;border:1px solid #b9d1ff}.sf25-banner h2{font-size:clamp(22px,4vw,30px);margin-bottom:8px}.sf25-links{display:flex;flex-wrap:wrap;justify-content:center;gap:9px;margin-top:18px}.sf25-link{display:inline-block;padding:11px 14px;margin:7px 3px;border-radius:10px;background:#2563eb;color:#fff!important;text-decoration:none;font-weight:700}.sf25-link:hover{background:#1748af}body.dark .sf25-banner{background:#1a2b4a;color:#fff}</style></head>
 
 <body>
 
+<!-- ================= NAVBAR ================= -->
+
 <header class="navbar">
 
-<a class="logo" href="index.html">
+<a href="index.html" class="logo">
 Study<span>Forge</span>
 </a>
 
@@ -499,17 +584,23 @@ Study<span>Forge</span>
 </header>
 
 
+<!-- ================= HERO ================= -->
+
 <section class="hero">
 
-<h1>Mathematics <span>Made Simple</span></h1>
+<h1>
+Mathematics <span>Made Simple</span>
+</h1>
 
 <p>
 Learn Class 8, 9 and 10 Mathematics with concepts,
-formulas, practice questions and quizzes.
+formulas, important topics, practice and quizzes.
 </p>
 
 </section>
 
+
+<!-- ================= STATS ================= -->
 
 <div class="stats">
 
@@ -519,7 +610,7 @@ formulas, practice questions and quizzes.
 </div>
 
 <div class="stat">
-<h2>500+</h2>
+<h2>100+</h2>
 <p>Questions</p>
 </div>
 
@@ -529,12 +620,14 @@ formulas, practice questions and quizzes.
 </div>
 
 <div class="stat">
-<h2>20+</h2>
-<p>Topics</p>
+<h2>10+</h2>
+<p>Quizzes</p>
 </div>
 
 </div>
 
+
+<!-- ================= CLASSES ================= -->
 
 <section>
 
@@ -545,27 +638,39 @@ formulas, practice questions and quizzes.
 
 <div class="class-grid">
 
-<a class="class-card" href="math8.html">
+<a href="math8.html" class="class-card">
 <div class="class-number">08</div>
 <h3>Class 8 Mathematics</h3>
-<p>Rational numbers, algebra, geometry, mensuration and more.</p>
+<p>
+Rational numbers, linear equations,
+algebra, geometry, mensuration and more.
+</p>
 </a>
 
-<a class="class-card" href="math9.html">
+<a href="math9.html" class="class-card">
 <div class="class-number">09</div>
 <h3>Class 9 Mathematics</h3>
-<p>Number systems, polynomials, triangles, circles and statistics.</p>
+<p>
+Number systems, polynomials, triangles,
+circles, statistics and more.
+</p>
 </a>
 
-<a class="class-card" href="math10.html">
+<a href="math10.html" class="class-card">
 <div class="class-number">10</div>
 <h3>Class 10 Mathematics</h3>
-<p>Quadratic equations, trigonometry, AP, statistics and probability.</p>
+<p>
+Real numbers, quadratic equations,
+trigonometry, AP, statistics and probability.
+</p>
 </a>
 
 </div>
+
 </section>
 
+
+<!-- ================= FORMULAS ================= -->
 
 <section>
 
@@ -576,39 +681,54 @@ formulas, practice questions and quizzes.
 
 <div class="formula-grid">
 
-<div class="formula-card" onclick="openLearn('all')">
+<div class="formula-card"
+onclick="openLearn('all')">
+
 <div class="formula-icon">📚</div>
 <h3>All Formulas</h3>
-<p>Complete formula library.</p>
+<p>Complete Class 8–10 formula library.</p>
+
 </div>
 
-<div class="formula-card" onclick="openLearn('algebra')">
+<div class="formula-card"
+onclick="openLearn('algebra')">
+
 <div class="formula-icon">🔢</div>
 <h3>Algebra</h3>
-<p>Identities, equations and AP.</p>
+<p>Identities, equations, polynomials, quadratic equations and AP.</p>
+
 </div>
 
-<div class="formula-card" onclick="openLearn('geometry')">
+<div class="formula-card"
+onclick="openLearn('geometry')">
+
 <div class="formula-icon">📐</div>
 <h3>Geometry</h3>
-<p>Geometry and coordinate formulas.</p>
+<p>Lines, triangles, circles, coordinate geometry and trigonometry.</p>
+
 </div>
 
-<div class="formula-card" onclick="openLearn('mensuration')">
+<div class="formula-card"
+onclick="openLearn('mensuration')">
+
 <div class="formula-icon">📦</div>
 <h3>Mensuration</h3>
-<p>Area, surface area and volume.</p>
+<p>Area, perimeter, surface area and volume formulas.</p>
+
 </div>
 
 </div>
+
 </section>
 
+
+<!-- ================= POPULAR TOPICS ================= -->
 
 <section>
 
 <div class="section-title">
 <h2>Popular Mathematics Topics</h2>
-<p>Open a topic to learn important formulas.</p>
+<p>Open a topic to learn its important concepts and formulas.</p>
 </div>
 
 <div class="topic-grid">
@@ -616,31 +736,410 @@ formulas, practice questions and quizzes.
 <div class="topic-card" onclick="openLearn('percentage')">
 <div class="topic-icon">%</div>
 <h3>Percentage</h3>
-<p>Percentage and applications.</p>
+<p>Percentage, increase, decrease and applications.</p>
 </div>
 
 <div class="topic-card" onclick="openLearn('algebraic')">
 <div class="topic-icon">x²</div>
 <h3>Algebraic Identities</h3>
-<p>Important identities.</p>
+<p>Important identities and their uses.</p>
 </div>
 
 <div class="topic-card" onclick="openLearn('linear')">
 <div class="topic-icon">📈</div>
 <h3>Linear Equations</h3>
-<p>Solve equations.</p>
+<p>Solve equations quickly and correctly.</p>
 </div>
 
 <div class="topic-card" onclick="openLearn('polynomial')">
 <div class="topic-icon">P(x)</div>
 <h3>Polynomials</h3>
-<p>Zeroes and factors.</p>
+<p>Zeroes, factors and polynomial formulas.</p>
 </div>
 
 <div class="topic-card" onclick="openLearn('quadratic')">
 <div class="topic-icon">x²</div>
 <h3>Quadratic Equations</h3>
-<p>Roots and discriminant.</p>
+<p>Roots, discriminant and quadratic formula.</p>
+</div>
+
+<div class="topic-card" onclick="openLearn('ap')">
+<div class="topic-icon">🔢</div>
+<h3>Arithmetic Progression</h3>
+<p>nth term and sum of AP.</p>
+</div>
+
+<div class="topic-card" onclick="openLearn('coordinate')">
+<div class="topic-icon">📍</div>
+<h3>Coordinate Geometry</h3>
+<p>Distance, midpoint, section and area.</p>
+</div>
+
+<div class="topic-card" onclick="openLearn('triangles')">
+<div class="topic-icon">△</div>
+<h3>Triangles</h3>
+<p>Similarity, area and Pythagoras theorem.</p>
+</div>
+
+<div class="topic-card" onclick="openLearn('circles')">
+<div class="topic-icon">⭕</div>
+<h3>Circles</h3>
+<p>Circumference, area, sectors and theorems.</p>
+</div>
+
+<div class="topic-card" onclick="openLearn('trigonometry')">
+<div class="topic-icon">📐</div>
+<h3>Trigonometry</h3>
+<p>Ratios, identities and standard values.</p>
+</div>
+
+<div class="topic-card" onclick="openLearn('mensuration')">
+<div class="topic-icon">📦</div>
+<h3>Mensuration</h3>
+<p>2D and 3D area and volume formulas.</p>
+</div>
+
+<div class="topic-card" onclick="openLearn('statistics')">
+<div class="topic-icon">📊</div>
+<h3>Statistics</h3>
+<p>Mean, median, mode and grouped data.</p>
+</div>
+
+<div class="topic-card" onclick="openLearn('probability')">
+<div class="topic-icon">🎲</div>
+<h3>Probability</h3>
+<p>Basic probability and complementary events.</p>
+</div>
+
+<div class="topic-card" onclick="openLearn('commercial')">
+<div class="topic-icon">💰</div>
+<h3>Profit & Loss</h3>
+<p>Profit, loss, discount and simple interest.</p>
+</div>
+
+<div class="topic-card" onclick="openLearn('number')">
+<div class="topic-icon">🔢</div>
+<h3>Number System</h3>
+<p>Rational numbers, exponents and real numbers.</p>
+</div>
+
+<div class="topic-card" onclick="openLearn('heron')">
+<div class="topic-icon">△</div>
+<h3>Heron's Formula</h3>
+<p>Find the area of a triangle from its sides.</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= READY TO PRACTICE ================= -->
+
+<section>
+
+<div class="practice-box">
+
+<h2>Ready to Practice?</h2>
+
+<p>
+Test your Mathematics knowledge with questions and quizzes.
+</p>
+
+<button class="btn btn-light"
+onclick="openPractice()">
+Practice Questions
+</button>
+
+<button class="btn btn-light"
+onclick="startQuiz()">
+Take Quiz
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<h3>StudyForge</h3>
+
+<p>Learn smarter. Practice better. Grow stronger.</p>
+
+<p>© 2026 StudyForge</p>
+
+</footer>
+
+
+<!-- =====================================================
+     LEARNING PAGE
+     ===================================================== -->
+
+<div class="learn-page" id="learnPage">
+
+<div class="learn-header">
+
+<button class="back-btn" onclick="closeAllPages()">
+← Back
+</button>
+
+<h2 id="learnTitle">Mathematics</h2>
+
+</div>
+
+<div class="learn-content" id="learnContent"></div>
+
+</div>
+
+
+<!-- =====================================================
+     PRACTICE PAGE
+     ===================================================== -->
+
+<div class="practice-page" id="practicePage">
+
+<div class="practice-header">
+
+<button class="back-btn" onclick="closeAllPages()">
+← Back
+</button>
+
+<h2>Practice Questions</h2>
+
+</div>
+
+<div class="practice-content">
+
+<div class="practice-card">
+
+<h2>Question 1</h2>
+
+<p>
+Find 25% of 240.
+</p>
+
+<input
+type="number"
+id="p1"
+class="answer-input"
+placeholder="Enter your answer">
+
+<button class="btn check-btn"
+onclick="checkPractice(1,60)">
+Check Answer
+</button>
+
+<div id="r1" class="result"></div>
+
+</div>
+
+
+<div class="practice-card">
+
+<h2>Question 2</h2>
+
+<p>
+Solve: 3x + 7 = 22
+</p>
+
+<input
+type="number"
+id="p2"
+class="answer-input"
+placeholder="Enter x">
+
+<button class="btn check-btn"
+onclick="checkPractice(2,5)">
+Check Answer
+</button>
+
+<div id="r2" class="result"></div>
+
+</div>
+
+
+<div class="practice-card">
+
+<h2>Question 3</h2>
+
+<p>
+Find the area of a rectangle with length 12 cm
+and breadth 8 cm.
+</p>
+
+<input
+type="number"
+id="p3"
+class="answer-input"
+placeholder="Area in cm²">
+
+<button class="btn check-btn"
+onclick="checkPractice(3,96)">
+Check Answer
+</button>
+
+<div id="r3" class="result"></div>
+
+</div>
+
+
+<div class="practice-card">
+
+<h2>Question 4</h2>
+
+<p>
+What is the value of 7² − 3²?
+</p>
+
+<input
+type="number"
+id="p4"
+class="answer-input"
+placeholder="Enter answer">
+
+<button class="btn check-btn"
+onclick="checkPractice(4,40)">
+Check Answer
+</button>
+
+<div id="r4" class="result"></div>
+
+</div>
+
+
+<div class="practice-card">
+
+<h2>Question 5</h2>
+
+<p>
+The first term of an AP is 5 and common difference
+is 3. Find the 10th term.
+</p>
+
+<input
+type="number"
+id="p5"
+class="answer-input"
+placeholder="Enter answer">
+
+<button class="btn check-btn"
+onclick="checkPractice(5,32)">
+Check Answer
+</button>
+
+<div id="r5" class="result"></div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     QUIZ PAGE
+     ===================================================== -->
+
+<div class="quiz-page" id="quizPage">
+
+<div class="quiz-header">
+
+<button class="back-btn" onclick="closeAllPages()">
+← Back
+</button>
+
+<h2>Mathematics Quiz</h2>
+
+</div>
+
+<div class="quiz-content" id="quizContent"></div>
+
+</div>
+
+
+<script>
+
+/* ================= MENU ================= */
+
+function toggleMenu(){
+
+document
+.getElementById("navLinks")
+.classList.toggle("show");
+
+}
+
+
+/* =====================================================
+   FORMULA DATABASE
+   ===================================================== */
+
+const groups={
+
+number:{
+title:"Number System & Exponents",
+items:[
+["Rational Number","Rational number = p/q, where q ≠ 0"],
+["Product of Powers","aᵐ × aⁿ = aᵐ⁺ⁿ"],
+["Division of Powers","aᵐ ÷ aⁿ = aᵐ⁻ⁿ"],
+["Power of a Power","(aᵐ)ⁿ = aᵐⁿ"],
+["Zero Exponent","a⁰ = 1"],
+["Negative Exponent","a⁻ᵐ = 1/aᵐ"],
+["Euclid Division Lemma","a = bq + r"],
+["HCF–LCM","HCF × LCM = Product of two positive integers"]
+]
+},
+
+commercial:{
+title:"Percentage & Commercial Mathematics",
+items:[
+["Percentage","Percentage = (Part / Whole) × 100"],
+["Percentage Increase","Increase% = (Increase / Original) × 100"],
+["Percentage Decrease","Decrease% = (Decrease / Original) × 100"],
+["Profit","Profit = SP − CP"],
+["Loss","Loss = CP − SP"],
+["Profit%","Profit% = Profit/CP × 100"],
+["Loss%","Loss% = Loss/CP × 100"],
+["Discount","Discount = MP − SP"],
+["Discount%","Discount% = Discount/MP × 100"],
+["Simple Interest","SI = PRT/100"],
+["Amount","A = P + SI"],
+["Compound Interest","A = P(1+R/100)ⁿ"],
+["Compound Interest","CI = A − P"]
+]
+},
+
+algebraic:{
+title:"Algebraic Identities",
+items:[
+["Identity 1","(a+b)² = a²+2ab+b²"],
+["Identity 2","(a−b)² = a²−2ab+b²"],
+["Identity 3","a²−b² = (a−b)(a+b)"],
+["Identity 4","(x+a)(x+b)=x²+(a+b)x+ab"],
+["Identity 5","(a+b+c)²=a²+b²+c²+2ab+2bc+2ca"],
+["Identity 6","(a+b)³=a³+3a²b+3ab²+b³"],
+["Identity 7","(a−b)³=a³−3a²b+3ab²−b³"],
+["Identity 8","a³+b³=(a+b)(a²−ab+b²)"],
+["Identity 9","a³−b³=(a−b)(a²+ab+b²)"]
+]
+},
+
+linear:{
+title:"Linear Equations",
+items:[
+["Basic Form","ax+b=0 ⇒ x=−b/a"],
+["Two Variable Form","ax+by+c=0"],
+["Example","3x+5=20 ⇒ x=5"]
+]
+},
+
+polynomial:{
+title:"Polynomials",
+items:[
+["Division Ad discriminant.</p>
 </div>
 
 <div class="topic-card" onclick="openLearn('ap')">
